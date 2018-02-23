@@ -2298,6 +2298,7 @@
 
 				#header nav ul li.current > a {
 					font-weight: 900;
+					padding-top: 35px;
 				}
 
 		#header.reveal {
