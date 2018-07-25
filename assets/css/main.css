@@ -1567,8 +1567,8 @@
 
 	body, input, select, textarea {
 		color: #7c8081;
-		font-family: 'Lato', sans-serif;
-		font-size: 15pt;
+		font-family: 'Dosis', sans-serif;
+		font-size: 18pt;
 		font-weight: 300;
 		letter-spacing: 0.025em;
 		line-height: 1.75em;
@@ -1601,7 +1601,6 @@
 		font-weight: 300;
 		line-height: 1.75em;
 		margin-bottom: 1em;
-		text-transform: uppercase;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -1613,11 +1612,13 @@
 	h2 {
 		font-size: 1.5em;
 		letter-spacing: 0.1em;
+		font-weight: bold;
 	}
 
 	h3 {
 		font-size: 1.15em;
 		letter-spacing: 0.025em;
+		font-weight: bold;
 	}
 
 	sub {
