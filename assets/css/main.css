@@ -1735,7 +1735,11 @@
 		border-top: 1px solid #ccc;
 		margin-left: 20%;
 		margin-right: 20%;
-}
+	}
+
+	.foot {
+		margin: 2em;
+	}
 
 /* Form */
 
@@ -2090,7 +2094,6 @@
 		text-decoration: none;
 		text-transform: uppercase;
 		border-radius: 8px;
-		margin: 2em;
 	}
 
 		input[type="button"]:hover,
