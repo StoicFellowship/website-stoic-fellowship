@@ -1728,6 +1728,7 @@
 	.center {
 		text-align: center;
 		align-items: center;
+		padding-bottom: 0%;
 	}
 
 	.hr {
@@ -1832,12 +1833,19 @@
 		}
 
 			.image.featured img {
-				display: block;
+				width: 200px;
+			  height: 200px;
+  			line-height: 200px;
+  			border-radius: 50%;
+  			-moz-border-radius: 50%;
+			  -webkit-border-radius: 50%;
+				
+				/* display: block;
 				height: 50%;
 				width: 50%;
 				margin-left: auto;
 				margin-right: auto;
-				border-radius: 50%;
+				border-radius: 50%;*/
 
 			}
 
