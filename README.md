@@ -24,5 +24,11 @@ join --> stoicfellowship.com/join
 .....
 renew --> stoicfellowship.com/renew
 activities --> stoicfellowship.com/activities
-membership --> stoicfellowship.com/membership
+
+******
+Form Potentials:
+- https://medium.com/@dmccoy/how-to-submit-an-html-form-to-google-sheets-without-google-forms-b833952cc175
+- Airtable
+- Formspree?
+- Google Forms
 
