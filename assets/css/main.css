@@ -1724,6 +1724,12 @@
 		margin-left: 20%;
 		margin-right: 20%;
 	}
+	
+	.paragraph-center-list {
+		margin-left: 20%;
+		margin-right: 20%;
+		list-style: circle;
+	}
 
 	.center {
 		text-align: center;
@@ -2039,6 +2045,7 @@
 			ul.buttons.vertical li:first-child {
 				padding: 0;
 			}
+
 
 /* Table */
 
