@@ -1713,7 +1713,7 @@
 		padding-top: 3em;
 	}
 
-/* Nick's CSS Additions */
+/* ©'s CSS Additions */
 
 	.map {
 		margin-left: 20%;
@@ -1721,8 +1721,8 @@
 	}
 
 	.paragraph-center {
-		margin-left: 20%;
-		margin-right: 20%;
+		margin-left: 10%;
+		margin-right: 10%;
 	}
 	
 	.paragraph-center-list {
@@ -1751,6 +1751,10 @@
 		margin: 0em;
 	}
 
+	.rwd-break {
+		display: block;
+	}
+
 /* Form */
 
 	input[type="text"],
@@ -1773,6 +1777,7 @@
 		text-decoration: none;
 		width: 100%;
 		outline: 0;
+		text-align: center;
 	}
 
 		input[type="text"]:focus,
