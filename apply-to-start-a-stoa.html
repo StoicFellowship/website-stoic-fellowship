@@ -50,10 +50,12 @@
           Join a global community with dozens of other leaders around the world who have started Stoic communities. Share resources, insights, and tips on sharing Stoicism with your community.</p>
         <br / class="rwd-break">
       
-          <form action="https://formspree.io/nick@stoicfellowship.com"
-                method="POST">
-            
-              <h3>Your Name</h3>
+  			<!-- <form action="https://formspree.io/nick@stoicfellowship.com"
+                method="POST"> -->
+								
+							<form name="apply-stoa">
+						
+							<h3>Your Name</h3>
                 <input type="text" name="name" required>
               <br / class="rwd-break">
               
@@ -65,14 +67,14 @@
                 <input type="text" name="location" placeholder="City, State/Territory, Country" required>
               <br / class="rwd-break">
               
-              <h3>Why Would You Like to Start a Stoa?</h3>
+            <!--  <h3>Why Would You Like to Start a Stoa?</h3>
                 <textarea name="message" id="message" rows="4" required></textarea>
-              <br / class="rwd-break">
+              <br / class="rwd-break"> -->
               
-              <input type="submit" value="Apply">
+              <button type="submit" value="Apply"></button>
               
-          </form>
-        
+          </form>													
+					       
         </header>
         
 
@@ -101,7 +103,7 @@
         </div>
       </footer>
 
-			<!-- Scripts -->
+			<!-- Scripts --> 
 				<script src="assets/js/jquery.min.js"></script>
 				<script src="assets/js/jquery.dropotron.min.js"></script>
 				<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -109,6 +111,16 @@
 				<script src="assets/js/skel.min.js"></script>
 				<script src="assets/js/util.js"></script>
 				<script src="assets/js/main.js"></script>
+				<script>
+					 const scriptURL = '#'
+					 const form = document.forms['apply-stoa']
+					 form.addEventListener('submit', e => {
+						 e.preventDefault()
+						 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+							 .then(response => console.log('Success!', response))
+							 .catch(error => console.error('Error!', error.message))
+					 })
+				 </script>
 
 	</body>
 </html>
