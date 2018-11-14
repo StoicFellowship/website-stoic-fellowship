@@ -51,15 +51,17 @@
           Join a community of Stoics in your local area if one exists. If one does not, we will notify you when someone launches a community near you!</p>
         <br / class="rwd-break">
       
-          <form action="https://formspree.io/nick@stoicfellowship.com"
-                method="POST">
+			<!-- Form -->
+			
+			<!-- name="join-a-stoa" -->
+          <form action="https://formspree.io/nick@stoicfellowship.com" method="POST">
             
               <h3>Your Name</h3>
                 <input type="text" name="name" required>
               <br / class="rwd-break">
               
               <h3>Email Address</h3>
-                <input type="email" name="_replyto" placeholder="me@email.com" required>
+                <input type="email" name="email" placeholder="me@email.com" required>
               <br / class="rwd-break">
               
               <h3>Location</h3>
@@ -70,7 +72,7 @@
                 <textarea name="message" id="message" rows="3"></textarea>
               <br / class="rwd-break"> -->
               
-              <input type="submit" value="Send">
+              <input type="submit" value="Send" onClick="location.href='index.html'">
               
           </form>
         
@@ -110,6 +112,17 @@
 				<script src="assets/js/skel.min.js"></script>
 				<script src="assets/js/util.js"></script>
 				<script src="assets/js/main.js"></script>
+				<script>
+				  const scriptURL = 'https://script.google.com/macros/s/AKfycbyutDSqdFKGzKwwt7QSn8f3iHSUzYEHtA40RENyryYteWcmuy2d/exec'
+				  const form = document.forms['join-a-stoa']
+
+				  form.addEventListener('submit', e => {
+				    e.preventDefault()
+				    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				      .then(response => console.log('Success!', response))
+				      .catch(error => console.error('Error!', error.message))
+				  })
+				</script>
 
 </body>
 </html>
