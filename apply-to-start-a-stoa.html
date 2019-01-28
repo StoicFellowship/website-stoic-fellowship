@@ -53,7 +53,7 @@
 
   		<!--	<form action="https://formspree.io/hello@stoicfellowship.com" method="POST"> -->
 
-					<form id="apply-stoa">
+					<form name="apply-stoa">
 
 							<h3>Your Name</h3>
                 <input type="text" name="name" required>
@@ -67,7 +67,25 @@
                 <input type="text" name="location" placeholder="City, State/Territory, Country" required>
               <br / class="rwd-break">
 
-              <input type="submit" value="Apply">
+              <input type="submit" value="Apply" onClick="submitForm()">
+
+							<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+							<script>
+									function submitForm() {
+									const scriptURL = 'https://script.google.com/macros/s/AKfycbzhYrMB-_MBoQTky-DglQ2t0ayDJEPS9PsXmxyOKHdgvMd3bPF9/exec'
+								  const form = document.forms['apply-stoa']
+
+								  form.addEventListener('submit', e => {
+								    e.preventDefault()
+								    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+								      .then(response => console.log('Success!', response))
+								      .catch(error => console.error('Error!', error.message))
+								  })
+									swal("Thanks!", "We'll be in touch soon.", "success");
+								}
+								document.forms['apply-stoa'].reset();
+							</script>
 
           </form>
 
