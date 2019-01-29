@@ -21,7 +21,7 @@
 							<li class="current"><a href="stoic-groups.html">Stoic Communities</a></li>
 							<li class="current"><a href="mission.html">About</a></li>
 							<li class="current"><a href="stoicism-resources.html">Resources</a></li>
-							<li class="current"><a href="newsletter.html">Newsletter</a></li> 
+							<li class="current"><a href="newsletter.html">Newsletter</a></li>
 							<li class="current"><a href="donate.html">Donate</a></li>
 							<li class="current"><a href="https://medium.com/@stoicfellowship" target="_blank">Blog</a></li>
 							<li class="submenu">
@@ -50,50 +50,67 @@
         <p class="paragraph-center">
           Join a community of Stoics in your local area if one exists. If one does not, we will notify you when someone launches a community near you!</p>
         <br / class="rwd-break">
-      
+
 			<!-- Form -->
-			
-			<!-- name="join-a-stoa" -->
-          <form action="https://formspree.io/hello@stoicfellowship.com" method="POST">
-            
+
+           <!-- <form action="https://formspree.io/hello@stoicfellowship.com" method="POST"> -->
+
+					 <form name="join-a-stoa">
+
               <h3>Your Name</h3>
                 <input type="text" name="name" required>
               <br / class="rwd-break">
-              
+
               <h3>Email Address</h3>
                 <input type="email" name="email" placeholder="me@email.com" required>
               <br / class="rwd-break">
-              
+
               <h3>Location</h3>
                 <input type="text" name="location" placeholder="City, State/Territory, Country" required>
               <br / class="rwd-break">
-              
-          <!--    <h3>Why Would You Like to Join a Stoa?</h3>
-                <textarea name="message" id="message" rows="3"></textarea>
-              <br / class="rwd-break"> -->
-              
-              <input type="submit" value="Send" onClick="location.href='https://stoicfellowship.com'">
-              
-          </form>
-        
-        </header>
-        
 
-    <!--Footer-->    
-        
+              <input type="submit" value="Send" onClick="submitForm()">
+
+						<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+						<script>
+								function submitForm() {
+								const scriptURL = 'https://script.google.com/macros/s/AKfycbyutDSqdFKGzKwwt7QSn8f3iHSUzYEHtA40RENyryYteWcmuy2d/exec'
+							  const form = document.forms['join-a-stoa']
+
+							  form.addEventListener('submit', e => {
+							    e.preventDefault()
+							    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+							      .then(response => console.log('Success!', response))
+							      .catch(error => console.error('Error!', error.message))
+							  })
+								swal("Thanks!", "We'll be in touch soon.", "success");
+							}
+							document.forms['join-a-stoa'].reset();
+						</script>
+
+
+
+          </form>
+
+        </header>
+
+
+    <!--Footer-->
+
       <footer id="footer">
-      
+
         <ul class="icons">
           <li><a href="https://twitter.com/stoicfellowship" target="_blank" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
           <li><a href="https://www.facebook.com/stoicfellowship" target="_blank" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
         </ul>
-      
+
         <ul class="foot">
           <li>&copy;<script type="text/javascript">
       document.write(new Date().getFullYear());
       </script> <strong>The Stoic Fellowship</strong> </li>
         </ul>
-        
+
         <div>
           <p class="foot">The Stoic Fellowship is a registered 501(c)(3) nonprofit headquartered in the USA
           <br />
@@ -112,17 +129,6 @@
 				<script src="assets/js/skel.min.js"></script>
 				<script src="assets/js/util.js"></script>
 				<script src="assets/js/main.js"></script>
-				<script>
-				  const scriptURL = 'https://script.google.com/macros/s/AKfycbyutDSqdFKGzKwwt7QSn8f3iHSUzYEHtA40RENyryYteWcmuy2d/exec'
-				  const form = document.forms['join-a-stoa']
-
-				  form.addEventListener('submit', e => {
-				    e.preventDefault()
-				    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-				      .then(response => console.log('Success!', response))
-				      .catch(error => console.error('Error!', error.message))
-				  })
-				</script>
 
 </body>
 </html>

@@ -1724,7 +1724,7 @@
 		margin-left: 10%;
 		margin-right: 10%;
 	}
-	
+
 	.paragraph-center-list {
 		margin-left: 20%;
 		margin-right: 20%;
@@ -1746,13 +1746,12 @@
 	.foot {
 		margin: 2em;
 	}
-	
+
 	.center-margin {
 		margin: 0em;
 	}
 
 	.rwd-break {
-		display: block;
 	}
 
 /* Form */
@@ -1857,7 +1856,7 @@
   			border-radius: 50%;
   			-moz-border-radius: 50%;
 			  -webkit-border-radius: 50%;
-				
+
 				/* display: block;
 				height: 50%;
 				width: 50%;
@@ -3256,4 +3255,3 @@
 			}
 
 	}
-	
