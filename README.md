@@ -32,3 +32,5 @@ Form Potentials:
 - Formspree?
 - Google Forms
 
+Map:
+- http://umap.openstreetmap.fr/en/map/anonymous-edit/301993:XIH_tzLn7OJO6KtXCTYyOTJk36k
