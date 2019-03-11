@@ -1,5 +1,4 @@
 @import url("font-awesome.min.css");
-@import url("https://fonts.googleapis.com/css?family=Lato:300,400,900");
 
 /*
 	Twenty by HTML5 UP
@@ -84,6 +83,15 @@
 	.container {
 		width: 1400px;
 	}
+	
+	#map {
+		width: 80%;
+		height: 750px;
+		margin: 0 auto;
+	}
+	
+}
+	
 
 	@media screen and (max-width: 1680px) {
 
@@ -108,8 +116,14 @@
 		.container {
 			width: 1200px;
 		}
-
+	
+	#map {
+		width: 80%;
+		height: 750px;
+		margin: 0 auto;
 	}
+	
+}
 
 	@media screen and (max-width: 1280px) {
 
@@ -134,8 +148,14 @@
 		.container {
 			width: 960px;
 		}
-
+	
+	#map {
+		width: 80%;
+		height: 750px;
+		margin: 0 auto;
 	}
+	
+}
 
 	@media screen and (max-width: 980px) {
 
@@ -159,6 +179,12 @@
 
 		.container {
 			width: 95%;
+		}
+
+		#map {
+			width: 80%;
+			height: 750px;
+			margin: 0 auto;
 		}
 
 	}
@@ -187,6 +213,12 @@
 			width: 95% !important;
 		}
 
+		#map {
+			width: 80%;
+			height: 500px;
+			margin: 0 auto;
+		}
+
 	}
 
 	@media screen and (max-width: 736px) {
@@ -211,6 +243,12 @@
 
 		.container {
 			width: 100% !important;
+		}
+		
+		#map {
+			width: 80%;
+			height: 400px;
+			margin: 0 auto;
 		}
 
 	}
@@ -1567,7 +1605,7 @@
 
 	body, input, select, textarea {
 		color: #7c8081;
-		font-family: 'Dosis', sans-serif;
+		font-family: "Source Sans Pro", sans-serif;
 		font-size: 18pt;
 		font-weight: 300;
 		letter-spacing: 0.025em;
