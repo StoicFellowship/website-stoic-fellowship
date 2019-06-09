@@ -1963,6 +1963,15 @@
 						background: #F2689B;
 					}
 
+					.icon.circle.fa-linkedin {
+						background: #0076B7;
+						color: #fff;
+					}
+
+						.icon.circle.fa-linkedin:hover {
+							background: #00A0F9;
+						}
+
 				.icon.circle.fa-medium {
 					background: #00A679;
 					color: #fff;
