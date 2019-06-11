@@ -1784,6 +1784,7 @@
 	}
 
 	.rwd-break {
+		display: block;
 	}
 
 /* Form */

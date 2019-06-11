@@ -7,7 +7,21 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!-- Matomo -->
+<script type="text/javascript">
+var _paq = window._paq || [];
+/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+var u="https://stoicfellowship.matomo.cloud/";
+_paq.push(['setTrackerUrl', u+'matomo.php']);
+_paq.push(['setSiteId', '1']);
+var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/stoicfellowship.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+})();
+</script>
+<!-- End Matomo Code -->
 	</head>
 	<body class="index">
 		<div id="page-wrapper">
@@ -56,7 +70,7 @@
 
         <div style="text-align: center;">
             <ul class="buttons">
-              <li><a href="#join-minnesota" class="button fit scrolly" class="button">Join Us</a></li>
+              <li><a href="#join-minnesota" class="button fit scrolly" class="button">Join MN Stoics</a></li>
             </ul>
         </div>
 
@@ -81,7 +95,7 @@
             <p>Sunday, June 16 // 1pm-3pm</p>
             <a href="https://www.eventbrite.com/e/others-shortcomings-epictetus-and-aurelius-and-proper-speech-rumi-tickets-63296192616?utm-medium=discovery&utm-campaign=social&utm-content=attendeeshare&aff=escb&utm-source=cp&utm-term=listing" target="_blank" class="button">RSVP Today</a>
             <br />
-            <br />
+						<br />
             <a href="https://www.eventbrite.com/o/minnesota-stoics-23188146706" target="_blank">View all future events</a>
 
           </section>
@@ -95,21 +109,24 @@
             <section class="wrapper style3 container special">
 
                     <h2>Join the Minnesota Stoics</h2>
+										<p>Enter your information below to receive email invites from the facilitators when new events are scheduled.</p>
 
-                  <div class="content">
                     <form id="join-minnesota">
 
                        <h3>Your Name</h3>
                          <input type="text" name="name" required>
-                       <br / class="rwd-break">
+                    		<br / class="rwd-break">
+												<br />
 
                        <h3>Email Address</h3>
                          <input type="email" name="email" placeholder="me@email.com" required>
                        <br / class="rwd-break">
+											 <br />
 
                        <h3>Location</h3>
                          <input type="text" name="location" placeholder="City, State/Territory, Country" required>
                        <br / class="rwd-break">
+											 <br />
 
                        <input type="submit" id="submit-form" value="Send" onClick="submitForm()">
 
@@ -133,8 +150,6 @@
         							}
         							document.forms['join-minnesota'].reset();
         						</script>
-
-  								</div>
 
                 </section>
                 </article>
