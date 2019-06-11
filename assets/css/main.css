@@ -1784,7 +1784,7 @@
 	}
 
 	.rwd-break {
-		
+
 	}
 
 /* Form */
@@ -2388,7 +2388,8 @@
 
 				#header nav ul li.current > a {
 					font-weight: 900;
-					padding-top: 35px;
+					padding-top: 1em;
+					padding-bottom: 1em;
 				}
 
 		#header.reveal {
@@ -2541,6 +2542,7 @@
 			opacity: 0;
 			padding: 3em;
 			text-align: center;
+			border-radius: 7px;
 		}
 
 			#banner .inner header {
