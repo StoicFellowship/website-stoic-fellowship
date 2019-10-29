@@ -6,23 +6,6 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<link rel="stylesheet" href="assets/css/main.css" />
 			<link rel="shortcut icon" href="images/favicon.ico" />
-
-		<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="https://stoicfellowship.matomo.cloud/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/stoicfellowship.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-		<!-- End Matomo Code -->
-
 	</head>
 
 
@@ -31,20 +14,31 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<header id="header" class="alt">
-					<h1 id="logo"><a href="index.html"><img src="images/tsf-svg.svg" width=150px height=75px></a>
-					<nav id="nav">
-						<ul>
-							<li class="current"><a href="stoic-groups.html">Stoic Communities</a></li>
-							<li class="current"><a href="mission.html">About</a></li>
-							<li class="current"><a href="stoicism-resources.html">Resources</a></li>
-							<li class="current"><a href="newsletter.html">Newsletter</a></li>
-							<li class="current"><a href="donate.html">Donate</a></li>
-							<li class="current"><a href="https://medium.com/@stoicfellowship" target="_blank">Blog</a></li>
-							<li><a href="join.html" class="button special">Join Us</a></li>
-						</ul>
-					</nav>
-				</header>
+			<header id="header" class="alt">
+					<h1 id="logo"><a href="https://stoicfellowship.com"><img src="images/tsf-svg.svg" width=150px height=75px></a>
+						<nav id="nav">
+							<ul>
+								<li class="current"><a href="stoic-groups.html">Communities</a></li>
+								<li class="current"><a href="mission.html">About</a></li>
+								<li class="current"><a href="stoicism-resources.html">Resources</a></li>
+								<li class="current"><a href="newsletter.html">Newsletter</a></li>
+								<li class="current"><a href="donate.html">Donate</a></li>
+								<li class="current"><a href="stoic-wares.html">Stoic Wares</a></li>
+								<li class="current"><a href="https://medium.com/@stoicfellowship" target="_blank">Blog</a></li>
+								<li><a href="join.html" class="button special">Join Us</a></li>
+								<!--  <li class="submenu">
+	
+									<a href="#">Menu</a>
+									<ul>
+										<li><a href="left-sidebar.html">Left Sidebar</a></li>
+										<li><a href="right-sidebar.html">Right Sidebar</a></li>
+										<li><a href="no-sidebar.html">No Sidebar</a></li>
+										<li><a href="contact.html">Contact</a></li>
+									</ul>
+								</li> -->
+							</ul>
+						</nav>
+					</header>
 
 			<!-- Banner -->
 				<section id="banner">
@@ -282,6 +276,10 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+			  var foo = $('#nav > ul');
+				foo.dropotron();
+			</script>
 
 	</body>
 </html>
