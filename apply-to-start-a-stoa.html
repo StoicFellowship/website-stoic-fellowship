@@ -91,22 +91,19 @@
 							<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 							<script>
-
 									function submitForm() {
-									const scriptURL = 'https://script.google.com/macros/s/AKfycbzhYrMB-_MBoQTky-DglQ2t0ayDJEPS9PsXmxyOKHdgvMd3bPF9/exec'
-								  const form = document.forms['apply-stoa']
+										const scriptURL = 'https://script.google.com/macros/s/AKfycbzhYrMB-_MBoQTky-DglQ2t0ayDJEPS9PsXmxyOKHdgvMd3bPF9/exec'
+									  const form = document.forms['apply-stoa']
 
-								  form.addEventListener('submit', e => {
-								    e.preventDefault()
-								    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-								      .then(response => console.log('Success!', response))
-								      .catch(error => console.error('Error!', error.message))
-								  })
-									swal("Thanks!", "We'll be in touch soon.", "success");
-
+									  form.addEventListener('submit', e => {
+									    e.preventDefault()
+									    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+									      .then(response => console.log('Success!', response))
+									      .catch(error => console.error('Error!', error.message))
+												.then(document.forms['apply-stoa'].reset())
+									  })
+										swal("Thanks!", "We'll be in touch soon.", "success");
 								}
-								document.forms['apply-stoa'].reset();
-
 							</script>
 
           </form>

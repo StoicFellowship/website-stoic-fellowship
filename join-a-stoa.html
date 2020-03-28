@@ -87,24 +87,25 @@
 
 						<script>
 								function submitForm() {
-								const scriptURL = 'https://script.google.com/macros/s/AKfycbyutDSqdFKGzKwwt7QSn8f3iHSUzYEHtA40RENyryYteWcmuy2d/exec'
-							  const form = document.forms['join-a-stoa']
+									const scriptURL = 'https://script.google.com/macros/s/AKfycbyutDSqdFKGzKwwt7QSn8f3iHSUzYEHtA40RENyryYteWcmuy2d/exec'
+								  const form = document.forms['join-a-stoa']
 
-							  form.addEventListener('submit', e => {
-							    e.preventDefault()
-							    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-							      .then(response => console.log('Success!', response))
-							      .catch(error => console.error('Error!', error.message))
-							  })
-								swal("Thanks!", "We'll be in touch soon.", "success");
-
+								  form.addEventListener('submit', e => {
+								    e.preventDefault()
+								    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+								      .then(response => console.log('Success!', response))
+								      .catch(error => console.error('Error!', error.message))
+											.then(document.forms['join-a-stoa'].reset())
+								  })
+									swal("Thanks!", "We'll be in touch soon.", "success");
 								}
-								
-							document.forms['join-a-stoa'].reset();
-
 						</script>
 
-
+						<!--<script>
+							function submitForm() {
+							document.forms['join-a-stoa'].reset();
+							}
+						</script>-->
 
           </form>
 
