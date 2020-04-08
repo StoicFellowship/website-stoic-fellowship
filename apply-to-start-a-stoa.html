@@ -127,23 +127,13 @@
       </footer>
 
 			<!-- Scripts -->
-				<script src="assets/js/jquery.min.js"></script>
-				<script src="assets/js/jquery.dropotron.min.js"></script>
-				<script src="assets/js/jquery.scrolly.min.js"></script>
-				<script src="assets/js/jquery.scrollgress.min.js"></script>
-				<script src="assets/js/skel.min.js"></script>
-				<script src="assets/js/util.js"></script>
-				<script src="assets/js/main.js"></script>
-				<script>
-					 const scriptURL = '#'
-					 const form = document.forms['apply-stoa']
-					 form.addEventListener('submit', e => {
-						 e.preventDefault()
-						 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-							 .then(response => console.log('Success!', response))
-							 .catch(error => console.error('Error!', error.message))
-					 })
-				 </script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollgress.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
 
 	</body>
 </html>
