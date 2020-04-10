@@ -1,5 +1,4 @@
-<!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-<script>
+// Fathom - simple website analytics - https://github.com/usefathom/fathom
 (function(f, a, t, h, o, m){
 	a[h]=a[h]||function(){
 		(a[h].q=a[h].q||[]).push(arguments)
@@ -11,5 +10,3 @@
 })(document, window, '//167.172.132.30/tracker.js', 'fathom');
 fathom('set', 'siteId', 'LDUJV');
 fathom('trackPageview');
-</script>
-<!-- / Fathom -->
