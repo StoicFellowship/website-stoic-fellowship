@@ -71,8 +71,18 @@
               <br / class="rwd-break">
 
               <h3>Location of Stoic Community</h3>
-                <input type="text" name="stoa-location" placeholder="City, State/Territory, Country" required>
-              <br / class="rwd-break">
+            <!--    <input type="text" name="stoa-location" placeholder="City, State/Territory, Country" required>
+              <br / class="rwd-break"> -->
+								<input type="text" id="address-input" name=stoa-location placeholder="Where are you located?" />
+									<script src="https://cdn.jsdelivr.net/places.js/1/places.min.js"></script>
+									<script>
+									var placesAutocomplete = places({
+										container: document.querySelector('#address-input')
+									});
+									</script>
+
+									<br / class="rwd-break">
+									<br / class="rwd-break">
 
               <h3>Stoic Community's Website</h3>
                 <input type="text" name="website" placeholder="Link to Meetup Page, Facebook Page, Website, etc." required>
