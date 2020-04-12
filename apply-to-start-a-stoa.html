@@ -82,8 +82,17 @@
               <br / class="rwd-break">
 
               <h3>Potential Stoa Location</h3>
-                <input type="text" name="location" placeholder="City, State/Territory, Country" required>
+            <!--    <input type="text" name="location" placeholder="City, State/Territory, Country" required> -->
+								<input type="text" id="address-input" name=location placeholder="Where are you located?" />
+									<script src="https://cdn.jsdelivr.net/places.js/1/places.min.js"></script>
+									<script>
+									var placesAutocomplete = places({
+										container: document.querySelector('#address-input')
+									});
+									</script>
+
               <br / class="rwd-break">
+							<br / class="rwd-break">
 
           	  <input type="submit" value="Apply" onClick="submitForm()">
 
