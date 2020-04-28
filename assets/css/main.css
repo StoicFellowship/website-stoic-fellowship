@@ -2169,6 +2169,7 @@
 		text-decoration: none;
 		text-transform: uppercase;
 		border-radius: 8px;
+		transition: all 0.5s;
 	}
 
 		input[type="button"]:hover,
@@ -2177,6 +2178,8 @@
 		.button:hover {
 			background: rgba(188, 202, 206, 0.15);
 			border-color: inherit;
+			transform: translateY(-5px);
+			box-shadow: 0 10px 45px -10px rgba(0,0,0,0.15);
 		}
 
 		input[type="button"].special,
