@@ -404,6 +404,58 @@
 <div class="hr">
 </div>
 
+<br / class="rwd-break">
+
+<!-- Form -->
+      
+      <section class="wrapper style3 container special">
+
+        <header class="major">
+          <h2>Suggest a Resource</h2>
+
+      <form name="suggest-resource">
+
+        <h3>Resource Name</h3>
+          <input type="text" name="name" required>
+        
+            <br / class="rwd-break">
+
+        <h3>Resource Type</h3>
+          <input type="text" name="type" placeholder="Blog" required>
+        
+            <br / class="rwd-break">
+
+        <h3>Link (URL)</h3>
+          <input type="text" name="url" placeholder="https://stoicfellowship.com" required>
+
+            <br / class="rwd-break">
+            <br / class="rwd-break"> 
+            
+        <input type="submit" value="Send" onClick="submitForm()">
+
+
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+      <script>
+          function submitForm() {
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyritkUY9Dlmsk4QZ95eK5g31UvyYybyR1ovV2CBhoVyirDFHg/exec'
+            const form = document.forms['suggest-resource']
+
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+                .then(document.forms['suggest-resource'].reset())
+            })
+            swal("Thanks!", "We will review your submission as soon as we can.", "success");
+          }
+      </script>
+
+    </form>
+
+  </section>
+
 <br />
 
 
