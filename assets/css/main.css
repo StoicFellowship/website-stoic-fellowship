@@ -1,5 +1,5 @@
 @import url("font-awesome.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;700&display=swap" rel="stylesheet">);
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;700&display=swap");
 
 /* Reset */
 
@@ -85,7 +85,7 @@
 		margin: 0 auto;
 	}
 
-}
+
 
 
 	@media screen and (max-width: 1680px) {
@@ -1866,8 +1866,8 @@
 			left: 0;
 			position: absolute;
 			top: 0;
-			width: 100%;*/
-		}
+			width: 100%;
+		} */
 
 		.image.fit {
 			display: block;
