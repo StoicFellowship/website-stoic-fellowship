@@ -5,6 +5,7 @@ RewriteRule ^([^\.]+)$ $1.html [NC,L]
 ErrorDocument 404 https://www.stoicfellowship.com
 
 Redirect /blog/2017/10/5/an-interview-with-donald-robertson https://www.stoicfellowship.com
+Redirect /stoicism-resources.html https://www.stoicfellowship.com/resources/stoicism-resources.html
 
 # 1 YEAR
 <FilesMatch "\.(ico|pdf|flv)$">
