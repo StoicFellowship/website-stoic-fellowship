@@ -29,7 +29,7 @@
 
 	// Scrolly.
 		$('.scrolly').scrolly({
-			speed: 1000,
+			speed: 1500,
 			offset: function() { return $header.height() + 10; }
 		});
 
@@ -37,7 +37,10 @@
 		$('#nav > ul').dropotron({
 			mode: 'fade',
 			noOpenerFade: true,
-			expandMode: (browser.mobile ? 'click' : 'hover')
+			expandMode: (browser.mobile ? 'click' : 'hover'),
+			hideDelay: 800,
+			baseZIndex: 100000,
+			offsetY: 1000
 		});
 
 	// Nav Panel.
