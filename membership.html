@@ -61,19 +61,21 @@
         <header class="special container">
         <h2>Join The Stoic Fellowship</h2>
         <p class="paragraph-center">
-          Have you already launched a Stoa in your local community? By joining The Stoic Fellowship, you'll join a global community with dozens of other leaders around the world who have started Stoic groups. Share resources, insights, and tips on sharing Stoicism with your community.</p>
+          Have you already launched a Stoa in your local community? By joining The Stoic Fellowship, you'll join a global community with dozens of other leaders around the world who have started Stoic groups. Gather resources, insights, and tips on sharing Stoicism with your community.</p>
         <br / class="rwd-break">
 
-				<form action="https://formspree.io/maynldnw" method="POST">
 
-              <h3>Name of Stoic Community</h3>
-                <input type="text" name="name" required>
+
+<!-- Form -->      
+
+		<form name="existing-stoa">
+
+			<h3>Name of Stoic Community</h3>
+                <input type="text" name="stoa" required>
               <br / class="rwd-break">
 
-              <h3>Location of Stoic Community</h3>
-            <!--    <input type="text" name="stoa-location" placeholder="City, State/Territory, Country" required>
-              <br / class="rwd-break"> -->
-								<input type="text" id="address-input" name=stoa-location placeholder="Where are you located?" />
+            <h3>Location of Stoic Community</h3>
+								<input type="text" id="address-input" name=location placeholder="Where are you located?" />
 									<script src="https://cdn.jsdelivr.net/places.js/1/places.min.js"></script>
 									<script>
 									var placesAutocomplete = places({
@@ -89,22 +91,40 @@
               <br / class="rwd-break">
 
               <h3>Approximate Number of Members</h3>
-                <input type="text" name="number">
+                <input type="text" name="members">
               <br / class="rwd-break">
 
               <h3>Your Name</h3>
-                <input type="text" name="name" placeholder="Taylor Smith" required>
+                <input type="text" name="name" required>
               <br / class="rwd-break">
 
               <h3>Your Email Address</h3>
-                <input type="email" name="_replyto" placeholder="me@email.com" required>
+                <input type="email" name="email" required>
               <br / class="rwd-break">
 
-              <input type="submit" value="Submit">
+              <input type="submit" value="Send" onClick="submitForm()">
+
+						<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+						<script>
+								function submitForm() {
+									const scriptURL = 'https://script.google.com/macros/s/AKfycbzvjWL2FySXubH0nZiLN7g5kGZig6WGPldgzmhCHshAL-ApKy8cCvDUBKP77QsdxFu3BQ/exec'
+								  const form = document.forms['existing-stoa']
+
+								  form.addEventListener('submit', e => {
+								    e.preventDefault()
+								    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+								      .then(response => console.log('Success!', response))
+								      .catch(error => console.error('Error!', error.message))
+											.then(document.forms['existing-stoa'].reset())
+								  })
+									swal("Thanks!", "We'll be in touch soon.", "success");
+								}
+						</script>
 
           <br />
 
-          </form>
+        </form>
 
         </header>
 
