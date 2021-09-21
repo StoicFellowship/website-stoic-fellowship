@@ -3216,7 +3216,7 @@
 				input[type="submit"].fit,
 				input[type="reset"].fit,
 				.button.fit {
-					width: auto;
+					/* width: auto; */
 				}
 
 		/* List */
