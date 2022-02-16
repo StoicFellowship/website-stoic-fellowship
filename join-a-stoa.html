@@ -82,21 +82,21 @@
 			<form name="join-a-stoa">
 
               <h3>Your Name</h3>
-                <input type="text" name="name" required>
+                <input type="text" name="name" id="name" required>
               <br / class="rwd-break">
 
               <h3>Email Address</h3>
-                <input type="email" name="email" placeholder="me@email.com" required>
+                <input type="email" name="email" placeholder="me@email.com" id="email" required>
               <br / class="rwd-break">
 
               <h3>Location</h3>
-								<input type="text" id="address-input" name=city placeholder="Where are you located?" />
-									<script src="https://cdn.jsdelivr.net/places.js/1/places.min.js"></script>
-									<script>
-									var placesAutocomplete = places({
-									  container: document.querySelector('#address-input')
-									});
-									</script>
+				<input type="text" id="address-input" name="city" id="location" placeholder="Where are you located?" required>
+					<script src="https://cdn.jsdelivr.net/places.js/1/places.min.js"></script>
+					<script>
+					const placesAutocomplete = places({
+						container: document.querySelector('#address-input')
+					});
+					</script>
 
               				<br / class="rwd-break">
 							<br / class="rwd-break">
@@ -105,7 +105,7 @@
 
 						<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-						<script>
+						<!-- <script>
 								function submitForm() {
 									const scriptURL = 'https://script.google.com/macros/s/AKfycbyutDSqdFKGzKwwt7QSn8f3iHSUzYEHtA40RENyryYteWcmuy2d/exec'
 								  const form = document.forms['join-a-stoa']
@@ -119,6 +119,22 @@
 								  })
 									swal("Thanks!", "We'll be in touch soon.", "success");
 								}
+						</script> -->
+
+						<script>
+								function submitForm() {
+									const scriptURL = 'https://script.google.com/macros/s/AKfycbyutDSqdFKGzKwwt7QSn8f3iHSUzYEHtA40RENyryYteWcmuy2d/exec'
+								  	const form = document.forms['join-a-stoa']
+									form.addEventListener('submit', e => {
+										e.preventDefault()
+											fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+											.then(document.forms['join-a-stoa'].reset())
+								  })
+								  form.addEventListener('submit', onSubmit)
+								  function onSubmit() {
+										swal("Thanks!", "We'll be in touch soon.", "success");
+									  }
+								  }
 						</script>
 
           </form>
