@@ -85,7 +85,7 @@
 					<br / class="rwd-break">
 
             <h3>Potential Stoa Location</h3>
-				<input type="text" id="address-input" name=location placeholder="Where are you located?" />
+				<input type="text" id="address-input" name=location placeholder="Where are you located?" required/>
 					<script src="https://cdn.jsdelivr.net/places.js/1/places.min.js"></script>
 						<script>
 							var placesAutocomplete = places({
@@ -100,7 +100,7 @@
 
 							<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-							<script>
+							<!-- <script>
 									function submitForm() {
 										const scriptURL = 'https://script.google.com/macros/s/AKfycbzhYrMB-_MBoQTky-DglQ2t0ayDJEPS9PsXmxyOKHdgvMd3bPF9/exec'
 									  const form = document.forms['apply-stoa']
@@ -114,11 +114,27 @@
 									  })
 										swal("Thanks!", "We'll be in touch soon.", "success");
 								}
-							</script>
+							</script> -->
 
-          </form>
+			<script>
+				function submitForm() {
+					const scriptURL = 'https://script.google.com/macros/s/AKfycbzhYrMB-_MBoQTky-DglQ2t0ayDJEPS9PsXmxyOKHdgvMd3bPF9/exec'
+					const form = document.forms['apply-stoa']
+						form.addEventListener('submit', e => {
+							e.preventDefault()
+							fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+							.then(document.forms['apply-stoa'].reset())
+						})
+				form.addEventListener('submit', onSubmit)
+				function onSubmit() {
+						swal("Thanks!", "We'll be in touch soon.", "success");
+					}
+				}
+			</script>
 
-        </header>
+        </form>
+
+    </header>
 
 
     <!--Footer-->
