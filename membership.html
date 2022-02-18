@@ -108,19 +108,19 @@
 						<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 						<script>
-								function submitForm() {
-									const scriptURL = 'https://script.google.com/macros/s/AKfycbzvjWL2FySXubH0nZiLN7g5kGZig6WGPldgzmhCHshAL-ApKy8cCvDUBKP77QsdxFu3BQ/exec'
-								  const form = document.forms['existing-stoa']
-
-								  form.addEventListener('submit', e => {
-								    e.preventDefault()
-								    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-								      .then(response => console.log('Success!', response))
-								      .catch(error => console.error('Error!', error.message))
-											.then(document.forms['existing-stoa'].reset())
-								  })
+							function submitForm() {
+								const scriptURL = 'https://script.google.com/macros/s/AKfycbzvjWL2FySXubH0nZiLN7g5kGZig6WGPldgzmhCHshAL-ApKy8cCvDUBKP77QsdxFu3BQ/exec'
+								const form = document.forms['join-a-stoa']
+								form.addEventListener('submit', e => {
+									e.preventDefault()
+										fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+										.then(document.forms['join-a-stoa'].reset())
+							})
+							form.addEventListener('submit', onSubmit)
+							function onSubmit() {
 									swal("Thanks!", "We'll be in touch soon.", "success");
 								}
+							}
 						</script>
 
           <br />
