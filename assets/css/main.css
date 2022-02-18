@@ -2546,7 +2546,9 @@ input[type='reset'].small,
 }
 
 #header nav ul li.submenu > a {
-  text-decoration: none;
+  font-weight: 900;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 #header nav ul li.submenu > a:before {
