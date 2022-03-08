@@ -2746,6 +2746,7 @@ input[type='reset'].small,
   animation-fill-mode: forwards;
   background: rgba(52, 27, 43, 0.5);
   color: #fff;
+  font-weight: 500;
   display: inline-block;
   opacity: 0;
   padding: 3em;
