@@ -2372,8 +2372,8 @@ input[type='button'].special,
 input[type='submit'].special,
 input[type='reset'].special,
 .button.special {
-  background: #83d3c9;
-  border-color: #83d3c9;
+  background: #096c80;
+  border-color: #096c80;
   color: #fff !important;
 }
 
