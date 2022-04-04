@@ -48,42 +48,15 @@
           ><img src="images/tsf-svg.svg" width="100px" height="55px"
         /></a>
       </h1>
-      <nav id="nav">
-        <ul>
-          <li class="current"><a href="stoic-groups.html">Communities</a></li>
-          <li class="submenu">
-            <a href="#">About</a>
-            <ul>
-              <li><a href="mission.html">Mission</a></li>
-              <li><a href="team.html">Team</a></li>
-              <li><a href="donate.html">Donate</a></li>
-            </ul>
-          </li>
-          <li class="submenu">
-            <a href="#">Resources</a>
-            <ul>
-              <li>
-                <a href="resources/stoicism-resources.html"
-                  >Stoicism Resources</a
-                >
-              </li>
-              <li><a href="newsletter.html">Newsletter</a></li>
-              <li>
-                <a href="https://medium.com/@stoicfellowship" target="_blank"
-                  >Interviews</a
-                >
-              </li>
-              <li>
-                <a href="https://wares.stoicfellowship.com" target="_blank"
-                  >Stoic Wares</a
-                >
-              </li>
-              <li><a href="service/index.html">Stoic Service</a></li>
-            </ul>
-          </li>
-          <li><a href="join.html" class="button special">Join Us</a></li>
-        </ul>
-      </nav>
+      <!--Navigation-->
+      <script src="assets/js/jquery.min.js"></script>
+      <div id="nav"></div>
+      <script>
+        $(function () {
+          $('#nav').load('/nav/nav.html');
+        });
+      </script>
+      <!--End of Navigation-->
     </div>
 
     <!-- Banner -->
@@ -392,7 +365,6 @@
       </footer>
 
       <!-- Scripts -->
-      <script src="assets/js/jquery.min.js"></script>
       <script src="assets/js/jquery.dropotron.min.js"></script>
       <script src="assets/js/jquery.scrolly.min.js"></script>
       <script src="assets/js/jquery.scrollex.min.js"></script>
