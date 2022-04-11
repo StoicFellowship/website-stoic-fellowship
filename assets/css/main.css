@@ -2590,6 +2590,7 @@ input[type='reset'].small,
   -webkit-animation: reveal-header 0.5s;
   -ms-animation: reveal-header 0.5s;
   animation: reveal-header 0.5s;
+  /* top: 0; */
 }
 
 #header.alt {
@@ -3599,7 +3600,7 @@ body.index #main {
 }
 
 .announcement {
-  background-color: black;
+  background-color: #096c80;
   height: 30px;
   border-bottom: thin solid white;
   text-align: center;
