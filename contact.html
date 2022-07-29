@@ -92,11 +92,11 @@
 							<script>
 								function submitForm() {
 									const scriptURL = 'https://script.google.com/macros/s/AKfycbxROu3vJB6iGStgLj5t62KRXks1fkMj4LbEiNhPa8AseoV8fK1SD6xjif7HMakfzF_7/exec'
-									const form = document.forms['join-a-stoa']
+									const form = document.forms['contact']
 									form.addEventListener('submit', e => {
 										e.preventDefault()
 											fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-											.then(document.forms['join-a-stoa'].reset())
+											.then(document.forms['contact'].reset())
 								})
 								form.addEventListener('submit', onSubmit)
 								function onSubmit() {
