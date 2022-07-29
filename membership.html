@@ -111,11 +111,11 @@
 						<script>
 							function submitForm() {
 								const scriptURL = 'https://script.google.com/macros/s/AKfycbzvjWL2FySXubH0nZiLN7g5kGZig6WGPldgzmhCHshAL-ApKy8cCvDUBKP77QsdxFu3BQ/exec'
-								const form = document.forms['join-a-stoa']
+								const form = document.forms['existing-stoa']
 								form.addEventListener('submit', e => {
 									e.preventDefault()
 										fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-										.then(document.forms['join-a-stoa'].reset())
+										.then(document.forms['existing-stoa'].reset())
 							})
 							form.addEventListener('submit', onSubmit)
 							function onSubmit() {
