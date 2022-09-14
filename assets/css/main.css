@@ -1989,6 +1989,7 @@ textarea {
   text-decoration: none;
   width: 100%;
   outline: 0;
+  margin-bottom: 10px;
 }
 
 input[type='text']:focus,
@@ -2347,7 +2348,7 @@ input[type='reset'],
   font-size: 0.8em;
   font-weight: 900;
   letter-spacing: 2px;
-  min-width: 10em;
+  min-width: 15em;
   padding: 0 0.75em;
   line-height: 3.75em;
   text-align: center;
@@ -2355,6 +2356,7 @@ input[type='reset'],
   text-transform: uppercase;
   border-radius: 8px;
   transition: all 0.5s;
+  margin-top: 15px;
 }
 
 input[type='button']:hover,
