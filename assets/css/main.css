@@ -1990,7 +1990,7 @@ textarea {
   width: 100%;
   outline: 0;
   margin-bottom: 10px;
-  /* min-width: 100px; */
+  min-width: 100px;
 }
 
 input[type='text']:focus,
@@ -2592,7 +2592,7 @@ input[type='reset'].small,
   -webkit-animation: reveal-header 0.5s;
   -ms-animation: reveal-header 0.5s;
   animation: reveal-header 0.5s;
-  /* top: 0; */
+  top: 0;
 }
 
 #header.alt {
