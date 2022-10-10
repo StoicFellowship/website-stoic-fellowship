@@ -1990,6 +1990,7 @@ textarea {
   width: 100%;
   outline: 0;
   margin-bottom: 10px;
+  /* min-width: 100px; */
 }
 
 input[type='text']:focus,
