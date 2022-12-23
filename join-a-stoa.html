@@ -68,14 +68,19 @@
 		<p class="paragraph-center"></p>If one does not, we will notify you when someone launches a community near you! </p>
 		
 		<div>
-			<iframe width="100%" height="400px" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/en/map/stoic-fellowship_301993?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false&datalayers=794638#2/12.9/50.3"></iframe>
+			<iframe width="100%" height="400px" frameborder="0" style="
+            border-radius: 0.5em;
+            box-shadow: 0 10px 45px -10px rgba(0, 0, 0, 0.15);
+          " allowfullscreen src="//umap.openstreetmap.fr/en/map/stoic-fellowship_301993?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=true&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=caption&fullscreenControl=true#2/33.9/76.3"></iframe>
 		</div>
 
 		<br / class="rwd-break">
 
 			<!-- Form -->
 
-			<h2>Join Our Network</h2>
+			<section class="wrapper style3 container special">
+			
+				<h2>Join Our Network</h2>
 			<br />
 			<p class="paragraph-center">
 				Fill out the form below, and we'll notify you when a Stoic community is launched near you. </p>
@@ -91,7 +96,7 @@
               <br / class="rwd-break">
 
               <h3>Location</h3>
-				<input type="text" id="address-input" name="city" id="location" placeholder="Where are you located?" required>
+				<input type="text" id="address-input" name="city" id="location" placeholder="Where are you located?" style="height: 60px" required>
 					<script src="https://cdn.jsdelivr.net/places.js/1/places.min.js"></script>
 					<script>
 					const placesAutocomplete = places({
@@ -105,22 +110,6 @@
               <input type="submit" value="Send" onClick="submitForm()">
 
 						<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-						<!-- <script>
-								function submitForm() {
-									const scriptURL = 'https://script.google.com/macros/s/AKfycbyutDSqdFKGzKwwt7QSn8f3iHSUzYEHtA40RENyryYteWcmuy2d/exec'
-								  const form = document.forms['join-a-stoa']
-
-								  form.addEventListener('submit', e => {
-								    e.preventDefault()
-								    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-								      .then(response => console.log('Success!', response))
-								      .catch(error => console.error('Error!', error.message))
-											.then(document.forms['join-a-stoa'].reset())
-								  })
-									swal("Thanks!", "We'll be in touch soon.", "success");
-								}
-						</script> -->
 
 						<script>
 								function submitForm() {
@@ -141,6 +130,8 @@
           </form>
 
         </header>
+
+	</section>
 
 
 				<!--Footer-->

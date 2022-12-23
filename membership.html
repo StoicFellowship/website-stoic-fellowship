@@ -65,11 +65,12 @@
         <p class="paragraph-center">
           Have you already launched a Stoa in your local community? Join a global network with hundreds of other leaders around the world who have started Stoic communities. You'll get resources, insights, and tips on leading a Stoicism group with help from The Stoic Fellowship along the way.</p>
         <br / class="rwd-break">
-
+	</header>
 
 
 <!-- Form -->      
 
+<section class="wrapper style3 container special">
 		<form name="existing-stoa">
 
 			<h3>Name of Stoic Community</h3>
@@ -77,7 +78,7 @@
               <br / class="rwd-break">
 
             <h3>Location of Stoic Community</h3>
-								<input type="text" id="address-input" name=location placeholder="Where are you located?" />
+								<input type="text" id="address-input" name=location placeholder="Where are you located?" style="height: 60px" />
 									<script src="https://cdn.jsdelivr.net/places.js/1/places.min.js"></script>
 									<script>
 									var placesAutocomplete = places({
@@ -104,18 +105,20 @@
                 <input type="email" name="email" required>
               <br / class="rwd-break">
 
-              <input type="submit" value="Send" onClick="submitForm()">
+			  <p>By submitting this form, you agree to The Stoic Fellowship's <a href="/info/pdf/Membership Terms and Conditions.pdf" target="_blank">Terms and Conditions</a> for membership.</p>
+
+              <input type="submit" value="Submit" onClick="submitForm()">
 
 						<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 						<script>
 							function submitForm() {
 								const scriptURL = 'https://script.google.com/macros/s/AKfycbzvjWL2FySXubH0nZiLN7g5kGZig6WGPldgzmhCHshAL-ApKy8cCvDUBKP77QsdxFu3BQ/exec'
-								const form = document.forms['join-a-stoa']
+								const form = document.forms['existing-stoa']
 								form.addEventListener('submit', e => {
 									e.preventDefault()
 										fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-										.then(document.forms['join-a-stoa'].reset())
+										.then(document.forms['existing-stoa'].reset())
 							})
 							form.addEventListener('submit', onSubmit)
 							function onSubmit() {
@@ -127,8 +130,9 @@
           <br />
 
         </form>
+	</section>
 
-        </header>
+     
 
 
 				<!--Footer-->

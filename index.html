@@ -12,32 +12,34 @@
 
   <!-- Matomo -->
   <script type="text/javascript">
-    var _paq = (window._paq = window._paq || []);
+    var _paq = (window._paq = window._paq || [])
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function () {
-      var u = '//stats.productwar.com/';
-      _paq.push(['setTrackerUrl', u + 'matomo.php']);
-      _paq.push(['setSiteId', '1']);
+    _paq.push(['trackPageView'])
+    _paq.push(['enableLinkTracking'])
+    ;(function () {
+      var u = '//stats.productwar.com/'
+      _paq.push(['setTrackerUrl', u + 'matomo.php'])
+      _paq.push(['setSiteId', '1'])
       var d = document,
         g = d.createElement('script'),
-        s = d.getElementsByTagName('script')[0];
-      g.type = 'text/javascript';
-      g.async = true;
-      g.src = u + 'matomo.js';
-      s.parentNode.insertBefore(g, s);
-    })();
+        s = d.getElementsByTagName('script')[0]
+      g.type = 'text/javascript'
+      g.async = true
+      g.src = u + 'matomo.js'
+      s.parentNode.insertBefore(g, s)
+    })()
   </script>
   <!-- End Matomo Code -->
 </head>
 
-<div class="announcement">
+<!-- <div class="announcement" class="reveal">
   <ul class="announcement">
-    April is the Month of Service!
-    <a href="service/?announcement">Learn More</a>
+    Introducing Stoic Sessions!
+    <a href="/stoic-sessions.html" style="color: #ff7066; font-weight: 900"
+      >Schedule Today</a
+    >
   </ul>
-</div>
+</div> -->
 
 <body class="index">
   <div id="page-wrapper">
@@ -116,7 +118,7 @@
     <!-- Main -->
 
     <article id="main">
-      <section class="wrapper style1 container special">
+      <section class="wrapper style3 container special">
         <div class="row">
           <div class="4u 12u(narrower)">
             <section>
@@ -179,12 +181,28 @@
       </header>
 
       <div class="center">
+        <!-- <iframe
+          id="map"
+          frameborder="0"
+          style="
+            border-radius: 0.5em;
+            box-shadow: 0 10px 45px -10px rgba(0, 0, 0, 0.15);
+          "
+          allowfullscreen
+          src="https://umap.openstreetmap.fr/en/map/stoic-fellowship_301993?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false#2/-6.8/5.4"
+        ></iframe> -->
+
         <iframe
           id="map"
           frameborder="0"
+          style="
+            border-radius: 0.5em;
+            box-shadow: 0 10px 45px -10px rgba(0, 0, 0, 0.15);
+          "
           allowfullscreen
-          src="https://umap.openstreetmap.fr/en/map/stoic-fellowship_301993?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false#2/-6.8/5.4"
+          src="//umap.openstreetmap.fr/en/map/stoic-fellowship_301993?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=true&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=caption&fullscreenControl=true#2/33.9/76.3"></iframe><p><a href="//umap.openstreetmap.fr/en/map/stoic-fellowship_301993"
         ></iframe>
+
         <ul class="buttons">
           <li>
             <a
@@ -205,7 +223,29 @@
       <br />
       <br />
 
-      <!-- Communitis -->
+      <!-- Stoic Sessions -->
+      <!-- <article id="stoic sessions">
+        <section class="wrapper style3 container special">
+          <header>
+            <h2><strong>Introducing</strong> Stoic Sessions</h2>
+          </header>
+          <a href="stoic-sessions.html" class="image featured"
+            ><img src="images/lighthouse.jpg" alt="Stoic Sessions"
+          /></a>
+          <div style="font-weight: 800">
+            Schedule a free 30-minute session with an expert in Stoicism.
+          </div>
+          <br />
+
+          <ul class="buttons">
+            <li>
+              <a href="stoic-sessions.html" class="button">Schedule Today</a>
+            </li>
+          </ul>
+        </section>
+      </article> -->
+
+      <!-- Communities -->
       <article id="communities">
         <section class="wrapper style3 container special">
           <header class="major">
@@ -235,13 +275,13 @@
             <div class="6u 12u(narrower)">
               <section>
                 <a
-                  href="https://www.meetup.com/Philadelphia-Stoics/"
+                  href="https://philadelphiastoa.org"
                   target="_blank"
                   class="image featured"
                   ><img src="images/philadelphia.jpg" alt="Philadelphia Stoics"
                 /></a>
                 <header>
-                  <h3>Philadelphia Stoics</h3>
+                  <h3>Philadelphia Stoa</h3>
                 </header>
                 <p class="center-margin">
                   <strong>Location:</strong> Philadelphia, PA, USA
@@ -369,7 +409,7 @@
           <li>
             &copy;
             <script type="text/javascript">
-              document.write(new Date().getFullYear());
+              document.write(new Date().getFullYear())
             </script>
             <strong>The Stoic Fellowship</strong>
           </li>
