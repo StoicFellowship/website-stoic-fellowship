@@ -1966,6 +1966,7 @@ footer.major {
 
 .center-margin {
   margin: 0em;
+  text-align: center;
 }
 
 .rwd-break {
