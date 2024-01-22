@@ -34,175 +34,172 @@
 </head>
 
 <body class="index">
-  <div id="page-wrapper">
-    <!-- Heading Section -->
-    <header id="header" class="alt">
-      <a href="index.html" class="logo"
-        ><img src="images/tsf-svg.svg" width="100px" height="55px"
-      /></a>
-      <nav id="nav">
-        <ul>
-          <li class="current"><a href="stoic-groups.html">Communities</a></li>
-          <li class="submenu">
-            <a href="#">About</a>
-            <ul>
-              <li><a href="mission.html">Mission</a></li>
-              <li><a href="team.html">Team</a></li>
-              <li><a href="donate.html">Donate</a></li>
-            </ul>
-          </li>
-
-          <li class="submenu">
-            <a href="#">Resources</a>
-            <ul>
-              <li>
-                <a href="resources/stoicism-resources.html"
-                  >Stoicism Resources</a
-                >
-              </li>
-              <li><a href="newsletter.html">Newsletter</a></li>
-              <li><a href="interviews.html">Interviews</a></li>
-              <li>
-                <a href="info/updates-from-stoas/main.html">Stoa Updates</a>
-              </li>
-              <li><a href="./service/index.html">Stoic Service</a></li>
-            </ul>
-          </li>
-          <li><a href="join.html" class="button special">Join Us</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- Banner -->
-    <section id="banner"></section>
-
-    <section class="wrapper style3 container special">
-      <!-- Form -->
-      <form name="contact">
-        <h2>Contact Us</h2>
-        <br />
-        <p class="paragraph-center">
-          To start, list, or join a stoa, go <a href="join.html">here</a>. For
-          anything else, fill out the form below, and we'll respond as soon as
-          we're able.
-        </p>
-
-        <h3>Your Name</h3>
-        <input type="text" name="name" required />
-        <br / class="rwd-break">
-
-        <h3>Email Address</h3>
-        <input type="email" name="email" placeholder="me@email.com" required />
-        <br / class="rwd-break">
-
-        <h3>Message</h3>
-        <textarea
-          name="message"
-          type="text"
-          cols="40"
-          rows="5"
-          required
-        ></textarea>
-
-        <br / class="rwd-break">
-
-        <input type="submit" value="Send Message" onClick="submitForm()" />
-
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-        <script>
-          function submitForm() {
-            const scriptURL =
-              'https://script.google.com/macros/s/AKfycbxROu3vJB6iGStgLj5t62KRXks1fkMj4LbEiNhPa8AseoV8fK1SD6xjif7HMakfzF_7/exec'
-            const form = document.forms['contact']
-            form.addEventListener('submit', (e) => {
-              e.preventDefault()
-              fetch(scriptURL, {
-                method: 'POST',
-                body: new FormData(form),
-              }).then(document.forms['contact'].reset())
-            })
-            form.addEventListener('submit', onSubmit)
-            function onSubmit() {
-              swal('Thanks!', "We'll be in touch soon.", 'success')
-            }
-          }
-        </script>
-      </form>
-    </section>
-
-    <!--Footer-->
-
-    <footer id="footer">
-      <ul class="icons">
-        <li>
-          <a
-            href="https://www.facebook.com/stoicfellowship"
-            target="_blank"
-            class="icon circle fa-facebook"
-            ><span class="label">Facebook</span></a
-          >
+  <div id="page-wrapper"></div>
+  <!-- Heading Section -->
+  <header id="header" class="alt">
+    <a href="index.html" class="logo"
+      ><img src="images/tsf-svg.svg" width="100px" height="55px"
+    /></a>
+    <nav id="nav">
+      <ul>
+        <li class="current"><a href="stoic-groups.html">Communities</a></li>
+        <li class="submenu">
+          <a href="#">About</a>
+          <ul>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="donate.html">Donate</a></li>
+          </ul>
         </li>
-        <li>
-          <a
-            href="https://www.medium.com/@stoicfellowship"
-            target="_blank"
-            class="icon circle fa-medium"
-            ><span class="label">Medium</span></a
-          >
+
+        <li class="submenu">
+          <a href="#">Resources</a>
+          <ul>
+            <li>
+              <a href="resources/stoicism-resources.html">Stoicism Resources</a>
+            </li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="interviews.html">Interviews</a></li>
+            <li>
+              <a href="info/updates-from-stoas/main.html">Stoa Updates</a>
+            </li>
+            <li><a href="./service/index.html">Stoic Service</a></li>
+          </ul>
         </li>
-        <li>
-          <a
-            href="https://www.instagram.com/stoicfellowship"
-            target="_blank"
-            class="icon circle fa-instagram"
-            ><span class="label">Instagram</span></a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/company/the-stoic-fellowship"
-            target="_blank"
-            class="icon circle fa-linkedin"
-            ><span class="label">Linkedin</span></a
-          >
-        </li>
+        <li><a href="join.html" class="button special">Join Us</a></li>
       </ul>
+    </nav>
+  </header>
 
-      <ol class="foot">
-        <li>
-          &copy;
-          <script type="text/javascript">
-            document.write(new Date().getFullYear())
-          </script>
-          <strong>The Stoic Fellowship</strong>
-        </li>
-      </ol>
+  <!-- Banner -->
+  <section id="banner"></section>
 
-      <div>
-        <p class="foot">
-          The Stoic Fellowship is a registered 501(c)(3) nonprofit headquartered
-          in the USA
-          <br />
-          <a href="donate.html">Support the Stoic Renaissance</a>
-        </p>
-        <img src="images/tsf-svg.svg" width="10%" height="10%" />
-        <br />
-        <br />
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <br />
-        <a href="terms-of-use.html">Terms of Use</a>
-      </div>
-    </footer>
+  <section class="wrapper style3 container special">
+    <!-- Form -->
+    <form name="contact">
+      <h2>Contact Us</h2>
+      <br />
+      <p class="paragraph-center">
+        To start, list, or join a stoa, go <a href="join.html">here</a>. For
+        anything else, fill out the form below, and we'll respond as soon as
+        we're able.
+      </p>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-  </div>
+      <h3>Your Name</h3>
+      <input type="text" name="name" required />
+      <br / class="rwd-break">
+
+      <h3>Email Address</h3>
+      <input type="email" name="email" placeholder="me@email.com" required />
+      <br / class="rwd-break">
+
+      <h3>Message</h3>
+      <textarea
+        name="message"
+        type="text"
+        cols="40"
+        rows="5"
+        required
+      ></textarea>
+
+      <br / class="rwd-break">
+
+      <input type="submit" value="Send Message" onClick="submitForm()" />
+
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+      <script>
+        function submitForm() {
+          const scriptURL =
+            'https://script.google.com/macros/s/AKfycbxROu3vJB6iGStgLj5t62KRXks1fkMj4LbEiNhPa8AseoV8fK1SD6xjif7HMakfzF_7/exec'
+          const form = document.forms['contact']
+          form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            fetch(scriptURL, {
+              method: 'POST',
+              body: new FormData(form),
+            }).then(document.forms['contact'].reset())
+          })
+          form.addEventListener('submit', onSubmit)
+          function onSubmit() {
+            swal('Thanks!', "We'll be in touch soon.", 'success')
+          }
+        }
+      </script>
+    </form>
+  </section>
+
+  <!--Footer-->
+
+  <footer id="footer">
+    <ul class="icons">
+      <li>
+        <a
+          href="https://www.facebook.com/stoicfellowship"
+          target="_blank"
+          class="icon circle fa-facebook"
+          ><span class="label">Facebook</span></a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.medium.com/@stoicfellowship"
+          target="_blank"
+          class="icon circle fa-medium"
+          ><span class="label">Medium</span></a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.instagram.com/stoicfellowship"
+          target="_blank"
+          class="icon circle fa-instagram"
+          ><span class="label">Instagram</span></a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/company/the-stoic-fellowship"
+          target="_blank"
+          class="icon circle fa-linkedin"
+          ><span class="label">Linkedin</span></a
+        >
+      </li>
+    </ul>
+
+    <ol class="foot">
+      <li>
+        &copy;
+        <script type="text/javascript">
+          document.write(new Date().getFullYear())
+        </script>
+        <strong>The Stoic Fellowship</strong>
+      </li>
+    </ol>
+
+    <div>
+      <p class="foot">
+        The Stoic Fellowship is a registered 501(c)(3) nonprofit headquartered
+        in the USA
+        <br />
+        <a href="donate.html">Support the Stoic Renaissance</a>
+      </p>
+      <img src="images/tsf-svg.svg" width="10%" height="10%" />
+      <br />
+      <br />
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <br />
+      <a href="terms-of-use.html">Terms of Use</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.dropotron.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
