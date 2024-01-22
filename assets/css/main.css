@@ -3635,3 +3635,10 @@ body.index #main {
   -moz-animation: pop-in 0.5s;
   -ms-animation: pop-in 0.5s;
 }
+
+/* Logo Styling */
+
+.logo {
+  text-decoration: none;
+  border-bottom: none;
+}
