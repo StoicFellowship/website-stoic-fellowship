@@ -36,43 +36,9 @@
 </head>
 <body class="index">
   <div id="page-wrapper"></div>
+
   <!-- Header -->
-  <header id="header" class="alt">
-    <a href="index.html" class="logo"
-      ><img src="images/tsf-svg.svg" width="100px" height="55px"
-    /></a>
-    <nav id="nav">
-      <ul>
-        <li class="current"><a href="stoic-groups.html">Communities</a></li>
-        <li class="submenu">
-          <a href="#">About</a>
-          <ul>
-            <li><a href="mission.html">Mission</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="donate.html">Donate</a></li>
-          </ul>
-        </li>
-
-        <li class="submenu">
-          <a href="#">Resources</a>
-          <ul>
-            <li>
-              <a href="resources/stoicism-resources.html">Stoicism Resources</a>
-            </li>
-
-            <li><a href="interviews.html">Interviews</a></li>
-            <li>
-              <a href="info/updates-from-stoas/main.html">Stoa Updates</a>
-            </li>
-
-            <li><a href="./service/index.html">Stoic Service</a></li>
-          </ul>
-        </li>
-        <li class="current"><a href="/contact.html">Contact</a></li>
-        <li><a href="join.html" class="button special">Join Us</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header-template></header-template>
 
   <!-- Banner -->
   <section id="banner"></section>
@@ -178,70 +144,10 @@
 					</p> -->
 
   <!--Footer-->
-
-  <footer id="footer">
-    <ul class="icons">
-      <li>
-        <a
-          href="https://www.facebook.com/stoicfellowship"
-          target="_blank"
-          class="icon circle fa-facebook"
-          ><span class="label">Facebook</span></a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.medium.com/@stoicfellowship"
-          target="_blank"
-          class="icon circle fa-medium"
-          ><span class="label">Medium</span></a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.instagram.com/stoicfellowship"
-          target="_blank"
-          class="icon circle fa-instagram"
-          ><span class="label">Instagram</span></a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.linkedin.com/company/the-stoic-fellowship"
-          target="_blank"
-          class="icon circle fa-linkedin"
-          ><span class="label">Linkedin</span></a
-        >
-      </li>
-    </ul>
-
-    <ol class="foot">
-      <li>
-        &copy;
-        <script type="text/javascript">
-          document.write(new Date().getFullYear())
-        </script>
-        <strong>The Stoic Fellowship</strong>
-      </li>
-    </ol>
-
-    <div>
-      <p class="foot">
-        The Stoic Fellowship is a registered 501(c)(3) nonprofit headquartered
-        in the USA
-        <br />
-        <a href="donate.html">Support the Stoic Renaissance</a>
-      </p>
-      <img src="images/tsf-svg.svg" width="10%" height="10%" />
-      <br />
-      <br />
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <br />
-      <a href="terms-of-use.html">Terms of Use</a>
-    </div>
-  </footer>
+  <footer-template></footer-template>
 
   <!-- Scripts -->
+  <script src="assets/js/headerFooter.js"></script>
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/jquery.dropotron.min.js"></script>
   <script src="assets/js/jquery.scrolly.min.js"></script>
