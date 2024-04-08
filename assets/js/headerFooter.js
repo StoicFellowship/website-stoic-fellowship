@@ -23,6 +23,9 @@ class HeaderTemplate extends HTMLElement {
               <a href="resources/stoicism-resources.html">Stoicism Resources</a>
             </li>
             <li>
+            <a href="resources/glossary-of-stoicism-terms.html">Glossary of Terms</a>
+          </li>
+            <li>
               <a href="interviews.html">Interviews</a>
             </li>
             <li>

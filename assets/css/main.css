@@ -3642,3 +3642,22 @@ body.index #main {
   text-decoration: none;
   border-bottom: none;
 }
+
+/* Glossary Styling */
+.glossary {
+  max-width: 800px;
+  margin: auto;
+}
+
+dt {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 20px;
+  text-align: left;
+}
+
+dd {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  text-align: left;
+}
