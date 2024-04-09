@@ -1,0 +1,7 @@
+# Ignore min JS files
+breakpoints.min.JS
+browser.min.JS
+jquery.dropotron.min.JS
+jquery.min.JS
+jquery.scrollex.min.JS
+jquery.scrolly.min.JS
