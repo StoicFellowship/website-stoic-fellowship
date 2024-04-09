@@ -3,7 +3,7 @@ class HeaderTemplate extends HTMLElement {
     this.innerHTML = `
     <div id="header" class="alt">
     <a href="index.html" class="logo"
-      ><img src="images/tsf-svg.svg" width="100px" height="55px"
+      ><img src="images/tsf-logo.png" width="55px" height="55px"
     /></a>
     <nav id="nav">
       <ul>
