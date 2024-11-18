@@ -65,14 +65,6 @@ class FooterTemplate extends HTMLElement {
       </li>
       <li>
         <a
-          href="https://www.twitter.com/StoicFellowship"
-          target="_blank"
-          class="icon circle fa-twitter"
-          ><span class="label">Twitter</span></a
-        >
-      </li>
-      <li>
-        <a
           href="https://www.instagram.com/stoicfellowship"
           target="_blank"
           class="icon circle fa-instagram"
