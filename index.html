@@ -10,6 +10,20 @@
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="shortcut icon" href="images/favicon.ico" />
 
+  <!-- Mapbox Additions -->
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+    rel="stylesheet"
+  />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <!-- Mapbox Geocoder Plugin -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+    rel="stylesheet"
+  />
+  <!-- End Mapbox-->
+
   <!-- Matomo -->
   <script type="text/javascript">
     var _paq = (window._paq = window._paq || [])
@@ -134,7 +148,7 @@
       <p>Member Communities of <strong>The Stoic Fellowship</strong></p>
     </header>
 
-    <div class="center">
+    <!-- <div class="center">
       <iframe
         id="map"
         frameborder="0"
@@ -144,12 +158,12 @@
         "
         allowfullscreen
         src="//umap.openstreetmap.fr/en/map/stoic-fellowship_301993?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=true&searchControl=true&fullscreenControl=true#2/33.9/76.3"
-      ></iframe>
+      ></iframe> -->
 
-      <!-- <a href="//umap.openstreetmap.fr/en/map/stoic-fellowship_301993?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=true&searchControl=true&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=caption&fullscreenControl=true#2/33.9/76.3"> -->
-      <!-- <iframe src="https://www.google.com/maps/d/u/1/embed?mid=15XHyIar7vn3YmUHwA4X81wzFgHHmiGI&ehbc=2E312F" width="75%" height="525"></iframe> -->
+    <!-- <a href="//umap.openstreetmap.fr/en/map/stoic-fellowship_301993?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=true&searchControl=true&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=caption&fullscreenControl=true#2/33.9/76.3"> -->
+    <!-- <iframe src="https://www.google.com/maps/d/u/1/embed?mid=15XHyIar7vn3YmUHwA4X81wzFgHHmiGI&ehbc=2E312F" width="75%" height="525"></iframe> -->
 
-      <ul class="buttons">
+    <!-- <ul class="buttons">
         <li>
           <a
             href="https://umap.openstreetmap.fr/en/map/stoic-fellowship_301993#2/28.8/-7.6"
@@ -159,7 +173,17 @@
           >
         </li>
       </ul>
-    </div>
+    </div> -->
+
+    <div
+      id="map"
+      style="
+        width: 95%;
+        height: 700px;
+        border-radius: 0.5em;
+        box-shadow: 0 10px 45px -10px rgba(0, 0, 0, 0.15);
+      "
+    ></div>
 
     <div class="hr"></div>
 
@@ -278,3 +302,4 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/map.js"></script>

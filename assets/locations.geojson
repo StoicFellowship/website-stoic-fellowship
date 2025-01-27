@@ -1,0 +1,885 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Nashville Stoics",
+        "Stoa Website": "https://www.meetup.com/nashville-stoics",
+        "Stoa City": "Nashville",
+        "Stoa State": "TN",
+        "Stoa Country": "United States",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.748105, 40.69076]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa of Ontario",
+        "Stoa Website": "https://www.meetup.com/stoa-of-ontario-in-person-toronto/",
+        "Stoa City": "Toronto",
+        "Stoa State": "Ontario",
+        "Stoa Country": "Canada",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.38355, 43.647938]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Students of Stoicism",
+        "Stoa Website": "https://www.studentsofstoicism.com",
+        "Stoa City": "Phoenix",
+        "Stoa State": "AZ",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-112.075096, 33.44823]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Nairobi Stoa",
+        "Stoa Website": "https://facebook.com/profile.php?id=61554956831466",
+        "Stoa City": "Nairobi",
+        "Stoa State": "",
+        "Stoa Country": "Kenya",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [36.817245, -1.283253]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Berlin Stoics",
+        "Stoa Website": "https://meetup.com/berlin-stoics",
+        "Stoa City": "Berlin",
+        "Stoa State": "",
+        "Stoa Country": "Germany",
+        "Stoa Primary Language": "english",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [13.38886, 52.517037]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa Barcelona",
+        "Stoa Website": "https://www.stoabarcelona.com/",
+        "Stoa City": "Barcelona",
+        "Stoa State": "Catalonia",
+        "Stoa Country": "Spain",
+        "Stoa Primary Language": "Spanish",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2.16538, 41.38723]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa Gallica - Portique de Suisse romande",
+        "Stoa Website": "https://stoagallica.fr/rejoindre-un-portique/",
+        "Stoa City": "Lausanne",
+        "Stoa State": "Canton de Vaud",
+        "Stoa Country": "Switzerland",
+        "Stoa Primary Language": "French",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.632528, 46.520714]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa Madrid",
+        "Stoa Website": "https://www.stoamadrid.es/",
+        "Stoa City": "Madrid",
+        "Stoa State": "Madrid",
+        "Stoa Country": "Spain",
+        "Stoa Primary Language": "Spanish",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-3.701219, 40.421345]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "The Scotland Stoics",
+        "Stoa Website": "https://www.TheScotlandStoics.org.uk",
+        "Stoa City": "Edinburgh",
+        "Stoa State": "Scotland",
+        "Stoa Country": "United Kingdom",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-3.188375, 55.953346]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Melbourne City Stoics",
+        "Stoa Website": "https://www.facebook.com/groups/445739172736352/",
+        "Stoa City": "Melbourne",
+        "Stoa State": "Victoria",
+        "Stoa Country": "Australia",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [144.96333, -37.814198]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Global Stoa",
+        "Stoa Website": "https://www.meetup.com/global-stoa/",
+        "Stoa City": "New York City",
+        "Stoa State": "NY",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.005994, 40.712749]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Exeter Stoa",
+        "Stoa Website": "https://docs.google.com/forms/d/e/1FAIpQLSdTy6X-NTuwSAmwms2GI30IfoQbM1sB-eX4bixQiG-o3CmYlw/viewform",
+        "Stoa City": "Exeter",
+        "Stoa State": "Devon",
+        "Stoa Country": "UK",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-3.526911, 50.725562]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoic philippines chapter",
+        "Stoa Website": "https://www.facebook.com/share/15fogrmb9a/",
+        "Stoa City": "Cainta Rizal",
+        "Stoa State": "",
+        "Stoa Country": "Philippines",
+        "Stoa Primary Language": "English and Pilipino",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.11652, 14.577711]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Pittsburgh Stoa",
+        "Stoa Website": "https://sites.google.com/view/pghstoa/home",
+        "Stoa City": "Pittsburgh",
+        "Stoa State": "Pennsylvania",
+        "Stoa Country": "United States",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.99676, 40.439377]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Copenhagen Stoa",
+        "Stoa Website": "https://www.facebook.com/groups/CopenhagenStoa",
+        "Stoa City": "Copenhagen",
+        "Stoa State": "Copenhagen",
+        "Stoa Country": "Denmark",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.565933, 55.686263]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa Helvetica",
+        "Stoa Website": "https://www.stoahelvetica.ch/",
+        "Stoa City": "Zurich",
+        "Stoa State": "Zurich",
+        "Stoa Country": "Switzerland",
+        "Stoa Primary Language": "German",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.541096, 47.369733]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Memphis Stoics",
+        "Stoa Website": "https://www.facebook.com/groups/1685593235222296; https://www.meetup.com/memphis-stoics/; https://www.instagram.com/memstoics/",
+        "Stoa City": "Memphis",
+        "Stoa State": "Tennessee",
+        "Stoa Country": "United States",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.37719, 43.082844]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Philadelphia Stoa",
+        "Stoa Website": "https://philadelphiastoa.org",
+        "Stoa City": "Philadelphia",
+        "Stoa State": "Pennsylvania",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.166855, 39.952755]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "New York City Stoics",
+        "Stoa Website": "https://www.meetup.com/new-york-city-stoics/",
+        "Stoa City": "New York",
+        "Stoa State": "NY",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.005994, 40.712749]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Perth Stoa",
+        "Stoa Website": "https://www.facebook.com/groups/1024734191543801",
+        "Stoa City": "Perth",
+        "Stoa State": "",
+        "Stoa Country": "Australia",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [115.859726, -31.955711]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Cambridge Stoics",
+        "Stoa Website": "https://cambridgestoics.wordpress.com/",
+        "Stoa City": "Cambridge",
+        "Stoa State": "Cambridgeshire",
+        "Stoa Country": "United Kingdom",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [0.123582, 52.203482]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Orlando Stoics",
+        "Stoa Website": "https://orlandostoics.com",
+        "Stoa City": "Orlando",
+        "Stoa State": "FL",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-81.379036, 28.54211]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoics of Daytona Beach",
+        "Stoa Website": "https://meetup.com/stoics",
+        "Stoa City": "Daytona Beach",
+        "Stoa State": "FL",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-81.02118, 29.211498]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Los Angeles Stoics",
+        "Stoa Website": "https://losangelesstoics.com",
+        "Stoa City": "Los Angeles",
+        "Stoa State": "California",
+        "Stoa Country": "United States",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-118.25419, 34.04805]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoiker-Schweiz",
+        "Stoa Website": "https://www.stoiker-schweiz.ch",
+        "Stoa City": "Zürich",
+        "Stoa State": "Zürich",
+        "Stoa Country": "Switzerland",
+        "Stoa Primary Language": "German",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.541096, 47.369733]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Intergalactic Stoic School",
+        "Stoa Website": "https://www.intergalactic.school/",
+        "Stoa City": "Fremont",
+        "Stoa State": "California",
+        "Stoa Country": "U.S.A.",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-121.98184, 37.553867]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "The Redwood Stoa",
+        "Stoa Website": "https://redwoodstoa.wordpress.com",
+        "Stoa City": "San Leandro",
+        "Stoa State": "California",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.15487, 37.724277]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Tampa Stoics",
+        "Stoa Website": "https://meetup.com/tampa-stoics",
+        "Stoa City": "Tampa",
+        "Stoa State": "FL",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-82.4571, 27.947973]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Manchester Stoics",
+        "Stoa Website": "https://www.facebook.com/groups/398232340356000/",
+        "Stoa City": "Manchester",
+        "Stoa State": "",
+        "Stoa Country": "UK",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-2.245115, 53.479489]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Hannover Stoics",
+        "Stoa Website": "https://www.hannoverstoics.com",
+        "Stoa City": "Hannover",
+        "Stoa State": "Lower Saxony",
+        "Stoa Country": "Germany",
+        "Stoa Primary Language": "German",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.73597, 52.374283]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa of Washington D.C.",
+        "Stoa Website": "https://www.facebook.com/groups/2066498443583764",
+        "Stoa City": "Washington, D.C.",
+        "Stoa State": "District of Columbia",
+        "Stoa Country": "United States",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.03938, 38.90253]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Rheinland Stoiker",
+        "Stoa Website": "https://www.stoiker.net/gemeinschaft/rheinland-stoiker",
+        "Stoa City": "Bonn",
+        "Stoa State": "Northrhine-Westfalia",
+        "Stoa Country": "Germany",
+        "Stoa Primary Language": "German",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [7.099684, 50.73511]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Der Weg der Stoa",
+        "Stoa Website": "https://www.weg-der-stoa.de",
+        "Stoa City": "Kronberg",
+        "Stoa State": "Hessen",
+        "Stoa Country": "Deutschland",
+        "Stoa Primary Language": "German",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.508387, 50.180337]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Habitum Vitae",
+        "Stoa Website": "https://www.patreon.com/habitumvitae",
+        "Stoa City": "Majadahonda",
+        "Stoa State": "Madrid",
+        "Stoa Country": "Spain",
+        "Stoa Primary Language": "Spanish",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-3.87241, 40.4731]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "KISII STOIC CENTER",
+        "Stoa Website": "",
+        "Stoa City": "KISII",
+        "Stoa State": "NYANZA",
+        "Stoa Country": "KENYA",
+        "Stoa Primary Language": "kikisii",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [34.770634, -0.674339]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "South Sound Stoics",
+        "Stoa Website": "https://www.facebook.com/groups/675612444395487",
+        "Stoa City": "Tacoma",
+        "Stoa State": "Washington",
+        "Stoa Country": "United States",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.442, 47.255127]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "London Stoics",
+        "Stoa Website": "https://www.meetup.com/london-stoic",
+        "Stoa City": "London",
+        "Stoa State": "London",
+        "Stoa Country": "England",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.127647, 51.5073]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "VIVA VOX",
+        "Stoa Website": "https://aldodinucci.blogspot.com/",
+        "Stoa City": "GUARAPARI",
+        "Stoa State": "ESPIRITO SANTO",
+        "Stoa Country": "BRAZIL",
+        "Stoa Primary Language": "PORTUGUESE",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-40.49925, -20.669907]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Munich Stoics",
+        "Stoa Website": "http://www.facebook.com/groups/munichstoics/",
+        "Stoa City": "Munich",
+        "Stoa State": "Bavaria",
+        "Stoa Country": "Germany",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [11.575968, 48.136973]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Western Slope Stoa",
+        "Stoa Website": "https://org.coloradomesa.edu/~mapierce2/stoa/",
+        "Stoa City": "Grand Junction",
+        "Stoa State": "Colorado",
+        "Stoa Country": "United States",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-108.564445, 39.068314]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Northeast Ohio Stoics",
+        "Stoa Website": "https://www.facebook.com/groups/439745464171988/",
+        "Stoa City": "Cleveland",
+        "Stoa State": "Ohio",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-81.690315, 41.501377]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "MKE Stoic Fellowship",
+        "Stoa Website": "https://www.meetup.com/MKE-Stoic-Fellowship/",
+        "Stoa City": "Milwaukee",
+        "Stoa State": "Wisconsin",
+        "Stoa Country": "United States",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.90655, 43.038773]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Pretoria Stoics",
+        "Stoa Website": "https://www.facebook.com/PretoriaStoics/",
+        "Stoa City": "Pretoria",
+        "Stoa State": "Gauteng",
+        "Stoa Country": "South Africa",
+        "Stoa Primary Language": "Afrikaans / English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.190532, -25.746304]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Wye Stoic Fellowship",
+        "Stoa Website": "https://www.WyeBeer.com",
+        "Stoa City": "Trafford",
+        "Stoa State": "PA",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.76075, 40.38599]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Minnesota Stoics",
+        "Stoa Website": "https://www.meetup.com/minnesota-stoics/",
+        "Stoa City": "Minneapolis",
+        "Stoa State": "MN",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-93.2661, 44.976105]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "The Houston Stoics",
+        "Stoa Website": "https://www.facebook.com/share/g/dmSgRqWvTeCaPHu1/",
+        "Stoa City": "Houston",
+        "Stoa State": "Texas",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-95.363434, 29.760496]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoics in Himalaya",
+        "Stoa Website": "https://www.facebook.com/share/g/1BDcBo8SzW/?mibextid=wwXIfr",
+        "Stoa City": "Kathmandu",
+        "Stoa State": "Bagmati",
+        "Stoa Country": "Nepal",
+        "Stoa Primary Language": "Nepali & English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [85.31094, 27.714186]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Denver Stoics",
+        "Stoa Website": "https://www.meetup.com/Denver-Stoics/",
+        "Stoa City": "Denver",
+        "Stoa State": "Colorado",
+        "Stoa Country": "United States of America",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.98611, 39.74168]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Oslo Stoics",
+        "Stoa Website": "https://www.facebook.com/groups/1426454074046215",
+        "Stoa City": "Oslo",
+        "Stoa State": "Oslo",
+        "Stoa Country": "Norway",
+        "Stoa Primary Language": "Norwegian",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.76757, 59.905553]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Vancouver Stoics",
+        "Stoa Website": "https://sites.google.com/view/vancouver-stoics/vancouver-bc-stoics",
+        "Stoa City": "Vancouver",
+        "Stoa State": "British Columbia",
+        "Stoa Country": "Canada",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-123.11498, 49.260975]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa Honduras",
+        "Stoa Website": "https://www.facebook.com/share/g/129gxdipKCi/",
+        "Stoa City": "San Pedro Sula",
+        "Stoa State": "Cortés",
+        "Stoa Country": "Honduras",
+        "Stoa Primary Language": "Spanish",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-88.033164, 15.506448]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Peterborough Stoics",
+        "Stoa Website": "https://www.meetup.com/peterborough-stoics/",
+        "Stoa City": "Peterborough",
+        "Stoa State": "Cambridgeshire",
+        "Stoa Country": "UK",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.152163, 52.560205]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Faro Estoico",
+        "Stoa Website": "https://faroestoico.com.uy/",
+        "Stoa City": "Mercedes",
+        "Stoa State": "Soriano",
+        "Stoa Country": "Uruguay",
+        "Stoa Primary Language": "Spanish",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.030207, -33.25054]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "The Baltimore Stoic",
+        "Stoa Website": "https://www.facebook.com/share/g/1WA7hcvPmN/?mibextid=wwXIfr",
+        "Stoa City": "Baltimore",
+        "Stoa State": "Maryland",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.6123, 39.289642]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Bulgarian Stoic Community (Сдружение Българско стоическо общество)",
+        "Stoa Website": "https://www.facebook.com/groups/bulgarianstoicsociety",
+        "Stoa City": "Sofia",
+        "Stoa State": "",
+        "Stoa Country": "Bulgaria",
+        "Stoa Primary Language": "Bulgarian",
+        "Stoa Membership Type": "Network"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [23.320782, 42.69489]
+      }
+    }
+  ]
+}

@@ -3661,3 +3661,66 @@ dd {
   margin-bottom: 10px;
   text-align: left;
 }
+
+/* Mapbox Styling */
+
+.mapboxgl-popup {
+  max-width: 300px;
+  font-family: Dosis, sans-serif;
+  font-size: 14px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mapboxgl-popup-content {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.mapboxgl-popup-tip {
+  background-color: #fff;
+}
+
+.mapboxgl-popup h3 {
+  font-size: 18px;
+  margin: 8px 0 5px;
+  color: #333;
+}
+
+.mapboxgl-popup a {
+  color: #096c80;
+  text-decoration: none;
+}
+
+.mapboxgl-popup a:hover {
+  text-decoration: underline;
+}
+
+.mapboxgl-popup-close-button {
+  font-size: 16px; /* Increase the size */
+  font-weight: bold; /* Make it stand out */
+  color: #333; /* Change color */
+  background: transparent; /* Remove background */
+  border: none; /* Remove border */
+  cursor: pointer; /* Add pointer cursor */
+  position: absolute; /* Explicit positioning */
+  top: 8px; /* Adjust vertical position */
+  right: 8px; /* Adjust horizontal position */
+}
+
+.mapboxgl-popup-close-button:hover {
+  color: #096c80; /* Change color on hover */
+}
+
+.mapboxgl-ctrl-geocoder {
+  float: none !important; /* Override the float */
+  margin: 10px 0 0 10px; /* Keep the spacing consistent */
+  border-radius: 8px !important; /* Adjust to your design preference */
+}
+
+.mapboxgl-ctrl-geocoder input {
+  padding-left: 35px !important; /* Move text to the right, adjust as needed */
+  border-radius: 8px !important; /* Match the container */
+}

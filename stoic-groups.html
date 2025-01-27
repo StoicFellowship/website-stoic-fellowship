@@ -11,6 +11,20 @@
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="shortcut icon" href="images/favicon.ico" />
 
+  <!-- Mapbox Additions -->
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+    rel="stylesheet"
+  />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <!-- Mapbox Geocoder Plugin -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+    rel="stylesheet"
+  />
+  <!-- End Mapbox-->
+
   <!-- Matomo -->
   <script type="text/javascript">
     var _paq = (window._paq = window._paq || [])
@@ -68,7 +82,7 @@
 
     <br />
 
-    <section id="communities" class="center">
+    <!-- <section id="communities" class="center">
       <div class="center">
         <iframe
           id="map"
@@ -89,13 +103,23 @@
           </li>
         </ul>
       </div>
-    </section>
+    </section> -->
+
+    <div
+      id="map"
+      style="
+        width: 95%;
+        height: 700px;
+        border-radius: 0.5em;
+        box-shadow: 0 10px 45px -10px rgba(0, 0, 0, 0.15);
+      "
+    ></div>
 
     <div class="hr"></div>
 
     <!-- List of Stoas -->
 
-    <section id="list-of-stoas" class="center">
+    <!-- <section id="list-of-stoas" class="center">
       <div>
         <h2>Africa</h2>
         <ul>
@@ -515,7 +539,7 @@
           </li>
         </ul>
       </div>
-    </section>
+    </section> -->
 
     <br />
 
@@ -590,3 +614,4 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/map.js"></script>
