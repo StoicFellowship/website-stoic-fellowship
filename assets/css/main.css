@@ -3723,4 +3723,48 @@ dd {
 .mapboxgl-ctrl-geocoder input {
   padding-left: 35px !important; /* Move text to the right, adjust as needed */
   border-radius: 8px !important; /* Match the container */
+  height: 60px !important;
+}
+
+.mapboxgl-ctrl-geocoder .mapboxgl-ctrl-geocoder--icon {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  left: 10px !important;
+  color: rgba(124, 128, 129, 0.5) !important;
+}
+
+/* Force the Mapbox Geocoder input inside the form to match other inputs */
+#form-geocoder-container .mapboxgl-ctrl-geocoder {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100px;
+  background: none !important;
+  box-shadow: none !important;
+  /* border: solid 3px rgba(124, 128, 129, 0.2) !important; */
+  border-radius: 8px !important;
+  padding: 0 !important;
+  min-height: 50px !important;
+  margin: 0;
+}
+
+/* Loading Spinner */
+
+.loading-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+  border: 2px solid #fff;
+  border-top: 2px solid #000;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

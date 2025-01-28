@@ -7,8 +7,24 @@
     name="description"
     content="Want to meet other Stoics in your community? The Stoic Fellowship builds, fosters, and connects groups of Stoics around the world. Join a Stoicism community today!"
   />
+  <link rel="canonical" href="https://www.stoicfellowship.com/membership" />
+
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="shortcut icon" href="images/favicon.ico" />
+
+  <!-- Mapbox GL JS -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+    rel="stylesheet"
+  />
+
+  <!-- Mapbox Geocoder Plugin -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+    rel="stylesheet"
+  />
 </head>
 
 <!-- Matomo -->
@@ -66,20 +82,12 @@
       <input type="text" name="virtual-or-local" />
       <br / class="rwd-break">
 
-      <h3>Location of Stoic Community</h3>
-      <input
-        type="text"
-        id="address-input"
-        name="location"
-        placeholder="Where are you located?"
-        style="height: 60px"
-      />
-      <script src="https://cdn.jsdelivr.net/places.js/1/places.min.js"></script>
-      <script>
-        var placesAutocomplete = places({
-          container: document.querySelector('#address-input'),
-        })
-      </script>
+      <h3>Location of the Community</h3>
+      <div id="form-geocoder-container"></div>
+      <!-- This is where Mapbox Geocoder will go -->
+      <input type="hidden" id="location" name="location" />
+      <input type="hidden" id="latitude" name="latitude" />
+      <input type="hidden" id="longitude" name="longitude" />
 
       <br / class="rwd-break"> <br / class="rwd-break">
 
@@ -114,26 +122,69 @@
         for membership.
       </p>
 
-      <input type="submit" value="Submit" onClick="submitForm()" />
+      <input type="submit" value="Submit" />
 
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
       <script>
-        function submitForm() {
-          const scriptURL =
-            'https://script.google.com/macros/s/AKfycbzvjWL2FySXubH0nZiLN7g5kGZig6WGPldgzmhCHshAL-ApKy8cCvDUBKP77QsdxFu3BQ/exec'
-          const form = document.forms['existing-stoa']
-          form.addEventListener('submit', (e) => {
-            e.preventDefault()
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) }).then(
-              document.forms['existing-stoa'].reset()
-            )
-          })
-          form.addEventListener('submit', onSubmit)
-          function onSubmit() {
-            swal('Thanks!', "We'll be in touch soon.", 'success')
+        document.forms['existing-stoa'].addEventListener(
+          'submit',
+          function (e) {
+            e.preventDefault() // Prevent the default form submission behavior
+
+            const scriptURL =
+              'https://script.google.com/macros/s/AKfycbzvjWL2FySXubH0nZiLN7g5kGZig6WGPldgzmhCHshAL-ApKy8cCvDUBKP77QsdxFu3BQ/exec'
+
+            const formData = new FormData(this)
+
+            // Ensure the location input values from Mapbox are captured
+            const location = document.getElementById('location')?.value || ''
+            const latitude = document.getElementById('latitude')?.value || ''
+            const longitude = document.getElementById('longitude')?.value || ''
+
+            formData.append('location', location)
+            formData.append('latitude', latitude)
+            formData.append('longitude', longitude)
+
+            // Get the submit button and create a spinner
+            const submitButton = document.querySelector('input[type="submit"]')
+            submitButton.disabled = true // Disable the button to prevent multiple submissions
+            submitButton.value = 'Submitting...' // Change text to indicate submission
+
+            // Show a spinner
+            const spinner = document.createElement('span')
+            spinner.classList.add('loading-spinner')
+            submitButton.parentNode.appendChild(spinner)
+
+            // Fetch request to send form data
+            fetch(scriptURL, { method: 'POST', body: formData })
+              .then(() => {
+                this.reset() // Reset the form after successful submission
+
+                // Restore button & remove spinner
+                submitButton.disabled = false
+                submitButton.value = 'Submit'
+                spinner.remove()
+
+                // Show a success message using SweetAlert
+                swal('Thanks!', "We'll be in touch soon.", 'success')
+              })
+              .catch((error) => {
+                console.error('Error!', error.message)
+
+                // Restore button & remove spinner on error
+                submitButton.disabled = false
+                submitButton.value = 'Submit'
+                spinner.remove()
+
+                swal(
+                  'Oops!',
+                  'Something went wrong. Please try again later.',
+                  'error'
+                )
+              })
           }
-        }
+        )
       </script>
 
       <br />
@@ -157,4 +208,5 @@
   <script src="assets/js/breakpoints.min.js"></script>
   <script src="assets/js/util.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/geocode.js"></script>
 </body>
