@@ -660,7 +660,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Stoa Name": "MKE Stoic Fellowship",
+        "Stoa Name": "MKE Stoics",
         "Stoa Website": "https://www.meetup.com/MKE-Stoic-Fellowship/",
         "Stoa City": "Milwaukee",
         "Stoa State": "Wisconsin",
@@ -692,7 +692,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Stoa Name": "Wye Stoic Fellowship",
+        "Stoa Name": "Wye Stoics",
         "Stoa Website": "https://www.WyeBeer.com",
         "Stoa City": "Trafford",
         "Stoa State": "PA",
@@ -1136,6 +1136,176 @@
       "geometry": {
         "type": "Point",
         "coordinates": [2.300174, 49.894585]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "North Carolina Stoics",
+        "Stoa Website": "https://www.facebook.com/profile.php?id=100087401265645&mibextid=ZbWKwL",
+        "Stoa City": "Clinton",
+        "Stoa State": "North Carolina",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Non-Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.32453, 34.99789]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "San Antonio Stoics",
+        "Stoa Website": "https://www.facebook.com/groups/452723076390876",
+        "Stoa City": "San Antonio",
+        "Stoa State": "Texas",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Non-Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-98.491486, 29.424534]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Kansas City Stoa",
+        "Stoa Website": "https://www.instagram.com/kcstoa/",
+        "Stoa City": "Kansas City",
+        "Stoa State": "Missouri",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Non-Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-94.57863, 39.098484]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Via Estoica",
+        "Stoa Website": "https://www.instagram.com/viaestoica/",
+        "Stoa City": "Santiago",
+        "Stoa State": "Región Metropolitana",
+        "Stoa Country": "Chile",
+        "Stoa Primary Language": "Spanish",
+        "Stoa Membership Type": "Non-Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.368523, -37.463091]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Austin Stoics",
+        "Stoa Website": "https://meetup.com/austin-stoic-meetup/",
+        "Stoa City": "Austin",
+        "Stoa State": "Texas",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Non-Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.742805, 30.268072]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Arizona Stoics",
+        "Stoa Website": "https://www.meetup.com/arizona-stoics/",
+        "Stoa City": "Tempe",
+        "Stoa State": "Arizona",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Non-Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-111.939964, 33.425507]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "PDX Stoa",
+        "Stoa Website": "https://www.meetup.com/pdx-stoa/",
+        "Stoa City": "Portland",
+        "Stoa State": "Oregon",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Non-Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.67837, 45.515198]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Aukland Stoics",
+        "Stoa Website": "https://www.meetup.com/auckland-stoics/",
+        "Stoa City": "Aukland",
+        "Stoa State": "",
+        "Stoa Country": "New Zealand",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Non-Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [174.76591, -36.846996]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Blue Ridge Stoics",
+        "Stoa Website": "https://www.meetup.com/blue-ridge-stoics",
+        "Stoa City": "Stuarts Draft",
+        "Stoa State": "Virginia",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Non-Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.025635, 38.037792]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa Ataraxia",
+        "Stoa Website": "https://www.instagram.com/stoa.ataraxia",
+        "Stoa City": "VIÇOSA",
+        "Stoa State": "MINAS GERAIS",
+        "Stoa Country": "Brazil",
+        "Stoa Primary Language": "Portuguese",
+        "Stoa Membership Type": "Non-Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-42.878147, -20.754402]
       }
     }
   ]
