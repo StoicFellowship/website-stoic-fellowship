@@ -7,13 +7,12 @@ class HeaderTemplate extends HTMLElement {
     /></a>
     <nav id="nav">
       <ul>
-        <li class="current"><a href="stoic-groups.html">Communities</a></li>
         <li class="submenu">
           <a href="#">About</a>
           <ul>
             <li><a href="mission.html">Mission</a></li>
             <li><a href="team.html">Team</a></li>
-            <li><a href="donate.html">Donate</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
           </ul>
         </li>
         <li class="submenu">
@@ -34,7 +33,7 @@ class HeaderTemplate extends HTMLElement {
             <li><a href="service/index.html">Stoic Service</a></li>
           </ul>
         </li>
-        <li class="current"><a href="/contact.html">Contact</a></li>
+        <li class="current"><a href="/donate.html">Donate</a></li>
         <li><a href="join.html" class="button special">Join Us</a></li>
       </ul>
     </nav>
