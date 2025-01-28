@@ -10,7 +10,7 @@
         "Stoa State": "TN",
         "Stoa Country": "United States",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -26,7 +26,7 @@
         "Stoa State": "Ontario",
         "Stoa Country": "Canada",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -42,7 +42,7 @@
         "Stoa State": "AZ",
         "Stoa Country": "USA",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -58,7 +58,7 @@
         "Stoa State": "",
         "Stoa Country": "Kenya",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -74,7 +74,7 @@
         "Stoa State": "",
         "Stoa Country": "Germany",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -90,7 +90,7 @@
         "Stoa State": "Catalonia",
         "Stoa Country": "Spain",
         "Stoa Primary Language": "Spanish",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -106,7 +106,7 @@
         "Stoa State": "Canton de Vaud",
         "Stoa Country": "Switzerland",
         "Stoa Primary Language": "French",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -122,7 +122,7 @@
         "Stoa State": "Madrid",
         "Stoa Country": "Spain",
         "Stoa Primary Language": "Spanish",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -138,7 +138,7 @@
         "Stoa State": "Scotland",
         "Stoa Country": "United Kingdom",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -154,7 +154,7 @@
         "Stoa State": "Victoria",
         "Stoa Country": "Australia",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -170,7 +170,7 @@
         "Stoa State": "NY",
         "Stoa Country": "USA",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -186,7 +186,7 @@
         "Stoa State": "Devon",
         "Stoa Country": "UK",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -202,7 +202,7 @@
         "Stoa State": "",
         "Stoa Country": "Philippines",
         "Stoa Primary Language": "English and Pilipino",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -218,7 +218,7 @@
         "Stoa State": "Pennsylvania",
         "Stoa Country": "United States",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -234,7 +234,7 @@
         "Stoa State": "Copenhagen",
         "Stoa Country": "Denmark",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -250,7 +250,7 @@
         "Stoa State": "Zurich",
         "Stoa Country": "Switzerland",
         "Stoa Primary Language": "German",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -266,7 +266,7 @@
         "Stoa State": "Tennessee",
         "Stoa Country": "United States",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -282,7 +282,7 @@
         "Stoa State": "Pennsylvania",
         "Stoa Country": "USA",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -298,7 +298,7 @@
         "Stoa State": "NY",
         "Stoa Country": "USA",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -314,7 +314,7 @@
         "Stoa State": "",
         "Stoa Country": "Australia",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -330,7 +330,7 @@
         "Stoa State": "Cambridgeshire",
         "Stoa Country": "United Kingdom",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -346,7 +346,7 @@
         "Stoa State": "FL",
         "Stoa Country": "USA",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -362,7 +362,7 @@
         "Stoa State": "FL",
         "Stoa Country": "USA",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -378,7 +378,7 @@
         "Stoa State": "California",
         "Stoa Country": "United States",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -394,7 +394,7 @@
         "Stoa State": "Zürich",
         "Stoa Country": "Switzerland",
         "Stoa Primary Language": "German",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -410,7 +410,7 @@
         "Stoa State": "California",
         "Stoa Country": "U.S.A.",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -426,7 +426,7 @@
         "Stoa State": "California",
         "Stoa Country": "USA",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -442,7 +442,7 @@
         "Stoa State": "FL",
         "Stoa Country": "USA",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -458,7 +458,7 @@
         "Stoa State": "",
         "Stoa Country": "UK",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -474,7 +474,7 @@
         "Stoa State": "Lower Saxony",
         "Stoa Country": "Germany",
         "Stoa Primary Language": "German",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -490,7 +490,7 @@
         "Stoa State": "District of Columbia",
         "Stoa Country": "United States",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -506,7 +506,7 @@
         "Stoa State": "Northrhine-Westfalia",
         "Stoa Country": "Germany",
         "Stoa Primary Language": "German",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -522,7 +522,7 @@
         "Stoa State": "Hessen",
         "Stoa Country": "Deutschland",
         "Stoa Primary Language": "German",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -538,7 +538,7 @@
         "Stoa State": "Madrid",
         "Stoa Country": "Spain",
         "Stoa Primary Language": "Spanish",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -554,7 +554,7 @@
         "Stoa State": "NYANZA",
         "Stoa Country": "KENYA",
         "Stoa Primary Language": "kikisii",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -570,7 +570,7 @@
         "Stoa State": "Washington",
         "Stoa Country": "United States",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -586,7 +586,7 @@
         "Stoa State": "London",
         "Stoa Country": "England",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -602,7 +602,7 @@
         "Stoa State": "ESPIRITO SANTO",
         "Stoa Country": "BRAZIL",
         "Stoa Primary Language": "PORTUGUESE",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -618,7 +618,7 @@
         "Stoa State": "Bavaria",
         "Stoa Country": "Germany",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -634,7 +634,7 @@
         "Stoa State": "Colorado",
         "Stoa Country": "United States",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -650,7 +650,7 @@
         "Stoa State": "Ohio",
         "Stoa Country": "USA",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -666,7 +666,7 @@
         "Stoa State": "Wisconsin",
         "Stoa Country": "United States",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -682,7 +682,7 @@
         "Stoa State": "Gauteng",
         "Stoa Country": "South Africa",
         "Stoa Primary Language": "Afrikaans / English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -698,7 +698,7 @@
         "Stoa State": "PA",
         "Stoa Country": "USA",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -714,7 +714,7 @@
         "Stoa State": "MN",
         "Stoa Country": "USA",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -730,7 +730,7 @@
         "Stoa State": "Texas",
         "Stoa Country": "USA",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -746,7 +746,7 @@
         "Stoa State": "Bagmati",
         "Stoa Country": "Nepal",
         "Stoa Primary Language": "Nepali & English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -762,7 +762,7 @@
         "Stoa State": "Colorado",
         "Stoa Country": "United States of America",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -778,7 +778,7 @@
         "Stoa State": "Oslo",
         "Stoa Country": "Norway",
         "Stoa Primary Language": "Norwegian",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -794,7 +794,7 @@
         "Stoa State": "British Columbia",
         "Stoa Country": "Canada",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -810,7 +810,7 @@
         "Stoa State": "Cortés",
         "Stoa Country": "Honduras",
         "Stoa Primary Language": "Spanish",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -826,7 +826,7 @@
         "Stoa State": "Cambridgeshire",
         "Stoa Country": "UK",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -842,7 +842,7 @@
         "Stoa State": "Soriano",
         "Stoa Country": "Uruguay",
         "Stoa Primary Language": "Spanish",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -858,7 +858,7 @@
         "Stoa State": "Maryland",
         "Stoa Country": "USA",
         "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
@@ -874,11 +874,268 @@
         "Stoa State": "",
         "Stoa Country": "Bulgaria",
         "Stoa Primary Language": "Bulgarian",
-        "Stoa Membership Type": "Network"
+        "Stoa Membership Type": "Member"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [23.320782, 42.69489]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Brisbane Stoics",
+        "Stoa Website": "https://brisbanestoics.com/",
+        "Stoa City": "Brisbane",
+        "Stoa State": "Queensland",
+        "Stoa Country": "Australia",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [153.0277, -27.469099]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Christchurch Stoics",
+        "Stoa Website": "https://christchurch.stoics.nz/",
+        "Stoa City": "Christchurch",
+        "Stoa State": "Canterbury",
+        "Stoa Country": "New Zealand",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [172.63503, -43.533516]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Frankfurt Stoics",
+        "Stoa Website": "https://www.facebook.com/groups/316369745660696/",
+        "Stoa City": "Frankfurt am Main",
+        "Stoa State": "",
+        "Stoa Country": "Germany",
+        "Stoa Primary Language": "German",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.683012, 50.110596]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Harrisburg Stoics",
+        "Stoa Website": "https://harrisburgstoics.com",
+        "Stoa City": "Mechanicsburg, PA",
+        "Stoa State": "PA",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.00804, 40.213276]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "PSYSK",
+        "Stoa Website": "https://psysk.com",
+        "Stoa City": "Kyiv",
+        "Stoa State": "",
+        "Stoa Country": "Ukraine",
+        "Stoa Primary Language": "Ukrainian",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [30.524136, 50.450034]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa Gallica",
+        "Stoa Website": "https://stoagallica.fr/rejoindre-un-portique/",
+        "Stoa City": "Paris",
+        "Stoa State": "",
+        "Stoa Country": "France",
+        "Stoa Primary Language": "French",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2.348392, 48.853495]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa Guatemala",
+        "Stoa Website": "https://chat.whatsapp.com/FIWC0KwJZcXFHh8GlZsqj5",
+        "Stoa City": "Guatemala",
+        "Stoa State": "",
+        "Stoa Country": "Guatemala",
+        "Stoa Primary Language": "Spanish",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-90.5314, 14.6228]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa Linz/Austria",
+        "Stoa Website": "https://philopraxis-holzinger.com",
+        "Stoa City": "Linz",
+        "Stoa State": "Upper Austria",
+        "Stoa Country": "Austria",
+        "Stoa Primary Language": "German",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.284805, 48.305813]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa Lisboa",
+        "Stoa Website": "https://stoalisboa.com/",
+        "Stoa City": "Lisbon",
+        "Stoa State": "",
+        "Stoa Country": "Portugal",
+        "Stoa Primary Language": "Portuguese",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-9.143052, 38.71731]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "stoa.qz",
+        "Stoa Website": "https://www.instagram.com/stoa.qz",
+        "Stoa City": "Astana",
+        "Stoa State": "",
+        "Stoa Country": "Kazakhstan",
+        "Stoa Primary Language": "Kazakh ",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [71.430668, 51.128221]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "The New England Stoics ",
+        "Stoa Website": "https://www.meetup.com/New-England-Stoics/",
+        "Stoa City": "Boston",
+        "Stoa State": "MA",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English ",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.0568, 42.35888]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Tokyo Stoics",
+        "Stoa Website": "https://www.meetup.com/en-AU/tokyo-stoicism-meetup-group/",
+        "Stoa City": "Tokyo",
+        "Stoa State": "Tokyo",
+        "Stoa Country": "Japan",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [139.692912, 35.688985]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Trondheim Stoics",
+        "Stoa Website": "https://www.facebook.com/groups/trondheimstoics/",
+        "Stoa City": "Trondheim",
+        "Stoa State": "",
+        "Stoa Country": "Norway",
+        "Stoa Primary Language": "English and Norwegian",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.397414, 63.432697]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa MX",
+        "Stoa Website": "https://chat.whatsapp.com/LnhmSDyTrUoEeuzB46uKvt",
+        "Stoa City": "Puebla",
+        "Stoa State": "",
+        "Stoa Country": "Mexico",
+        "Stoa Primary Language": "Spanish",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-98.19906, 19.043692]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa Gallica - Portique de Montréal",
+        "Stoa Website": "https://stoagallica.fr/rejoindre-un-portique/",
+        "Stoa City": "Montreal",
+        "Stoa State": "Quebec",
+        "Stoa Country": "Canada",
+        "Stoa Primary Language": "French",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.5728, 45.50283]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa Gallica - Portique d'Amiens",
+        "Stoa Website": "https://stoagallica.fr/rejoindre-un-portique/",
+        "Stoa City": "Amiens",
+        "Stoa State": "",
+        "Stoa Country": "France",
+        "Stoa Primary Language": "French",
+        "Stoa Membership Type": "Non-Member"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2.300174, 49.894585]
       }
     }
   ]

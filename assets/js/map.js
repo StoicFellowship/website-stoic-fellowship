@@ -68,7 +68,7 @@ async function fetchUserLocation() {
         el.className = 'custom-marker'
 
         // Check the "type" property to decide which SVG to use
-        if (feature.properties['Stoa Membership Type'] === 'Network') {
+        if (feature.properties['Stoa Membership Type'] === 'Member') {
           el.innerHTML = `
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
               <circle cx="12" cy="12" r="10" fill="#ff7066" />
