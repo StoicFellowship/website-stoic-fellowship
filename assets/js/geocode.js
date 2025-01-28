@@ -3,8 +3,7 @@ window.mapboxgl.accessToken = document.addEventListener(
   function () {
     // Ensure Mapbox token is set
     mapboxgl.accessToken =
-      'pk.eyJ1Ijoic3RvaWNmZWxsb3dzaGlwIiwiYSI6ImNtNmdtcWlwdjAyd3Myam9vam5jb3RzZHYifQ.c6Z3uBQJenaRFtKSU9jG1w'
-    //   'pk.eyJ1Ijoic3RvaWNmZWxsb3dzaGlwIiwiYSI6ImNtNmZiOTR6eTAzNW0ybG9yN3ExeWNkeTkifQ.YrdYpBftjfd0pBVjgUKRgw'
+      'pk.eyJ1Ijoic3RvaWNmZWxsb3dzaGlwIiwiYSI6ImNtNmZiOTR6eTAzNW0ybG9yN3ExeWNkeTkifQ.YrdYpBftjfd0pBVjgUKRgw'
 
     // Initialize geocoder
     const geocoder = new MapboxGeocoder({
