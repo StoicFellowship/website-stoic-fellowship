@@ -1,5 +1,8 @@
 User-agent: *
-Disallow: /private/
-Disallow: /admin/
+Disallow:
 
+# Sitemap location
 Sitemap: https://stoicfellowship.com/sitemap.xml
+
+
+
