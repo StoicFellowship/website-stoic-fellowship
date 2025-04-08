@@ -1175,6 +1175,23 @@
     {
       "type": "Feature",
       "properties": {
+        "Stoa Name": "Brussels Stoics",
+        "Stoa Website": "https://www.meetup.com/es-ES/members/453963093/",
+        "Stoa City": "Brussels",
+        "Stoa State": "",
+        "Stoa Country": "Belgium",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Non-Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.21261, 50.50519]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "Stoa Name": "Kansas City Stoa",
         "Stoa Website": "https://www.instagram.com/kcstoa/",
         "Stoa City": "Kansas City",
