@@ -3,7 +3,7 @@ class HeaderTemplate extends HTMLElement {
     this.innerHTML = `
     <div id="header" class="alt">
     <a href="index.html" class="logo"
-      ><img src="images/tsf-logo.png" width="55px" height="55px"
+      ><img src="images/logo/SVGs/Logo-2 - Inverted Logo - Wht-Purp Disc.svg" width="55px" height="55px"
     /></a>
     <nav id="nav">
       <ul>
@@ -97,7 +97,7 @@ class FooterTemplate extends HTMLElement {
         <br />
         <a href="donate.html">Support the Stoic Renaissance</a>
       </p>
-      <img src="images/tsf-svg.svg" width="10%" height="10%" />
+      <img src="images/logo/SVGs/Logo-2 - Inverted Logo - Wht-Purp Disc.svg" width="10%" height="10%" />
       <br />
       <br />
       <a href="privacy-policy.html">Privacy Policy</a>
