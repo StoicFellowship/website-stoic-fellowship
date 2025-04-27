@@ -124,7 +124,7 @@ class FooterTemplateChild extends HTMLElement {
             The Stoic Fellowship is a registered 501(c)(3) nonprofit
             headquartered in the USA
             <br />
-            <a href='/donate.html'>Support the Stoic Renaissance</a>
+            <a href='/donate.html'>Support The Stoic Fellowship</a>
           </p>
           <img src='/images/logo/SVGs/Logo-2 - Inverted Logo - Wht-Purp Disc.svg' width='10%' height='10%' />
           <br />
