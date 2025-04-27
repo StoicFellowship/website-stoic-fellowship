@@ -1324,6 +1324,23 @@
         "type": "Point",
         "coordinates": [-42.878147, -20.754402]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoa Helvetica",
+        "Stoa Website": "https://www.stoahelvetica.ch/",
+        "Stoa City": "Zürich",
+        "Stoa State": "Zürich",
+        "Stoa Country": "Switzerland",
+        "Stoa Primary Language": "German",
+        "Stoa Membership Type": "Non-Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.6356452, 47.359536]
+      }
     }
   ]
 }
