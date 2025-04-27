@@ -1341,6 +1341,23 @@
         "type": "Point",
         "coordinates": [8.6356452, 47.359536]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Vegas Stoics",
+        "Stoa Website": "https://www.meetup.com/vegas-stoics-wisdom-justice-courage-temperance/",
+        "Stoa City": "Las Vegas",
+        "Stoa State": "Nevada",
+        "Stoa Country": "USA",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-115.14062, 36.169213]
+      }
     }
   ]
 }
