@@ -132,7 +132,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Stoa Name": "The Scotland Stoics",
+        "Stoa Name": "Stoa Akrokorifi [The Scotland Stoics]",
         "Stoa Website": "https://www.TheScotlandStoics.org.uk",
         "Stoa City": "Edinburgh",
         "Stoa State": "Scotland",
@@ -1357,6 +1357,40 @@
       "geometry": {
         "type": "Point",
         "coordinates": [-115.14062, 36.169213]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoidion Sideron [The Scotland Stoics]",
+        "Stoa Website": "https://www.TheScotlandStoics.org.uk",
+        "Stoa City": "Glasgow",
+        "Stoa State": "",
+        "Stoa Country": "Scotland",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-4.25763, 55.86515]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Stoidion Nautikon [The Scotland Stoics]",
+        "Stoa Website": "https://www.TheScotlandStoics.org.uk",
+        "Stoa City": "Dundee",
+        "Stoa State": "",
+        "Stoa Country": "Scotland",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-2.9707, 56.462002]
       }
     }
   ]
