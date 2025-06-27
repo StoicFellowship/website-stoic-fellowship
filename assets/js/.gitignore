@@ -1,0 +1,22 @@
+# Node dependencies
+node_modules/
+package-lock.json
+
+# Build output
+dist/
+.next/
+out/
+.netlify/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Mac system files
+.DS_Store
