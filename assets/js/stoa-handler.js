@@ -42,8 +42,16 @@ document.forms['existing-stoa'].addEventListener('submit', async (e) => {
     swal('Thanks!', "We'll be in touch soon.", 'success')
     // remove spinner
     spinner.remove()
+    // re-enable the button
+    submitButton.disabled = false
+    submitButton.value = 'Submit'
   } catch (err) {
     console.error(err)
     swal('Oops!', 'Something went wrong. Please try again later.', 'error')
+    // remove spinner
+    spinner.remove()
+    // re-enable the button
+    submitButton.disabled = false
+    submitButton.value = 'Submit'
   }
 })
