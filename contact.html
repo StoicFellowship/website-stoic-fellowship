@@ -44,60 +44,31 @@
 
   <br />
 
-  <section class="wrapper style3 container special">
+  <section class="wrapper style3 container special" style="max-width: 800px">
     <!-- Form -->
-    <br />
-    <form name="contact">
+    <form name="contact" id="contactForm">
       <h2>Contact Us</h2>
-      <br />
-      <p class="paragraph-center">
+
+      <p>
         To start, list, or join a Stoa, go <a href="join.html">here</a>. For
-        anything else, fill out the form below, and we'll respond as soon as
-        we're able.
+        anything else, fill out the form below, and we'll respond as soon as we
+        can!
       </p>
 
       <h3>Your Name</h3>
       <input type="text" name="name" required />
-      <br / class="rwd-break">
 
       <h3>Email Address</h3>
       <input type="email" name="email" placeholder="me@email.com" required />
-      <br / class="rwd-break">
 
       <h3>Message</h3>
-      <textarea
-        name="message"
-        type="text"
-        cols="40"
-        rows="5"
-        required
-      ></textarea>
+      <textarea name="message" cols="40" rows="5" required></textarea>
+      <br />
 
-      <br / class="rwd-break">
-
-      <input type="submit" value="Send Message" onClick="submitForm()" />
-
-      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-      <script>
-        function submitForm() {
-          const scriptURL =
-            'https://script.google.com/macros/s/AKfycbxROu3vJB6iGStgLj5t62KRXks1fkMj4LbEiNhPa8AseoV8fK1SD6xjif7HMakfzF_7/exec'
-          const form = document.forms['contact']
-          form.addEventListener('submit', (e) => {
-            e.preventDefault()
-            fetch(scriptURL, {
-              method: 'POST',
-              body: new FormData(form),
-            }).then(document.forms['contact'].reset())
-          })
-          form.addEventListener('submit', onSubmit)
-          function onSubmit() {
-            swal('Thanks!', "We'll be in touch soon.", 'success')
-          }
-        }
-      </script>
+      <input type="submit" value="Send Message" />
     </form>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </section>
 
   <!-- CTA -->
@@ -108,6 +79,7 @@
 
   <!-- Scripts -->
   <script src="assets/js/headerFooter.js"></script>
+  <script src="/assets/js/contact-handler.js"></script>
   <script src="assets/js/cta.js"></script>
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/jquery.dropotron.min.js"></script>
