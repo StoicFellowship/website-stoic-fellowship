@@ -471,69 +471,7 @@
       <input type="submit" value="Submit" />
 
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-      <script>
-        document.forms['existing-stoa'].addEventListener(
-          'submit',
-          function (e) {
-            e.preventDefault() // Prevent the default form submission behavior
-
-            const scriptURL =
-              'https://script.google.com/macros/s/AKfycbzvjWL2FySXubH0nZiLN7g5kGZig6WGPldgzmhCHshAL-ApKy8cCvDUBKP77QsdxFu3BQ/exec'
-
-            const formData = new FormData(this)
-
-            // Ensure the location input values from Mapbox are captured
-            const location = document.getElementById('location')?.value || ''
-            const latitude = document.getElementById('latitude')?.value || ''
-            const longitude = document.getElementById('longitude')?.value || ''
-
-            formData.append('location', location)
-            formData.append('latitude', latitude)
-            formData.append('longitude', longitude)
-
-            // Get the submit button and create a spinner
-            const submitButton = document.querySelector('input[type="submit"]')
-            submitButton.disabled = true // Disable the button to prevent multiple submissions
-            submitButton.value = 'Submitting...' // Change text to indicate submission
-
-            // Show a spinner
-            const spinner = document.createElement('span')
-            spinner.classList.add('loading-spinner')
-            submitButton.parentNode.appendChild(spinner)
-
-            // Fetch request to send form data
-            fetch(scriptURL, { method: 'POST', body: formData })
-              .then(() => {
-                this.reset() // Reset the form after successful submission
-
-                // Restore button & remove spinner
-                submitButton.disabled = false
-                submitButton.value = 'Submit'
-                spinner.remove()
-
-                // Show a success message using SweetAlert
-                swal('Thanks!', "We'll be in touch soon.", 'success')
-              })
-              .catch((error) => {
-                console.error('Error!', error.message)
-
-                // Restore button & remove spinner on error
-                submitButton.disabled = false
-                submitButton.value = 'Submit'
-                spinner.remove()
-
-                swal(
-                  'Oops!',
-                  'Something went wrong. Please try again later.',
-                  'error'
-                )
-              })
-          }
-        )
-      </script>
-
-      <br />
+      <script src="assets/js/stoa-handler.js"></script>
     </form>
   </section>
 
