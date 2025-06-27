@@ -3793,10 +3793,6 @@ select {
   font-weight: 500;
   letter-spacing: 0.025em;
   line-height: 1.75em;
-}
-
-/* optionally, add a custom arrow using background-image */
-select {
   background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="currentColor" d="M2 5L0 3h4L2 5z"/></svg>');
   background-repeat: no-repeat;
   background-position: right 0.75em center;
