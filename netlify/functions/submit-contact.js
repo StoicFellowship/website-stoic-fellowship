@@ -1,4 +1,6 @@
-export async function handler(event) {
+const fetch = require('node-fetch')
+
+exports.handler = async function handler(event) {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' }
   }
@@ -6,9 +8,7 @@ export async function handler(event) {
   const { name, email, message } = JSON.parse(event.body)
 
   const SUPABASE_URL = 'https://stoic-fellowship.supabase.co'
-  const SUPABASE_KEY =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrZmZpeHBwYWt2d3ZpeWx5d3Z3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5NzM2MDUsImV4cCI6MjA2NjU0OTYwNX0.md7vm--TLrnVr4KP4ghVAQS8b3URpqr_80ePlYF_u9M' // or service role key for secure inserts
-
+  const SUPABASE_KEY = process.env.SUPABASE_KEY
   const BREVO_API_KEY = process.env.BREVO_API_KEY
 
   try {
@@ -28,23 +28,24 @@ export async function handler(event) {
     )
 
     if (!supabaseRes.ok) {
-      const err = await supabaseRes.text()
-      throw new Error(`Supabase error: ${err}`)
+      const err = await supabaseRes.json()
+      throw new Error(`Supabase error: ${JSON.stringify(err)}`)
     }
 
-    // Send Brevo Email
+    // Send Email via Brevo
     const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
         'api-key': BREVO_API_KEY,
         'Content-Type': 'application/json',
+        Accept: 'application/json',
       },
       body: JSON.stringify({
         sender: {
           name: 'The Stoic Fellowship',
           email: 'noreply@stoicfellowship.com',
         },
-        to: [{ email: 'board@stoicfellowship.com', name: 'TSF Board' }],
+        to: [{ email: 'nick@stoicfellowship.com', name: 'TSF Board' }],
         subject: 'New Contact Form Submission',
         htmlContent: `
           <p><strong>Name:</strong> ${name}</p>
@@ -55,8 +56,8 @@ export async function handler(event) {
     })
 
     if (!brevoRes.ok) {
-      const err = await brevoRes.text()
-      throw new Error(`Brevo error: ${err}`)
+      const err = await brevoRes.json()
+      throw new Error(`Brevo error: ${JSON.stringify(err)}`)
     }
 
     return {
@@ -64,7 +65,7 @@ export async function handler(event) {
       body: JSON.stringify({ success: true }),
     }
   } catch (err) {
-    console.error('Function error:', err)
+    console.error('Function error:', err.message, err.stack)
     return {
       statusCode: 500,
       body: JSON.stringify({ error: err.message }),
