@@ -19,12 +19,6 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
       body: JSON.stringify(data),
     })
 
-    await fetch('/.netlify/functions/send-contact-email', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-
     form.reset()
     swal('Thanks!', "We'll be in touch soon.", 'success')
   } catch (err) {
