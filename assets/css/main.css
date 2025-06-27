@@ -3770,3 +3770,36 @@ dd {
     transform: rotate(360deg);
   }
 }
+
+/* Dropdown "Select" Styling */
+
+select {
+  appearance: none; /* remove default arrow styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: none;
+  border: 3px solid rgba(124, 128, 129, 0.2);
+  border-radius: 8px;
+  color: inherit;
+  display: block;
+  padding: 0.75em;
+  text-decoration: none;
+  width: 100%;
+  outline: 0;
+  margin-bottom: 10px;
+  min-width: 100px;
+  font-family: 'Dosis', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  line-height: 1.75em;
+}
+
+/* optionally, add a custom arrow using background-image */
+select {
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="currentColor" d="M2 5L0 3h4L2 5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.75em center;
+  background-size: 0.65em auto;
+  padding-right: 2em;
+}

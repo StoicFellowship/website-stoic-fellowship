@@ -79,7 +79,38 @@
       <h3>
         Will Your Group Host In-Person Only, Virtual Only, or Hybrid Sessions?
       </h3>
-      <input type="text" name="virtual-or-local" />
+      <div style="margin-bottom: 15px">
+        <label
+          ><input
+            type="radio"
+            style="cursor: pointer"
+            name="stoa_type"
+            value="Local"
+            required
+          />
+          Local</label
+        >
+        <label
+          ><input
+            type="radio"
+            style="cursor: pointer"
+            name="stoa_type"
+            value="Hybrid"
+            required
+          />
+          Hybrid</label
+        >
+        <label
+          ><input
+            type="radio"
+            style="cursor: pointer"
+            name="stoa_type"
+            value="Virtual"
+            required
+          />
+          Virtual</label
+        >
+      </div>
       <br / class="rwd-break">
 
       <h3>Location of the Community</h3>
@@ -89,7 +120,7 @@
       <input type="hidden" id="latitude" name="latitude" />
       <input type="hidden" id="longitude" name="longitude" />
 
-      <br / class="rwd-break"> <br / class="rwd-break">
+      <br / class="rwd-break">
 
       <h3>Stoic Community's Website</h3>
       <input
@@ -100,9 +131,324 @@
       />
       <br / class="rwd-break">
 
-      <h3>Approximate Number of Members</h3>
-      <input type="text" name="members" />
-      <br / class="rwd-break">
+      <h3>Stoa Language</h3>
+      <select name="stoa_language" required>
+        <option value="">Select a language</option>
+        <option value="en">English</option>
+        <option value="es">Spanish - (Español)</option>
+        <option value="de">German - (Deutsch)</option>
+        <option value="fr">French (Français)</option>
+        <option value="af">Afrikaans</option>
+        <option value="sq">Albanian - (Shqip)</option>
+        <option value="am">Amharic - (አማርኛ)</option>
+        <option value="ar">Arabic - (العربية)</option>
+        <option value="an">Aragonese - (Aragonés)</option>
+        <option value="hy">Armenian - (Հայերեն)</option>
+        <option value="ast">Asturian - (Asturianu)</option>
+        <option value="ay">Aymara - (Aymar aru)</option>
+        <option value="az">Azerbaijani - (Azərbaycan dili)</option>
+        <option value="eu">Basque - (Euskara)</option>
+        <option value="be">Belarusian - (Беларуская)</option>
+        <option value="bn">Bengali - (বাংলা)</option>
+        <option value="brx">Bodo - (बर')</option>
+        <option value="bs">Bosnian - (Bosanski)</option>
+        <option value="br">Breton - (Brezhoneg)</option>
+        <option value="bg">Bulgarian - (Български)</option>
+        <option value="ca">Catalan - (Català)</option>
+        <option value="ckb">Central - Kurdish (کوردی)</option>
+        <option value="ce">Chechen (Нохчийн мотт)</option>
+        <option value="zh-HK">Chinese Hong Kong - (中文 - 香港)</option>
+        <option value="zh-CN">Chinese Simplified - (中文简体)</option>
+        <option value="zh-TW">Chinese Traditional - (中文繁體)</option>
+        <option value="co">Corsican - (Corsu)</option>
+        <option value="hr">Croatian - (Hrvatski)</option>
+        <option value="cs">Czech - (Čeština)</option>
+        <option value="da">Danish - (Dansk)</option>
+        <option value="dv">Dhivehi - (ދިވެހި)</option>
+        <option value="nl">Dutch (Nederlands)</option>
+        <option value="dz">Dzongkha (རྫོང་ཁ)</option>
+        <option value="eo">Esperanto</option>
+        <option value="et">Estonian (Eesti)</option>
+        <option value="ee">Ewe (Eʋegbe)</option>
+        <option value="fo">Faroese - (Føroyskt)</option>
+        <option value="fil">Filipino (Wikang Filipino)</option>
+        <option value="fi">Finnish (Suomi)</option>
+        <option value="fr-CA">French Canada - (Français Canada)</option>
+        <option value="fr-FR">French France - (Français France)</option>
+        <option value="fr-CH">French Switzerland - (Français Suisse)</option>
+        <option value="gl">Galician - (Galego)</option>
+        <option value="ka">Georgian - (ქართული)</option>
+        <option value="de-LI">
+          German Liechtenstein - (Deutsch Liechtenstein)
+        </option>
+        <option value="de-CH">German Switzerland - (Deutsch Schweiz)</option>
+        <option value="el">Greek - (Ελληνικά)</option>
+        <option value="gn">Guarani - (Avañe'ẽ)</option>
+        <option value="gu">Gujarati - (ગુજરાતી)</option>
+        <option value="ha">Hausa - (هَوُسَ)</option>
+        <option value="haw">Hawaiian - (ʻŌlelo Hawaiʻi)</option>
+        <option value="he">Hebrew - (עברית)</option>
+        <option value="hi">Hindi - (हिन्दी)</option>
+        <option value="hu">Hungarian - (Magyar)</option>
+        <option value="is">Icelandic - (Íslenska)</option>
+        <option value="id">Indonesian - (Bahasa Indonesia)</option>
+        <option value="ia">Interlingua</option>
+        <option value="iu">Inuktitut - (ᐃᓄᒃᑎᑐᑦ)</option>
+        <option value="ga">Irish - (Gaeilge)</option>
+        <option value="it">Italian - (Italiano)</option>
+        <option value="it-CH">
+          Italian Switzerland - (Italiano - Svizzera)
+        </option>
+        <option value="ja">Japanese - (日本語)</option>
+        <option value="kl">Kalaallisut - (Kalaallisut)</option>
+        <option value="kn">Kannada - (ಕನ್ನಡ)</option>
+        <option value="ks">Kashmiri - (कॉशुर / كٲشُر)</option>
+        <option value="kk">Kazakh - (Қазақ тілі)</option>
+        <option value="km">Khmer - (ខ្មែរ)</option>
+        <option value="rw">Kinyarwanda - (Ikinyarwanda)</option>
+        <option value="ko">Korean - (한국어)</option>
+        <option value="ku">Kurdish - (Kurdî)</option>
+        <option value="ky">Kyrgyz - (Кыргызча)</option>
+        <option value="lo">Lao - (ລາວ)</option>
+        <option value="la">Latin - (Latina)</option>
+        <option value="lv">Latvian - (Latviešu)</option>
+        <option value="ln">Lingala - (Lingála)</option>
+        <option value="lt">Lithuanian - (Lietuvių)</option>
+        <option value="lg">Luganda - (Luganda)</option>
+        <option value="lb">Luxembourgish - (Lëtzebuergesch)</option>
+        <option value="mk">Macedonian - (Македонски)</option>
+        <option value="mai">Maithili - (मैथिली)</option>
+        <option value="ms">Malay - (Bahasa Melayu)</option>
+        <option value="ml">Malayalam - (മലയാളം)</option>
+        <option value="mt">Maltese - (Malti)</option>
+        <option value="mni">Manipuri - (ꯃꯅꯤꯄꯨꯔꯤ)</option>
+        <option value="mr">Marathi - (मराठी)</option>
+        <option value="mn">Mongolian - (Монгол)</option>
+        <option value="ne">Nepali - (नेपाली)</option>
+        <option value="nso">Northern Sotho - (Sesotho sa Leboa)</option>
+        <option value="no">Norwegian (Norsk)</option>
+        <option value="nb">Norwegian Bokmål - (Norsk bokmål)</option>
+        <option value="nn">Norwegian Nynorsk - (Nynorsk)</option>
+        <option value="oc">Occitan</option>
+        <option value="or">Oriya - (ଓଡ଼ିଆ)</option>
+        <option value="om">Oromo - (Afaan Oromoo)</option>
+        <option value="os">Ossetian - (Ирон æвзаг)</option>
+        <option value="ps">Pashto - (پښتو)</option>
+        <option value="fa">Persian - (فارسی)</option>
+        <option value="pl">Polish - (Polski)</option>
+        <option value="pt">Portuguese - (Português)</option>
+        <option value="pa">Punjabi - (ਪੰਜਾਬੀ)</option>
+        <option value="qu">Quechua - (Runa Simi)</option>
+        <option value="ro">Romanian - (Română)</option>
+        <option value="mo">Romanian Moldova - (Română Moldova)</option>
+        <option value="rm">Romansh - (Rumantsch)</option>
+        <option value="ru">Russian - (Русский)</option>
+        <option value="sm">Samoan - (Gagana Samoa)</option>
+        <option value="sat">Santali - (ᱥᱟᱱᱛᱟᱲᱤ)</option>
+        <option value="sc">Sardinian - (Sardu)</option>
+        <option value="gd">Scottish Gaelic - (Gàidhlig)</option>
+        <option value="sr">Serbian - (Српски)</option>
+        <option value="sh">Serbo_Croatian - (Srpskohrvatski)</option>
+        <option value="sn">Shona - (ChiShona)</option>
+        <option value="sd">Sindhi - (سنڌي)</option>
+        <option value="si">Sinhala - (සිංහල)</option>
+        <option value="sk">Slovak - (Slovenčina)</option>
+        <option value="sl">Slovenian - (Slovenščina)</option>
+        <option value="so">Somali - (Soomaali)</option>
+        <option value="st">Southern - Sotho (Sesotho)</option>
+        <option value="su">Sundanese - (Basa Sunda)</option>
+        <option value="sw">Swahili - (Kiswahili)</option>
+        <option value="sv">Swedish - (Svenska)</option>
+        <option value="tg">Tajik - (Тоҷикӣ)</option>
+        <option value="ta">Tamil - (தமிழ்)</option>
+        <option value="tt">Tatar - (Татар)</option>
+        <option value="te">Telugu - (తెలుగు)</option>
+        <option value="th">Thai - (ไทย)</option>
+        <option value="ti">Tigrinya - (ትግርኛ)</option>
+        <option value="to">Tongan - (Lea fakatonga)</option>
+        <option value="tn">Tswana - (Setswana)</option>
+        <option value="tr">Turkish - (Türkçe)</option>
+        <option value="tk">Turkmen - (Türkmençe)</option>
+        <option value="tw">Twi - (Twi)</option>
+        <option value="udm">Udmurt - (Удмурт кыл)</option>
+        <option value="uk">Ukrainian - (Українська)</option>
+        <option value="ur">Urdu - (اردو)</option>
+        <option value="ug">Uyghur - (ئۇيغۇرچە)</option>
+        <option value="uz">Uzbek - (O'zbek)</option>
+        <option value="ve">Venda - (Tshivenḓa)</option>
+        <option value="vi">Vietnamese - (Tiếng Việt)</option>
+        <option value="wa">Walloon - (Walon)</option>
+        <option value="cy">Welsh - (Cymraeg)</option>
+        <option value="fy">Western Frisian - (Frysk)</option>
+        <option value="wo">Wolof - (Wollof)</option>
+        <option value="xh">Xhosa - (isiXhosa)</option>
+        <option value="yi">Yiddish - (ייִדיש)</option>
+        <option value="yo">Yoruba - (Èdè Yorùbá)</option>
+        <option value="za">Zhuang - (Saɯ cueŋƅ)</option>
+        <option value="zu">Zulu - (isiZulu)</option>
+        <option value="other">Other</option>
+      </select>
+      <br class="rwd-break" />
+
+      <h3>Stoa Time Zone</h3>
+      <select name="timezone" required>
+        <option>Select a timezone</option>
+        <option value="Etc/GMT+12">
+          (GMT-12:00) International Date Line West
+        </option>
+        <option value="Pacific/Midway">(GMT-11:00) Midway Island, Samoa</option>
+        <option value="Pacific/Honolulu">(GMT-10:00) Hawaii</option>
+        <option value="US/Alaska">(GMT-09:00) Alaska</option>
+        <option value="America/Los_Angeles">
+          (GMT-08:00) Pacific Time (US & Canada)
+        </option>
+        <option value="America/Tijuana">
+          (GMT-08:00) Tijuana, Baja California
+        </option>
+        <option value="US/Arizona">(GMT-07:00) Arizona</option>
+        <option value="America/Chihuahua">
+          (GMT-07:00) Chihuahua, La Paz, Mazatlan
+        </option>
+        <option value="US/Mountain">
+          (GMT-07:00) Mountain Time (US & Canada)
+        </option>
+        <option value="America/Managua">(GMT-06:00) Central America</option>
+        <option value="US/Central">
+          (GMT-06:00) Central Time (US & Canada)
+        </option>
+        <option value="America/Mexico_City">
+          (GMT-06:00) Guadalajara, Mexico City, Monterrey
+        </option>
+        <option value="Canada/Saskatchewan">(GMT-06:00) Saskatchewan</option>
+        <option value="America/Bogota">
+          (GMT-05:00) Bogota, Lima, Quito, Rio Branco
+        </option>
+        <option value="US/Eastern">
+          (GMT-05:00) Eastern Time (US & Canada)
+        </option>
+        <option value="US/East-Indiana">(GMT-05:00) Indiana (East)</option>
+        <option value="Canada/Atlantic">
+          (GMT-04:00) Atlantic Time (Canada)
+        </option>
+        <option value="America/Caracas">(GMT-04:00) Caracas, La Paz</option>
+        <option value="America/Manaus">(GMT-04:00) Manaus</option>
+        <option value="America/Santiago">(GMT-04:00) Santiago</option>
+        <option value="Canada/Newfoundland">(GMT-03:30) Newfoundland</option>
+        <option value="America/Sao_Paulo">(GMT-03:00) Brasilia</option>
+        <option value="America/Argentina/Buenos_Aires">
+          (GMT-03:00) Buenos Aires, Georgetown
+        </option>
+        <option value="America/Godthab">(GMT-03:00) Greenland</option>
+        <option value="America/Montevideo">(GMT-03:00) Montevideo</option>
+        <option value="America/Noronha">(GMT-02:00) Mid-Atlantic</option>
+        <option value="Atlantic/Cape_Verde">(GMT-01:00) Cape Verde Is.</option>
+        <option value="Atlantic/Azores">(GMT-01:00) Azores</option>
+        <option value="Africa/Casablanca">
+          (GMT+00:00) Casablanca, Monrovia, Reykjavik
+        </option>
+        <option value="Etc/Greenwich">
+          (GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London
+        </option>
+        <option value="Europe/Amsterdam">
+          (GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna
+        </option>
+        <option value="Europe/Belgrade">
+          (GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague
+        </option>
+        <option value="Europe/Brussels">
+          (GMT+01:00) Brussels, Copenhagen, Madrid, Paris
+        </option>
+        <option value="Europe/Sarajevo">
+          (GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb
+        </option>
+        <option value="Africa/Lagos">(GMT+01:00) West Central Africa</option>
+        <option value="Asia/Amman">(GMT+02:00) Amman</option>
+        <option value="Europe/Athens">
+          (GMT+02:00) Athens, Bucharest, Istanbul
+        </option>
+        <option value="Asia/Beirut">(GMT+02:00) Beirut</option>
+        <option value="Africa/Cairo">(GMT+02:00) Cairo</option>
+        <option value="Africa/Harare">(GMT+02:00) Harare, Pretoria</option>
+        <option value="Europe/Helsinki">
+          (GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius
+        </option>
+        <option value="Asia/Jerusalem">(GMT+02:00) Jerusalem</option>
+        <option value="Europe/Minsk">(GMT+02:00) Minsk</option>
+        <option value="Africa/Windhoek">(GMT+02:00) Windhoek</option>
+        <option value="Asia/Kuwait">(GMT+03:00) Kuwait, Riyadh, Baghdad</option>
+        <option value="Europe/Moscow">
+          (GMT+03:00) Moscow, St. Petersburg, Volgograd
+        </option>
+        <option value="Africa/Nairobi">(GMT+03:00) Nairobi</option>
+        <option value="Asia/Tbilisi">(GMT+03:00) Tbilisi</option>
+        <option value="Asia/Tehran">(GMT+03:30) Tehran</option>
+        <option value="Asia/Muscat">(GMT+04:00) Abu Dhabi, Muscat</option>
+        <option value="Asia/Baku">(GMT+04:00) Baku</option>
+        <option value="Asia/Yerevan">(GMT+04:00) Yerevan</option>
+        <option value="Asia/Kabul">(GMT+04:30) Kabul</option>
+        <option value="Asia/Yekaterinburg">(GMT+05:00) Yekaterinburg</option>
+        <option value="Asia/Karachi">
+          (GMT+05:00) Islamabad, Karachi, Tashkent
+        </option>
+        <option value="Asia/Calcutta">
+          (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi
+        </option>
+        <option value="Asia/Calcutta">(GMT+05:30) Sri Jayawardenapura</option>
+        <option value="Asia/Katmandu">(GMT+05:45) Kathmandu</option>
+        <option value="Asia/Almaty">(GMT+06:00) Almaty, Novosibirsk</option>
+        <option value="Asia/Dhaka">(GMT+06:00) Astana, Dhaka</option>
+        <option value="Asia/Rangoon">(GMT+06:30) Yangon (Rangoon)</option>
+        <option value="Asia/Bangkok">
+          (GMT+07:00) Bangkok, Hanoi, Jakarta
+        </option>
+        <option value="Asia/Krasnoyarsk">(GMT+07:00) Krasnoyarsk</option>
+        <option value="Asia/Hong_Kong">
+          (GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi
+        </option>
+        <option value="Asia/Kuala_Lumpur">
+          (GMT+08:00) Kuala Lumpur, Singapore
+        </option>
+        <option value="Asia/Irkutsk">(GMT+08:00) Irkutsk, Ulaan Bataar</option>
+        <option value="Australia/Perth">(GMT+08:00) Perth</option>
+        <option value="Asia/Taipei">(GMT+08:00) Taipei</option>
+        <option value="Asia/Tokyo">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
+        <option value="Asia/Seoul">(GMT+09:00) Seoul</option>
+        <option value="Asia/Yakutsk">(GMT+09:00) Yakutsk</option>
+        <option value="Australia/Adelaide">(GMT+09:30) Adelaide</option>
+        <option value="Australia/Darwin">(GMT+09:30) Darwin</option>
+        <option value="Australia/Brisbane">(GMT+10:00) Brisbane</option>
+        <option value="Australia/Canberra">
+          (GMT+10:00) Canberra, Melbourne, Sydney
+        </option>
+        <option value="Australia/Hobart">(GMT+10:00) Hobart</option>
+        <option value="Pacific/Guam">(GMT+10:00) Guam, Port Moresby</option>
+        <option value="Asia/Vladivostok">(GMT+10:00) Vladivostok</option>
+        <option value="Asia/Magadan">
+          (GMT+11:00) Magadan, Solomon Is., New Caledonia
+        </option>
+        <option value="Pacific/Auckland">
+          (GMT+12:00) Auckland, Wellington
+        </option>
+        <option value="Pacific/Fiji">
+          (GMT+12:00) Fiji, Kamchatka, Marshall Is.
+        </option>
+        <option value="Pacific/Tongatapu">(GMT+13:00) Nuku'alofa</option>
+      </select>
+      <br class="rwd-break" />
+
+      <h3>Meeting Frequency</h3>
+      <select name="meeting_frequency" required>
+        <option value="">Select frequency</option>
+        <option>Weekly</option>
+        <option>Monthly</option>
+        <option>Quarterly</option>
+        <option>Other</option>
+      </select>
+      <br class="rwd-break" />
+
+      <h3>Brief Description / Mission</h3>
+      <textarea name="description" rows="4" required></textarea>
+      <br class="rwd-break" />
 
       <h3>Your Name</h3>
       <input type="text" name="name" required />
