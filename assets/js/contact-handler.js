@@ -13,14 +13,9 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
   }
 
   try {
-    await fetch(`${SUPABASE_URL}/rest/v1/contact_submissions`, {
+    await fetch('/.netlify/functions/submit-contact', {
       method: 'POST',
-      headers: {
-        apikey: SUPABASE_KEY,
-        Authorization: `Bearer ${SUPABASE_KEY}`,
-        'Content-Type': 'application/json',
-        Prefer: 'return=representation',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     })
 
