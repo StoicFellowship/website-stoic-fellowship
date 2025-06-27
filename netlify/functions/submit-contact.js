@@ -7,7 +7,7 @@ exports.handler = async function handler(event) {
 
   const { name, email, message } = JSON.parse(event.body)
 
-  const SUPABASE_URL = 'https://stoic-fellowship.supabase.co'
+  const SUPABASE_URL = process.env.SUPABASE_URL
   const SUPABASE_KEY = process.env.SUPABASE_KEY
   const BREVO_API_KEY = process.env.BREVO_API_KEY
 
