@@ -27,9 +27,6 @@ class HeaderTemplate extends HTMLElement {
             <li>
               <a href="https://stoicfellowship.substack.com/podcast" target="_blank">Podcast</a>
             </li>
-            <li>
-              <a href="info/updates-from-stoas/main.html">Stoa Updates</a>
-            </li>
             <li><a href="service/index.html">Stoic Service</a></li>
           </ul>
         </li>

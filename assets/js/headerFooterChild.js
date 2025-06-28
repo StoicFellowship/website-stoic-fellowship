@@ -36,9 +36,6 @@ class HeaderTemplateChild extends HTMLElement {
                   <a href='/interviews.html'>Interviews</a>
                 </li>
                 <li>
-                  <a href='/info/updates-from-stoas/main.html'>Stoa Updates</a>
-                </li>
-                <li>
                   <a href='/service/index.html'>Stoic Service</a>
                 </li>
               </ul>
