@@ -7,6 +7,8 @@ exports.handler = async function handler(event) {
 
   const { name, email, message } = JSON.parse(event.body)
 
+  const ip = event.headers['x-nf-client-connection-ip'] || 'unknown'
+
   const SUPABASE_URL = process.env.SUPABASE_URL
   const SUPABASE_KEY = process.env.SUPABASE_KEY
   const BREVO_API_KEY = process.env.BREVO_API_KEY
@@ -23,7 +25,12 @@ exports.handler = async function handler(event) {
           'Content-Type': 'application/json',
           Prefer: 'return=representation',
         },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          ip_address: ip,
+        }),
       }
     )
 
@@ -51,6 +58,7 @@ exports.handler = async function handler(event) {
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Message:</strong><br>${message}</p>
+          <p><strong>IP:</strong> ${ip}</p>
         `,
       }),
     })

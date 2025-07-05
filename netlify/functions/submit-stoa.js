@@ -21,6 +21,8 @@ exports.handler = async function handler(event) {
     submitted_at,
   } = JSON.parse(event.body)
 
+  const ip = event.headers['x-nf-client-connection-ip'] || 'unknown'
+
   const SUPABASE_URL = process.env.SUPABASE_URL
   const SUPABASE_KEY = process.env.SUPABASE_KEY
   const BREVO_API_KEY = process.env.BREVO_API_KEY
@@ -51,6 +53,7 @@ exports.handler = async function handler(event) {
           name,
           email,
           submitted_at,
+          ip_address: ip,
         }),
       }
     )
@@ -60,7 +63,7 @@ exports.handler = async function handler(event) {
       throw new Error(`Supabase error: ${JSON.stringify(err)}`)
     }
 
-    // Send Brevo notification
+    // Send Email via Brevo
     const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
@@ -88,6 +91,7 @@ exports.handler = async function handler(event) {
           <p><strong>Contact Name:</strong> ${name}</p>
           <p><strong>Contact Email:</strong> ${email}</p>
           <p><strong>Submitted At:</strong> ${submitted_at}</p>
+          <p><strong>IP Address:</strong> ${ip}</p>
         `,
       }),
     })
