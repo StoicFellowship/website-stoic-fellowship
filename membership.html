@@ -79,39 +79,12 @@
       <h3>
         Will Your Group Host In-Person Only, Virtual Only, or Hybrid Sessions?
       </h3>
-      <div style="margin-bottom: 15px">
-        <label
-          ><input
-            type="radio"
-            style="cursor: pointer"
-            name="stoa_type"
-            value="Local"
-            required
-          />
-          Local</label
-        >
-        <label
-          ><input
-            type="radio"
-            style="cursor: pointer"
-            name="stoa_type"
-            value="Hybrid"
-            required
-          />
-          Hybrid</label
-        >
-        <label
-          ><input
-            type="radio"
-            style="cursor: pointer"
-            name="stoa_type"
-            value="Virtual"
-            required
-          />
-          Virtual</label
-        >
-      </div>
-      <br / class="rwd-break">
+      <select name="meeting_preference" required>
+        <option value="">Select preference</option>
+        <option>Local</option>
+        <option>Virtual</option>
+        <option>Hybrid</option>
+      </select>
 
       <h3>Location of the Community</h3>
       <div id="form-geocoder-container"></div>

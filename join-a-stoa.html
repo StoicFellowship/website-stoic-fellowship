@@ -10,6 +10,20 @@
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="shortcut icon" href="images/favicon.ico" />
 
+  <!-- Mapbox GL JS -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+    rel="stylesheet"
+  />
+
+  <!-- Mapbox Geocoder Plugin -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+    rel="stylesheet"
+  />
+
   <!-- Matomo -->
   <script type="text/javascript">
     var _paq = (window._paq = window._paq || [])
@@ -52,87 +66,76 @@
       </p>
     </header>
 
-    <div class="center">
-      <iframe
-        id="map"
-        frameborder="0"
-        style="
-          border-radius: 0.5em;
-          box-shadow: 0 10px 45px -10px rgba(0, 0, 0, 0.15);
-        "
-        allowfullscreen
-        src="//umap.openstreetmap.fr/en/map/stoic-fellowship_301993?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=true&searchControl=true&fullscreenControl=true#2/33.9/76.3"
-      ></iframe>
-    </div>
+    <div
+      id="map"
+      style="
+        width: 65%;
+        height: 500px;
+        border-radius: 0.5em;
+        box-shadow: 0 10px 45px -10px rgba(0, 0, 0, 0.15);
+      "
+    ></div>
 
     <br />
 
     <!-- Form -->
 
     <section class="wrapper style3 container special">
-      <h2>Join Our Network</h2>
-      <br />
-      <p class="paragraph-center">
-        Fill out the form below, and we'll notify you when a Stoic community is
-        launched near you.
-      </p>
+      <form id="join-a-stoa-form">
+        <h2>Join Our Network</h2>
+        <p class="paragraph-center">
+          Fill out the form below, and we'll notify you when a Stoic community
+          is launched near you.
+        </p>
+        <br />
 
-      <form name="join-a-stoa">
         <h3>Your Name</h3>
-        <input type="text" name="name" id="name" required />
-        <br / class="rwd-break">
+        <input type="text" name="name" required />
+        <br class="rwd-break" />
 
-        <h3>Email Address</h3>
-        <input
-          type="email"
-          name="email"
-          placeholder="me@email.com"
-          id="email"
-          required
-        />
-        <br / class="rwd-break">
+        <h3>Your Location</h3>
+        <div id="form-geocoder-container"></div>
+        <input type="hidden" id="location" name="location" />
+        <input type="hidden" id="latitude" name="latitude" />
+        <input type="hidden" id="longitude" name="longitude" />
+        <br class="rwd-break" />
 
-        <h3>Location</h3>
-        <input
-          type="text"
-          id="address-input"
-          name="city"
-          id="location"
-          placeholder="Where are you located?"
-          style="height: 60px"
-          required
-        />
-        <script src="https://cdn.jsdelivr.net/places.js/1/places.min.js"></script>
-        <script>
-          const placesAutocomplete = places({
-            container: document.querySelector('#address-input'),
-          })
-        </script>
+        <h3>Preferred Language</h3>
+        <select name="preferred_language" required>
+          <option value="">Select a language</option>
+          <option>English</option>
+          <option>Spanish</option>
+          <option>Portuguese</option>
+          <option>French</option>
+          <option>German</option>
+          <option>Other</option>
+        </select>
+        <br class="rwd-break" />
 
-        <br / class="rwd-break"> <br / class="rwd-break">
+        <h3>Meeting Preference</h3>
+        <select name="meeting_preference" required>
+          <option value="">Select preference</option>
+          <option>Local</option>
+          <option>Virtual</option>
+          <option>Hybrid</option>
+          <option>No preference</option>
+        </select>
+        <br class="rwd-break" />
 
-        <input type="submit" value="Send" onClick="submitForm()" />
+        <h3>Any Additional Details?</h3>
+        <textarea name="details" rows="4"></textarea>
+        <br class="rwd-break" />
 
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <div style="margin-top: 15px">
+          <label>
+            <input type="checkbox" name="consent" required />
+            I agree to share my information with The Stoic Fellowship and Stoa
+            organizers in their network.
+          </label>
+        </div>
+        <br class="rwd-break" />
 
-        <script>
-          function submitForm() {
-            const scriptURL =
-              'https://script.google.com/macros/s/AKfycbyutDSqdFKGzKwwt7QSn8f3iHSUzYEHtA40RENyryYteWcmuy2d/exec'
-            const form = document.forms['join-a-stoa']
-            form.addEventListener('submit', (e) => {
-              e.preventDefault()
-              fetch(scriptURL, {
-                method: 'POST',
-                body: new FormData(form),
-              }).then(document.forms['join-a-stoa'].reset())
-            })
-            form.addEventListener('submit', onSubmit)
-            function onSubmit() {
-              swal('Thanks!', "We'll be in touch soon.", 'success')
-            }
-          }
-        </script>
+        <input type="submit" value="Submit" />
       </form>
     </section>
 
@@ -152,5 +155,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/geocode.js"></script>
   </div>
 </body>
