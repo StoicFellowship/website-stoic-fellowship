@@ -5,7 +5,7 @@ document.forms['existing-stoa'].addEventListener('submit', async (e) => {
 
   const data = {
     stoa_name: form.stoa.value,
-    meeting_preference: form.stoa_type.value,
+    stoa_type: form.meeting_preference.value,
     location: form.location.value,
     latitude: form.latitude.value,
     longitude: form.longitude.value,
