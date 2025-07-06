@@ -7,9 +7,6 @@ class HeaderTemplateChild extends HTMLElement {
         </a>
         <nav id='nav'>
           <ul>
-            <li class='current'>
-              <a href='/stoic-groups.html'>Communities</a>
-            </li>
             <li class='submenu'>
               <a href='#'>About</a>
               <ul>
@@ -20,7 +17,7 @@ class HeaderTemplateChild extends HTMLElement {
                   <a href='/team.html'>Team</a>
                 </li>
                 <li>
-                  <a href='/donate.html'>Donate</a>
+                  <a href='/contact.html'>Contact Us</a>
                 </li>
               </ul>
             </li>
@@ -36,12 +33,15 @@ class HeaderTemplateChild extends HTMLElement {
                   <a href='/interviews.html'>Interviews</a>
                 </li>
                 <li>
+                  <a href="https://stoicfellowship.substack.com/podcast" target="_blank">Podcast</a>
+                </li>
+                <li>
                   <a href='/service/index.html'>Stoic Service</a>
                 </li>
               </ul>
             </li>
             <li class='current'>
-              <a href='/contact.html'>Contact</a>
+              <a href='/donate.html'>Donate</a>
             </li>
             <li>
               <a href='/join.html' class='button special'>
