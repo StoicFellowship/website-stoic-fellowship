@@ -3458,13 +3458,15 @@ body.index #main {
 
   ul.buttons {
     text-align: center;
-    font-size: 0.7em;
+    font-size: 0.9em;
     font-weight: 900;
     letter-spacing: 1px;
     min-width: 8em;
     padding: 0;
     line-height: 3.75em;
     text-transform: lowercase;
+    margin-left: 0em;
+    margin-right: 0em;
   }
 
   .paragraph-center {
