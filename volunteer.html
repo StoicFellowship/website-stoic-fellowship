@@ -36,131 +36,20 @@
     <!-- Banner -->
     <section id="banner"></section>
 
-    <header class="special container">
-      <h2>Volunteer Opportunities</h2>
-    </header>
+    <section
+      class="wrapper style3 container special"
+      style="margin-top: 50px; width: 900px"
+    >
+      <header>
+        <h2>Volunteer with The Stoic Fellowship</h2>
+        <p>
+          Your contribution can make a lasting impact on the global Stoic
+          community.
+        </p>
+      </header>
 
-    <p class="paragraph-center">
-      The Stoic Fellowship consists of a 100% volunteer-driven team that holds
-      strong to our mission of building the foundation for a modern Stoa. We aim
-      to promote a world where one day all people, regardless of location,
-      identity, or financial means, will have access to a living and vibrant
-      Stoic community that contributes positively to a peaceful, healthy and
-      sustainable world.
-    </p>
-
-    <div class="hr"></div>
-
-    <br />
-
-    <div class="paragraph-center">
-      <h3>Digital Team Member</h3>
-      <p>
-        The Stoic Fellowship is seeking a volunteer to join our Digital team as
-        we look to improve our website, build workflow automation, and create
-        new ways of engaging our member groups online. You'll join our
-        organization on the ground floor and play an instrumental role in
-        shaping how we build Stoic community online. Only have a few hours to
-        spare? That's okay! We're all volunteers who give whatever we can to
-        help usher in the Stoic Renaissance.
-      </p>
-      <div style="text-indent: 10%">
-        <p><strong>Recommended Skills:</strong></p>
-        <ul style="list-style-type: circle; list-style-position: inside">
-          <li>Basic HTML, CSS, and JavaScript</li>
-          <li>Knowledge of or interest to learn API integrations</li>
-          <li>
-            Familiarity with GitHub, Mailchimp, and automation tools like Zapier
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="hr"></div>
-
-    <br />
-
-    <div class="paragraph-center">
-      <h3>Social Media Manager</h3>
-      <p>
-        The Stoic Fellowship aims to use social media to increase our visibility
-        and promote the Stoas in our network. We currently participate on
-        Twitter, LinkedIn, Facebook, and Instagram and are looking for someone
-        who would enjoy posting new content, responding to messages, and
-        engaging our community.
-      </p>
-    </div>
-
-    <div class="hr">
-      <br />
-    </div>
-
-    <div class="paragraph-center">
-      <h3>General Contributor</h3>
-      <p>
-        Are you interested in helping The Stoic Fellowship achieve its mission
-        to build, connect, and foster Stoic communities around the world? Reach
-        out, and we'll find a way to put your skills and efforts to good use.
-      </p>
-    </div>
-
-    <div class="hr">
-      <br />
-    </div>
-
-    <header class="center">
-      <h3>Help Shape the Future of Stoicism</h3>
-    </header>
-    <p class="center">
-      Fill out the form below to let us know who you are and how you'd like to
-      contribute.
-    </p>
-
-    <header class="special container">
-      <!-- Form -->
-
-      <form name="join-a-stoa">
-        <h3>Your Name</h3>
-        <input type="text" name="name" required />
-        <br / class="rwd-break">
-
-        <h3>Email Address</h3>
-        <input type="email" name="email" placeholder="me@email.com" required />
-        <br / class="rwd-break">
-
-        <h3>Message</h3>
-        <textarea
-          name="message"
-          type="text"
-          cols="40"
-          rows="5"
-          required
-        ></textarea>
-
-        <br / class="rwd-break"> <br / class="rwd-break">
-
-        <input type="submit" value="Send" onClick="submitForm()" />
-
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-        <script>
-          function submitForm() {
-            const scriptURL =
-              'https://script.google.com/macros/s/AKfycbxRm2ew9GG8i7PLzxYIgw3rabV6D9p5puTVrc5cugG9_otDZjPDcBFsQix6cbn8WYoVnA/exec'
-            const form = document.forms['join-a-stoa']
-
-            form.addEventListener('submit', (e) => {
-              e.preventDefault()
-              fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then((response) => console.log('Success!', response))
-                .catch((error) => console.error('Error!', error.message))
-                .then(document.forms['join-a-stoa'].reset())
-            })
-            swal('Thanks!', "We'll be in touch soon.", 'success')
-          }
-        </script>
-      </form>
-    </header>
+      <div id="volunteer-container"></div>
+    </section>
   </div>
 </body>
 
@@ -172,6 +61,7 @@
 
 <!-- Scripts -->
 <script src="assets/js/headerFooter.js"></script>
+<script src="assets/js/load-volunteers.js"></script>
 <script src="assets/js/cta.js"></script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
