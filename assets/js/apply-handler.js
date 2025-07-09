@@ -51,7 +51,11 @@ document
           body: JSON.stringify(payload),
         })
 
-        if (!res.ok) throw new Error('Submission failed')
+        if (!res.ok) {
+          const errorMsg = await res.text()
+          console.error('Volunteer submission failed:', errorMsg)
+          throw new Error(errorMsg)
+        }
 
         form.reset()
         alert('Application submitted successfully!')

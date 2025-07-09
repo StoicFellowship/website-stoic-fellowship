@@ -42,7 +42,11 @@ exports.handler = async function handler(event) {
 
     if (!uploadRes.ok) {
       const err = await uploadRes.text()
-      throw new Error(`Failed to upload resume: ${err}`)
+      console.error('Upload error:', err)
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: `Resume upload failed: ${err}` }),
+      }
     }
 
     // Build public URL to uploaded file
@@ -71,7 +75,11 @@ exports.handler = async function handler(event) {
 
     if (!supabaseRes.ok) {
       const err = await supabaseRes.text()
-      throw new Error(`Supabase insert failed: ${err}`)
+      console.error('Supabase insert error:', err)
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: `Supabase insert failed: ${err}` }),
+      }
     }
 
     return {
