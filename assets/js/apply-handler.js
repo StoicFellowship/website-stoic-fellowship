@@ -8,6 +8,11 @@ document
     submitBtn.disabled = true
     submitBtn.textContent = 'Submitting...'
 
+    // Add spinner
+    const spinner = document.createElement('span')
+    spinner.classList.add('loading-spinner')
+    submitBtn.parentNode.appendChild(spinner)
+
     const formData = new FormData(form)
     const resumeFile = formData.get('resume')
 
@@ -55,6 +60,7 @@ document
         console.error(err)
         alert('Something went wrong. Please try again.')
       } finally {
+        spinner.remove()
         submitBtn.disabled = false
         submitBtn.textContent = 'Submit Application'
       }
