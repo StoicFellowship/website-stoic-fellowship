@@ -4016,3 +4016,102 @@ select {
   font-size: 0.95rem;
   color: #444;
 }
+
+#role-details {
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+#role-title {
+  font-weight: 900;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+#role-category {
+  margin: 0;
+}
+
+#role-cta {
+  font-weight: 900;
+  margin: 50px;
+}
+
+#role-details h1,
+#role-details h2,
+#role-details h3 {
+  font-family: inherit;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+#role-details ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#role-details li {
+  margin-bottom: 0.5rem;
+  list-style: disc;
+}
+
+#role-details p {
+  margin-bottom: 1rem;
+}
+
+.back-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.back-link {
+  color: #80004d;
+  font-weight: 900;
+  text-decoration: none;
+  padding-left: 0.25rem;
+}
+
+.back-link:hover {
+  /* text-decoration: underline; */
+}
+
+/* Volunteer Form */
+
+form label {
+  display: block;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+form input[type='url'],
+form input[type='text'],
+form input[type='email'],
+form input[type='date'],
+form input[type='file'],
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.75em;
+  margin-top: 0.25em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1em;
+}
+
+form textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+input[type='file'] {
+  cursor: pointer;
+}

@@ -1,182 +1,242 @@
 [
   {
+    "title": "General Contributor",
+    "category": "General",
+    "link": "/volunteer/role.html?slug=general-contributor",
+    "description": "No specific expertise required \u2014 just a passion for Stoicism!",
+    "slug": "general-contributor",
+    "content": "/assets/roles/general-contributor.md"
+  },
+  {
     "title": "Software Developer",
     "category": "Technical / Digital",
-    "link": "https://stoicfellowship.com/volunteer/software-developer",
-    "description": "HTML, CSS, JavaScript, React, MySQL, APIs, etc."
+    "link": "/volunteer/role.html?slug=software-developer",
+    "description": "HTML, CSS, JavaScript, React, MySQL, APIs, etc.",
+    "slug": "software-developer",
+    "content": "/assets/roles/software-developer.md"
   },
   {
     "title": "Product Designer",
     "category": "Technical / Digital",
-    "link": "https://stoicfellowship.com/volunteer/product-designer",
-    "description": "Design intuitive, clean interfaces and experiences."
+    "link": "/volunteer/role.html?slug=product-designer",
+    "description": "Design intuitive, clean interfaces and experiences.",
+    "slug": "product-designer",
+    "content": "/assets/roles/product-designer.md"
   },
   {
     "title": "DevOps Engineer",
     "category": "Technical / Digital",
-    "link": "https://stoicfellowship.com/volunteer/devops-engineer",
-    "description": "Help with deployment pipelines, Netlify, GitHub Actions, hosting infrastructure."
+    "link": "/volunteer/role.html?slug=devops-engineer",
+    "description": "Help with deployment pipelines, Netlify, GitHub Actions, hosting infrastructure.",
+    "slug": "devops-engineer",
+    "content": "/assets/roles/devops-engineer.md"
   },
   {
     "title": "Data Analyst",
     "category": "Technical / Digital",
-    "link": "https://stoicfellowship.com/volunteer/data-analyst",
-    "description": "Track and visualize data on Stoa participation, site traffic, and global reach."
+    "link": "/volunteer/role.html?slug=data-analyst",
+    "description": "Track and visualize data on Stoa participation, site traffic, and global reach.",
+    "slug": "data-analyst",
+    "content": "/assets/roles/data-analyst.md"
   },
   {
     "title": "Accessibility Advocate",
     "category": "Technical / Digital",
-    "link": "https://stoicfellowship.com/volunteer/accessibility-advocate",
-    "description": "Ensure compliance with WCAG 2.1+ and accessibility best practices."
+    "link": "/volunteer/role.html?slug=accessibility-advocate",
+    "description": "Ensure compliance with WCAG 2.1+ and accessibility best practices.",
+    "slug": "accessibility-advocate",
+    "content": "/assets/roles/accessibility-advocate.md"
   },
   {
     "title": "Network Ambassador",
     "category": "Community Growth & Engagement",
-    "link": "https://stoicfellowship.com/volunteer/network-ambassador",
-    "description": "Promote initiatives across the Stoic Fellowship Network."
+    "link": "/volunteer/role.html?slug=network-ambassador",
+    "description": "Promote initiatives across the Stoic Fellowship Network.",
+    "slug": "network-ambassador",
+    "content": "/assets/roles/network-ambassador.md"
   },
   {
     "title": "Stoa Ambassador",
     "category": "Community Growth & Engagement",
-    "link": "https://stoicfellowship.com/volunteer/stoa-ambassador",
-    "description": "Support the creation and sustainability of Stoic groups worldwide."
+    "link": "/volunteer/role.html?slug=stoa-ambassador",
+    "description": "Support the creation and sustainability of Stoic groups worldwide.",
+    "slug": "stoa-ambassador",
+    "content": "/assets/roles/stoa-ambassador.md"
   },
   {
     "title": "New Stoa Mentor",
     "category": "Community Growth & Engagement",
-    "link": "https://stoicfellowship.com/volunteer/new-stoa-mentor",
-    "description": "Onboard and guide new Stoa organizers."
+    "link": "/volunteer/role.html?slug=new-stoa-mentor",
+    "description": "Onboard and guide new Stoa organizers.",
+    "slug": "new-stoa-mentor",
+    "content": "/assets/roles/new-stoa-mentor.md"
   },
   {
     "title": "Community Manager",
     "category": "Community Growth & Engagement",
-    "link": "https://stoicfellowship.com/volunteer/community-manager",
-    "description": "Foster discussion, connection, and collaboration online and in-person."
+    "link": "/volunteer/role.html?slug=community-manager",
+    "description": "Foster discussion, connection, and collaboration online and in-person.",
+    "slug": "community-manager",
+    "content": "/assets/roles/community-manager.md"
   },
   {
     "title": "Moderator",
     "category": "Community Growth & Engagement",
-    "link": "https://stoicfellowship.com/volunteer/moderator",
-    "description": "Maintain quality discourse in forums, chat groups, or comments."
+    "link": "/volunteer/role.html?slug=moderator",
+    "description": "Maintain quality discourse in forums, chat groups, or comments.",
+    "slug": "moderator",
+    "content": "/assets/roles/moderator.md"
   },
   {
     "title": "Event Coordinator",
     "category": "Events & Operations",
-    "link": "https://stoicfellowship.com/volunteer/event-coordinator",
-    "description": "Plan and execute local or global events like Stoicon-X."
+    "link": "/volunteer/role.html?slug=event-coordinator",
+    "description": "Plan and execute local or global events like Stoicon-X.",
+    "slug": "event-coordinator",
+    "content": "/assets/roles/event-coordinator.md"
   },
   {
     "title": "Volunteer Coordinator",
     "category": "Events & Operations",
-    "link": "https://stoicfellowship.com/volunteer/volunteer-coordinator",
-    "description": "Organize, track, and support volunteer participation."
+    "link": "/volunteer/role.html?slug=volunteer-coordinator",
+    "description": "Organize, track, and support volunteer participation.",
+    "slug": "volunteer-coordinator",
+    "content": "/assets/roles/volunteer-coordinator.md"
   },
   {
     "title": "Fundraising Specialist",
     "category": "Events & Operations",
-    "link": "https://stoicfellowship.com/volunteer/fundraising-specialist",
-    "description": "Design and run fundraising campaigns."
+    "link": "/volunteer/role.html?slug=fundraising-specialist",
+    "description": "Design and run fundraising campaigns.",
+    "slug": "fundraising-specialist",
+    "content": "/assets/roles/fundraising-specialist.md"
   },
   {
     "title": "Grant Writer",
     "category": "Events & Operations",
-    "link": "https://stoicfellowship.com/volunteer/grant-writer",
-    "description": "Apply for funding and partnership opportunities."
+    "link": "/volunteer/role.html?slug=grant-writer",
+    "description": "Apply for funding and partnership opportunities.",
+    "slug": "grant-writer",
+    "content": "/assets/roles/grant-writer.md"
   },
   {
     "title": "Donor Relations",
     "category": "Events & Operations",
-    "link": "https://stoicfellowship.com/volunteer/donor-relations",
-    "description": "Build long-term relationships with supporters."
+    "link": "/volunteer/role.html?slug=donor-relations",
+    "description": "Build long-term relationships with supporters.",
+    "slug": "donor-relations",
+    "content": "/assets/roles/donor-relations.md"
   },
   {
     "title": "Board Member",
     "category": "Events & Operations",
-    "link": "https://stoicfellowship.com/volunteer/board-member",
-    "description": "Help lead the strategic and ethical direction of the organization."
+    "link": "/volunteer/role.html?slug=board-member",
+    "description": "Help lead the strategic and ethical direction of the organization.",
+    "slug": "board-member",
+    "content": "/assets/roles/board-member.md"
   },
   {
     "title": "Head of Marketing",
     "category": "Marketing & Communications",
-    "link": "https://stoicfellowship.com/volunteer/head-of-marketing",
-    "description": "Oversee branding, campaigns, and digital strategy."
+    "link": "/volunteer/role.html?slug=head-of-marketing",
+    "description": "Oversee branding, campaigns, and digital strategy.",
+    "slug": "head-of-marketing",
+    "content": "/assets/roles/head-of-marketing.md"
   },
   {
     "title": "PR Manager",
     "category": "Marketing & Communications",
-    "link": "https://stoicfellowship.com/volunteer/pr-manager",
-    "description": "Manage press relationships and external communications."
+    "link": "/volunteer/role.html?slug=pr-manager",
+    "description": "Manage press relationships and external communications.",
+    "slug": "pr-manager",
+    "content": "/assets/roles/pr-manager.md"
   },
   {
     "title": "Social Media Manager",
     "category": "Marketing & Communications",
-    "link": "https://stoicfellowship.com/volunteer/social-media-manager",
-    "description": "Engage the community and share Stoic wisdom across platforms."
+    "link": "/volunteer/role.html?slug=social-media-manager",
+    "description": "Engage the community and share Stoic wisdom across platforms.",
+    "slug": "social-media-manager",
+    "content": "/assets/roles/social-media-manager.md"
   },
   {
     "title": "Newsletter Editor",
     "category": "Marketing & Communications",
-    "link": "https://stoicfellowship.com/volunteer/newsletter-editor",
-    "description": "Curate monthly updates, quotes, and member highlights."
+    "link": "/volunteer/role.html?slug=newsletter-editor",
+    "description": "Curate monthly updates, quotes, and member highlights.",
+    "slug": "newsletter-editor",
+    "content": "/assets/roles/newsletter-editor.md"
   },
   {
     "title": "Curriculum Developer",
     "category": "Content & Education",
-    "link": "https://stoicfellowship.com/volunteer/curriculum-developer",
-    "description": "Design study guides, practice paths, and Stoic lesson plans."
+    "link": "/volunteer/role.html?slug=curriculum-developer",
+    "description": "Design study guides, practice paths, and Stoic lesson plans.",
+    "slug": "curriculum-developer",
+    "content": "/assets/roles/curriculum-developer.md"
   },
   {
     "title": "Blog Writer",
     "category": "Content & Education",
-    "link": "https://stoicfellowship.com/volunteer/blog-writer",
-    "description": "Contribute essays, interviews, and reflective pieces."
+    "link": "/volunteer/role.html?slug=blog-writer",
+    "description": "Contribute essays, interviews, and reflective pieces.",
+    "slug": "blog-writer",
+    "content": "/assets/roles/blog-writer.md"
   },
   {
     "title": "Quote Curator",
     "category": "Content & Education",
-    "link": "https://stoicfellowship.com/volunteer/quote-curator",
-    "description": "Verify and categorize quotes from ancient and modern Stoics."
+    "link": "/volunteer/role.html?slug=quote-curator",
+    "description": "Verify and categorize quotes from ancient and modern Stoics.",
+    "slug": "quote-curator",
+    "content": "/assets/roles/quote-curator.md"
   },
   {
     "title": "Translator",
     "category": "Content & Education",
-    "link": "https://stoicfellowship.com/volunteer/translator",
-    "description": "Make TSF content accessible to global audiences."
+    "link": "/volunteer/role.html?slug=translator",
+    "description": "Make TSF content accessible to global audiences.",
+    "slug": "translator",
+    "content": "/assets/roles/translator.md"
   },
   {
     "title": "Graphic Designer",
     "category": "Creative & Visual",
-    "link": "https://stoicfellowship.com/volunteer/graphic-designer",
-    "description": "Create visuals for web, social, and events."
+    "link": "/volunteer/role.html?slug=graphic-designer",
+    "description": "Create visuals for web, social, and events.",
+    "slug": "graphic-designer",
+    "content": "/assets/roles/graphic-designer.md"
   },
   {
     "title": "Brand Strategist",
     "category": "Creative & Visual",
-    "link": "https://stoicfellowship.com/volunteer/brand-strategist",
-    "description": "Maintain a consistent visual and verbal identity."
+    "link": "/volunteer/role.html?slug=brand-strategist",
+    "description": "Maintain a consistent visual and verbal identity.",
+    "slug": "brand-strategist",
+    "content": "/assets/roles/brand-strategist.md"
   },
   {
     "title": "Photographer",
     "category": "Creative & Visual",
-    "link": "https://stoicfellowship.com/volunteer/photographer",
-    "description": "Capture events, people, and stories."
+    "link": "/volunteer/role.html?slug=photographer",
+    "description": "Capture events, people, and stories.",
+    "slug": "photographer",
+    "content": "/assets/roles/photographer.md"
   },
   {
     "title": "Video Editor / Content Creator",
     "category": "Creative & Visual",
-    "link": "https://stoicfellowship.com/volunteer/video-editor",
-    "description": "Produce and edit educational or promotional video content."
+    "link": "/volunteer/role.html?slug=video-editor",
+    "description": "Produce and edit educational or promotional video content.",
+    "slug": "video-editor",
+    "content": "/assets/roles/video-editor.md"
   },
   {
     "title": "Lawyer",
     "category": "Legal & Administrative",
-    "link": "https://stoicfellowship.com/volunteer/lawyer",
-    "description": "Assist with governance, contracts, or nonprofit compliance."
-  },
-  {
-    "title": "General Contributor",
-    "category": "Legal & Administrative",
-    "link": "https://stoicfellowship.com/volunteer/general-contributor",
-    "description": "No specific expertise required \u2014 just a passion for Stoicism!"
+    "link": "/volunteer/role.html?slug=lawyer",
+    "description": "Assist with governance, contracts, or nonprofit compliance.",
+    "slug": "lawyer",
+    "content": "/assets/roles/lawyer.md"
   }
 ]

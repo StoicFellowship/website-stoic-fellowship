@@ -15,8 +15,6 @@ class HeaderTemplateChild extends HTMLElement {
                 </li>
                 <li>
                   <a href='/team.html'>Team</a>
-                </li>
-                <li>
                   <a href='/contact.html'>Contact Us</a>
                 </li>
               </ul>

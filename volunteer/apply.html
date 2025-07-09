@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<head>
+  <title>Apply</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+
+  <!-- Mapbox GL JS -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+    rel="stylesheet"
+  />
+
+  <!-- Mapbox Geocoder Plugin -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+    rel="stylesheet"
+  />
+
+  <!-- Matomo -->
+  <script type="text/javascript">
+    var _paq = (window._paq = window._paq || [])
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView'])
+    _paq.push(['enableLinkTracking'])
+    ;(function () {
+      var u = '//stats.productwar.com/'
+      _paq.push(['setTrackerUrl', u + 'matomo.php'])
+      _paq.push(['setSiteId', '1'])
+      var d = document,
+        g = d.createElement('script'),
+        s = d.getElementsByTagName('script')[0]
+      g.type = 'text/javascript'
+      g.async = true
+      g.src = u + 'matomo.js'
+      s.parentNode.insertBefore(g, s)
+    })()
+  </script>
+  <!-- End Matomo Code -->
+</head>
+
+<body class="index">
+  <div id="page-wrapper">
+    <!-- Header -->
+    <header-template></header-template>
+
+    <!-- Banner -->
+    <section id="banner"></section>
+
+    <section
+      class="wrapper style3 container special"
+      style="margin-top: 50px; width: 900px"
+    >
+      <header>
+        <h2>Apply</h2>
+      </header>
+      <form id="volunteer-application" enctype="multipart/form-data">
+        <input type="hidden" name="role_slug" id="role_slug" />
+        <input type="hidden" name="role_title" id="role_title" />
+        <input type="hidden" name="timestamp" id="timestamp" />
+        <input type="hidden" name="user_ip" id="user_ip" />
+        <input type="hidden" name="browser_language" id="browser_language" />
+        <input type="hidden" name="timezone_offset" id="timezone_offset" />
+        <input type="hidden" name="user_agent" id="user_agent" />
+
+        <label for="full_name">Full Name*</label>
+        <input type="text" id="full_name" name="full_name" required />
+
+        <label for="email">Email Address*</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="location">Your Location (City, State, Country)*</label>
+        <div id="form-geocoder-container"></div>
+        <!-- This is where Mapbox Geocoder will go -->
+        <input type="hidden" id="location" name="location" />
+        <input type="hidden" id="latitude" name="latitude" />
+        <input type="hidden" id="longitude" name="longitude" />
+
+        <!-- Optional Links -->
+        <label for="linkedin">LinkedIn Profile</label>
+        <input
+          type="url"
+          id="linkedin"
+          name="linkedin"
+          placeholder="https://linkedin.com/in/yourname"
+        />
+
+        <label for="website">Website / Portfolio / GitHub</label>
+        <input
+          type="url"
+          id="website"
+          name="website"
+          placeholder="https://yourportfolio.com"
+        />
+
+        <!-- Resume Upload -->
+        <label for="resume">Upload Resume (max size 25MB)</label>
+        <input
+          type="file"
+          id="resume"
+          name="resume"
+          accept=".pdf, .doc, .docx"
+        />
+
+        <!-- Role Interest -->
+        <label for="why_interested"
+          >Why are you interested in this role?*</label
+        >
+        <textarea id="why_interested" name="why_interested" required></textarea>
+
+        <!-- Volunteer Goals -->
+        <label for="gain_from_experience"
+          >Is there anything you'd like to gain from this volunteer
+          experience?</label
+        >
+        <textarea
+          id="gain_from_experience"
+          name="gain_from_experience"
+        ></textarea>
+
+        <!-- Start Date -->
+        <label for="start_date">When would you be able to start?*</label>
+        <input type="date" id="start_date" name="start_date" required />
+
+        <!-- Hours Commitment -->
+        <label for="hours_per_month"
+          >Average hours per month you can volunteer*</label
+        >
+        <select id="hours_per_month" name="hours_per_month" required>
+          <option value="">Select one</option>
+          <option value="5-10">5–10 hours</option>
+          <option value="10-20">10–20 hours</option>
+          <option value="20-40">20–40 hours</option>
+          <option value="40+">40+ hours</option>
+        </select>
+
+        <br />
+        <button type="submit" class="button">Submit Application</button>
+      </form>
+    </section>
+  </div>
+</body>
+
+<!-- CTA -->
+<cta-template></cta-template>
+
+<!--Footer-->
+<footer-template></footer-template>
+
+<!-- Scripts -->
+<script src="/assets/js/headerFooter.js"></script>
+<script src="/assets/js/cta.js"></script>
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.dropotron.min.js"></script>
+<script src="/assets/js/jquery.scrolly.min.js"></script>
+<script src="/assets/js/jquery.scrollex.min.js"></script>
+<script src="/assets/js/browser.min.js"></script>
+<script src="/assets/js/breakpoints.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/geocode.js"></script>
