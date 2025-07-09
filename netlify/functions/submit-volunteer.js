@@ -79,7 +79,8 @@ exports.handler = async function handler(event) {
       body: JSON.stringify({ success: true }),
     }
   } catch (err) {
-    console.error('Function error:', err.message, err.stack)
+    console.error('Volunteer submit error:', err.message)
+    console.error('Stack:', err.stack)
     return {
       statusCode: 500,
       body: JSON.stringify({ error: err.message }),
