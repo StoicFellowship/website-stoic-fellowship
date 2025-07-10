@@ -48,12 +48,8 @@ document
       }
 
       form.reset()
-      swal(
-        'Thanks!',
-        'Your volunteer application has been submitted.',
-        'success'
-      )
-      window.location.href = '/volunteer/thank-you.html'
+      swal('Thanks!', "We'll be in touch soon.", 'success')
+      form.reset()
     } catch (err) {
       console.error('Submit error:', err.message, err.stack)
       swal('Oops!', 'Something went wrong. Please try again.', 'error')
