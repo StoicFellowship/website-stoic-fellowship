@@ -9,7 +9,7 @@ class CTATemplate extends HTMLElement {
       <footer>
         <ul class="buttons">
           <li>
-            <a href="join.html" class="button special"
+            <a href="/join" class="button special"
               >Join The Stoic Fellowship</a
             >
           </li>
