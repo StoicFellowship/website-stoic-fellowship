@@ -61,7 +61,7 @@ document
         alert('Application submitted successfully!')
         window.location.href = '/volunteer/thank-you.html'
       } catch (err) {
-        console.error(err)
+        console.error('Caught error:', err.message, err.stack)
         alert('Something went wrong. Please try again.')
       } finally {
         spinner.remove()
