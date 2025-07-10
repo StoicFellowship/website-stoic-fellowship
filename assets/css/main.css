@@ -3920,7 +3920,7 @@ select {
 .team-modal {
   display: none; /* default hidden */
   position: fixed;
-  z-index: 10000;
+  z-index: 10002;
   top: 0;
   left: 0;
   width: 100%;

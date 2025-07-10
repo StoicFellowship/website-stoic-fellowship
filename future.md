@@ -27,3 +27,5 @@
 - Application page
 - Application processing
 - Update all links by removing .html in favor of a simple /page (e.g. a href="/join" instead of a href="join.html")
+- Updated mobile hamburger menu and nav
+- Added "Home" nav to mobile menu
