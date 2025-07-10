@@ -142,6 +142,39 @@
       </form>
     </section>
   </div>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(window.location.search)
+      const slug = params.get('slug')
+
+      if (slug) {
+        document.getElementById('role_slug').value = slug
+
+        try {
+          const res = await fetch('/assets/json/volunteer-opportunities.json')
+          const roles = await res.json()
+          const role = roles.find((r) => r.slug === slug)
+
+          if (role) {
+            document.getElementById('role_title').value = role.title
+          } else {
+            document.getElementById('role_title').value = 'Volunteer'
+          }
+        } catch (err) {
+          console.error('Failed to fetch role data:', err)
+          document.getElementById('role_title').value = 'Volunteer'
+        }
+      }
+
+      // Technical fields
+      document.getElementById('timezone_offset').value =
+        new Date().getTimezoneOffset()
+      document.getElementById('browser_language').value =
+        navigator.language || navigator.userLanguage
+      document.getElementById('user_agent').value = navigator.userAgent
+    })
+  </script>
 </body>
 
 <!-- CTA -->

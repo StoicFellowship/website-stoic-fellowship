@@ -1,9 +1,11 @@
-window.mapboxgl.accessToken = document.addEventListener(
-  'DOMContentLoaded',
-  function () {
-    // Ensure Mapbox token is set
-    mapboxgl.accessToken =
-      'pk.eyJ1Ijoic3RvaWNmZWxsb3dzaGlwIiwiYSI6ImNtNmZiOTR6eTAzNW0ybG9yN3ExeWNkeTkifQ.YrdYpBftjfd0pBVjgUKRgw'
+document.addEventListener('DOMContentLoaded', async function () {
+  try {
+    // Fetch Mapbox token from Netlify serverless function
+    const response = await fetch('/.netlify/functions/get-mapbox-token')
+    if (!response.ok) throw new Error('Failed to fetch Mapbox token')
+
+    const data = await response.json()
+    mapboxgl.accessToken = data.token
 
     // Initialize geocoder
     const geocoder = new MapboxGeocoder({
@@ -36,5 +38,7 @@ window.mapboxgl.accessToken = document.addEventListener(
 
     // Expose geocoder globally for debugging
     window.geocoder = geocoder
+  } catch (error) {
+    console.error('Error initializing geocoder:', error)
   }
-)
+})
