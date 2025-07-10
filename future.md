@@ -1,20 +1,13 @@
-## Next Steps
+## To Do
 
-- Test & Finish Volunteer & Application flows.
 - Donor page
 - Financial disclosures page
 - Our grand aspirations and plan page
 
-## Future Nice to Haves
-
-## Bold Ideas
-
-- Web app w/ authentication
-- iOS app(s)
-
-## To Do
-
 ## Doing
+
+- Test & Finish Volunteer & Application flows.
+- Update role descriptions.
 
 ## Done
 
@@ -29,3 +22,12 @@
 - Update all links by removing .html in favor of a simple /page (e.g. a href="/join" instead of a href="join.html")
 - Updated mobile hamburger menu and nav
 - Added "Home" nav to mobile menu
+
+---
+
+## Bold Ideas
+
+- Web app w/ authentication
+- iOS app(s)
+
+## Future Nice to Haves
