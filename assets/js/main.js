@@ -1,8 +1,8 @@
-(function ($) {
+;(function ($) {
   var $window = $(window),
     $body = $('body'),
     $header = $('#header'),
-    $banner = $('#banner');
+    $banner = $('#banner')
 
   // Breakpoints.
   breakpoints({
@@ -11,22 +11,22 @@
     narrow: ['841px', '980px'],
     narrower: ['737px', '840px'],
     mobile: [null, '736px'],
-  });
+  })
 
   // Play initial animations on page load.
   $window.on('load', function () {
     window.setTimeout(function () {
-      $body.removeClass('is-preload');
-    }, 100);
-  });
+      $body.removeClass('is-preload')
+    }, 100)
+  })
 
   // Scrolly.
   $('.scrolly').scrolly({
     speed: 1500,
     offset: function () {
-      return $header.height() + 10;
+      return $header.height() + 10
     },
-  });
+  })
 
   // Dropdowns.
   $('#nav > ul').dropotron({
@@ -36,16 +36,17 @@
     hideDelay: 800,
     baseZIndex: 100000,
     offsetY: 1000,
-  });
+  })
 
   // Nav Panel.
 
   // Button.
   $(
     '<div id="navButton">' +
-      '<a href="#navPanel" class="toggle"></a>' +
+      '<a href="#navPanel" class="toggle" aria-label="Toggle menu">' +
+      '</a>' +
       '</div>'
-  ).appendTo($body);
+  ).appendTo($body)
 
   // Panel.
   $('<div id="navPanel">' + '<nav>' + $('#nav').navList() + '</nav>' + '</div>')
@@ -59,11 +60,11 @@
       side: 'left',
       target: $body,
       visibleClass: 'navPanel-visible',
-    });
+    })
 
   // Fix: Remove navPanel transitions on WP<10 (poor/buggy performance).
   if (browser.os == 'wp' && browser.osVersion < 10)
-    $('#navButton, #navPanel, #page-wrapper').css('transition', 'none');
+    $('#navButton, #navPanel, #page-wrapper').css('transition', 'none')
 
   // Header.
   if (!browser.mobile && $header.hasClass('alt') && $banner.length > 0) {
@@ -71,15 +72,15 @@
       $banner.scrollex({
         bottom: $header.outerHeight(),
         terminate: function () {
-          $header.removeClass('alt');
+          $header.removeClass('alt')
         },
         enter: function () {
-          $header.addClass('alt reveal');
+          $header.addClass('alt reveal')
         },
         leave: function () {
-          $header.removeClass('alt');
+          $header.removeClass('alt')
         },
-      });
-    });
+      })
+    })
   }
-})(jQuery);
+})(jQuery)

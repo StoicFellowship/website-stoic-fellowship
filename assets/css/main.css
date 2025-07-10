@@ -3218,7 +3218,8 @@ body.index #main {
     transition: transform 0.5s ease;
     display: block;
     height: 60px;
-    left: 0;
+    right: 0;
+    left: auto;
     position: fixed;
     top: 25px;
     width: 100%;
@@ -3228,7 +3229,8 @@ body.index #main {
   #navButton .toggle {
     text-decoration: none;
     height: 60px;
-    left: 0;
+    left: auto;
+    right: 0;
     position: absolute;
     text-align: center;
     top: 0;
@@ -3251,21 +3253,30 @@ body.index #main {
     content: '\f0c9';
     font-size: 1em;
     height: 40px;
-    left: 10px;
+    left: auto;
+    right: 10px;
     line-height: 40px;
     opacity: 0.5;
     position: absolute;
     top: 11px;
     width: 60px;
     z-index: 1;
+    font-size: 1.25em;
+    opacity: 0.75;
+    color: #fff;
+  }
+
+  #navButton .toggle:hover:before {
+    opacity: 1;
   }
 
   #navButton .toggle:after {
-    background: rgba(163, 169, 170, 0.75);
-    border-radius: 2px;
+    background: #8b0251;
+    border-radius: 20px;
     content: '';
     height: 40px;
-    left: 10px;
+    left: auto;
+    right: 10px;
     position: absolute;
     top: 10px;
     width: 60px;
@@ -3276,17 +3287,18 @@ body.index #main {
     -webkit-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
     backface-visibility: hidden;
-    -moz-transform: translateX(-275px);
-    -webkit-transform: translateX(-275px);
-    -ms-transform: translateX(-275px);
-    transform: translateX(-275px);
+    -moz-transform: translateX(275px);
+    -webkit-transform: translateX(275px);
+    -ms-transform: translateX(-75px);
+    transform: translateX(275px);
     -moz-transition: -moz-transform 0.5s ease;
     -webkit-transition: -webkit-transform 0.5s ease;
     -ms-transition: -ms-transform 0.5s ease;
     transition: transform 0.5s ease;
     display: block;
     height: 100%;
-    left: 0;
+    right: 0;
+    left: auto;
     overflow-y: auto;
     position: fixed;
     top: 0;
@@ -3352,10 +3364,10 @@ body.index #main {
   }
 
   body.navPanel-visible #navButton {
-    -moz-transform: translateX(275px);
-    -webkit-transform: translateX(275px);
-    -ms-transform: translateX(275px);
-    transform: translateX(275px);
+    -moz-transform: translateX(-265px);
+    -webkit-transform: translateX(265px);
+    -ms-transform: translateX(-265px);
+    transform: translateX(-265px);
   }
 
   body.navPanel-visible #navPanel {
