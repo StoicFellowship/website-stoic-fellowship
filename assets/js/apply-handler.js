@@ -5,70 +5,61 @@ document
 
     const form = e.target
     const submitBtn = form.querySelector('button[type="submit"]')
+
+    // Disable and show spinner
     submitBtn.disabled = true
     submitBtn.textContent = 'Submitting...'
-
-    // Add spinner
     const spinner = document.createElement('span')
     spinner.classList.add('loading-spinner')
     submitBtn.parentNode.appendChild(spinner)
 
-    const formData = new FormData(form)
-    const resumeFile = formData.get('resume')
-
-    const reader = new FileReader()
-    reader.onload = async function () {
-      const base64String = reader.result.split(',')[1]
-
-      const payload = {
-        role_slug: formData.get('role_slug'),
-        role_title: formData.get('role_title'),
-        full_name: formData.get('full_name'),
-        email: formData.get('email'),
-        location: formData.get('location'),
-        latitude: parseFloat(formData.get('latitude')),
-        longitude: parseFloat(formData.get('longitude')),
-        linkedin_url: formData.get('linkedin'),
-        portfolio_url: formData.get('website'),
-        why_interested: formData.get('why_interested'),
-        hopes: formData.get('gain_from_experience'),
-        start_date: formData.get('start_date'),
-        hours_per_month: formData.get('hours_per_month'),
-        user_ip: formData.get('user_ip'),
-        timezone_offset: formData.get('timezone_offset'),
-        browser_language: formData.get('browser_language'),
-        user_agent: formData.get('user_agent'),
-
-        resume_base64: base64String,
-        resume_filename: resumeFile.name,
-        resume_mime_type: resumeFile.type,
-      }
-
-      try {
-        const res = await fetch('/.netlify/functions/submit-volunteer', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        })
-
-        if (!res.ok) {
-          const errorMsg = await res.text()
-          console.error('Volunteer submission failed:', errorMsg)
-          throw new Error(errorMsg)
-        }
-
-        form.reset()
-        alert('Application submitted successfully!')
-        window.location.href = '/volunteer/thank-you.html'
-      } catch (err) {
-        console.error('Caught error:', err.message, err.stack)
-        alert('Something went wrong. Please try again.')
-      } finally {
-        spinner.remove()
-        submitBtn.disabled = false
-        submitBtn.textContent = 'Submit Application'
-      }
+    const data = {
+      role_slug: form.role_slug.value,
+      role_title: form.role_title.value,
+      full_name: form.full_name.value,
+      email: form.email.value,
+      location: form.location.value,
+      latitude: parseFloat(form.latitude.value),
+      longitude: parseFloat(form.longitude.value),
+      linkedin_url: form.linkedin.value,
+      portfolio_url: form.website.value,
+      why_interested: form.why_interested.value,
+      hopes: form.gain_from_experience.value,
+      start_date: form.start_date.value,
+      hours_per_month: form.hours_per_month.value,
+      user_ip: form.user_ip.value,
+      timezone_offset: form.timezone_offset.value,
+      browser_language: form.browser_language.value,
+      user_agent: form.user_agent.value,
+      // Resume fields removed for now
     }
 
-    reader.readAsDataURL(resumeFile)
+    try {
+      const res = await fetch('/.netlify/functions/submit-volunteer', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+
+      if (!res.ok) {
+        const errorMsg = await res.text()
+        console.error('Volunteer submission failed:', errorMsg)
+        throw new Error(errorMsg)
+      }
+
+      form.reset()
+      swal(
+        'Thanks!',
+        'Your volunteer application has been submitted.',
+        'success'
+      )
+      window.location.href = '/volunteer/thank-you.html'
+    } catch (err) {
+      console.error('Submit error:', err.message, err.stack)
+      swal('Oops!', 'Something went wrong. Please try again.', 'error')
+    } finally {
+      spinner.remove()
+      submitBtn.disabled = false
+      submitBtn.textContent = 'Submit Application'
+    }
   })

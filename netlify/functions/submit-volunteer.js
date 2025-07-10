@@ -1,5 +1,4 @@
 const fetch = require('node-fetch')
-const { Buffer } = require('buffer')
 
 exports.handler = async function handler(event) {
   if (event.httpMethod !== 'POST') {
@@ -8,51 +7,14 @@ exports.handler = async function handler(event) {
 
   const SUPABASE_URL = process.env.SUPABASE_URL
   const SUPABASE_KEY = process.env.SUPABASE_KEY
+  const BREVO_API_KEY = process.env.BREVO_API_KEY
 
   const ip = event.headers['x-nf-client-connection-ip'] || 'unknown'
 
   try {
-    const {
-      resume_base64,
-      resume_filename,
-      resume_mime_type,
-      ...applicantData
-    } = JSON.parse(event.body)
+    const applicantData = JSON.parse(event.body)
 
-    // Decode the base64 file content
-    const buffer = Buffer.from(resume_base64, 'base64')
-
-    const storagePath = `resumes/${Date.now()}_${resume_filename}`
-
-    // Upload to Supabase Storage
-    const uploadRes = await fetch(
-      `${SUPABASE_URL}/storage/v1/object/resumes/${storagePath}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': resume_mime_type,
-          'Content-Length': buffer.length,
-          'x-upsert': 'false',
-          apikey: SUPABASE_KEY,
-          Authorization: `Bearer ${SUPABASE_KEY}`,
-        },
-        body: buffer,
-      }
-    )
-
-    if (!uploadRes.ok) {
-      const err = await uploadRes.text()
-      console.error('Upload error:', err)
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ error: `Resume upload failed: ${err}` }),
-      }
-    }
-
-    // Build public URL to uploaded file
-    const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/resumes/${storagePath}`
-
-    // Insert into volunteer_applications table
+    // Save to Supabase
     const supabaseRes = await fetch(
       `${SUPABASE_URL}/rest/v1/volunteer_applications`,
       {
@@ -66,20 +28,55 @@ exports.handler = async function handler(event) {
         body: JSON.stringify({
           ...applicantData,
           user_ip: ip,
-          resume_url: publicUrl,
-          resume_filename,
-          resume_mime_type,
         }),
       }
     )
 
     if (!supabaseRes.ok) {
       const err = await supabaseRes.text()
-      console.error('Supabase insert error:', err)
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ error: `Supabase insert failed: ${err}` }),
-      }
+      throw new Error(`Supabase error: ${err}`)
+    }
+
+    // Format HTML email content
+    const fields = Object.entries(applicantData)
+      .map(
+        ([key, val]) =>
+          `<li><strong>${key
+            .replace(/_/g, ' ')
+            .replace(/\b\w/g, (c) => c.toUpperCase())}:</strong> ${val}</li>`
+      )
+      .join('')
+
+    const htmlContent = `
+      <h2>New Volunteer Application</h2>
+      <ul>
+        ${fields}
+        <li><strong>User IP:</strong> ${ip}</li>
+      </ul>
+    `
+
+    // Send via Brevo
+    const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'api-key': BREVO_API_KEY,
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        sender: {
+          name: 'The Stoic Fellowship',
+          email: 'noreply@stoicfellowship.com',
+        },
+        to: [{ email: 'nick@stoicfellowship.com', name: 'TSF Board' }],
+        subject: 'New Volunteer Application Submission',
+        htmlContent,
+      }),
+    })
+
+    if (!brevoRes.ok) {
+      const err = await brevoRes.text()
+      throw new Error(`Brevo error: ${err}`)
     }
 
     return {
@@ -88,7 +85,6 @@ exports.handler = async function handler(event) {
     }
   } catch (err) {
     console.error('Volunteer submit error:', err.message)
-    console.error('Stack:', err.stack)
     return {
       statusCode: 500,
       body: JSON.stringify({ error: err.message }),
