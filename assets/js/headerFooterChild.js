@@ -2,7 +2,7 @@ class HeaderTemplateChild extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <div id='header' class='alt'>
-        <a href='/index.html' class='logo'>
+        <a href='/' class='logo'>
           <img src='/images/logo/SVGs/Logo-2 - Inverted Logo - Wht-Purp Disc.svg' width='100px' height='55px' />
         </a>
         <nav id='nav'>
@@ -11,11 +11,13 @@ class HeaderTemplateChild extends HTMLElement {
               <a href='#'>About</a>
               <ul>
                 <li>
-                  <a href='/mission.html'>Mission</a>
+                  <a href='/mission'>Mission</a>
                 </li>
                 <li>
-                  <a href='/team.html'>Team</a>
-                  <a href='/contact.html'>Contact Us</a>
+                  <a href='/team'>Team</a>
+                </li>
+                <li>
+                  <a href='/contact'>Contact Us</a>
                 </li>
               </ul>
             </li>
@@ -23,26 +25,26 @@ class HeaderTemplateChild extends HTMLElement {
               <a href='#'>Resources</a>
               <ul>
                 <li>
-                  <a href='/resources/stoicism-resources.html'>
+                  <a href='/resources/stoicism-resources'>
                     Stoicism Resources
                   </a>
                 </li>
                 <li>
-                  <a href='/interviews.html'>Interviews</a>
+                  <a href='/interviews'>Interviews</a>
                 </li>
                 <li>
                   <a href="https://stoicfellowship.substack.com/podcast" target="_blank">Podcast</a>
                 </li>
                 <li>
-                  <a href='/service/index.html'>Stoic Service</a>
+                  <a href='/service'>Stoic Service</a>
                 </li>
               </ul>
             </li>
             <li class='current'>
-              <a href='/donate.html'>Donate</a>
+              <a href='/donate'>Donate</a>
             </li>
             <li>
-              <a href='/join.html' class='button special'>
+              <a href='/join' class='button special'>
                 Join Us
               </a>
             </li>
@@ -119,14 +121,14 @@ class FooterTemplateChild extends HTMLElement {
             The Stoic Fellowship is a registered 501(c)(3) nonprofit
             headquartered in the USA
             <br />
-            <a href='/donate.html'>Support The Stoic Fellowship</a>
+            <a href='/donate'>Support The Stoic Fellowship</a>
           </p>
           <img src='/images/logo/SVGs/Logo-2 - Inverted Logo - Wht-Purp Disc.svg' width='10%' height='10%' />
           <br />
           <br />
-          <a href='/privacy-policy.html'>Privacy Policy</a>
+          <a href='/privacy-policy'>Privacy Policy</a>
           <br />
-          <a href='/terms-of-use.html'>Terms of Use</a>
+          <a href='/terms-of-use'>Terms of Use</a>
         </div>
       </footer> `
   }
