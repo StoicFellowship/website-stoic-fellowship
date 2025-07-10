@@ -49,7 +49,14 @@
   ).appendTo($body)
 
   // Panel.
-  $('<div id="navPanel">' + '<nav>' + $('#nav').navList() + '</nav>' + '</div>')
+  $(
+    '<div id="navPanel">' +
+      '<nav>' +
+      '<a href="/" class="link depth-0">Home</a>' +
+      $('#nav').navList() +
+      '</nav>' +
+      '</div>'
+  )
     .appendTo($body)
     .panel({
       delay: 500,
@@ -57,7 +64,7 @@
       hideOnSwipe: true,
       resetScroll: true,
       resetForms: true,
-      side: 'left',
+      side: 'right',
       target: $body,
       visibleClass: 'navPanel-visible',
     })
