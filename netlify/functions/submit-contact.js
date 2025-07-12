@@ -63,8 +63,6 @@ exports.handler = async function handler(event) {
       }),
     })
 
-    console.log('Client IP:', ip)
-
     if (!brevoRes.ok) {
       const err = await brevoRes.json()
       throw new Error(`Brevo error: ${JSON.stringify(err)}`)

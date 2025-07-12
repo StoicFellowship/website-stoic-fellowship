@@ -24,14 +24,6 @@
     "content": "/assets/roles/product-designer.md"
   },
   {
-    "title": "DevOps Engineer",
-    "category": "Technical / Digital",
-    "link": "/volunteer/role.html?slug=devops-engineer",
-    "description": "Help with deployment pipelines, Netlify, GitHub Actions, hosting infrastructure.",
-    "slug": "devops-engineer",
-    "content": "/assets/roles/devops-engineer.md"
-  },
-  {
     "title": "Data Analyst",
     "category": "Technical / Digital",
     "link": "/volunteer/role.html?slug=data-analyst",
@@ -88,24 +80,8 @@
     "content": "/assets/roles/moderator.md"
   },
   {
-    "title": "Event Coordinator",
-    "category": "Events & Operations",
-    "link": "/volunteer/role.html?slug=event-coordinator",
-    "description": "Plan and execute local or global events like Stoicon-X.",
-    "slug": "event-coordinator",
-    "content": "/assets/roles/event-coordinator.md"
-  },
-  {
-    "title": "Volunteer Coordinator",
-    "category": "Events & Operations",
-    "link": "/volunteer/role.html?slug=volunteer-coordinator",
-    "description": "Organize, track, and support volunteer participation.",
-    "slug": "volunteer-coordinator",
-    "content": "/assets/roles/volunteer-coordinator.md"
-  },
-  {
     "title": "Fundraising Specialist",
-    "category": "Events & Operations",
+    "category": "Fundraising",
     "link": "/volunteer/role.html?slug=fundraising-specialist",
     "description": "Design and run fundraising campaigns.",
     "slug": "fundraising-specialist",
@@ -113,7 +89,7 @@
   },
   {
     "title": "Grant Writer",
-    "category": "Events & Operations",
+    "category": "Fundraising",
     "link": "/volunteer/role.html?slug=grant-writer",
     "description": "Apply for funding and partnership opportunities.",
     "slug": "grant-writer",
@@ -121,7 +97,7 @@
   },
   {
     "title": "Donor Relations",
-    "category": "Events & Operations",
+    "category": "Fundraising",
     "link": "/volunteer/role.html?slug=donor-relations",
     "description": "Build long-term relationships with supporters.",
     "slug": "donor-relations",
@@ -129,7 +105,7 @@
   },
   {
     "title": "Board Member",
-    "category": "Events & Operations",
+    "category": "Leadership & Operations",
     "link": "/volunteer/role.html?slug=board-member",
     "description": "Help lead the strategic and ethical direction of the organization.",
     "slug": "board-member",
@@ -225,10 +201,26 @@
   },
   {
     "title": "Lawyer",
-    "category": "Legal & Administrative",
+    "category": "Leadership & Operations",
     "link": "/volunteer/role.html?slug=lawyer",
     "description": "Assist with governance, contracts, or nonprofit compliance.",
     "slug": "lawyer",
     "content": "/assets/roles/lawyer.md"
+  },
+  {
+    "title": "Event Coordinator",
+    "category": "Events & Coordination",
+    "link": "/volunteer/role.html?slug=event-coordinator",
+    "description": "Plan and execute local or global events like Stoicon-X.",
+    "slug": "event-coordinator",
+    "content": "/assets/roles/event-coordinator.md"
+  },
+  {
+    "title": "Volunteer Coordinator",
+    "category": "Events & Coordination",
+    "link": "/volunteer/role.html?slug=volunteer-coordinator",
+    "description": "Organize, track, and support volunteer participation.",
+    "slug": "volunteer-coordinator",
+    "content": "/assets/roles/volunteer-coordinator.md"
   }
 ]
