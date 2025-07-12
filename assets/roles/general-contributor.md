@@ -20,7 +20,7 @@ We’ll work with you to find a role or task that suits your interests and stren
 
 ## Time Commitment
 
-This is a highly flexible role. You can contribute as little as **1–2 hours per month** or more depending on your availability and interest.
+This is a highly flexible role. You can contribute as little as **5 hours per month** or more depending on your availability and interest.
 
 ## Benefits of Volunteering
 

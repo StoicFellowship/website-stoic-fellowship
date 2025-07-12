@@ -25,7 +25,7 @@ This role is an opportunity to pass on what you’ve learned, strengthen our glo
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **2–4 hours per month**, with occasional check-ins depending on the number of active mentees. Ideal for leaders looking to give back and support the next generation of organizers.
+This is a flexible volunteer role. We ask for a commitment of **5-10 hours per month**, with occasional check-ins depending on the number of active mentees. Ideal for leaders looking to give back and support the next generation of organizers.
 
 ## Benefits of Volunteering
 

@@ -23,7 +23,7 @@ As a Network Ambassador, you’ll serve as a connector—sharing updates, gather
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **2–4 hours per month**, though this may vary depending on current initiatives and your availability. Ideal for those looking for a lighter but meaningful way to contribute.
+This is a flexible volunteer role. We ask for a commitment of **5-10 hours per month**, though this may vary depending on current initiatives and your availability. Ideal for those looking for a lighter but meaningful way to contribute.
 
 ## Benefits of Volunteering
 

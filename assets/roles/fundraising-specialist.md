@@ -25,7 +25,7 @@ In this role, you’ll craft messaging, identify opportunities, and collaborate 
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **3–5 hours per month**, depending on campaign cycles or special initiatives. Both short-term support and ongoing involvement are welcome.
+This is a flexible volunteer role. We ask for a commitment of **5-10 hours per month**, depending on campaign cycles or special initiatives. Both short-term support and ongoing involvement are welcome.
 
 ## Benefits of Volunteering
 

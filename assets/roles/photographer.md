@@ -20,7 +20,7 @@ Do you have an eye for capturing meaningful moments and telling visual stories? 
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **2–4 hours per month**, depending on event availability and project needs.
+This is a flexible volunteer role. We ask for a commitment of **3-5 hours per month**, depending on event availability and project needs.
 
 ## Benefits of Volunteering
 

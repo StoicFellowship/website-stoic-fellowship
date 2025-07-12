@@ -24,7 +24,7 @@ From online meetups and workshops to global Stoic Week celebrations, your effort
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **3–5 hours per month**, depending on the number and scale of events.
+This is a flexible volunteer role. We ask for a commitment of **5-10 hours per month**, depending on the number and scale of events.
 
 ## Benefits of Volunteering
 

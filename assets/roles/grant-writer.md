@@ -25,7 +25,7 @@ This role is perfect for someone with a knack for research, persuasive writing, 
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **3–6 hours per month**, though this may vary depending on active grant cycles or proposal deadlines. Great for someone looking to contribute behind the scenes with high-impact work.
+This is a flexible volunteer role. We ask for a commitment of **5-10 hours per month**, though this may vary depending on active grant cycles or proposal deadlines. Great for someone looking to contribute behind the scenes with high-impact work.
 
 ## Benefits of Volunteering
 

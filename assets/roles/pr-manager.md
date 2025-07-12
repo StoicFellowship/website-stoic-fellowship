@@ -24,7 +24,7 @@ Your work will help raise awareness of Stoicism's modern relevance while strengt
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **3–5 hours per month**, though time may vary depending on campaign activity or press opportunities.
+This is a flexible volunteer role. We ask for a commitment of **5-10 hours per month**, though time may vary depending on campaign activity or press opportunities.
 
 ## Benefits of Volunteering
 

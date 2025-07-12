@@ -25,7 +25,7 @@ As a Moderator, you’ll help create and preserve an online environment where St
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **2–4 hours per week**, depending on the platform and volume of activity. Scheduling is often flexible and can be done in short, regular check-ins.
+This is a flexible volunteer role. We ask for a commitment of **3-5 hours per week**, depending on the platform and volume of activity. Scheduling is often flexible and can be done in short, regular check-ins.
 
 ## Benefits of Volunteering
 

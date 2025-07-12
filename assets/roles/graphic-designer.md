@@ -22,7 +22,7 @@ From social media graphics to event flyers and digital resources, your design wo
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **3–5 hours per month**, depending on the flow of requests and campaign needs.
+This is a flexible volunteer role. We ask for a commitment of **5-10 hours per month**, depending on the flow of requests and campaign needs.
 
 ## Benefits of Volunteering
 

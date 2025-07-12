@@ -23,7 +23,7 @@ As an Accessibility Advocate, you’ll help identify barriers, improve user expe
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **3-5 hours per month**, but you’re welcome to contribute based on your availability and interest level. Both short-term audits and ongoing collaboration are welcome.
+This is a flexible volunteer role. We ask for a commitment of **5 hours per month**, but you’re welcome to contribute based on your availability and interest level. Both short-term audits and ongoing collaboration are welcome.
 
 ## Benefits of Volunteering
 

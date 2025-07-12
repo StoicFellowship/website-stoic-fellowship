@@ -24,7 +24,7 @@ Your work will help build a consistent, trustworthy, and inspiring identity for 
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **3–5 hours per month**, depending on project cycles and strategic initiatives.
+This is a flexible volunteer role. We ask for a commitment of **5 hours per month**, depending on project cycles and strategic initiatives.
 
 ## Benefits of Volunteering
 

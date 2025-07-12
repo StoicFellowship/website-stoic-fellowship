@@ -24,7 +24,7 @@ In this role, you'll serve as a friendly point of contact, help match people wit
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **4–6 hours per month**, depending on volunteer activity and onboarding cycles.
+This is a flexible volunteer role. We ask for a commitment of **5-10 hours per week**, depending on volunteer activity and onboarding cycles.
 
 ## Benefits of Volunteering
 

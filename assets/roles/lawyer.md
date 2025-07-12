@@ -24,7 +24,7 @@ This role is ideal for someone with legal experience in nonprofit, corporate, or
 
 ## Time Commitment
 
-This is a flexible, advisory role. We ask for a commitment of **2–4 hours per month**, depending on current needs, legal projects, or document reviews. Availability for occasional quick-turnaround questions is appreciated.
+This is a flexible, advisory role. We ask for a commitment of **3-5 hours per month**, depending on current needs, legal projects, or document reviews. Availability for occasional quick-turnaround questions is appreciated.
 
 ## Benefits of Volunteering
 

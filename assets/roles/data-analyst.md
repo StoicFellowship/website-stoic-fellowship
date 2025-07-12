@@ -24,7 +24,7 @@ From tracking participation in local Stoas to analyzing site traffic and volunte
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **3–5 hours per month**, but you can tailor your involvement based on your availability and interests. Both short-term and long-term contributors are welcome.
+This is a flexible volunteer role. We ask for a commitment of **5-10 hours per month**, but you can tailor your involvement based on your availability and interests. Both short-term and long-term contributors are welcome.
 
 ## Benefits of Volunteering
 

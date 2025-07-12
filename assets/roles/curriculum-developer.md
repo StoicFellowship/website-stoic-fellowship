@@ -24,7 +24,7 @@ In this role, you'll design resources that support self-paced learning, communit
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **3–6 hours per month**, depending on project scope and your availability.
+This is a flexible volunteer role. We ask for a commitment of **5-10 hours per month**, depending on project scope and your availability.
 
 ## Benefits of Volunteering
 

@@ -1,5 +1,6 @@
 ## To Do
 
+- SEO Improvements
 - Donor page
 - Financial disclosures page
 - Our grand aspirations and plan page
@@ -7,7 +8,6 @@
 ## Doing
 
 - Test & Finish Volunteer & Application flows.
-- Update role descriptions.
 
 ## Done
 
@@ -22,6 +22,7 @@
 - Update all links by removing .html in favor of a simple /page (e.g. a href="/join" instead of a href="join.html")
 - Updated mobile hamburger menu and nav
 - Added "Home" nav to mobile menu
+- Update role descriptions.
 
 ---
 

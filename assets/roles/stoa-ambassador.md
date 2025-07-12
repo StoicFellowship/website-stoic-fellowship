@@ -24,7 +24,7 @@ This role is ideal for someone who enjoys mentorship, values meaningful conversa
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **2–5 hours per month**, though your availability may vary depending on interest in your region and active projects. A great fit for those looking to make a steady, relational impact over time.
+This is a flexible volunteer role. We ask for a commitment of **5-10 hours per month**, though your availability may vary depending on interest in your region and active projects. A great fit for those looking to make a steady, relational impact over time.
 
 ## Benefits of Volunteering
 

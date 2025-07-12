@@ -24,7 +24,7 @@ Your work will support our digital outreach, educational initiatives, and storyt
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **3–6 hours per month**, depending on the number and length of active projects.
+This is a flexible volunteer role. We ask for a commitment of **5-10 hours per month**, depending on the number and length of active projects.
 
 ## Benefits of Volunteering
 

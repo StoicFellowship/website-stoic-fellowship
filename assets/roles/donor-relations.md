@@ -24,7 +24,7 @@ This role is ideal for someone who believes in personal connection, clear commun
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **2–4 hours per month**, though some periods (e.g. post-campaign follow-up) may be slightly busier. A great role for those who value consistency and connection.
+This is a flexible volunteer role. We ask for a commitment of **5–10 hours per month**, though some periods (e.g. post-campaign follow-up) may be slightly busier. A great role for those who value consistency and connection.
 
 ## Benefits of Volunteering
 

@@ -25,7 +25,7 @@ This is a leadership role ideal for someone with experience in marketing, commun
 
 ## Time Commitment
 
-This is a leadership-level volunteer role. We ask for a commitment of **4–6 hours per week**, depending on campaign timelines or active projects. The role can scale based on your availability and interest in managing a broader team.
+This is a leadership-level volunteer role. We ask for a commitment of **3-5 hours per week**, depending on campaign timelines or active projects. The role can scale based on your availability and interest in managing a broader team.
 
 ## Benefits of Volunteering
 

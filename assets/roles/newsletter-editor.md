@@ -24,7 +24,7 @@ Your role will help ensure that our supporters, volunteers, and Stoa leaders sta
 
 ## Time Commitment
 
-This is a flexible volunteer role. We ask for a commitment of **4–6 hours per month**, depending on newsletter frequency and content volume.
+This is a flexible volunteer role. We ask for a commitment of **5-10 hours per month**, depending on newsletter frequency and content volume.
 
 ## Benefits of Volunteering
 
