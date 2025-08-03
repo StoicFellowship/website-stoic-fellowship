@@ -40,6 +40,7 @@ class HeaderTemplateChild extends HTMLElement {
                 </li>
               </ul>
             </li>
+            <li class="current"><a href="/volunteer">Volunteer</a></li>
             <li class='current'>
               <a href='/donate'>Donate</a>
             </li>

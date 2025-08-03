@@ -30,6 +30,7 @@ class HeaderTemplate extends HTMLElement {
             <li><a href="/service">Stoic Service</a></li>
           </ul>
         </li>
+        <li class="current"><a href="/volunteer">Volunteer</a></li>
         <li class="current"><a href="/donate">Donate</a></li>
         <li><a href="/join" class="button special">Join Us</a></li>
       </ul>
