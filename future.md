@@ -1,16 +1,19 @@
 ## To Do
 
 - SEO Improvements
+- AI Readability Improvements
 - Donor page
 - Financial disclosures page
 - Our grand aspirations and plan page
 
 ## Doing
 
-- Test & Finish Volunteer & Application flows.
+- SFN Wiki Site (Gitbook) - assign to Mike and Edgar
+- Stoa Facilitator Wiki Site (Gitbook) - assign to Patrick
 
 ## Done
 
+- Test & Finish Volunteer & Application flows.
 - Contact Us form
 - Submit Stoa form
 - Join Stoa form
