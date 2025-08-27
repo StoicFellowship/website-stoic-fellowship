@@ -1,8 +1,11 @@
 ## To Do
 
+- List of all Stoas (using locations.json) on stoicfellowship.com/stoic-groups
+- Page for each Stoa
 - SEO Improvements
 - AI Readability Improvements
 - Donor page
+- Partners page (specially call out groups like The Stoic Registry)
 - Financial disclosures page
 - Our grand aspirations and plan page
 
