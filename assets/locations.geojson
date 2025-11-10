@@ -1392,6 +1392,23 @@
         "type": "Point",
         "coordinates": [-2.9707, 56.462002]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Stoa Name": "Sheffield Stoics",
+        "Stoa Website": "https://www.facebook.com/groups/1788260738099334",
+        "Stoa City": "Sheffield",
+        "Stoa State": "",
+        "Stoa Country": "England",
+        "Stoa Primary Language": "English",
+        "Stoa Membership Type": "Member",
+        "": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-1.470228, 53.380663]
+      }
     }
   ]
 }
