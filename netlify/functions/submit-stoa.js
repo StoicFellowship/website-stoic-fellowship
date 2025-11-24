@@ -76,7 +76,7 @@ exports.handler = async function handler(event) {
           name: 'The Stoic Fellowship',
           email: 'noreply@stoicfellowship.com',
         },
-        to: [{ email: 'board@stoicfellowship.com', name: 'TSF Board' }],
+        to: [{ email: 'hello@stoicfellowship.com', name: 'TSF Board' }],
         subject: 'New Stoa Submission',
         htmlContent: `
           <h2>New Stoa Application</h2>
