@@ -708,22 +708,6 @@
     {
       "type": "Feature",
       "properties": {
-        "Stoa Name": "Minnesota Stoics",
-        "Stoa Website": "https://www.meetup.com/minnesota-stoics/",
-        "Stoa City": "Minneapolis",
-        "Stoa State": "MN",
-        "Stoa Country": "USA",
-        "Stoa Primary Language": "English",
-        "Stoa Membership Type": "Member"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-93.2661, 44.976105]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "Stoa Name": "The Houston Stoics",
         "Stoa Website": "https://www.facebook.com/share/g/dmSgRqWvTeCaPHu1/",
         "Stoa City": "Houston",
