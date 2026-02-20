@@ -9,6 +9,15 @@
     "bio": "Patrick started and runs a Stoa in Pittsburgh, where he lives with his wife and two children. He has a background in science and worked for 10 years as a science journalist, before changing careers to software development. He currently works for the Waking Up meditation app."
   },
   {
+    "name": "Mike Brooks",
+    "role": "Board Member",
+    "title": "",
+    "location": "Las Vegas, NV, USA",
+    "link": "http://mabrooks.com/",
+    "photo": "images/volunteers/mike_brooks.png",
+    "bio": "Michael Brooks is one of the founding members of Vegas Stoics. He’s a former Air Force C-130 pilot, an amateur artist, and a lifelong learner. Since joining the Stoic Fellowship Network in 2024, he has found ways to continue his life of service, filling leadership roles in two book clubs and starting the first year-long guided practice for Stoic progressors."
+  },
+  {
     "name": "Joe Bullock",
     "role": "Board Member",
     "title": "Head of Partnerships",
@@ -18,22 +27,13 @@
     "bio": "Joe Bullock's journey with Stoicism not only changed his life but also inspired him to co-found the Philadelphia Stoa. He organized the first live Stoicon-X in Philadelphia.<br><br>Read more or contact him at <a href=\"https://philadelphiastoa.org/joe-bullock/\" target=\"_blank\">philadelphiastoa.org/joe-bullock</a>."
   },
   {
-    "name": "Nick Guggenbuehl",
+    "name": "Kristy Kaufmann",
     "role": "Board Member",
-    "title": "Co-Founder & President",
-    "location": "St. Paul, MN, USA",
-    "link": "https://nickguggen.com",
-    "photo": "images/board/nick_pic.jpg",
-    "bio": "Nick Guggenbuehl is a social entrepreneur with an academic background aimed at the intersection of neuroscience and philosophy. He founded the Minnesota Stoics, co-founded The Stoic Fellowship, and is happiest when he’s hiking amidst a forest of pines or in the act of creating something new, be it a business, piece of music, or batch of home-brewed beer. Read more or contact him at <a href=\"https://nickguggen.com\" target=\"blank\" >https://nickguggen.com</a>."
-  },
-  {
-    "name": "Dan Lampert",
-    "role": "Board Member",
-    "title": "Advisor",
-    "location": "Orlando, FL, USA",
-    "link": "https://www.linkedin.com/in/danlampert1",
-    "photo": "images/board/dan.jpg",
-    "bio": "Dan (aka \"StoicDan\") is a public speaker on Stoicism, Buddhism, Taoism, Humanism, Minimalism, and American Transcendentalism. Organizer of Orlando Stoics and past organizer at 10 philosophy groups. Presented at 7 Stoicons. Themes (goals) are: critical thinking, civil discourse, common ground."
+    "title": "",
+    "location": "Boston, MA, USA",
+    "link": "",
+    "photo": "images/board/kristy.jpg",
+    "bio": "Kristy Kaufmann is a nonprofit executive whose work focuses on strengthening individuals and communities. Over more than 20 years, she has founded, scaled, and advised mission-driven organizations, including the Code of Support Foundation, which she led from launch to national impact serving military families. A competitive gymnast in her youth, Kristy learned early the lesson of focusing on effort rather than outcome—a principle that continues to guide her path. An active member of the Stoic Fellowship Network, Kristy emphasizes applied Stoic practice and is especially passionate about making Stoic tools accessible to people navigating life's challenges. Kristy lives between Boston and Martha’s Vineyard, where she writes, practices, and explores what it means to live philosophically in modern life."
   },
   {
     "name": "Gregory Lopez",
@@ -44,6 +44,25 @@
     "photo": "images/board/greg.jpeg",
     "bio": "Gregory Lopez is the founder and facilitator of the New York City Stoics, co-founder of The Stoic Fellowship, co-host of Stoic Camp New York, and on the team at Modern Stoicism. He is also co-author of A Handbook for New Stoics with Massimo Pigliucci. You can find out more about him at <a href=\"https://greglopez.me\" target=\"blank\" >https://greglopez.me</a>."
   },
+  {
+    "name": "Nick Guggenbuehl",
+    "role": "Board Member Emeritus",
+    "title": "Co-Founder",
+    "location": "St. Paul, MN, USA",
+    "link": "https://nickguggen.com",
+    "photo": "images/board/nick_pic.jpg",
+    "bio": "Nick Guggenbuehl is a social entrepreneur with an academic background aimed at the intersection of neuroscience and philosophy. He founded the Minnesota Stoics, co-founded The Stoic Fellowship, and is happiest when he’s hiking amidst a forest of pines or in the act of creating something new, be it a business, piece of music, or batch of home-brewed beer. Read more or contact him at <a href=\"https://nickguggen.com\" target=\"blank\" >https://nickguggen.com</a>."
+  },
+  {
+    "name": "Dan Lampert",
+    "role": "Board Member Emeritus",
+    "title": "",
+    "location": "Orlando, FL, USA",
+    "link": "",
+    "photo": "images/board/dan.jpg",
+    "bio": "Dan (aka \"StoicDan\") was a public speaker on Stoicism, Buddhism, Taoism, Humanism, Minimalism, and American Transcendentalism. He founded the Orlando Stoics and was past organizer of 10 philosophy groups. He presented at 7 Stoicons with the themes (goals) of: critical thinking, civil discourse, common ground. Dan passed away in 2025 and is missed by many. His legacy will continue with the numerous contributions he made to the global Stoicism community."
+  },
+
   {
     "name": "James Kostecka",
     "role": "Board Member Emeritus",
@@ -76,7 +95,7 @@
     "role": "Board Emeritus",
     "title": "",
     "location": "Los Angeles, CA, USA",
-    "link": "https://academics.csun.edu/faculty/justin.kitchen",
+    "link": "",
     "photo": "images/board/justin.jpg",
     "bio": "Justin graduated with a B.A. in Philosophy and Religion and an M.A. in Philosophy from San Francisco State University. He has been teaching philosophy at SF State and Cal State Northridge since 2014 and 2016, respectively. His interests span virtue ethics, virtue epistemology, Indian philosophy, and Ancient Hellenistic philosophy. Justin integrates the 'philosophy as a way of life' approach into his courses, provoking inquiry into the good life, engaging with a diversity of perspectives, encouraging student-led discussions, and testing the practical dimensions of the theories studied."
   },
@@ -115,15 +134,6 @@
     "link": "https://www.stoamadrid.es/",
     "photo": "images/board/kellys.jpg",
     "bio": "Kellys Rodriguez is the founder of <a href=\"https://www.stoamadrid.es/\">Stoa Madrid</a>, a school and community of Stoic philosophy based in Madrid (Spain) that aims to promote Stoicism's practical approach to learn and cultivate the art of living a good life. She’s also a member of our Social Service and Care team. Since 2018, she has organized activities for the Spanish-speaking Stoic community including online and in-person Stoic trainings, meetups, webinars, immersions, talks, Stoic hikes and get-togethers, group challenges, as well as social volunteering activities. Kellys has an academic and professional background in Economics and is the first South-American – Spanish member of our board."
-  },
-  {
-    "name": "Mike Brooks",
-    "role": "Volunteer",
-    "title": "SFN Community Lead",
-    "location": "Las Vegas, NV, USA",
-    "link": "http://mabrooks.com/",
-    "photo": "images/volunteers/mike_brooks.png",
-    "bio": "Michael Brooks is one of the founding members of Vegas Stoics. He’s a former Air Force C-130 pilot, an amateur artist, and a lifelong learner. Since joining the Stoic Fellowship Network in 2024, he has found ways to continue his life of service, filling leadership roles in two book clubs and starting the first year-long guided practice for Stoic progressors."
   },
   {
     "name": "Edgar Jackson",
