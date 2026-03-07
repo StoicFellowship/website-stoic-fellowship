@@ -55,9 +55,8 @@ exports.handler = async function handler(event) {
           body: JSON.stringify({
             parent: { database_id: NOTION_VOLUNTEER_DB_ID },
             properties: {
-              'Full Name': { title: txt(applicantData.full_name) },
+              Name: { title: txt(applicantData.full_name) },
               Email: { email: applicantData.email || null },
-              'Role Slug': { rich_text: txt(applicantData.role_slug) },
               'Role Title': { rich_text: txt(applicantData.role_title) },
               Location: { rich_text: txt(applicantData.location) },
               Latitude: { number: applicantData.latitude ?? null },
@@ -66,12 +65,13 @@ exports.handler = async function handler(event) {
               'Portfolio URL': { url: applicantData.portfolio_url || null },
               'Why Interested': { rich_text: txt(applicantData.why_interested) },
               Hopes: { rich_text: txt(applicantData.hopes) },
-              'Start Date': { rich_text: txt(applicantData.start_date) },
+              'Start Date': { date: applicantData.start_date ? { start: applicantData.start_date } : null },
               'Hours Per Month': { rich_text: txt(applicantData.hours_per_month) },
               'Timezone Offset': { rich_text: txt(applicantData.timezone_offset) },
               'Browser Language': { rich_text: txt(applicantData.browser_language) },
               'User Agent': { rich_text: txt(applicantData.user_agent) },
               'User IP': { rich_text: txt(ip) },
+              'Submitted At': { date: { start: new Date().toISOString() } },
             },
           }),
         })
