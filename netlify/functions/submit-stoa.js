@@ -81,7 +81,7 @@ exports.handler = async function handler(event) {
           body: JSON.stringify({
             parent: { database_id: NOTION_STOA_DB_ID },
             properties: {
-              'Stoa Name': { title: txt(stoa_name) },
+              'Stoa Name': { rich_text: txt(stoa_name) },
               'Stoa Type': { rich_text: txt(stoa_type) },
               Location: { rich_text: txt(location) },
               Latitude: { number: latitude !== '' && latitude != null ? parseFloat(latitude) : null },
@@ -91,8 +91,8 @@ exports.handler = async function handler(event) {
               Timezone: { rich_text: txt(timezone) },
               'Meeting Frequency': { rich_text: txt(meeting_frequency) },
               Description: { rich_text: txt(description) },
-              'Contact Name': { rich_text: txt(name) },
-              'Contact Email': { email: email || null },
+              Name: { title: txt(name) },
+              Email: { email: email || null },
               'Submitted At': { date: { start: submitted_at || new Date().toISOString() } },
               'IP Address': { rich_text: txt(ip) },
             },
