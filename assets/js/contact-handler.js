@@ -29,11 +29,7 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
     const result = await res.json()
 
     form.reset()
-    if (result.notionError) {
-      swal('Submitted (Notion error)', result.notionError, 'warning')
-    } else {
-      swal('Thanks!', "We'll be in touch soon.", 'success')
-    }
+    swal('Thanks!', "We'll be in touch soon.", 'success')
     // remove spinner
     spinner.remove()
     // re-enable the button

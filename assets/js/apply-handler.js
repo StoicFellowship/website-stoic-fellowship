@@ -50,7 +50,7 @@ document
       const result = await res.json()
 
       form.reset()
-      swal('Submitted', `Notion: ${result.notionStatus}`, result.notionStatus === 'success' ? 'success' : 'warning')
+      swal('Thanks!', "We'll be in touch soon.", 'success')
       form.reset()
     } catch (err) {
       console.error('Submit error:', err.message, err.stack)

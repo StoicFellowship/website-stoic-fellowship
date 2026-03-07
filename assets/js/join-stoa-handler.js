@@ -39,7 +39,7 @@ document
       submitButton.disabled = false
       submitButton.value = 'Submit'
       spinner.remove()
-      swal('Submitted', `Notion: ${result.notionStatus}`, result.notionStatus === 'success' ? 'success' : 'warning')
+      swal('Thanks!', "We'll connect you to a Stoa soon.", 'success')
     } catch (err) {
       console.error(err)
       submitButton.disabled = false

@@ -131,7 +131,7 @@ exports.handler = async function handler(event) {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true, notionStatus }),
+      body: JSON.stringify({ success: true }),
     }
   } catch (err) {
     console.error('Volunteer submit error:', err.message)
