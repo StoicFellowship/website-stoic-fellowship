@@ -60,6 +60,7 @@ exports.handler = async function handler(event) {
               Email: { email: email || null },
               Message: { rich_text: txt(message) },
               'IP Address': { rich_text: txt(ip) },
+              'Created At': { date: { start: new Date().toISOString() } },
             },
           }),
         })
