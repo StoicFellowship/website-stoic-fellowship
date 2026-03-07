@@ -176,12 +176,6 @@ body {
   width: 1400px;
 }
 
-#map {
-  width: 80%;
-  height: 750px;
-  margin: 0 auto;
-}
-
 @media screen and (max-width: 1680px) {
   .container.\31 25\25 {
     width: 100%;
