@@ -40,11 +40,7 @@ document.forms['existing-stoa'].addEventListener('submit', async (e) => {
     const result = await res.json()
 
     form.reset()
-    if (result.notionError) {
-      swal('Submitted (Notion error)', result.notionError, 'warning')
-    } else {
-      swal('Thanks!', "We'll be in touch soon.", 'success')
-    }
+    swal('Submitted', `Notion: ${result.notionStatus}`, result.notionStatus === 'success' ? 'success' : 'warning')
     // remove spinner
     spinner.remove()
     // re-enable the button

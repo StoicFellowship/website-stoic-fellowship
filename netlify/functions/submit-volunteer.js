@@ -42,7 +42,7 @@ exports.handler = async function handler(event) {
     }
 
     // Save to Notion (non-fatal)
-    let notionError = null
+    let notionStatus = 'skipped: env vars not set'
     if (NOTION_API_KEY && NOTION_VOLUNTEER_DB_ID) {
       try {
         const notionRes = await fetch('https://api.notion.com/v1/pages', {
@@ -76,11 +76,13 @@ exports.handler = async function handler(event) {
           }),
         })
         if (!notionRes.ok) {
-          notionError = await notionRes.text()
-          console.warn('Notion error (non-fatal):', notionError)
+          notionStatus = await notionRes.text()
+          console.warn('Notion error (non-fatal):', notionStatus)
+        } else {
+          notionStatus = 'success'
         }
       } catch (notionErr) {
-        notionError = notionErr.message
+        notionStatus = notionErr.message
         console.warn('Notion error (non-fatal):', notionErr.message)
       }
     }
@@ -129,7 +131,7 @@ exports.handler = async function handler(event) {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true, notionError }),
+      body: JSON.stringify({ success: true, notionStatus }),
     }
   } catch (err) {
     console.error('Volunteer submit error:', err.message)
