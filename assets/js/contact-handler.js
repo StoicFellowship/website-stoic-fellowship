@@ -21,14 +21,19 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
     spinner.classList.add('loading-spinner')
     submitButton.parentNode.appendChild(spinner)
 
-    await fetch('/.netlify/functions/submit-contact', {
+    const res = await fetch('/.netlify/functions/submit-contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     })
+    const result = await res.json()
 
     form.reset()
-    swal('Thanks!', "We'll be in touch soon.", 'success')
+    if (result.notionError) {
+      swal('Submitted (Notion error)', result.notionError, 'warning')
+    } else {
+      swal('Thanks!', "We'll be in touch soon.", 'success')
+    }
     // remove spinner
     spinner.remove()
     // re-enable the button

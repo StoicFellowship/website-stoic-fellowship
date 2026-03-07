@@ -47,8 +47,14 @@ document
         throw new Error(errorMsg)
       }
 
+      const result = await res.json()
+
       form.reset()
-      swal('Thanks!', "We'll be in touch soon.", 'success')
+      if (result.notionError) {
+        swal('Submitted (Notion error)', result.notionError, 'warning')
+      } else {
+        swal('Thanks!', "We'll be in touch soon.", 'success')
+      }
       form.reset()
     } catch (err) {
       console.error('Submit error:', err.message, err.stack)

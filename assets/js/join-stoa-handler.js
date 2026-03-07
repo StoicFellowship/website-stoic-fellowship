@@ -28,17 +28,22 @@ document
     submitButton.parentNode.appendChild(spinner)
 
     try {
-      await fetch('/.netlify/functions/submit-join-stoa', {
+      const res = await fetch('/.netlify/functions/submit-join-stoa', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       })
+      const result = await res.json()
 
       form.reset()
       submitButton.disabled = false
       submitButton.value = 'Submit'
       spinner.remove()
-      swal('Thanks!', "We'll connect you to a Stoa soon.", 'success')
+      if (result.notionError) {
+        swal('Submitted (Notion error)', result.notionError, 'warning')
+      } else {
+        swal('Thanks!', "We'll connect you to a Stoa soon.", 'success')
+      }
     } catch (err) {
       console.error(err)
       submitButton.disabled = false

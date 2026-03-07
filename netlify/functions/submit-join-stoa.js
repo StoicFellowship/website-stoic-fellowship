@@ -66,6 +66,7 @@ exports.handler = async function handler(event) {
     }
 
     // Save to Notion (non-fatal)
+    let notionError = null
     if (NOTION_API_KEY && NOTION_JOIN_STOA_DB_ID) {
       try {
         const notionRes = await fetch('https://api.notion.com/v1/pages', {
@@ -93,10 +94,11 @@ exports.handler = async function handler(event) {
           }),
         })
         if (!notionRes.ok) {
-          const err = await notionRes.text()
-          console.warn('Notion error (non-fatal):', err)
+          notionError = await notionRes.text()
+          console.warn('Notion error (non-fatal):', notionError)
         }
       } catch (notionErr) {
+        notionError = notionErr.message
         console.warn('Notion error (non-fatal):', notionErr.message)
       }
     }
@@ -138,7 +140,7 @@ exports.handler = async function handler(event) {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true }),
+      body: JSON.stringify({ success: true, notionError }),
     }
   } catch (err) {
     console.error('Function error:', err.message, err.stack)
