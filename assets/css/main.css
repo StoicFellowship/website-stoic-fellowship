@@ -2405,11 +2405,11 @@ input[type='reset'].fit,
 .button.fit-secondary {
   width: 100%;
   max-width: 500px;
-  background: rgba(52, 27, 43, 0.85);
+  background: rgb(52, 27, 43);
 }
 .button.fit-secondary:hover {
   width: 100%;
-  background: rgba(52, 27, 43, 0.95);
+  background: rgb(72, 37, 60);
 }
 
 input[type='button'].small,
@@ -2621,13 +2621,27 @@ input[type='reset'].small,
   background: transparent;
   box-shadow: none;
   color: #fff;
-  padding: 2em 2.5em;
+  padding: 0 2.5em;
   position: absolute;
+}
+
+#header.alt .logo {
+  position: relative;
+  top: 0.5em;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
 }
 
 #header.alt nav {
   right: 2.5em;
-  top: 1.75em;
+  top: 0.25em;
+}
+
+#header.alt nav ul li a {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+}
+
+#header.alt nav ul li .button {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 #header.alt nav ul li.active > a,
@@ -2746,13 +2760,18 @@ input[type='reset'].small,
   background-attachment: scroll, scroll, scroll, fixed;
   background-color: #645862;
   background-image: url('images/light-bl.svg'), url('images/light-br.svg'),
-    url('images/overlay.png'), url('../../images/stoa.jpeg');
+    url('images/overlay.png'), url('../../images/banner-people-2.png');
   background-position: bottom left, bottom right, top left, top center;
   background-repeat: no-repeat, no-repeat, repeat, no-repeat;
-  background-size: 25em, 25em, auto, cover;
+  background-size: 25em, 25em, auto, 100% auto;
+  aspect-ratio: 1584 / 672;
   color: #fff;
   cursor: default;
-  padding: 6em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
   text-align: center;
 }
 
@@ -2765,12 +2784,18 @@ input[type='reset'].small,
   -webkit-animation-fill-mode: forwards;
   -ms-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  background: rgba(52, 27, 43, 0.65);
+  background: transparent;
   color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
   font-weight: 500;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
   opacity: 0;
-  padding: 3em;
+  padding: 4em 3em 2em 3em;
   text-align: center;
   border-radius: 7px;
 }
@@ -2779,7 +2804,7 @@ input[type='reset'].small,
   display: inline-block;
   border-bottom: solid 2px;
   border-top: solid 2px;
-  margin: 0 0 2em 0;
+  margin: 0 0 1em 0;
   padding: 3px 0 3px 0;
 }
 
@@ -2798,6 +2823,7 @@ input[type='reset'].small,
 #banner .inner p {
   letter-spacing: 0.1em;
   margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 1), 0 0 20px rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
 }
 
@@ -2808,7 +2834,11 @@ input[type='reset'].small,
 }
 
 #banner .inner footer {
-  margin: 2em 0 0 0;
+  margin-top: auto;
+}
+
+#banner .inner footer .button {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 /* Main */
@@ -3040,7 +3070,16 @@ body.index #main {
   /* Banner */
 
   #banner {
-    background-size: 15em, 15em, auto, cover;
+    background-size: 15em, 15em, auto, 100% auto;
+    padding: 3em 0 0 0;
+  }
+
+  #banner .inner header h2 {
+    font-size: 2em;
+  }
+
+  #banner .inner footer {
+    margin: 0;
   }
 
   /* Main */
@@ -3142,6 +3181,22 @@ body.index #main {
   /* Banner */
 
   #banner {
+    margin: 0;
+  }
+
+  #banner .inner {
+    padding: 1em 2em 1em 2em;
+  }
+
+  #banner .inner header {
+    margin: 0 0 0.5em 0;
+  }
+
+  #banner .inner header h2 {
+    font-size: 1.75em;
+  }
+
+  #banner .inner footer {
     margin: 0;
   }
 
@@ -3508,8 +3563,7 @@ body.index #main {
   /* Banner */
 
   #banner {
-    background-size: 10em, 10em, auto, cover;
-    padding: 6em 0;
+    background-size: 10em, 10em, auto, 100% auto;
   }
 
   #banner .inner {
@@ -3521,21 +3575,29 @@ body.index #main {
     -webkit-animation-fill-mode: forwards;
     -ms-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-    background: rgba(52, 27, 43, 0.5);
+    background: transparent;
     color: #fff;
-    display: inline-block;
     opacity: 0;
-    padding: 3em;
+    padding: 0.5em 1.5em 0.5em 1.5em;
     text-align: center;
     border-radius: 7px;
   }
 
+  #banner .inner header {
+    margin: 0 0 0.25em 0;
+  }
+
   #banner .inner header h2 {
-    font-size: 1.5em;
+    font-size: 1.25em;
   }
 
   #banner .inner p {
     text-align: center;
+    font-size: 0.75em;
+  }
+
+  #banner .inner footer {
+    margin: 0;
   }
 
   #banner .inner br {
