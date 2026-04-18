@@ -2716,6 +2716,15 @@ input[type='reset'].small,
 
 /* Banner */
 
+@keyframes pan-banner-mobile {
+  0% {
+    background-position: bottom left, bottom right, top left, left center;
+  }
+  100% {
+    background-position: bottom left, bottom right, top left, right center;
+  }
+}
+
 @-moz-keyframes reveal-banner {
   0% {
     opacity: 0;
@@ -3190,6 +3199,9 @@ body.index #main {
     margin: 0;
     aspect-ratio: unset;
     height: auto;
+    background-size: 15em, 15em, auto, auto 100%;
+    background-position: bottom left, bottom right, top left, left center;
+    animation: pan-banner-mobile 11s ease-in-out forwards;
   }
 
   #banner .inner {
@@ -3572,7 +3584,7 @@ body.index #main {
   /* Banner */
 
   #banner {
-    background-size: 10em, 10em, auto, 100% auto;
+    background-size: 10em, 10em, auto, auto 100%;
     aspect-ratio: unset;
     height: auto;
   }
