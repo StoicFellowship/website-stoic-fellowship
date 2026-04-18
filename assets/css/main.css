@@ -2774,7 +2774,6 @@ input[type='reset'].small,
   background-repeat: no-repeat, no-repeat, repeat, no-repeat;
   background-size: 25em, 25em, auto, 100% auto;
   aspect-ratio: 1584 / 672;
-  min-height: 480px;
   color: #fff;
   cursor: default;
   display: flex;
@@ -3116,20 +3115,26 @@ body.index #main {
 
 @media screen and (min-width: 841px) and (max-width: 1131px) {
   #banner {
-    background-size: 25em, 25em, auto, auto 100%;
+    aspect-ratio: unset;
+    height: auto;
+    padding: 0;
+    background-size: 25em, 25em, auto, cover;
     background-position: bottom left, bottom right, top left, left center;
     animation: pan-banner-mobile 11s ease-in-out forwards;
-    padding-top: 4.5em;
   }
 
   #banner .inner {
     height: auto;
-    margin-top: auto;
-    margin-bottom: auto;
+    padding-top: 5.5em;
+    margin: 0;
   }
 
   #banner .inner footer {
     margin-top: 1em;
+  }
+
+  #banner .inner footer ul.buttons {
+    margin: 0.75em;
   }
 }
 
