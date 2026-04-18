@@ -2716,6 +2716,15 @@ input[type='reset'].small,
 
 /* Banner */
 
+@keyframes pan-banner-mobile {
+  0% {
+    background-position: bottom left, bottom right, top left, left center;
+  }
+  100% {
+    background-position: bottom left, bottom right, top left, right center;
+  }
+}
+
 @-moz-keyframes reveal-banner {
   0% {
     opacity: 0;
@@ -2775,6 +2784,12 @@ input[type='reset'].small,
   text-align: center;
 }
 
+#banner:not(:has(.inner)) {
+  aspect-ratio: unset;
+  padding: 6em 0;
+  background-size: 25em, 25em, auto, cover;
+}
+
 #banner .inner {
   -moz-animation: reveal-banner 1s 0.25s ease-in-out;
   -webkit-animation: reveal-banner 1s 0.25s ease-in-out;
@@ -2786,7 +2801,7 @@ input[type='reset'].small,
   animation-fill-mode: forwards;
   background: transparent;
   color: #fff;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 0, 0, 0.8);
   font-weight: 500;
   display: flex;
   flex-direction: column;
@@ -2823,7 +2838,7 @@ input[type='reset'].small,
 #banner .inner p {
   letter-spacing: 0.1em;
   margin: 0;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 1), 0 0 20px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 1), 0 0 40px rgba(0, 0, 0, 0.95);
   text-transform: uppercase;
 }
 
@@ -3096,6 +3111,33 @@ body.index #main {
   }
 }
 
+/* Intermediate: min-height constrains banner, so pan and center content */
+
+@media screen and (min-width: 841px) and (max-width: 1131px) {
+  #banner {
+    aspect-ratio: unset;
+    height: auto;
+    padding: 0;
+    background-size: 25em, 25em, auto, cover;
+    background-position: bottom left, bottom right, top left, left center;
+    animation: pan-banner-mobile 11s ease-in-out forwards;
+  }
+
+  #banner .inner {
+    height: auto;
+    padding-top: 5.5em;
+    margin: 0;
+  }
+
+  #banner .inner footer {
+    margin-top: 1em;
+  }
+
+  #banner .inner footer ul.buttons {
+    margin: 0.75em;
+  }
+}
+
 /* Narrower */
 
 #navPanel,
@@ -3182,10 +3224,20 @@ body.index #main {
 
   #banner {
     margin: 0;
+    aspect-ratio: unset;
+    height: auto;
+    background-size: 15em, 15em, auto, auto 100%;
+    background-position: bottom left, bottom right, top left, left center;
+    animation: pan-banner-mobile 11s ease-in-out forwards;
   }
 
   #banner .inner {
-    padding: 1em 2em 1em 2em;
+    padding: 2em 2em 2.5em 2em;
+    height: auto;
+  }
+
+  #banner .inner footer ul.buttons {
+    margin: 0.75em;
   }
 
   #banner .inner header {
@@ -3563,7 +3615,9 @@ body.index #main {
   /* Banner */
 
   #banner {
-    background-size: 10em, 10em, auto, 100% auto;
+    background-size: 10em, 10em, auto, auto 100%;
+    aspect-ratio: unset;
+    height: auto;
   }
 
   #banner .inner {
@@ -3578,7 +3632,8 @@ body.index #main {
     background: transparent;
     color: #fff;
     opacity: 0;
-    padding: 0.5em 1.5em 0.5em 1.5em;
+    padding: 2em 1.5em 2.5em 1.5em;
+    height: auto;
     text-align: center;
     border-radius: 7px;
   }

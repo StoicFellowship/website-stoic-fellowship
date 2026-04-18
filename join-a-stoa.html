@@ -10,19 +10,6 @@
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="shortcut icon" href="images/favicon.ico" />
 
-  <!-- Mapbox GL JS -->
-  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
-  <link
-    href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
-    rel="stylesheet"
-  />
-
-  <!-- Mapbox Geocoder Plugin -->
-  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
-  <link
-    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
-    rel="stylesheet"
-  />
 
   <!-- Matomo -->
   <script type="text/javascript">
@@ -67,16 +54,19 @@
       </p>
     </header>
 
-    <div style="margin: 5%">
-      <div
-        id="map"
+    <div class="container" style="margin-bottom: 3em;">
+      <iframe
+        src="https://www.google.com/maps/d/u/1/embed?mid=13PbV4ZISwRjisUIeEy_kxhB528v0RBc&ehbc=2E312F&noprof=1"
         style="
-          max-width: 600px;
-          height: 400px;
+          display: block;
+          width: 100%;
+          height: 700px;
           border-radius: 0.5em;
           box-shadow: 0 10px 45px -10px rgba(0, 0, 0, 0.15);
+          border: 0;
         "
-      ></div>
+        allowfullscreen
+      ></iframe>
     </div>
 
     <!-- Form -->
@@ -162,7 +152,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/map.js"></script>
     <script src="assets/js/geocode.js"></script>
   </div>
 </body>
