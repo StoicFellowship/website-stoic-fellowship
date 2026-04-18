@@ -2775,6 +2775,12 @@ input[type='reset'].small,
   text-align: center;
 }
 
+#banner:not(:has(.inner)) {
+  aspect-ratio: unset;
+  padding: 6em 0;
+  background-size: 25em, 25em, auto, cover;
+}
+
 #banner .inner {
   -moz-animation: reveal-banner 1s 0.25s ease-in-out;
   -webkit-animation: reveal-banner 1s 0.25s ease-in-out;
