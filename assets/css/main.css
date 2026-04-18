@@ -2774,6 +2774,7 @@ input[type='reset'].small,
   background-repeat: no-repeat, no-repeat, repeat, no-repeat;
   background-size: 25em, 25em, auto, 100% auto;
   aspect-ratio: 1584 / 672;
+  min-height: 480px;
   color: #fff;
   cursor: default;
   display: flex;
@@ -3108,6 +3109,27 @@ body.index #main {
   #cta {
     background-size: 15em, 15em, auto, cover;
     padding: 3em;
+  }
+}
+
+/* Intermediate: min-height constrains banner, so pan and center content */
+
+@media screen and (min-width: 841px) and (max-width: 1131px) {
+  #banner {
+    background-size: 25em, 25em, auto, auto 100%;
+    background-position: bottom left, bottom right, top left, left center;
+    animation: pan-banner-mobile 11s ease-in-out forwards;
+    padding-top: 4.5em;
+  }
+
+  #banner .inner {
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  #banner .inner footer {
+    margin-top: 1em;
   }
 }
 
