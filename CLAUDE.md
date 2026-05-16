@@ -42,8 +42,10 @@ The volunteer section has been hidden (not deleted) as of 2026-05-16. All code i
    /volunteer/role  /  302
    ```
 
-2. **`team.html`** — uncomment the two "Join the Team" button blocks (lines ~58 and ~74).
+2. **`assets/js/headerFooter.js`** and **`assets/js/headerFooterChild.js`** — uncomment the "Volunteer" nav item in each file.
 
-3. **`service/index.html`** — uncomment the "Sign up to volunteer with us" section (around line 249).
+3. **`team.html`** — uncomment the two "Join the Team" button blocks (lines ~58 and ~74).
+
+4. **`service/index.html`** — uncomment the "Sign up to volunteer with us" section (around line 249).
 
 The volunteer pages themselves (`volunteer.html`, `volunteer/apply.html`, `volunteer/role.html`) and all supporting files (`assets/js/load-volunteers.js`, `netlify/functions/submit-volunteer.js`, etc.) were not modified.
