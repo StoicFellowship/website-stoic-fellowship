@@ -44,7 +44,7 @@ The volunteer section has been hidden (not deleted) as of 2026-05-16. All code i
 
 2. **`assets/js/headerFooter.js`** and **`assets/js/headerFooterChild.js`** — uncomment the "Volunteer" nav item in each file.
 
-3. **`team.html`** — uncomment the two "Join the Team" button blocks (lines ~58 and ~74).
+3. **`team.html`** — uncomment the "Have skills you want to contribute?" paragraph block (around line 62) and the two "Join the Team" button blocks (lines ~58 and ~74).
 
 4. **`service/index.html`** — uncomment the "Sign up to volunteer with us" section (around line 249).
 
