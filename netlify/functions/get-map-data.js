@@ -51,15 +51,15 @@ exports.handler = async function handler(event) {
         NOTION_STOA_DB_ID,
         {
           or: [
-            { property: 'Status', select: { equals: 'Member' } },
-            { property: 'Status', select: { equals: 'Non-member' } },
+            { property: 'Status', status: { equals: 'Member' } },
+            { property: 'Status', status: { equals: 'Non-member' } },
           ],
         },
         NOTION_API_KEY
       ),
       queryAllPages(
         NOTION_JOIN_STOA_DB_ID,
-        { property: 'Status', select: { equals: 'Contacted' } },
+        { property: 'Status', status: { equals: 'Contacted' } },
         NOTION_API_KEY
       ),
     ])
@@ -73,7 +73,7 @@ exports.handler = async function handler(event) {
           name: richText(page, 'Stoa Name'),
           lat,
           lng,
-          status: page.properties['Status']?.select?.name || '',
+          status: page.properties['Status']?.status?.name || '',
           location: richText(page, 'Location'),
           website: page.properties['Website']?.url || '',
           language: richText(page, 'Language'),
