@@ -32,6 +32,27 @@ async function queryAllPages(databaseId, filter, notionKey) {
 
 const richText = (page, prop) => page.properties[prop]?.rich_text?.[0]?.plain_text || ''
 
+async function retrieveDatabase(databaseId, notionKey) {
+  const res = await fetch(`https://api.notion.com/v1/databases/${databaseId}`, {
+    headers: {
+      Authorization: `Bearer ${notionKey}`,
+      'Notion-Version': '2022-06-28',
+    },
+  })
+  if (!res.ok) throw new Error(`Notion retrieve failed: ${await res.text()}`)
+  return res.json()
+}
+
+function summarizeSchema(db) {
+  const props = {}
+  for (const [name, p] of Object.entries(db.properties || {})) {
+    if (p.type === 'select') props[name] = { type: 'select', options: p.select.options.map((o) => o.name) }
+    else if (p.type === 'status') props[name] = { type: 'status', options: p.status.options.map((o) => o.name) }
+    else props[name] = { type: p.type }
+  }
+  return props
+}
+
 exports.handler = async function handler(event) {
   if (event.httpMethod !== 'GET') {
     return { statusCode: 405, body: 'Method Not Allowed' }
@@ -43,6 +64,22 @@ exports.handler = async function handler(event) {
 
   if (!NOTION_API_KEY || !NOTION_STOA_DB_ID || !NOTION_JOIN_STOA_DB_ID) {
     return { statusCode: 500, body: JSON.stringify({ error: 'Missing Notion configuration' }) }
+  }
+
+  if (event.queryStringParameters?.debug === 'schema') {
+    try {
+      const [stoaDb, seekerDb] = await Promise.all([
+        retrieveDatabase(NOTION_STOA_DB_ID, NOTION_API_KEY),
+        retrieveDatabase(NOTION_JOIN_STOA_DB_ID, NOTION_API_KEY),
+      ])
+      return {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ stoa: summarizeSchema(stoaDb), seeker: summarizeSchema(seekerDb) }, null, 2),
+      }
+    } catch (err) {
+      return { statusCode: 500, body: JSON.stringify({ error: err.message }) }
+    }
   }
 
   try {
