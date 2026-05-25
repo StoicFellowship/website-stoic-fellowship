@@ -69,26 +69,17 @@ function escape(str) {
 
     fetch('/.netlify/functions/get-map-data')
       .then((r) => r.json())
-      .then(({ stoas, seekers }) => {
+      .then(({ stoas = [], seekers = [] }) => {
         stoas.forEach((stoa) => {
           const el = document.createElement('div')
           el.className = 'custom-marker'
           el.style.cursor = 'pointer'
-
-          if (stoa.status === 'Member') {
-            el.innerHTML = `
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
-                <circle cx="12" cy="12" r="10" fill="#ff7066" />
-                <path d="M12 4.5l1.76 5.44h5.72l-4.63 3.37 1.76 5.44-4.63-3.37-4.63 3.37 1.76-5.44-4.63-3.37h5.72L12 4.5z" fill="white"/>
-              </svg>
-            `
-          } else {
-            el.innerHTML = `
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
-                <circle cx="12" cy="12" r="10" fill="#FF8C00" />
-              </svg>
-            `
-          }
+          el.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
+              <circle cx="12" cy="12" r="10" fill="#ff7066" />
+              <path d="M12 4.5l1.76 5.44h5.72l-4.63 3.37 1.76 5.44-4.63-3.37-4.63 3.37 1.76-5.44-4.63-3.37h5.72L12 4.5z" fill="white"/>
+            </svg>
+          `
 
           new mapboxgl.Marker(el)
             .setLngLat([stoa.lng, stoa.lat])
