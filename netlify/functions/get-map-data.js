@@ -102,6 +102,6 @@ exports.handler = async function handler(event) {
     }
   } catch (err) {
     console.error('get-map-data error:', err.message)
-    return { statusCode: 500, body: JSON.stringify({ error: 'Failed to load map data' }) }
+    return { statusCode: 500, body: JSON.stringify({ error: 'Failed to load map data', detail: err.message }) }
   }
 }
