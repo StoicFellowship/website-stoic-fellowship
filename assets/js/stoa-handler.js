@@ -52,7 +52,11 @@ document.forms['existing-stoa'].addEventListener('submit', async (e) => {
     submitButton.value = 'Submit'
   } catch (err) {
     console.error(err)
-    swal('Oops!', err.message || 'Something went wrong. Please try again later.', 'error')
+    swal(
+      'Oops!',
+      `Something went wrong submitting the form. Please try again, or email hello@stoicfellowship.com for help.\n\nDetails: ${err.message || 'unknown error'}`,
+      'error'
+    )
     // remove spinner
     spinner.remove()
     // re-enable the button

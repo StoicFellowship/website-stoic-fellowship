@@ -49,6 +49,10 @@ document
       submitButton.disabled = false
       submitButton.value = 'Submit'
       spinner.remove()
-      swal('Oops!', err.message || 'Something went wrong. Please try again later.', 'error')
+      swal(
+        'Oops!',
+        `Something went wrong submitting the form. Please try again, or email hello@stoicfellowship.com for help.\n\nDetails: ${err.message || 'unknown error'}`,
+        'error'
+      )
     }
   })
