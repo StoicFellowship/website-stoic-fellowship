@@ -3818,19 +3818,15 @@ dd {
   max-width: 300px;
   font-family: Dosis, sans-serif;
   font-size: 14px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  z-index: 10;
 }
 
 .mapboxgl-popup-content {
-  padding: 10px;
+  padding: 14px 18px;
   background-color: #fff;
   border-radius: 10px;
-  border: 1px solid #ddd;
-}
-
-.mapboxgl-popup-tip {
-  background-color: #fff;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
 }
 
 .mapboxgl-popup h3 {
