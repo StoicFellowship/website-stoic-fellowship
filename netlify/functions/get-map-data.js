@@ -49,7 +49,12 @@ exports.handler = async function handler(event) {
     const [stoaPages, seekerPages] = await Promise.all([
       queryAllPages(
         NOTION_STOA_DB_ID,
-        { property: 'Status', status: { equals: 'Done' } },
+        {
+          or: [
+            { property: 'Status', status: { equals: 'Member Stoa' } },
+            { property: 'Status', status: { equals: 'Active Stoa' } },
+          ],
+        },
         NOTION_API_KEY
       ),
       queryAllPages(
@@ -68,6 +73,7 @@ exports.handler = async function handler(event) {
           name: richText(page, 'Stoa Name'),
           lat,
           lng,
+          status: page.properties['Status']?.status?.name || '',
           location: richText(page, 'Location'),
           website: page.properties['Website']?.url || '',
           language: richText(page, 'Language'),
