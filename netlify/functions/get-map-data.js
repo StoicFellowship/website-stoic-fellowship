@@ -70,7 +70,7 @@ exports.handler = async function handler(event) {
         const lng = page.properties['Longitude']?.number
         if (lat == null || lng == null) return null
         return {
-          name: richText(page, 'Stoa Name'),
+          name: page.properties['Name']?.title?.[0]?.plain_text || '',
           lat,
           lng,
           status: page.properties['Status']?.status?.name || '',
