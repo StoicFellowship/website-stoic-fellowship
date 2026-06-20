@@ -3844,7 +3844,7 @@ dd {
 }
 
 .popup-member { --popup-accent: #880E4F; }
-.popup-active { --popup-accent: #FF8C00; }
+.popup-active { --popup-accent: #E65100; }
 .popup-seeker { --popup-accent: #008080; }
 
 .popup-body {

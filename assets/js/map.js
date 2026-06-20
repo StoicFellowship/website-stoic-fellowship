@@ -54,8 +54,9 @@ function escape(str) {
             `
           } else {
             el.innerHTML = `
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
-                <circle cx="12" cy="12" r="10" fill="#FF8C00" />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
+                <circle cx="12" cy="12" r="10" fill="#E65100" />
+                <rect x="9.5" y="9.5" width="5" height="5" fill="white"/>
               </svg>
             `
           }
