@@ -3806,6 +3806,14 @@ dd {
 
 /* Mapbox Styling */
 
+.mapboxgl-marker.seeker-marker {
+  z-index: 1 !important;
+}
+
+.mapboxgl-marker.stoa-marker {
+  z-index: 2 !important;
+}
+
 .mapboxgl-popup {
   max-width: 300px;
   font-family: Dosis, sans-serif;

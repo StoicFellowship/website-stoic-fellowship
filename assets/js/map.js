@@ -42,7 +42,7 @@ function escape(str) {
       .then(({ stoas = [], seekers = [] }) => {
         stoas.forEach((stoa) => {
           const el = document.createElement('div')
-          el.className = 'custom-marker'
+          el.className = 'custom-marker stoa-marker'
           el.style.cursor = 'pointer'
 
           if (stoa.status === 'Member Stoa') {
@@ -77,7 +77,7 @@ function escape(str) {
 
         seekers.forEach((seeker) => {
           const el = document.createElement('div')
-          el.className = 'custom-marker'
+          el.className = 'custom-marker seeker-marker'
           el.style.cursor = 'pointer'
           el.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12">
