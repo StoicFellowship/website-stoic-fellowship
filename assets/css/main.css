@@ -3815,7 +3815,8 @@ dd {
 }
 
 .mapboxgl-popup {
-  max-width: 340px;
+  width: 300px;
+  max-width: 300px !important;
   font-family: Dosis, sans-serif;
   font-size: 14px;
   z-index: 10;
@@ -3828,6 +3829,8 @@ dd {
 }
 
 .mapboxgl-popup .mapboxgl-popup-content {
+  width: 300px;
+  box-sizing: border-box;
   padding: 0 !important;
   background-color: #fff !important;
   border-radius: 18px !important;
