@@ -3836,13 +3836,6 @@ dd {
   box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28), 0 8px 18px rgba(0, 0, 0, 0.14) !important;
 }
 
-.mapboxgl-popup-content::before {
-  content: '';
-  display: block;
-  height: 4px;
-  background: var(--popup-accent, #096c80);
-}
-
 .popup-member { --popup-accent: #880E4F; }
 .popup-active { --popup-accent: #E65100; }
 .popup-seeker { --popup-accent: #008080; }

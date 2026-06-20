@@ -64,11 +64,12 @@ function escape(str) {
           const isMember = stoa.status === 'Member Stoa'
           const popupClass = isMember ? 'popup-member' : 'popup-active'
           const typeLabel = isMember ? 'Member Stoa' : 'Other Active Stoa'
+          const popupOffset = isMember ? 18 : 14
 
           new mapboxgl.Marker(el)
             .setLngLat([stoa.lng, stoa.lat])
             .setPopup(
-              new mapboxgl.Popup({ offset: 25, className: popupClass, closeButton: false }).setHTML(`
+              new mapboxgl.Popup({ offset: popupOffset, className: popupClass, closeButton: false }).setHTML(`
                 <div class="popup-body">
                   <span class="popup-type">${typeLabel}</span>
                   <h3 class="popup-name">${escape(stoa.name)}</h3>
@@ -94,7 +95,7 @@ function escape(str) {
           new mapboxgl.Marker(el)
             .setLngLat([seeker.lng, seeker.lat])
             .setPopup(
-              new mapboxgl.Popup({ offset: 15, className: 'popup-seeker', closeButton: false }).setHTML(`
+              new mapboxgl.Popup({ offset: 9, className: 'popup-seeker', closeButton: false }).setHTML(`
                 <div class="popup-body">
                   <span class="popup-type">Stoic Seeking a Stoa</span>
                   <p class="popup-location">${escape(seeker.location)}</p>
