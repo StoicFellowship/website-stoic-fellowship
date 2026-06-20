@@ -18,72 +18,68 @@ exports.handler = async function handler(event) {
   try {
     const applicantData = JSON.parse(event.body)
 
-    // Save to Supabase
-    const supabaseRes = await fetch(
-      `${SUPABASE_URL}/rest/v1/volunteer_applications`,
-      {
-        method: 'POST',
-        headers: {
-          apikey: SUPABASE_KEY,
-          Authorization: `Bearer ${SUPABASE_KEY}`,
-          'Content-Type': 'application/json',
-          Prefer: 'return=representation',
+    // Save to Notion (primary store)
+    if (!NOTION_API_KEY || !NOTION_VOLUNTEER_DB_ID) {
+      throw new Error('Notion not configured')
+    }
+    const notionRes = await fetch('https://api.notion.com/v1/pages', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${NOTION_API_KEY}`,
+        'Notion-Version': '2022-06-28',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        parent: { database_id: NOTION_VOLUNTEER_DB_ID },
+        properties: {
+          Name: { title: txt(applicantData.full_name) },
+          Email: { email: applicantData.email || null },
+          'Role Title': { rich_text: txt(applicantData.role_title) },
+          Location: { rich_text: txt(applicantData.location) },
+          Latitude: { number: applicantData.latitude ?? null },
+          Longitude: { number: applicantData.longitude ?? null },
+          'LinkedIn URL': { url: applicantData.linkedin_url || null },
+          'Portfolio URL': { url: applicantData.portfolio_url || null },
+          'Why Interested': { rich_text: txt(applicantData.why_interested) },
+          Hopes: { rich_text: txt(applicantData.hopes) },
+          'Start Date': { date: applicantData.start_date ? { start: applicantData.start_date } : null },
+          'Hours Per Month': { rich_text: txt(applicantData.hours_per_month) },
+          'Timezone Offset': { rich_text: txt(applicantData.timezone_offset) },
+          'Browser Language': { rich_text: txt(applicantData.browser_language) },
+          'User Agent': { rich_text: txt(applicantData.user_agent) },
+          'User IP': { rich_text: txt(ip) },
+          'Submitted At': { date: { start: new Date().toISOString() } },
         },
-        body: JSON.stringify({
-          ...applicantData,
-          user_ip: ip,
-        }),
-      }
-    )
-
-    if (!supabaseRes.ok) {
-      const err = await supabaseRes.text()
-      throw new Error(`Supabase error: ${err}`)
+      }),
+    })
+    if (!notionRes.ok) {
+      throw new Error(`Notion error: ${await notionRes.text()}`)
     }
 
-    // Save to Notion (non-fatal)
-    let notionStatus = 'skipped: env vars not set'
-    if (NOTION_API_KEY && NOTION_VOLUNTEER_DB_ID) {
+    // Save to Supabase (non-fatal mirror)
+    if (SUPABASE_URL && SUPABASE_KEY) {
       try {
-        const notionRes = await fetch('https://api.notion.com/v1/pages', {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${NOTION_API_KEY}`,
-            'Notion-Version': '2022-06-28',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            parent: { database_id: NOTION_VOLUNTEER_DB_ID },
-            properties: {
-              Name: { title: txt(applicantData.full_name) },
-              Email: { email: applicantData.email || null },
-              'Role Title': { rich_text: txt(applicantData.role_title) },
-              Location: { rich_text: txt(applicantData.location) },
-              Latitude: { number: applicantData.latitude ?? null },
-              Longitude: { number: applicantData.longitude ?? null },
-              'LinkedIn URL': { url: applicantData.linkedin_url || null },
-              'Portfolio URL': { url: applicantData.portfolio_url || null },
-              'Why Interested': { rich_text: txt(applicantData.why_interested) },
-              Hopes: { rich_text: txt(applicantData.hopes) },
-              'Start Date': { date: applicantData.start_date ? { start: applicantData.start_date } : null },
-              'Hours Per Month': { rich_text: txt(applicantData.hours_per_month) },
-              'Timezone Offset': { rich_text: txt(applicantData.timezone_offset) },
-              'Browser Language': { rich_text: txt(applicantData.browser_language) },
-              'User Agent': { rich_text: txt(applicantData.user_agent) },
-              'User IP': { rich_text: txt(ip) },
-              'Submitted At': { date: { start: new Date().toISOString() } },
+        const supabaseRes = await fetch(
+          `${SUPABASE_URL}/rest/v1/volunteer_applications`,
+          {
+            method: 'POST',
+            headers: {
+              apikey: SUPABASE_KEY,
+              Authorization: `Bearer ${SUPABASE_KEY}`,
+              'Content-Type': 'application/json',
+              Prefer: 'return=representation',
             },
-          }),
-        })
-        if (!notionRes.ok) {
-          notionStatus = await notionRes.text()
-          console.warn('Notion error (non-fatal):', notionStatus)
-        } else {
-          notionStatus = 'success'
+            body: JSON.stringify({
+              ...applicantData,
+              user_ip: ip,
+            }),
+          }
+        )
+        if (!supabaseRes.ok) {
+          console.warn('Supabase error (non-fatal):', await supabaseRes.text())
         }
-      } catch (notionErr) {
-        notionStatus = notionErr.message
-        console.warn('Notion error (non-fatal):', notionErr.message)
+      } catch (supabaseErr) {
+        console.warn('Supabase error (non-fatal):', supabaseErr.message)
       }
     }
 
@@ -105,28 +101,32 @@ exports.handler = async function handler(event) {
       </ul>
     `
 
-    // Send via Brevo
-    const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
-      headers: {
-        'api-key': BREVO_API_KEY,
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify({
-        sender: {
-          name: 'The Stoic Fellowship',
-          email: 'noreply@stoicfellowship.com',
-        },
-        to: [{ email: 'hello@stoicfellowship.com', name: 'TSF Board' }],
-        subject: 'New Volunteer Application Submission',
-        htmlContent,
-      }),
-    })
-
-    if (!brevoRes.ok) {
-      const err = await brevoRes.text()
-      throw new Error(`Brevo error: ${err}`)
+    // Send via Brevo (non-fatal)
+    if (BREVO_API_KEY) {
+      try {
+        const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
+          method: 'POST',
+          headers: {
+            'api-key': BREVO_API_KEY,
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            sender: {
+              name: 'The Stoic Fellowship',
+              email: 'noreply@stoicfellowship.com',
+            },
+            to: [{ email: 'hello@stoicfellowship.com', name: 'TSF Board' }],
+            subject: 'New Volunteer Application Submission',
+            htmlContent,
+          }),
+        })
+        if (!brevoRes.ok) {
+          console.warn('Brevo error (non-fatal):', await brevoRes.text())
+        }
+      } catch (brevoErr) {
+        console.warn('Brevo error (non-fatal):', brevoErr.message)
+      }
     }
 
     return {

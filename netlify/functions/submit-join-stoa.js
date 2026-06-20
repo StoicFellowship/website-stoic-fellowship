@@ -33,111 +33,111 @@ exports.handler = async function handler(event) {
     'unknown'
 
   try {
-    // Save to Supabase
-    const supabaseRes = await fetch(
-      `${SUPABASE_URL}/rest/v1/join_stoa_submissions`,
-      {
-        method: 'POST',
-        headers: {
-          apikey: SUPABASE_KEY,
-          Authorization: `Bearer ${SUPABASE_KEY}`,
-          'Content-Type': 'application/json',
-          Prefer: 'return=representation',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          location,
-          latitude,
-          longitude,
-          preferred_language,
-          meeting_preference,
-          additional_details,
-          consent,
-          ip_address,
-          submitted_at: new Date().toISOString(),
-        }),
-      }
-    )
-
-    if (!supabaseRes.ok) {
-      const err = await supabaseRes.text()
-      throw new Error(`Supabase error: ${err}`)
+    // Save to Notion (primary store)
+    if (!NOTION_API_KEY || !NOTION_JOIN_STOA_DB_ID) {
+      throw new Error('Notion not configured')
     }
-
-    // Save to Notion (non-fatal)
-    let notionStatus = 'skipped: env vars not set'
-    if (NOTION_API_KEY && NOTION_JOIN_STOA_DB_ID) {
-      try {
-        const notionRes = await fetch('https://api.notion.com/v1/pages', {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${NOTION_API_KEY}`,
-            'Notion-Version': '2022-06-28',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            parent: { database_id: NOTION_JOIN_STOA_DB_ID },
-            properties: {
-              Name: { title: txt(name) },
-              Email: { email: email || null },
-              Location: { rich_text: txt(location) },
-              Latitude: { number: latitude !== '' && latitude != null ? parseFloat(latitude) : null },
-              Longitude: { number: longitude !== '' && longitude != null ? parseFloat(longitude) : null },
-              'Preferred Language': { rich_text: txt(preferred_language) },
-              'Meeting Preference': { rich_text: txt(meeting_preference) },
-              'Additional Details': { rich_text: txt(additional_details) },
-              Consent: { checkbox: !!consent },
-              'IP Address': { rich_text: txt(ip_address) },
-              'Submitted At': { date: { start: new Date().toISOString() } },
-            },
-          }),
-        })
-        if (!notionRes.ok) {
-          notionStatus = await notionRes.text()
-          console.warn('Notion error (non-fatal):', notionStatus)
-        } else {
-          notionStatus = 'success'
-        }
-      } catch (notionErr) {
-        notionStatus = notionErr.message
-        console.warn('Notion error (non-fatal):', notionErr.message)
-      }
-    }
-
-    // send notification via Brevo
-    const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
+    const notionRes = await fetch('https://api.notion.com/v1/pages', {
       method: 'POST',
       headers: {
-        'api-key': BREVO_API_KEY,
+        Authorization: `Bearer ${NOTION_API_KEY}`,
+        'Notion-Version': '2022-06-28',
         'Content-Type': 'application/json',
-        Accept: 'application/json',
       },
       body: JSON.stringify({
-        sender: {
-          name: 'The Stoic Fellowship',
-          email: 'noreply@stoicfellowship.com',
+        parent: { database_id: NOTION_JOIN_STOA_DB_ID },
+        properties: {
+          Name: { title: txt(name) },
+          Email: { email: email || null },
+          Location: { rich_text: txt(location) },
+          Latitude: { number: latitude !== '' && latitude != null ? parseFloat(latitude) : null },
+          Longitude: { number: longitude !== '' && longitude != null ? parseFloat(longitude) : null },
+          'Preferred Language': { rich_text: txt(preferred_language) },
+          'Meeting Preference': { rich_text: txt(meeting_preference) },
+          'Additional Details': { rich_text: txt(additional_details) },
+          Consent: { checkbox: !!consent },
+          'IP Address': { rich_text: txt(ip_address) },
+          'Submitted At': { date: { start: new Date().toISOString() } },
         },
-        to: [{ email: 'hello@stoicfellowship.com', name: 'TSF Board' }],
-        subject: 'New Join a Stoa Submission',
-        htmlContent: `
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Location:</strong> ${location}</p>
-          <p><strong>Latitude:</strong> ${latitude}</p>
-          <p><strong>Longitude:</strong> ${longitude}</p>
-          <p><strong>Preferred Language:</strong> ${preferred_language}</p>
-          <p><strong>Meeting Preference:</strong> ${meeting_preference}</p>
-          <p><strong>Additional Details:</strong> ${additional_details}</p>
-          <p><strong>Consent:</strong> ${consent ? 'Yes' : 'No'}</p>
-          <p><strong>IP Address:</strong> ${ip_address}</p>
-        `,
       }),
     })
+    if (!notionRes.ok) {
+      throw new Error(`Notion error: ${await notionRes.text()}`)
+    }
 
-    if (!brevoRes.ok) {
-      const err = await brevoRes.text()
-      throw new Error(`Brevo error: ${err}`)
+    // Save to Supabase (non-fatal mirror)
+    if (SUPABASE_URL && SUPABASE_KEY) {
+      try {
+        const supabaseRes = await fetch(
+          `${SUPABASE_URL}/rest/v1/join_stoa_submissions`,
+          {
+            method: 'POST',
+            headers: {
+              apikey: SUPABASE_KEY,
+              Authorization: `Bearer ${SUPABASE_KEY}`,
+              'Content-Type': 'application/json',
+              Prefer: 'return=representation',
+            },
+            body: JSON.stringify({
+              name,
+              email,
+              location,
+              latitude,
+              longitude,
+              preferred_language,
+              meeting_preference,
+              additional_details,
+              consent,
+              ip_address,
+              submitted_at: new Date().toISOString(),
+            }),
+          }
+        )
+        if (!supabaseRes.ok) {
+          console.warn('Supabase error (non-fatal):', await supabaseRes.text())
+        }
+      } catch (supabaseErr) {
+        console.warn('Supabase error (non-fatal):', supabaseErr.message)
+      }
+    }
+
+    // Send notification via Brevo (non-fatal)
+    if (BREVO_API_KEY) {
+      try {
+        const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
+          method: 'POST',
+          headers: {
+            'api-key': BREVO_API_KEY,
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            sender: {
+              name: 'The Stoic Fellowship',
+              email: 'noreply@stoicfellowship.com',
+            },
+            to: [{ email: 'hello@stoicfellowship.com', name: 'TSF Board' }],
+            subject: 'New Join a Stoa Submission',
+            htmlContent: `
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Location:</strong> ${location}</p>
+              <p><strong>Latitude:</strong> ${latitude}</p>
+              <p><strong>Longitude:</strong> ${longitude}</p>
+              <p><strong>Preferred Language:</strong> ${preferred_language}</p>
+              <p><strong>Meeting Preference:</strong> ${meeting_preference}</p>
+              <p><strong>Additional Details:</strong> ${additional_details}</p>
+              <p><strong>Consent:</strong> ${consent ? 'Yes' : 'No'}</p>
+              <p><strong>IP Address:</strong> ${ip_address}</p>
+            `,
+          }),
+        })
+        if (!brevoRes.ok) {
+          console.warn('Brevo error (non-fatal):', await brevoRes.text())
+        }
+      } catch (brevoErr) {
+        console.warn('Brevo error (non-fatal):', brevoErr.message)
+      }
     }
 
     return {

@@ -1,53 +1,27 @@
-// Fetch Mapbox and IPinfo tokens from Netlify functions
-async function fetchTokens() {
-  const [mapboxRes, ipinfoRes] = await Promise.all([
-    fetch('/.netlify/functions/get-mapbox-token'),
-    fetch('/.netlify/functions/get-ipinfo-token'),
-  ])
-
-  if (!mapboxRes.ok || !ipinfoRes.ok) {
-    throw new Error('Failed to load one or more tokens')
-  }
-
-  const mapboxData = await mapboxRes.json()
-  const ipinfoData = await ipinfoRes.json()
-
-  return {
-    mapboxToken: mapboxData.token,
-    ipinfoToken: ipinfoData.token,
-  }
+async function fetchMapboxToken() {
+  const res = await fetch('/.netlify/functions/get-mapbox-token')
+  if (!res.ok) throw new Error('Failed to load Mapbox token')
+  const { token } = await res.json()
+  return token
 }
 
-// Fetch user location using IPinfo token
-async function fetchUserLocation(ipinfoToken) {
-  try {
-    const response = await fetch(`https://ipinfo.io/json?token=${ipinfoToken}`)
-    if (!response.ok) throw new Error('Failed to fetch location')
-    const data = await response.json()
-
-    const [lat, lng] = data.loc.split(',')
-
-    console.log(`User's perceived location: Latitude ${lat}, Longitude ${lng}`)
-    return { lat: parseFloat(lat), lng: parseFloat(lng) }
-  } catch (error) {
-    console.error('Error fetching user location:', error)
-    return { lat: 37.8, lng: -96 }
-  }
+function escape(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
 }
 
-// Main map initialization
 ;(async function initializeMap() {
   try {
-    const { mapboxToken, ipinfoToken } = await fetchTokens()
-    mapboxgl.accessToken = mapboxToken
-
-    const userLocation = await fetchUserLocation(ipinfoToken)
+    mapboxgl.accessToken = await fetchMapboxToken()
 
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/light-v10',
-      center: [userLocation.lng, userLocation.lat],
-      zoom: 4,
+      center: [-25, 20],
+      zoom: 1.6,
       attributionControl: false,
     })
 
@@ -63,49 +37,76 @@ async function fetchUserLocation(ipinfoToken) {
     map.addControl(new mapboxgl.NavigationControl(), 'top-right')
     map.touchZoomRotate.enable({ touchZoom: true, rotate: false })
 
-    fetch('assets/locations.geojson')
-      .then((response) => response.json())
-      .then((data) => {
-        data.features.forEach((feature) => {
+    fetch('/.netlify/functions/get-map-data')
+      .then((r) => r.json())
+      .then(({ stoas = [], seekers = [] }) => {
+        stoas.forEach((stoa) => {
           const el = document.createElement('div')
-          el.className = 'custom-marker'
+          el.className = 'custom-marker stoa-marker'
+          el.style.cursor = 'pointer'
 
-          if (feature.properties['Stoa Membership Type'] === 'Member') {
+          if (stoa.status === 'Member Stoa') {
             el.innerHTML = `
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
-                <circle cx="12" cy="12" r="10" fill="#ff7066" />
+                <circle cx="12" cy="12" r="10" fill="#880E4F" />
                 <path d="M12 4.5l1.76 5.44h5.72l-4.63 3.37 1.76 5.44-4.63-3.37-4.63 3.37 1.76-5.44-4.63-3.37h5.72L12 4.5z" fill="white"/>
               </svg>
             `
           } else {
             el.innerHTML = `
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
-                <circle cx="12" cy="12" r="10" fill="#66023C" />
-                <text x="12" y="16" text-anchor="middle" fill="white" font-size="10" font-family="Arial" font-weight="bold"></text>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
+                <circle cx="12" cy="12" r="10" fill="#E65100" />
+                <rect x="9.5" y="9.5" width="5" height="5" fill="white"/>
               </svg>
             `
           }
 
-          el.style.cursor = 'pointer'
+          const isMember = stoa.status === 'Member Stoa'
+          const popupClass = isMember ? 'popup-member' : 'popup-active'
+          const typeLabel = isMember ? 'Member Stoa' : 'Other Active Stoa'
+          const popupOffset = isMember ? 18 : 14
 
           new mapboxgl.Marker(el)
-            .setLngLat(feature.geometry.coordinates)
+            .setLngLat([stoa.lng, stoa.lat])
             .setPopup(
-              new mapboxgl.Popup({ offset: 25 }).setHTML(`
-                <div>
-                  <h3>${feature.properties['Stoa Name']}</h3>
-                  <p><strong>City:</strong> ${feature.properties['Stoa City']}</p>
-                  <p><strong>State:</strong> ${feature.properties['Stoa State']}</p>
-                  <p><strong>Country:</strong> ${feature.properties['Stoa Country']}</p>
-                  <p><strong>Primary Language:</strong> ${feature.properties['Stoa Primary Language']}</p>
-                  <a href="${feature.properties['Stoa Website']}" target="_blank">Visit Website</a>
+              new mapboxgl.Popup({ offset: popupOffset, className: popupClass, closeButton: false }).setHTML(`
+                <div class="popup-body">
+                  <span class="popup-type">${typeLabel}</span>
+                  <h3 class="popup-name">${escape(stoa.name)}</h3>
+                  <p class="popup-location">${escape(stoa.location)}</p>
+                  ${stoa.language ? `<span class="popup-tag">${escape(stoa.language)}</span>` : ''}
+                  ${stoa.website ? `<div><a class="popup-cta" href="${escape(stoa.website)}" target="_blank" rel="noopener">Visit Website</a></div>` : ''}
+                </div>
+              `)
+            )
+            .addTo(map)
+        })
+
+        seekers.forEach((seeker) => {
+          const el = document.createElement('div')
+          el.className = 'custom-marker seeker-marker'
+          el.style.cursor = 'pointer'
+          el.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12">
+              <circle cx="12" cy="12" r="10" fill="#008080" />
+            </svg>
+          `
+
+          new mapboxgl.Marker(el)
+            .setLngLat([seeker.lng, seeker.lat])
+            .setPopup(
+              new mapboxgl.Popup({ offset: 9, className: 'popup-seeker', closeButton: false }).setHTML(`
+                <div class="popup-body">
+                  <span class="popup-type">Stoic Seeking a Stoa</span>
+                  <p class="popup-location">${escape(seeker.location)}</p>
+                  ${seeker.language ? `<span class="popup-tag">${escape(seeker.language)}</span>` : ''}
                 </div>
               `)
             )
             .addTo(map)
         })
       })
-      .catch((error) => console.error('Error loading GeoJSON data:', error))
+      .catch((error) => console.error('Error loading map data:', error))
   } catch (err) {
     console.error('Failed to initialize map:', err)
   }

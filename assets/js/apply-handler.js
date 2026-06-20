@@ -54,7 +54,11 @@ document
       form.reset()
     } catch (err) {
       console.error('Submit error:', err.message, err.stack)
-      swal('Oops!', 'Something went wrong. Please try again.', 'error')
+      swal(
+        'Oops!',
+        `Something went wrong submitting the form. Please try again, or email hello@stoicfellowship.com for help.\n\nDetails: ${err.message || 'unknown error'}`,
+        'error'
+      )
     } finally {
       spinner.remove()
       submitBtn.disabled = false
