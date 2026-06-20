@@ -1,35 +1,8 @@
-async function fetchTokens() {
-  const [mapboxRes, ipinfoRes] = await Promise.all([
-    fetch('/.netlify/functions/get-mapbox-token'),
-    fetch('/.netlify/functions/get-ipinfo-token'),
-  ])
-
-  if (!mapboxRes.ok || !ipinfoRes.ok) {
-    throw new Error('Failed to load one or more tokens')
-  }
-
-  const mapboxData = await mapboxRes.json()
-  const ipinfoData = await ipinfoRes.json()
-
-  return {
-    mapboxToken: mapboxData.token,
-    ipinfoToken: ipinfoData.token,
-  }
-}
-
-async function fetchUserLocation(ipinfoToken) {
-  try {
-    const response = await fetch(`https://ipinfo.io/json?token=${ipinfoToken}`)
-    if (!response.ok) throw new Error('Failed to fetch location')
-    const data = await response.json()
-
-    const [lat, lng] = data.loc.split(',')
-
-    return { lat: parseFloat(lat), lng: parseFloat(lng) }
-  } catch (error) {
-    console.error('Error fetching user location:', error)
-    return { lat: 37.8, lng: -96 }
-  }
+async function fetchMapboxToken() {
+  const res = await fetch('/.netlify/functions/get-mapbox-token')
+  if (!res.ok) throw new Error('Failed to load Mapbox token')
+  const { token } = await res.json()
+  return token
 }
 
 function escape(str) {
@@ -42,16 +15,13 @@ function escape(str) {
 
 ;(async function initializeMap() {
   try {
-    const { mapboxToken, ipinfoToken } = await fetchTokens()
-    mapboxgl.accessToken = mapboxToken
-
-    const userLocation = await fetchUserLocation(ipinfoToken)
+    mapboxgl.accessToken = await fetchMapboxToken()
 
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/light-v10',
-      center: [userLocation.lng, userLocation.lat],
-      zoom: 4,
+      center: [-25, 20],
+      zoom: 1.6,
       attributionControl: false,
     })
 
