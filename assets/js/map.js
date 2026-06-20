@@ -78,7 +78,7 @@ function escape(str) {
           if (stoa.status === 'Member Stoa') {
             el.innerHTML = `
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
-                <circle cx="12" cy="12" r="10" fill="#ff7066" />
+                <circle cx="12" cy="12" r="10" fill="#880E4F" />
                 <path d="M12 4.5l1.76 5.44h5.72l-4.63 3.37 1.76 5.44-4.63-3.37-4.63 3.37 1.76-5.44-4.63-3.37h5.72L12 4.5z" fill="white"/>
               </svg>
             `
