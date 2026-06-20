@@ -150,7 +150,7 @@ exports.handler = async function handler(event) {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true }),
+      body: JSON.stringify({ success: true, notion: notionStatus }),
     }
   } catch (err) {
     console.error('Function error:', err.message, err.stack)
