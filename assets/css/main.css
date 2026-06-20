@@ -3815,49 +3815,103 @@ dd {
 }
 
 .mapboxgl-popup {
-  max-width: 300px;
+  max-width: 340px;
   font-family: Dosis, sans-serif;
   font-size: 14px;
   z-index: 10;
 }
 
 .mapboxgl-popup-content {
-  padding: 14px 18px;
+  padding: 0;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
 
-.mapboxgl-popup h3 {
-  font-size: 18px;
-  margin: 8px 0 5px;
-  color: #333;
+.mapboxgl-popup-content::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: var(--popup-accent, #096c80);
 }
 
-.mapboxgl-popup a {
-  color: #096c80;
-  text-decoration: none;
+.popup-member { --popup-accent: #880E4F; }
+.popup-active { --popup-accent: #FF8C00; }
+.popup-seeker { --popup-accent: #008080; }
+
+.popup-body {
+  padding: 16px 20px 18px;
 }
 
-.mapboxgl-popup a:hover {
-  text-decoration: underline;
+.popup-type {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--popup-accent);
+  margin-bottom: 4px;
+}
+
+.popup-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: #222;
+  line-height: 1.2;
+}
+
+.popup-location {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.popup-tag {
+  display: inline-block;
+  font-size: 12px;
+  background: #f1f1f1;
+  color: #555;
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-top: 10px;
+}
+
+.popup-cta {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  background: var(--popup-accent);
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none !important;
+}
+
+.popup-cta:hover {
+  opacity: 0.9;
 }
 
 .mapboxgl-popup-close-button {
-  font-size: 16px; /* Increase the size */
-  font-weight: bold; /* Make it stand out */
-  color: #333; /* Change color */
-  background: transparent; /* Remove background */
-  border: none; /* Remove border */
-  cursor: pointer; /* Add pointer cursor */
-  position: absolute; /* Explicit positioning */
-  top: 8px; /* Adjust vertical position */
-  right: 8px; /* Adjust horizontal position */
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 1;
+  color: #999;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 6px;
+  right: 6px;
 }
 
 .mapboxgl-popup-close-button:hover {
-  color: #096c80; /* Change color on hover */
+  color: #333;
+  background: transparent;
 }
 
 .mapboxgl-ctrl-geocoder {

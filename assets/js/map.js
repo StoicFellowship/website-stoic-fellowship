@@ -60,15 +60,20 @@ function escape(str) {
             `
           }
 
+          const isMember = stoa.status === 'Member Stoa'
+          const popupClass = isMember ? 'popup-member' : 'popup-active'
+          const typeLabel = isMember ? 'Member Stoa' : 'Other Active Stoa'
+
           new mapboxgl.Marker(el)
             .setLngLat([stoa.lng, stoa.lat])
             .setPopup(
-              new mapboxgl.Popup({ offset: 25 }).setHTML(`
-                <div>
-                  <h3>${escape(stoa.name)}</h3>
-                  <p>${escape(stoa.location)}</p>
-                  ${stoa.language ? `<p><strong>Language:</strong> ${escape(stoa.language)}</p>` : ''}
-                  ${stoa.website ? `<a href="${escape(stoa.website)}" target="_blank" rel="noopener">Visit Website</a>` : ''}
+              new mapboxgl.Popup({ offset: 25, className: popupClass }).setHTML(`
+                <div class="popup-body">
+                  <span class="popup-type">${typeLabel}</span>
+                  <h3 class="popup-name">${escape(stoa.name)}</h3>
+                  <p class="popup-location">${escape(stoa.location)}</p>
+                  ${stoa.language ? `<span class="popup-tag">${escape(stoa.language)}</span>` : ''}
+                  ${stoa.website ? `<div><a class="popup-cta" href="${escape(stoa.website)}" target="_blank" rel="noopener">Visit Website</a></div>` : ''}
                 </div>
               `)
             )
@@ -88,11 +93,11 @@ function escape(str) {
           new mapboxgl.Marker(el)
             .setLngLat([seeker.lng, seeker.lat])
             .setPopup(
-              new mapboxgl.Popup({ offset: 25 }).setHTML(`
-                <div>
-                  <p><strong>Stoic seeking a stoa</strong></p>
-                  <p>${escape(seeker.location)}</p>
-                  ${seeker.language ? `<p><strong>Language preference:</strong> ${escape(seeker.language)}</p>` : ''}
+              new mapboxgl.Popup({ offset: 15, className: 'popup-seeker' }).setHTML(`
+                <div class="popup-body">
+                  <span class="popup-type">Stoic Seeking a Stoa</span>
+                  <p class="popup-location">${escape(seeker.location)}</p>
+                  ${seeker.language ? `<span class="popup-tag">${escape(seeker.language)}</span>` : ''}
                 </div>
               `)
             )
