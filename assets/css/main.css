@@ -192,7 +192,7 @@ body {
   }
 
   .container.\32 5\25 {
-    width: 300px;
+    width: 250px;
   }
 
   .container {
@@ -3815,8 +3815,8 @@ dd {
 }
 
 .mapboxgl-popup {
-  width: 300px;
-  max-width: 300px !important;
+  width: 250px;
+  max-width: 250px !important;
   font-family: Dosis, sans-serif;
   font-size: 14px;
   z-index: 10;
@@ -3829,7 +3829,7 @@ dd {
 }
 
 .mapboxgl-popup .mapboxgl-popup-content {
-  width: 300px;
+  width: 250px;
   box-sizing: border-box;
   padding: 0 !important;
   background-color: #fff !important;
@@ -4011,7 +4011,7 @@ select {
 .team-grid {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
 }
 
 .team-card {
