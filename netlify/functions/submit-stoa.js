@@ -32,81 +32,77 @@ exports.handler = async function handler(event) {
   const NOTION_STOA_DB_ID = process.env.NOTION_STOA_DB_ID
 
   try {
-    // Save to Supabase
-    const supabaseRes = await fetch(
-      `${SUPABASE_URL}/rest/v1/stoa_submissions`,
-      {
-        method: 'POST',
-        headers: {
-          apikey: SUPABASE_KEY,
-          Authorization: `Bearer ${SUPABASE_KEY}`,
-          'Content-Type': 'application/json',
-          Prefer: 'return=representation',
+    // Save to Notion (primary store)
+    if (!NOTION_API_KEY || !NOTION_STOA_DB_ID) {
+      throw new Error('Notion not configured')
+    }
+    const notionRes = await fetch('https://api.notion.com/v1/pages', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${NOTION_API_KEY}`,
+        'Notion-Version': '2022-06-28',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        parent: { database_id: NOTION_STOA_DB_ID },
+        properties: {
+          Name: { title: txt(stoa_name) },
+          'Stoa Type': { rich_text: txt(stoa_type) },
+          Location: { rich_text: txt(location) },
+          Latitude: { number: latitude !== '' && latitude != null ? parseFloat(latitude) : null },
+          Longitude: { number: longitude !== '' && longitude != null ? parseFloat(longitude) : null },
+          Website: { url: website || null },
+          Language: { rich_text: txt(stoa_language) },
+          Timezone: { rich_text: txt(timezone) },
+          'Meeting Frequency': { rich_text: txt(meeting_frequency) },
+          Description: { rich_text: txt(description) },
+          Facilitator: { rich_text: txt(name) },
+          Email: { email: email || null },
+          'Submitted At': { date: { start: submitted_at || new Date().toISOString() } },
+          'IP Address': { rich_text: txt(ip) },
         },
-        body: JSON.stringify({
-          stoa_name,
-          stoa_type,
-          location,
-          latitude,
-          longitude,
-          website,
-          stoa_language,
-          timezone,
-          meeting_frequency,
-          description,
-          name,
-          email,
-          submitted_at,
-          ip_address: ip,
-        }),
-      }
-    )
-
-    if (!supabaseRes.ok) {
-      const err = await supabaseRes.json()
-      throw new Error(`Supabase error: ${JSON.stringify(err)}`)
+      }),
+    })
+    if (!notionRes.ok) {
+      throw new Error(`Notion error: ${await notionRes.text()}`)
     }
 
-    // Save to Notion (non-fatal)
-    let notionStatus = 'skipped: env vars not set'
-    if (NOTION_API_KEY && NOTION_STOA_DB_ID) {
+    // Save to Supabase (non-fatal mirror)
+    if (SUPABASE_URL && SUPABASE_KEY) {
       try {
-        const notionRes = await fetch('https://api.notion.com/v1/pages', {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${NOTION_API_KEY}`,
-            'Notion-Version': '2022-06-28',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            parent: { database_id: NOTION_STOA_DB_ID },
-            properties: {
-              Name: { title: txt(stoa_name) },
-              'Stoa Type': { rich_text: txt(stoa_type) },
-              Location: { rich_text: txt(location) },
-              Latitude: { number: latitude !== '' && latitude != null ? parseFloat(latitude) : null },
-              Longitude: { number: longitude !== '' && longitude != null ? parseFloat(longitude) : null },
-              Website: { url: website || null },
-              Language: { rich_text: txt(stoa_language) },
-              Timezone: { rich_text: txt(timezone) },
-              'Meeting Frequency': { rich_text: txt(meeting_frequency) },
-              Description: { rich_text: txt(description) },
-              Facilitator: { rich_text: txt(name) },
-              Email: { email: email || null },
-              'Submitted At': { date: { start: submitted_at || new Date().toISOString() } },
-              'IP Address': { rich_text: txt(ip) },
+        const supabaseRes = await fetch(
+          `${SUPABASE_URL}/rest/v1/stoa_submissions`,
+          {
+            method: 'POST',
+            headers: {
+              apikey: SUPABASE_KEY,
+              Authorization: `Bearer ${SUPABASE_KEY}`,
+              'Content-Type': 'application/json',
+              Prefer: 'return=representation',
             },
-          }),
-        })
-        if (!notionRes.ok) {
-          notionStatus = await notionRes.text()
-          console.warn('Notion error (non-fatal):', notionStatus)
-        } else {
-          notionStatus = 'success'
+            body: JSON.stringify({
+              stoa_name,
+              stoa_type,
+              location,
+              latitude,
+              longitude,
+              website,
+              stoa_language,
+              timezone,
+              meeting_frequency,
+              description,
+              name,
+              email,
+              submitted_at,
+              ip_address: ip,
+            }),
+          }
+        )
+        if (!supabaseRes.ok) {
+          console.warn('Supabase error (non-fatal):', await supabaseRes.text())
         }
-      } catch (notionErr) {
-        notionStatus = notionErr.message
-        console.warn('Notion error (non-fatal):', notionErr.message)
+      } catch (supabaseErr) {
+        console.warn('Supabase error (non-fatal):', supabaseErr.message)
       }
     }
 
@@ -150,7 +146,7 @@ exports.handler = async function handler(event) {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true, notion: notionStatus }),
+      body: JSON.stringify({ success: true }),
     }
   } catch (err) {
     console.error('Function error:', err.message, err.stack)
