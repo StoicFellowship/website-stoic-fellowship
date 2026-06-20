@@ -33,7 +33,11 @@ document
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       })
-      const result = await res.json()
+      const result = await res.json().catch(() => ({}))
+
+      if (!res.ok || result.error) {
+        throw new Error(result.error || `Submission failed (${res.status})`)
+      }
 
       form.reset()
       submitButton.disabled = false
@@ -45,6 +49,6 @@ document
       submitButton.disabled = false
       submitButton.value = 'Submit'
       spinner.remove()
-      swal('Oops!', 'Something went wrong. Please try again later.', 'error')
+      swal('Oops!', err.message || 'Something went wrong. Please try again later.', 'error')
     }
   })

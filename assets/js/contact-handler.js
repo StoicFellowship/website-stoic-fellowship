@@ -26,7 +26,11 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     })
-    const result = await res.json()
+    const result = await res.json().catch(() => ({}))
+
+    if (!res.ok || result.error) {
+      throw new Error(result.error || `Submission failed (${res.status})`)
+    }
 
     form.reset()
     swal('Thanks!', "We'll be in touch soon.", 'success')
@@ -37,7 +41,7 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
     submitButton.value = 'Submit'
   } catch (err) {
     console.error(err)
-    swal('Oops!', 'Something went wrong. Please try again later.', 'error')
+    swal('Oops!', err.message || 'Something went wrong. Please try again later.', 'error')
     // remove spinner
     spinner.remove()
     // re-enable the button

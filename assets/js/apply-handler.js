@@ -54,7 +54,7 @@ document
       form.reset()
     } catch (err) {
       console.error('Submit error:', err.message, err.stack)
-      swal('Oops!', 'Something went wrong. Please try again.', 'error')
+      swal('Oops!', err.message || 'Something went wrong. Please try again.', 'error')
     } finally {
       spinner.remove()
       submitBtn.disabled = false
