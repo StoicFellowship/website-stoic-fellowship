@@ -72,6 +72,24 @@ exports.handler = async function handler(event) {
     return { statusCode: 500, body: JSON.stringify({ error: 'Missing Notion configuration' }) }
   }
 
+  if (event.queryStringParameters?.debug === 'schema') {
+    try {
+      const dbRes = await fetch(`https://api.notion.com/v1/databases/${NOTION_STOA_DB_ID}`, {
+        headers: { Authorization: `Bearer ${NOTION_API_KEY}`, 'Notion-Version': '2022-06-28' },
+      })
+      const db = await dbRes.json()
+      const props = {}
+      for (const [name, p] of Object.entries(db.properties || {})) {
+        if (p.type === 'select') props[name] = { type: 'select', options: p.select.options.map((o) => o.name) }
+        else if (p.type === 'status') props[name] = { type: 'status', options: p.status.options.map((o) => o.name) }
+        else props[name] = { type: p.type }
+      }
+      return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(props, null, 2) }
+    } catch (err) {
+      return { statusCode: 500, body: JSON.stringify({ error: err.message }) }
+    }
+  }
+
   try {
     const [stoaPages, seekerPages] = await Promise.all([
       queryAllPages(
