@@ -106,42 +106,46 @@ exports.handler = async function handler(event) {
       }
     }
 
-    // Send Email via Brevo
-    const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
-      headers: {
-        'api-key': BREVO_API_KEY,
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify({
-        sender: {
-          name: 'The Stoic Fellowship',
-          email: 'noreply@stoicfellowship.com',
-        },
-        to: [{ email: 'hello@stoicfellowship.com', name: 'TSF Board' }],
-        subject: 'New Stoa Submission',
-        htmlContent: `
-          <h2>New Stoa Application</h2>
-          <p><strong>Stoa Name:</strong> ${stoa_name}</p>
-          <p><strong>Type:</strong> ${stoa_type}</p>
-          <p><strong>Location:</strong> ${location} (${latitude}, ${longitude})</p>
-          <p><strong>Website:</strong> ${website}</p>
-          <p><strong>Language:</strong> ${stoa_language}</p>
-          <p><strong>Timezone:</strong> ${timezone}</p>
-          <p><strong>Meeting Frequency:</strong> ${meeting_frequency}</p>
-          <p><strong>Description:</strong> ${description}</p>
-          <p><strong>Contact Name:</strong> ${name}</p>
-          <p><strong>Contact Email:</strong> ${email}</p>
-          <p><strong>Submitted At:</strong> ${submitted_at}</p>
-          <p><strong>IP Address:</strong> ${ip}</p>
-        `,
-      }),
-    })
-
-    if (!brevoRes.ok) {
-      const err = await brevoRes.json()
-      throw new Error(`Brevo error: ${JSON.stringify(err)}`)
+    // Send Email via Brevo (non-fatal notification)
+    if (BREVO_API_KEY) {
+      try {
+        const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
+          method: 'POST',
+          headers: {
+            'api-key': BREVO_API_KEY,
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            sender: {
+              name: 'The Stoic Fellowship',
+              email: 'noreply@stoicfellowship.com',
+            },
+            to: [{ email: 'hello@stoicfellowship.com', name: 'TSF Board' }],
+            subject: 'New Stoa Submission',
+            htmlContent: `
+              <h2>New Stoa Application</h2>
+              <p><strong>Stoa Name:</strong> ${stoa_name}</p>
+              <p><strong>Type:</strong> ${stoa_type}</p>
+              <p><strong>Location:</strong> ${location} (${latitude}, ${longitude})</p>
+              <p><strong>Website:</strong> ${website}</p>
+              <p><strong>Language:</strong> ${stoa_language}</p>
+              <p><strong>Timezone:</strong> ${timezone}</p>
+              <p><strong>Meeting Frequency:</strong> ${meeting_frequency}</p>
+              <p><strong>Description:</strong> ${description}</p>
+              <p><strong>Contact Name:</strong> ${name}</p>
+              <p><strong>Contact Email:</strong> ${email}</p>
+              <p><strong>Submitted At:</strong> ${submitted_at}</p>
+              <p><strong>IP Address:</strong> ${ip}</p>
+            `,
+          }),
+        })
+        if (!brevoRes.ok) {
+          console.warn('Brevo error (non-fatal):', await brevoRes.text())
+        }
+      } catch (brevoErr) {
+        console.warn('Brevo error (non-fatal):', brevoErr.message)
+      }
     }
 
     return {
