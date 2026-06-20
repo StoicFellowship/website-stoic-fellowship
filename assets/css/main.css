@@ -3830,10 +3830,10 @@ dd {
 .mapboxgl-popup .mapboxgl-popup-content {
   padding: 0 !important;
   background-color: #fff !important;
-  border-radius: 28px !important;
+  border-radius: 18px !important;
   border: none !important;
   overflow: hidden !important;
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.45), 0 16px 36px rgba(0, 0, 0, 0.22) !important;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28), 0 8px 18px rgba(0, 0, 0, 0.14) !important;
 }
 
 .mapboxgl-popup-content::before {
