@@ -2,6 +2,12 @@ const fetch = require('node-fetch')
 
 const txt = (val) => [{ text: { content: String(val ?? '').slice(0, 2000) } }]
 
+// Notion select options can't contain commas and must be non-empty.
+const select = (val) => {
+  const name = String(val ?? '').replace(/,/g, ' ').trim().slice(0, 100)
+  return { select: name ? { name } : null }
+}
+
 exports.handler = async function handler(event) {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' }
@@ -47,14 +53,14 @@ exports.handler = async function handler(event) {
         parent: { database_id: NOTION_STOA_DB_ID },
         properties: {
           Name: { title: txt(stoa_name) },
-          'Stoa Type': { rich_text: txt(stoa_type) },
+          'Stoa Type': select(stoa_type),
           Location: { rich_text: txt(location) },
           Latitude: { number: latitude !== '' && latitude != null ? parseFloat(latitude) : null },
           Longitude: { number: longitude !== '' && longitude != null ? parseFloat(longitude) : null },
           Website: { url: website || null },
           Language: { rich_text: txt(stoa_language) },
           Timezone: { rich_text: txt(timezone) },
-          'Meeting Frequency': { rich_text: txt(meeting_frequency) },
+          'Meeting Frequency': select(meeting_frequency),
           Description: { rich_text: txt(description) },
           Facilitator: { rich_text: txt(name) },
           Email: { email: email || null },
