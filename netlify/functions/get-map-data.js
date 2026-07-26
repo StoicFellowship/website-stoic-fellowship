@@ -1,5 +1,23 @@
 const fetch = require('node-fetch')
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+// Notion rate limits to ~3 req/s per integration and returns 429 (or 529 when
+// overloaded) with a Retry-After header. Honor it with a few bounded retries so
+// a transient limit becomes a short delay instead of a broken map.
+async function fetchWithRetry(url, options, { retries = 4, maxDelayMs = 8000 } = {}) {
+  for (let attempt = 0; ; attempt++) {
+    const res = await fetch(url, options)
+    if (res.status !== 429 && res.status !== 529) return res
+    if (attempt >= retries) return res
+
+    const retryAfter = parseFloat(res.headers.get('retry-after'))
+    const headerDelay = Number.isFinite(retryAfter) ? retryAfter * 1000 : 0
+    const backoff = Math.min(maxDelayMs, 500 * 2 ** attempt)
+    await sleep(Math.min(maxDelayMs, Math.max(headerDelay, backoff)))
+  }
+}
+
 async function queryAllPages(databaseId, filter, notionKey) {
   const results = []
   let cursor = undefined
@@ -9,7 +27,7 @@ async function queryAllPages(databaseId, filter, notionKey) {
     const body = { filter, page_size: 100 }
     if (cursor) body.start_cursor = cursor
 
-    const res = await fetch(`https://api.notion.com/v1/databases/${databaseId}/query`, {
+    const res = await fetchWithRetry(`https://api.notion.com/v1/databases/${databaseId}/query`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${notionKey}`,
@@ -118,7 +136,12 @@ exports.handler = async function handler(event) {
       statusCode: 200,
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 'public, max-age=600',
+        // Cache-Control alone only reaches browsers; Netlify's CDN caches
+        // function responses only via Netlify-CDN-Cache-Control. `durable`
+        // shares one cached copy across all edge nodes, so a traffic spike
+        // collapses to a single Notion query burst per minute.
+        'Cache-Control': 'public, max-age=60',
+        'Netlify-CDN-Cache-Control': 'public, durable, max-age=60, stale-while-revalidate=60',
       },
       body: JSON.stringify({ stoas: resolvedStoas, seekers: resolvedSeekers }),
     }
