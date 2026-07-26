@@ -17,7 +17,13 @@ Static HTML/CSS/JS site for The Stoic Fellowship. No build step — edit files d
 
 - It reuses `assets/js/map.js` unchanged; the Mapbox popup/marker CSS is duplicated inline so the embed doesn't pull in all of `main.css`. **If you change the "Mapbox Styling" section of `assets/css/main.css`, mirror it there.**
 - Framing is restricted by `frame-ancestors` in `_headers`. To allow a new host, add its origin there. Don't add `X-Frame-Options` — its `ALLOW-FROM` directive is dead and some browsers treat it as `DENY`.
-- Height is controlled by the embedding page's `<iframe>`, not by us — the page fills 100% of whatever frame it's given.
+- Height is controlled by the embedding page's `<iframe>`, not by us — the page fills 100% of whatever frame it's given. **Mighty Networks strips the `style` height**, so the working snippet uses the `height` attribute:
+  ```html
+  <iframe src="https://www.stoicfellowship.com/embed/map"
+          width="100%" height="420" style="border:0; display:block;"
+          loading="lazy" title="Map of Stoic communities"></iframe>
+  ```
+- Initial framing comes from `DEFAULT_VIEW` in `assets/js/map.js`, overridable by `window.TSF_MAP_VIEW` (the embed sets a wider view for its short frame) and then by `?zoom=` / `?center=lng,lat` on the URL. The query params let the embed be re-framed from the iframe `src` without a deploy.
 
 ## Forms & Backend
 

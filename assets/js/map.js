@@ -13,15 +13,36 @@ function escape(str) {
     .replace(/"/g, '&quot;')
 }
 
+const DEFAULT_VIEW = { center: [-25, 20], zoom: 1.6 }
+
+// Framing is overridable so the embed (embed/map.html) can zoom out to suit a
+// short iframe without changing how the map looks on the site itself. A page
+// can set window.TSF_MAP_VIEW, and the URL wins over that so the framing can be
+// tuned straight from the embed's src without a deploy. See CLAUDE.md.
+function resolveView() {
+  const view = { ...DEFAULT_VIEW, ...(window.TSF_MAP_VIEW || {}) }
+  const params = new URLSearchParams(window.location.search)
+
+  const zoom = Number(params.get('zoom'))
+  if (params.get('zoom') && Number.isFinite(zoom)) view.zoom = zoom
+
+  const center = (params.get('center') || '').split(',').map(Number)
+  if (center.length === 2 && center.every(Number.isFinite)) view.center = center
+
+  return view
+}
+
 ;(async function initializeMap() {
   try {
     mapboxgl.accessToken = await fetchMapboxToken()
 
+    const { center, zoom } = resolveView()
+
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/light-v10',
-      center: [-25, 20],
-      zoom: 1.6,
+      center,
+      zoom,
       attributionControl: false,
     })
 
