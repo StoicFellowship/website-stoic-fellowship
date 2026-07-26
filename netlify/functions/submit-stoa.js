@@ -32,8 +32,6 @@ exports.handler = async function handler(event) {
 
   const ip = event.headers['x-nf-client-connection-ip'] || 'unknown'
 
-  const SUPABASE_URL = process.env.SUPABASE_URL
-  const SUPABASE_KEY = process.env.SUPABASE_KEY
   const BREVO_API_KEY = process.env.BREVO_API_KEY
   const NOTION_API_KEY = process.env.NOTION_API_KEY
   const NOTION_STOA_DB_ID = process.env.NOTION_STOA_DB_ID
@@ -72,45 +70,6 @@ exports.handler = async function handler(event) {
     })
     if (!notionRes.ok) {
       throw new Error(`Notion error: ${await notionRes.text()}`)
-    }
-
-    // Save to Supabase (non-fatal mirror)
-    if (SUPABASE_URL && SUPABASE_KEY) {
-      try {
-        const supabaseRes = await fetch(
-          `${SUPABASE_URL}/rest/v1/stoa_submissions`,
-          {
-            method: 'POST',
-            headers: {
-              apikey: SUPABASE_KEY,
-              Authorization: `Bearer ${SUPABASE_KEY}`,
-              'Content-Type': 'application/json',
-              Prefer: 'return=representation',
-            },
-            body: JSON.stringify({
-              stoa_name,
-              stoa_type,
-              location,
-              latitude,
-              longitude,
-              website,
-              stoa_language,
-              timezone,
-              meeting_frequency,
-              description,
-              name,
-              email,
-              submitted_at,
-              ip_address: ip,
-            }),
-          }
-        )
-        if (!supabaseRes.ok) {
-          console.warn('Supabase error (non-fatal):', await supabaseRes.text())
-        }
-      } catch (supabaseErr) {
-        console.warn('Supabase error (non-fatal):', supabaseErr.message)
-      }
     }
 
     // Send Email via Brevo (non-fatal notification)
