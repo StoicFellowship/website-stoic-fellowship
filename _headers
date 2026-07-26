@@ -1,0 +1,8 @@
+# Allow the embeddable map to be framed only by our own site and our
+# Mighty Networks community. Everything outside /embed/ is untouched.
+#
+# Note: deliberately no X-Frame-Options here. Its ALLOW-FROM directive is
+# dead in every modern browser and some treat it as DENY, which would break
+# the embed. frame-ancestors covers this and takes precedence.
+/embed/*
+  Content-Security-Policy: frame-ancestors 'self' https://social.stoicfellowship.com https://*.mightynetworks.com
