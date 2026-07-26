@@ -18,6 +18,16 @@ Forms are handled by Netlify serverless functions (`netlify/functions/`). They s
 
 The map uses **Mapbox** — the token is served via `netlify/functions/get-mapbox-token.js` rather than hardcoded in the frontend.
 
+### Notion write notes
+
+- All `submit-*` functions write to Notion as the **primary (and only) store**. The Supabase mirror was removed (2026-07-26); Supabase env-var cleanup in Netlify and the historical data export are being handled separately by the maintainer.
+- Notion queries go through `fetchWithRetry` (`netlify/functions/utils/notion-fetch.js`), which retries 429/529 with `Retry-After` backoff.
+- **Notion's `url` property accepts arbitrary text** — it does NOT reject malformed URIs (bare domains, free text). Confirmed against live data. So don't assume a bad URL value is what's failing a submission.
+
+### Open issue: volunteer form submission failures
+
+Some volunteer applications were reported failing / not appearing in Notion (all roles post through the same `apply.html` → `submit-volunteer.js`, so this is value-dependent, not role-specific). Root cause is **not yet identified** — an early URL-validation theory was ruled out (see note above). Investigation deferred until the volunteer pages are unhidden. Fastest diagnostic: the `Notion error: …` line in the Netlify function logs for a failed `submit-volunteer` invocation gives Notion's exact validation message.
+
 ## Key Files
 
 - `assets/js/headerFooter.js` / `headerFooterChild.js` — injects the shared nav and footer into every page
