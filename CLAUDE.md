@@ -24,6 +24,7 @@ Static HTML/CSS/JS site for The Stoic Fellowship. No build step — edit files d
           loading="lazy" title="Map of Stoic communities"></iframe>
   ```
 - Initial framing comes from `DEFAULT_VIEW` in `assets/js/map.js`, overridable by `window.TSF_MAP_VIEW` (the embed sets a wider view for its short frame) and then by `?zoom=` / `?center=lng,lat` on the URL. The query params let the embed be re-framed from the iframe `src` without a deploy.
+- **Bump the `?v=` on the `map.js` script tag in `embed/map.html` whenever you change `map.js`.** HTML is served `max-age=0` but JS is served `max-age=14400` (4h), so otherwise the fresh page runs a stale script — which looks exactly like "the deploy didn't work."
 
 ## Forms & Backend
 

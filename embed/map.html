@@ -190,6 +190,9 @@
   </script>
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
-  <script src="/assets/js/map.js"></script>
+  <!-- Versioned: this page is served no-cache but map.js is cached for 4h, so
+       without a version bump the fresh HTML runs a stale script. Bump ?v= on
+       any change to map.js that the embed depends on. See CLAUDE.md. -->
+  <script src="/assets/js/map.js?v=20260726"></script>
 </body>
 </html>
