@@ -2,6 +2,10 @@
 [build]
   publish = "."                    # publish from repo root
   functions = "netlify/functions"  # where your functions live
+  # Volunteer pages are temporarily hidden — strip them from the deploy so the
+  # .html files aren't reachable directly (redirects only cover the pretty
+  # paths). Files stay in git; to restore, remove this command. See CLAUDE.md.
+  command = "rm -f volunteer.html volunteer/apply.html volunteer/role.html"
 
 [functions]
   node_bundler = "esbuild"

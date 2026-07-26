@@ -33,7 +33,7 @@ Spanish-language versions of key pages live in `/es/`. If updating English conte
 
 ## Temporarily Hidden: Volunteer Pages
 
-The volunteer section has been hidden (not deleted) as of 2026-05-16. All code is intact and can be restored by reverting three small changes:
+The volunteer section has been hidden (not deleted) as of 2026-05-16. All code is intact and can be restored by reverting these changes:
 
 1. **`_redirects`** — remove the three redirect lines at the top of the file:
    ```
@@ -47,5 +47,7 @@ The volunteer section has been hidden (not deleted) as of 2026-05-16. All code i
 3. **`team.html`** — uncomment the "Have skills you want to contribute?" paragraph block (around line 62) and the two "Join the Team" button blocks (lines ~58 and ~74).
 
 4. **`service/index.html`** — uncomment the "Sign up to volunteer with us" section (around line 249).
+
+5. **`netlify.toml`** — remove the `command = "rm -f volunteer.html volunteer/apply.html volunteer/role.html"` line from the `[build]` section. This command strips the volunteer pages from the deploy artifact so they aren't reachable directly (the `_redirects` rules only cover the extensionless pretty paths). The files remain in git; they're only deleted from each build's output.
 
 The volunteer pages themselves (`volunteer.html`, `volunteer/apply.html`, `volunteer/role.html`) and all supporting files (`assets/js/load-volunteers.js`, `netlify/functions/submit-volunteer.js`, etc.) were not modified.
