@@ -9,6 +9,15 @@ Static HTML/CSS/JS site for The Stoic Fellowship. No build step — edit files d
 - Hosted on **Netlify**, published from repo root (see `netlify.toml`)
 - Routing is controlled by **`_redirects`** — check there first if a URL isn't resolving
 - Netlify Functions live in `netlify/functions/` and are bundled with esbuild
+- Response headers are set in **`_headers`** (currently only the framing policy for `/embed/*`)
+
+### Embeddable map
+
+`embed/map.html` is a standalone, chrome-free version of the Stoa map for `<iframe>` embedding in third-party pages (currently the Mighty Networks community at `social.stoicfellowship.com`). Because it's served from our own origin, `assets/js/map.js` keeps calling `/.netlify/functions/*` same-origin — no CORS config and no credentials leave the site.
+
+- It reuses `assets/js/map.js` unchanged; the Mapbox popup/marker CSS is duplicated inline so the embed doesn't pull in all of `main.css`. **If you change the "Mapbox Styling" section of `assets/css/main.css`, mirror it there.**
+- Framing is restricted by `frame-ancestors` in `_headers`. To allow a new host, add its origin there. Don't add `X-Frame-Options` — its `ALLOW-FROM` directive is dead and some browsers treat it as `DENY`.
+- Height is controlled by the embedding page's `<iframe>`, not by us — the page fills 100% of whatever frame it's given.
 
 ## Forms & Backend
 

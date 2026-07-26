@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Stoa Map — The Stoic Fellowship</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;700&display=swap" rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" rel="stylesheet" />
+
+  <!--
+    Standalone map for embedding in third-party pages via <iframe>.
+    Served from our own origin, so assets/js/map.js can keep calling
+    /.netlify/functions/* same-origin — no CORS, no exposed Notion keys.
+    Deliberately omits headerFooter.js, main.js/jQuery and analytics.
+    Framing is restricted in _headers. See CLAUDE.md.
+  -->
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #fff;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Map styling mirrored from assets/css/main.css ("Mapbox Styling" section).
+       Kept inline so the embed doesn't pull in the whole site stylesheet. */
+
+    .mapboxgl-marker.seeker-marker {
+      z-index: 1 !important;
+    }
+
+    .mapboxgl-marker.stoa-marker {
+      z-index: 2 !important;
+    }
+
+    .mapboxgl-popup {
+      width: 250px;
+      max-width: 250px !important;
+      font-family: Dosis, sans-serif;
+      font-size: 14px;
+      z-index: 10;
+      animation: popupFadeIn 0.22s ease-out;
+    }
+
+    @keyframes popupFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .mapboxgl-popup .mapboxgl-popup-content {
+      width: 250px;
+      box-sizing: border-box;
+      padding: 0 !important;
+      background-color: #fff !important;
+      border-radius: 18px !important;
+      border: none !important;
+      overflow: hidden !important;
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28), 0 8px 18px rgba(0, 0, 0, 0.14) !important;
+    }
+
+    .popup-member { --popup-accent: #880E4F; }
+    .popup-active { --popup-accent: #E65100; }
+    .popup-seeker { --popup-accent: #008080; }
+
+    .popup-body {
+      padding: 16px 20px 18px;
+    }
+
+    .popup-type {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--popup-accent);
+      margin-bottom: 4px;
+    }
+
+    .popup-name {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 6px;
+      color: #222;
+      line-height: 1.2;
+    }
+
+    .popup-location {
+      font-size: 14px;
+      color: #666;
+      margin: 0;
+    }
+
+    .popup-tag {
+      display: inline-block;
+      font-size: 12px;
+      background: #f1f1f1;
+      color: #555;
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-top: 10px;
+    }
+
+    .popup-cta {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 18px;
+      padding: 9px 14px;
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--popup-accent) 10%, #fff);
+      color: var(--popup-accent) !important;
+      font-weight: 600;
+      font-size: 13px;
+      text-align: center;
+      text-decoration: none !important;
+      border: none;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: background-color 0.15s ease;
+    }
+
+    .popup-cta:focus,
+    .popup-cta:focus-visible {
+      outline: none;
+    }
+
+    .popup-cta:hover {
+      background: color-mix(in srgb, var(--popup-accent) 18%, #fff);
+    }
+
+    .mapboxgl-ctrl-geocoder {
+      float: none !important;
+      margin: 10px 0 0 10px;
+      border-radius: 8px !important;
+    }
+
+    .mapboxgl-ctrl-geocoder input {
+      padding-left: 35px !important;
+      border-radius: 8px !important;
+      height: 60px !important;
+      font-family: Dosis, sans-serif;
+    }
+
+    .mapboxgl-ctrl-geocoder .mapboxgl-ctrl-geocoder--icon {
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      left: 10px !important;
+      color: rgba(124, 128, 129, 0.5) !important;
+    }
+
+    /* The frame is short on phones — reclaim vertical space from the search box
+       and keep popups inside the viewport. */
+    @media screen and (max-width: 736px) {
+      .mapboxgl-ctrl-geocoder {
+        min-width: 0 !important;
+        width: calc(100% - 60px) !important;
+        margin: 8px 0 0 8px;
+      }
+
+      .mapboxgl-ctrl-geocoder input {
+        height: 42px !important;
+        font-size: 16px !important; /* anything smaller makes iOS Safari zoom on focus */
+      }
+
+      .mapboxgl-popup,
+      .mapboxgl-popup .mapboxgl-popup-content {
+        width: 210px;
+        max-width: 210px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+  <script src="/assets/js/map.js"></script>
+</body>
+</html>
