@@ -1,4 +1,5 @@
 const fetch = require('node-fetch')
+const { fetchWithRetry } = require('./utils/notion-fetch')
 
 const txt = (val) => [{ text: { content: String(val ?? '').slice(0, 2000) } }]
 
@@ -22,7 +23,7 @@ exports.handler = async function handler(event) {
     if (!NOTION_API_KEY || !NOTION_VOLUNTEER_DB_ID) {
       throw new Error('Notion not configured')
     }
-    const notionRes = await fetch('https://api.notion.com/v1/pages', {
+    const notionRes = await fetchWithRetry('https://api.notion.com/v1/pages', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${NOTION_API_KEY}`,
