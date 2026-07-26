@@ -87,7 +87,7 @@ exports.handler = async function handler(event) {
       ),
       queryAllPages(
         NOTION_JOIN_STOA_DB_ID,
-        { property: 'Status', status: { equals: 'Closed' } },
+        { property: 'Status', status: { equals: 'Pending' } },
         NOTION_API_KEY
       ),
     ])
