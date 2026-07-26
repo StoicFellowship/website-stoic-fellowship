@@ -1,4 +1,5 @@
 const fetch = require('node-fetch')
+const { normalizeUrl } = require('./utils/sanitize')
 
 const txt = (val) => [{ text: { content: String(val ?? '').slice(0, 2000) } }]
 
@@ -7,8 +8,6 @@ exports.handler = async function handler(event) {
     return { statusCode: 405, body: 'Method Not Allowed' }
   }
 
-  const SUPABASE_URL = process.env.SUPABASE_URL
-  const SUPABASE_KEY = process.env.SUPABASE_KEY
   const BREVO_API_KEY = process.env.BREVO_API_KEY
   const NOTION_API_KEY = process.env.NOTION_API_KEY
   const NOTION_VOLUNTEER_DB_ID = process.env.NOTION_VOLUNTEER_DB_ID
@@ -38,8 +37,8 @@ exports.handler = async function handler(event) {
           Location: { rich_text: txt(applicantData.location) },
           Latitude: { number: applicantData.latitude ?? null },
           Longitude: { number: applicantData.longitude ?? null },
-          'LinkedIn URL': { url: applicantData.linkedin_url || null },
-          'Portfolio URL': { url: applicantData.portfolio_url || null },
+          'LinkedIn URL': { url: normalizeUrl(applicantData.linkedin_url) },
+          'Portfolio URL': { url: normalizeUrl(applicantData.portfolio_url) },
           'Why Interested': { rich_text: txt(applicantData.why_interested) },
           Hopes: { rich_text: txt(applicantData.hopes) },
           'Start Date': { date: applicantData.start_date ? { start: applicantData.start_date } : null },
@@ -54,33 +53,6 @@ exports.handler = async function handler(event) {
     })
     if (!notionRes.ok) {
       throw new Error(`Notion error: ${await notionRes.text()}`)
-    }
-
-    // Save to Supabase (non-fatal mirror)
-    if (SUPABASE_URL && SUPABASE_KEY) {
-      try {
-        const supabaseRes = await fetch(
-          `${SUPABASE_URL}/rest/v1/volunteer_applications`,
-          {
-            method: 'POST',
-            headers: {
-              apikey: SUPABASE_KEY,
-              Authorization: `Bearer ${SUPABASE_KEY}`,
-              'Content-Type': 'application/json',
-              Prefer: 'return=representation',
-            },
-            body: JSON.stringify({
-              ...applicantData,
-              user_ip: ip,
-            }),
-          }
-        )
-        if (!supabaseRes.ok) {
-          console.warn('Supabase error (non-fatal):', await supabaseRes.text())
-        }
-      } catch (supabaseErr) {
-        console.warn('Supabase error (non-fatal):', supabaseErr.message)
-      }
     }
 
     // Format HTML email content

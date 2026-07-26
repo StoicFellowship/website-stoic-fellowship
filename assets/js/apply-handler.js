@@ -1,3 +1,18 @@
+// Coerce a user-entered link into a well-formed URL, or '' if it can't be one.
+// The LinkedIn/Website inputs are free text, so people paste bare domains
+// ("linkedin.com/in/jane") or notes; Notion's URL property rejects those.
+function normalizeUrl(value) {
+  const raw = (value || '').trim()
+  if (!raw) return ''
+  const candidate = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`
+  try {
+    const url = new URL(candidate)
+    return url.hostname.includes('.') ? candidate : ''
+  } catch {
+    return ''
+  }
+}
+
 document
   .getElementById('volunteer-application')
   .addEventListener('submit', async (e) => {
@@ -21,8 +36,8 @@ document
       location: form.location.value,
       latitude: parseFloat(form.latitude.value),
       longitude: parseFloat(form.longitude.value),
-      linkedin_url: form.linkedin.value,
-      portfolio_url: form.website.value,
+      linkedin_url: normalizeUrl(form.linkedin.value),
+      portfolio_url: normalizeUrl(form.website.value),
       why_interested: form.why_interested.value,
       hopes: form.gain_from_experience.value,
       start_date: form.start_date.value,
