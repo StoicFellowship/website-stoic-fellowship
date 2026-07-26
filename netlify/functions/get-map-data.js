@@ -1,4 +1,5 @@
 const fetch = require('node-fetch')
+const { fetchWithRetry } = require('./utils/notion-fetch')
 
 async function queryAllPages(databaseId, filter, notionKey) {
   const results = []
@@ -9,7 +10,7 @@ async function queryAllPages(databaseId, filter, notionKey) {
     const body = { filter, page_size: 100 }
     if (cursor) body.start_cursor = cursor
 
-    const res = await fetch(`https://api.notion.com/v1/databases/${databaseId}/query`, {
+    const res = await fetchWithRetry(`https://api.notion.com/v1/databases/${databaseId}/query`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${notionKey}`,
@@ -118,7 +119,12 @@ exports.handler = async function handler(event) {
       statusCode: 200,
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 'public, max-age=600',
+        // Cache-Control alone only reaches browsers; Netlify's CDN caches
+        // function responses only via Netlify-CDN-Cache-Control. `durable`
+        // shares one cached copy across all edge nodes, so a traffic spike
+        // collapses to a single Notion query burst per minute.
+        'Cache-Control': 'public, max-age=60',
+        'Netlify-CDN-Cache-Control': 'public, durable, max-age=60, stale-while-revalidate=60',
       },
       body: JSON.stringify({ stoas: resolvedStoas, seekers: resolvedSeekers }),
     }

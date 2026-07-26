@@ -1,4 +1,5 @@
 const fetch = require('node-fetch')
+const { fetchWithRetry } = require('./utils/notion-fetch')
 
 const txt = (val) => [{ text: { content: String(val ?? '').slice(0, 2000) } }]
 
@@ -20,8 +21,6 @@ exports.handler = async function handler(event) {
     consent,
   } = JSON.parse(event.body)
 
-  const SUPABASE_URL = process.env.SUPABASE_URL
-  const SUPABASE_KEY = process.env.SUPABASE_KEY
   const BREVO_API_KEY = process.env.BREVO_API_KEY
   const NOTION_API_KEY = process.env.NOTION_API_KEY
   const NOTION_JOIN_STOA_DB_ID = process.env.NOTION_JOIN_STOA_DB_ID
@@ -37,7 +36,7 @@ exports.handler = async function handler(event) {
     if (!NOTION_API_KEY || !NOTION_JOIN_STOA_DB_ID) {
       throw new Error('Notion not configured')
     }
-    const notionRes = await fetch('https://api.notion.com/v1/pages', {
+    const notionRes = await fetchWithRetry('https://api.notion.com/v1/pages', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${NOTION_API_KEY}`,
@@ -63,42 +62,6 @@ exports.handler = async function handler(event) {
     })
     if (!notionRes.ok) {
       throw new Error(`Notion error: ${await notionRes.text()}`)
-    }
-
-    // Save to Supabase (non-fatal mirror)
-    if (SUPABASE_URL && SUPABASE_KEY) {
-      try {
-        const supabaseRes = await fetch(
-          `${SUPABASE_URL}/rest/v1/join_stoa_submissions`,
-          {
-            method: 'POST',
-            headers: {
-              apikey: SUPABASE_KEY,
-              Authorization: `Bearer ${SUPABASE_KEY}`,
-              'Content-Type': 'application/json',
-              Prefer: 'return=representation',
-            },
-            body: JSON.stringify({
-              name,
-              email,
-              location,
-              latitude,
-              longitude,
-              preferred_language,
-              meeting_preference,
-              additional_details,
-              consent,
-              ip_address,
-              submitted_at: new Date().toISOString(),
-            }),
-          }
-        )
-        if (!supabaseRes.ok) {
-          console.warn('Supabase error (non-fatal):', await supabaseRes.text())
-        }
-      } catch (supabaseErr) {
-        console.warn('Supabase error (non-fatal):', supabaseErr.message)
-      }
     }
 
     // Send notification via Brevo (non-fatal)
