@@ -8,7 +8,7 @@ class HeaderTemplateChild extends HTMLElement {
         <nav id='nav'>
           <ul>
             <li>
-              <a href='/join-a-stoa'>Find a group</a>
+              <a href='/find'>Find a group</a>
             </li>
             <li>
               <a href='/start-a-stoa'>Start a group</a>
@@ -30,13 +30,10 @@ class HeaderTemplateChild extends HTMLElement {
                   </a>
                 </li>
                 <li>
-                  <a href='/interviews'>Interviews</a>
-                </li>
-                <li>
                   <a href="https://stoicfellowship.substack.com/podcast" target="_blank">Podcast</a>
                 </li>
                 <li>
-                  <a href='/service'>Stoic Service</a>
+                  <a href='/interviews'>Interviews</a>
                 </li>
               </ul>
             </li>

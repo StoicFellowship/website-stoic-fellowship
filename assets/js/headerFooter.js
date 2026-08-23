@@ -7,7 +7,7 @@ class HeaderTemplate extends HTMLElement {
     /></a>
     <nav id="nav">
       <ul>
-        <li><a href="/join-a-stoa">Find a group</a></li>
+        <li><a href="/find">Find a group</a></li>
         <li><a href="/start-a-stoa">Start a group</a></li>
         <li><a href="/membership">Run a group</a></li>
         <li class="submenu">
@@ -20,12 +20,11 @@ class HeaderTemplate extends HTMLElement {
               <a href="/resources/stoicism-resources">Stoicism Resources</a>
             </li>
             <li>
-              <a href="/interviews">Interviews</a>
-            </li>
-            <li>
               <a href="https://stoicfellowship.substack.com/podcast" target="_blank">Podcast</a>
             </li>
-            <li><a href="/service">Stoic Service</a></li>
+            <li>
+              <a href="/interviews">Interviews</a>
+            </li>
           </ul>
         </li>
         <li class="submenu">

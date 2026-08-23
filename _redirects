@@ -3,4 +3,7 @@
 /volunteer/apply  /  302
 /volunteer/role  /  302
 
+# Find a Stoa page renamed from /join-a-stoa
+/join-a-stoa  /find  301
+
 /*  /404  404
