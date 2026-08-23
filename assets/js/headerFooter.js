@@ -7,14 +7,9 @@ class HeaderTemplate extends HTMLElement {
     /></a>
     <nav id="nav">
       <ul>
-        <li class="submenu">
-          <a href="#">About</a>
-          <ul>
-            <li><a href="/mission">Mission</a></li>
-            <li><a href="/team">Team</a></li>
-            <li><a href="/contact">Contact Us</a></li>
-          </ul>
-        </li>
+        <li><a href="/join-a-stoa">Find a group</a></li>
+        <li><a href="/start-a-stoa">Start a group</a></li>
+        <li><a href="/membership">Run a group</a></li>
         <li class="submenu">
           <a href="#">Resources</a>
           <ul>
@@ -30,9 +25,16 @@ class HeaderTemplate extends HTMLElement {
             <li><a href="/service">Stoic Service</a></li>
           </ul>
         </li>
+        <li class="submenu">
+          <a href="#">About</a>
+          <ul>
+            <li><a href="/mission">Mission</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+        </li>
         <!-- <li class="current"><a href="/volunteer">Volunteer</a></li> -->
         <li class="current"><a href="/donate">Donate</a></li>
-        <li><a href="/join" class="button special">Join Us</a></li>
       </ul>
     </nav>
   </div>`
