@@ -7,23 +7,23 @@ class HeaderTemplateChild extends HTMLElement {
         </a>
         <nav id='nav'>
           <ul>
-            <li class='submenu'>
-              <a href='#'>About</a>
-              <ul>
-                <li>
-                  <a href='/mission'>Mission</a>
-                </li>
-                <li>
-                  <a href='/team'>Team</a>
-                </li>
-                <li>
-                  <a href='/contact'>Contact Us</a>
-                </li>
-              </ul>
+            <li>
+              <a href='/join-a-stoa'>Find a group</a>
+            </li>
+            <li>
+              <a href='/start-a-stoa'>Start a group</a>
+            </li>
+            <li>
+              <a href='/membership'>Run a group</a>
             </li>
             <li class='submenu'>
               <a href='#'>Resources</a>
               <ul>
+                <li>
+                  <a href='/resources/stoicism-101'>
+                    Stoicism 101
+                  </a>
+                </li>
                 <li>
                   <a href='/resources/stoicism-resources'>
                     Stoicism Resources
@@ -40,14 +40,23 @@ class HeaderTemplateChild extends HTMLElement {
                 </li>
               </ul>
             </li>
+            <li class='submenu'>
+              <a href='#'>About</a>
+              <ul>
+                <li>
+                  <a href='/mission'>Mission</a>
+                </li>
+                <li>
+                  <a href='/team'>Team</a>
+                </li>
+                <li>
+                  <a href='/contact'>Contact Us</a>
+                </li>
+              </ul>
+            </li>
             <!-- <li class="current"><a href="/volunteer">Volunteer</a></li> -->
             <li class='current'>
               <a href='/donate'>Donate</a>
-            </li>
-            <li>
-              <a href='/join' class='button special'>
-                Join Us
-              </a>
             </li>
           </ul>
         </nav>
