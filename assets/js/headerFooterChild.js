@@ -11,7 +11,7 @@ class HeaderTemplateChild extends HTMLElement {
               <a href='/find'>Find a group</a>
             </li>
             <li>
-              <a href='/start-a-stoa'>Start a group</a>
+              <a href='/start'>Start a group</a>
             </li>
             <li>
               <a href='/membership'>Run a group</a>

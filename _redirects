@@ -6,4 +6,7 @@
 # Find a Stoa page renamed from /join-a-stoa
 /join-a-stoa  /find  301
 
+# Start a Stoa page renamed from /start-a-stoa
+/start-a-stoa  /start  301
+
 /*  /404  404
