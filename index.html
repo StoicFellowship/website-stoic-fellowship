@@ -78,7 +78,39 @@
     <section id="three-doors" class="wrapper style3 container special">
       <p class="paragraph-center">
         Stoicism is practiced in groups called
-        <a href="/resources#why-stoa">stoas</a>.
+        <span class="stoa-popover-wrap">
+          <button
+            type="button"
+            class="stoa-popover-trigger"
+            aria-expanded="false"
+            aria-describedby="stoa-popover-panel"
+          >
+            stoas
+          </button>
+          <span
+            class="stoa-popover-panel"
+            id="stoa-popover-panel"
+            role="tooltip"
+            hidden
+          >
+            <strong>Why is it called a Stoa?</strong>
+            The Stoa Poikile (Ancient Greek: ἡ ποικίλη στοά, hē poikílē
+            stoá) or Painted Portico was a Doric stoa (a covered walkway or
+            portico) erected around 460 BC on the north side of the Ancient
+            Agora of Athens. It was one of the most famous sites in ancient
+            Athens, owing its fame to the paintings and war-booty displayed
+            within it and to its association with ancient Greek philosophy,
+            especially Stoicism.<sup>1</sup>
+            <span class="stoa-popover-footnote"
+              >1
+              <a
+                href="https://en.wikipedia.org/wiki/Stoa_Poikile"
+                target="_blank"
+                >https://en.wikipedia.org/wiki/Stoa_Poikile</a
+              ></span
+            >
+          </span>
+        </span>.
         <br />
         We help people find them, start them, and run them well.
       </p>
@@ -131,6 +163,8 @@
       </div>
     </section>
 
+    <div class="hr"></div>
+
     <!-- New to Stoicism? -->
 
     <header class="center">
@@ -154,8 +188,9 @@
         </li>
       </ul>
     </div>
-    <br>
-    
+
+    <div class="hr"></div>
+
     <!-- Community Map -->
 
     <header class="special container">
@@ -224,3 +259,42 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
 <script src="assets/js/map.js"></script>
+<script>
+  ;(function () {
+    var trigger = document.querySelector('.stoa-popover-trigger')
+    var panel = document.getElementById('stoa-popover-panel')
+    if (!trigger || !panel) return
+
+    function closePopover() {
+      panel.hidden = true
+      trigger.setAttribute('aria-expanded', 'false')
+    }
+
+    function openPopover() {
+      panel.hidden = false
+      trigger.setAttribute('aria-expanded', 'true')
+    }
+
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation()
+      if (panel.hidden) {
+        openPopover()
+      } else {
+        closePopover()
+      }
+    })
+
+    document.addEventListener('click', function (e) {
+      if (!panel.hidden && !panel.contains(e.target) && e.target !== trigger) {
+        closePopover()
+      }
+    })
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !panel.hidden) {
+        closePopover()
+        trigger.focus()
+      }
+    })
+  })()
+</script>

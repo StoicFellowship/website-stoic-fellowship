@@ -4481,3 +4481,174 @@ input[type='file'] {
   cursor: pointer;
 }
 
+/* Stoa "why is it called a Stoa?" inline popover (index.html) */
+.stoa-popover-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.stoa-popover-trigger {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.stoa-popover-trigger:hover,
+.stoa-popover-trigger[aria-expanded='true'] {
+  color: #66023c;
+}
+
+.stoa-popover-panel {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: calc(100% + 14px);
+  transform: translateX(-50%);
+  width: 320px;
+  max-width: 88vw;
+  background: #fff;
+  color: #333;
+  text-align: left;
+  font-size: 0.8em;
+  line-height: 1.65em;
+  padding: 1.1em 1.3em;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+.stoa-popover-panel[hidden] {
+  display: none;
+}
+
+.stoa-popover-panel::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #fff;
+}
+
+.stoa-popover-panel strong {
+  display: block;
+  margin-bottom: 0.5em;
+  font-size: 1.05em;
+}
+
+.stoa-popover-footnote {
+  display: inline-block;
+  margin-top: 0.75em;
+  font-size: 0.85em;
+  opacity: 0.7;
+  word-break: break-word;
+}
+
+/* Resources page: author cards (one card per author, multiple works listed) */
+.author-card {
+  text-align: center;
+}
+
+.author-card .works {
+  list-style: none;
+  margin: 0.75em 0 0 0;
+  padding: 0;
+  text-align: left;
+}
+
+.author-card .works li {
+  margin: 0 0 0.85em 0;
+  padding-bottom: 0.85em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.author-card .works li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.author-card .works h3 {
+  font-size: 1em;
+  margin-bottom: 0.35em;
+}
+
+.author-card .works .button {
+  margin-top: 0.5em;
+}
+
+/* Resources page: Logic / Physics / Ethics reading lists */
+.reading-list h5 {
+  font-size: 1.1em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #66023c;
+  border-bottom: 2px solid #66023c;
+  padding-bottom: 0.35em;
+  margin: 1.75em 0 1em 0;
+}
+
+.reading-list h5:first-child {
+  margin-top: 0;
+}
+
+.reading-list .articles {
+  margin: 0 0 0.85em 0;
+  padding-bottom: 0.85em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.reading-list .articles:last-child {
+  border-bottom: 0;
+}
+
+/* Resources page: top-level section tabs */
+.resource-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6em;
+  margin: 1.5em 0 2.5em 0;
+  position: sticky;
+  top: var(--header-h, 0);
+  z-index: 15;
+  background: #fff;
+  padding: 0.75em 0;
+}
+
+.resource-tabs a {
+  display: inline-block;
+  padding: 0.65em 1.3em;
+  border-radius: 999px;
+  border: 1px solid #66023c;
+  color: #66023c;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85em;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.resource-tabs a:hover,
+.resource-tabs a.active {
+  background: #66023c;
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .resource-tabs {
+    gap: 0.4em;
+  }
+  .resource-tabs a {
+    padding: 0.55em 1em;
+    font-size: 0.8em;
+  }
+}
+
