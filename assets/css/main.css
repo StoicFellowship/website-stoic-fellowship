@@ -2174,13 +2174,15 @@ input[type='email'] {
   background: #565572;
 }
 
-.icon.circle.fa-medium {
-  background: #2f2e41;
+.icon.circle.icon-substack {
+  background: #2f2e41 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ffffff' d='M22.539 8.242H1.46V5.406h21.08zM1.46 10.812V24L12 18.11L22.54 24V10.812zM22.54 0H1.46v2.836h21.08z'/></svg>")
+    no-repeat center center;
+  background-size: 1.1em 1.1em;
   color: #fff;
 }
 
-.icon.circle.fa-medium:hover {
-  background: #565572;
+.icon.circle.icon-substack:hover {
+  background-color: #565572;
 }
 
 .icon.circle.fa-google-plus {
@@ -2524,6 +2526,22 @@ input[type='reset'].small,
   }
 }
 
+/* Reserve the header's final position/color on the custom element itself,
+   before its JS populates the inner markup, to avoid a flash of an empty
+   bar on each page load. */
+header-template,
+header-template-child {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-h, 114px);
+  background: #66023c;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+}
+
 #header {
   background: #66023c;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
@@ -2554,7 +2572,7 @@ input[type='reset'].small,
 
 #header .brand-logo {
   width: auto;
-  height: 57px;
+  height: 59px;
   flex-shrink: 0;
 }
 
@@ -2603,12 +2621,9 @@ input[type='reset'].small,
     padding: 12px 1.5em;
   }
 
-  #header .brand-tagline {
+  #header .brand-divider,
+  #header .brand-text {
     display: none;
-  }
-
-  #header .brand-title {
-    font-size: 1.3em;
   }
 
   #header nav ul li {
@@ -2829,6 +2844,12 @@ input[type='reset'].small,
   background-position: center, center bottom;
   background-repeat: no-repeat, no-repeat;
   background-size: cover, cover;
+  /* Reset the legacy banner's fixed aspect-ratio: combined with an
+     explicit height it was forcing the box itself wider than the
+     viewport (width computed from the old ratio), causing horizontal
+     overflow/cropping instead of a clean resize. */
+  aspect-ratio: auto;
+  width: 100%;
   height: min(
     calc(100vh - var(--header-h, 114px)),
     calc(100vw * 941 / 1672)
@@ -3225,7 +3246,6 @@ body.index #main {
   }
 
   #banner.hero-modern {
-    min-height: 560px;
     animation: none;
   }
 }
@@ -3308,7 +3328,9 @@ body.index #main {
 
   /* Header */
 
-  #header {
+  #header,
+  header-template,
+  header-template-child {
     display: none;
   }
 
@@ -3324,7 +3346,6 @@ body.index #main {
   }
 
   #banner.hero-modern {
-    min-height: 480px;
     animation: none;
   }
 

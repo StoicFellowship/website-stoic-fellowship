@@ -57,7 +57,14 @@ class HeaderTemplate extends HTMLElement {
       const logo = this.querySelector('.brand-logo')
       const text = this.querySelector('.brand-text')
       if (logo && text) {
-        logo.style.height = text.getBoundingClientRect().height + 'px'
+        const textH = text.getBoundingClientRect().height
+        // Only match the logo to the text block when the text is actually
+        // visible (i.e. at wider widths). When the text/divider are hidden
+        // at narrower widths, leave the logo at its CSS floor size rather
+        // than shrinking it further.
+        if (textH > 0) {
+          logo.style.height = textH + 'px'
+        }
       }
       document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px')
     }
@@ -81,10 +88,10 @@ class FooterTemplate extends HTMLElement {
       </li>
       <li>
         <a
-          href="https://www.medium.com/@stoicfellowship"
+          href="https://substack.com/@stoicfellowship"
           target="_blank"
-          class="icon circle fa-medium"
-          ><span class="label">Medium</span></a
+          class="icon circle icon-substack"
+          ><span class="label">Substack</span></a
         >
       </li>
       <li>
