@@ -1,5 +1,6 @@
 @import url('font-awesome.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap');
 
 /* Reset */
 
@@ -1728,6 +1729,18 @@ body {
   background: #f3f6fa;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+#three-doors {
+  scroll-margin-top: 114px;
+}
+
+body {
+  padding-top: 114px;
+}
+
 body.is-loading *,
 body.is-loading *:before,
 body.is-loading *:after {
@@ -2512,35 +2525,95 @@ input[type='reset'].small,
 }
 
 #header {
-  background: #fff;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.075);
-  color: inherit;
+  background: #66023c;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  color: #fff;
   cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5em;
   font-size: 0.9em;
   left: 0;
-  padding: 1em 1.5em;
+  padding: 14px 2.5em;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 10000;
 }
 
-#header h1 {
-  font-weight: 900;
-  margin: 0;
+#header .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85em;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 0;
+  min-width: 0;
 }
 
-#header h1 span {
-  font-weight: 300;
+#header .brand-logo {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+#header .brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  text-align: left;
+  min-width: 0;
+}
+
+#header .brand-title {
+  font-size: 1.5em;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+#header .brand-tagline {
+  display: block;
+  font-size: 0.62em;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-top: 0.4em;
 }
 
 #header nav {
   letter-spacing: 0.075em;
-  position: absolute;
-  right: 1.5em;
   text-transform: lowercase;
-  top: 0.75em;
-  margin-left: 20%;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 1100px) {
+  #header {
+    padding: 12px 1.5em;
+  }
+
+  #header .brand-tagline {
+    display: none;
+  }
+
+  #header .brand-title {
+    font-size: 1.3em;
+  }
+
+  #header nav ul li {
+    margin-left: 1em;
+  }
+
+  body {
+    padding-top: 106px;
+  }
+
+  #three-doors {
+    scroll-margin-top: 106px;
+  }
 }
 
 #header nav ul li {
@@ -2596,57 +2669,14 @@ input[type='reset'].small,
   -webkit-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  background: rgba(188, 202, 206, 0.15);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 #header nav ul li.current > a {
   font-weight: 900;
   padding-top: 1em;
   padding-bottom: 1em;
-}
-
-#header.reveal {
-  -moz-animation: reveal-header 0.5s;
-  -webkit-animation: reveal-header 0.5s;
-  -ms-animation: reveal-header 0.5s;
-  animation: reveal-header 0.5s;
-  top: 0;
-}
-
-#header.alt {
-  -moz-animation: none;
-  -webkit-animation: none;
-  -ms-animation: none;
-  animation: none;
-  background: transparent;
-  box-shadow: none;
-  color: #fff;
-  padding: 0 2.5em;
-  position: absolute;
-}
-
-#header.alt .logo {
-  position: relative;
-  top: 0.5em;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
-}
-
-#header.alt nav {
-  right: 2.5em;
-  top: 0.25em;
-}
-
-#header.alt nav ul li a {
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 1);
-}
-
-#header.alt nav ul li .button {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-}
-
-#header.alt nav ul li.active > a,
-#header.alt nav ul li:hover > a {
-  border: solid 1px;
 }
 
 /* Dropotron */
@@ -2784,10 +2814,64 @@ input[type='reset'].small,
   text-align: center;
 }
 
-#banner:not(:has(.inner)) {
-  aspect-ratio: unset;
-  padding: 6em 0;
-  background-size: 25em, 25em, auto, cover;
+#banner:not(:has(.inner)):not(.hero-modern) {
+  display: none;
+}
+
+#banner.hero-modern {
+  background-image: linear-gradient(
+      180deg,
+      rgba(20, 4, 14, 0.25) 0%,
+      rgba(20, 4, 14, 0.55) 55%,
+      rgba(20, 4, 14, 0.85) 100%
+    ),
+    url('../../images/hero-image.png');
+  background-position: center, center top;
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  aspect-ratio: 1672 / 941;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.hero-content {
+  color: #fff;
+  text-align: left;
+  max-width: 620px;
+  padding: 3em 3.5em 4em 3.5em;
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.75em;
+  line-height: 1.15;
+  margin: 0 0 0.4em 0;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content p {
+  font-size: 1.05em;
+  line-height: 1.5;
+  margin: 0 0 1.5em 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content .hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.hero-content .hero-cta .chevron-down {
+  display: inline-block;
+  border-right: solid 2px currentColor;
+  border-bottom: solid 2px currentColor;
+  width: 0.5em;
+  height: 0.5em;
+  transform: rotate(45deg);
+  margin-top: -0.3em;
 }
 
 #banner .inner {
@@ -3136,6 +3220,13 @@ body.index #main {
   #banner .inner footer ul.buttons {
     margin: 0.75em;
   }
+
+  #banner.hero-modern {
+    aspect-ratio: unset;
+    min-height: 560px;
+    background-position: center, center top;
+    animation: none;
+  }
 }
 
 /* Narrower */
@@ -3220,6 +3311,14 @@ body.index #main {
     display: none;
   }
 
+  body {
+    padding-top: 0;
+  }
+
+  #three-doors {
+    scroll-margin-top: 0;
+  }
+
   /* Banner */
 
   #banner {
@@ -3229,6 +3328,23 @@ body.index #main {
     background-size: 15em, 15em, auto, auto 100%;
     background-position: bottom left, bottom right, top left, left center;
     animation: pan-banner-mobile 11s ease-in-out forwards;
+  }
+
+  #banner.hero-modern {
+    aspect-ratio: unset;
+    min-height: 480px;
+    background-size: cover, cover;
+    background-position: center, center top;
+    animation: none;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding: 2em 1.75em 2.5em 1.75em;
+  }
+
+  .hero-content h1 {
+    font-size: 1.9em;
   }
 
   #banner .inner {

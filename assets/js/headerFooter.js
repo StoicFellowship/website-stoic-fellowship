@@ -1,10 +1,14 @@
 class HeaderTemplate extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-    <div id="header" class="alt">
-    <a href="/" class="logo"
-      ><img src="/images/logo/SVGs/Logo-2 - Inverted Logo - Wht-Purp Disc.svg" width="55px" height="55px"
-    /></a>
+    <div id="header">
+    <a href="/" class="brand"
+      ><img class="brand-logo" src="/images/logo/SVGs/logo1-white-trans.svg" width="50px" height="50px"
+      /><span class="brand-text"
+        ><span class="brand-title">The Stoic Fellowship</span
+        ><span class="brand-tagline">Building, Fostering, and Connecting<br />Communities of Stoics Around the World</span
+      ></span
+    ></a>
     <nav id="nav">
       <ul>
         <li class="submenu">
