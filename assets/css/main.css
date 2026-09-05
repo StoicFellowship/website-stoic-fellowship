@@ -2715,10 +2715,11 @@ header-template-child {
 
 #header nav ul li a {
   border: solid 1px transparent;
+  border-radius: 999px;
   color: inherit;
   display: inline-block;
   line-height: 1em;
-  padding: 0.6em 0.75em;
+  padding: 0.75em 1.1em;
   text-decoration: none;
 }
 
@@ -2733,8 +2734,6 @@ header-template-child {
 
 #header nav ul li.submenu > a {
   font-weight: 900;
-  padding-top: 1em;
-  padding-bottom: 1em;
 }
 
 #header nav ul li.submenu > a:before {
@@ -2763,8 +2762,6 @@ header-template-child {
 
 #header nav ul li.current > a {
   font-weight: 900;
-  padding-top: 1em;
-  padding-bottom: 1em;
 }
 
 /* Dropotron */
