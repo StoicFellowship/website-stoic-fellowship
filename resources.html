@@ -42,7 +42,7 @@
   <section id="banner"></section>
 
   <header class="special container page-title">
-    <h2>Stoicism Resources</h2>
+    <h1>Stoicism Resources</h1>
   </header>
 
   <div class="paragraph-center" style="text-align: center">
@@ -67,7 +67,7 @@
 
   <section id="run-a-stoa" class="wrapper style3 container special">
     <header class="major">
-      <h1 style="font-size: 3em">Run a Stoa</h1>
+      <h2 class="section-title">Run a Stoa</h2>
     </header>
     <p style="text-align: center">
       <a href="https://social.stoicfellowship.com" target="_blank"
@@ -103,7 +103,7 @@
   <!-- Study Stoicism -->
 
   <section id="study-stoicism" class="wrapper style3 container special">
-    <h1 style="font-size: 3em">Study Stoicism</h1>
+    <h2 class="section-title">Study Stoicism</h2>
 
     <h3 class="author-section-title">
       <i class="fa fa-university" aria-hidden="true"></i> Ancient Philosophers
@@ -1154,7 +1154,7 @@
   <!-- Practice Stoicism -->
 
   <section id="practice-stoicism" class="wrapper style3 container special">
-    <h1 style="font-size: 3em">Practice Stoicism</h1>
+    <h2 class="section-title">Practice Stoicism</h2>
 
     <div>
       <p style="text-align: center">
@@ -1188,7 +1188,7 @@
   <!-- Connect to Fellow Stoics -->
 
   <section id="connect-to-stoics" class="wrapper style3 container special">
-    <h1 style="font-size: 3em">Connect to Stoics</h1>
+    <h2 class="section-title">Connect to Stoics</h2>
 
     <section id="partners">
       <div class="center">
@@ -1264,4 +1264,46 @@
   <script src="/assets/js/breakpoints.min.js"></script>
   <script src="/assets/js/util.js"></script>
   <script src="/assets/js/main.js"></script>
+  <script>
+    ;(function () {
+      // Size every author-card photo to match the height of the most
+      // common name + description text block on the page, so all photos
+      // line up at one consistent size regardless of font metrics.
+      function syncAuthorPhotoSize() {
+        var infos = document.querySelectorAll('.author-card .author-info')
+        if (!infos.length) return
+        var counts = {}
+        var best = null
+        var bestCount = 0
+        infos.forEach(function (el) {
+          var h = Math.round(el.getBoundingClientRect().height)
+          if (!h) return
+          counts[h] = (counts[h] || 0) + 1
+          if (counts[h] > bestCount) {
+            bestCount = counts[h]
+            best = h
+          }
+        })
+        if (!best) return
+        document
+          .querySelectorAll('.author-card .image.featured')
+          .forEach(function (el) {
+            el.style.width = best + 'px'
+            el.style.height = best + 'px'
+          })
+      }
+      function run() {
+        syncAuthorPhotoSize()
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(syncAuthorPhotoSize)
+        }
+      }
+      if (document.readyState === 'complete') {
+        run()
+      } else {
+        window.addEventListener('load', run)
+      }
+      window.addEventListener('resize', syncAuthorPhotoSize)
+    })()
+  </script>
 </body>

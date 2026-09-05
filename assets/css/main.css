@@ -1969,10 +1969,23 @@ header.special.page-title:after {
   grid-row: 1;
 }
 
+header.special.page-title > h1,
 header.special.page-title > h2 {
   grid-column: 2;
   grid-row: 1;
   margin: 0;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+
+/* Section-level heading (h2) styled to match the page's former h1 "hero"
+   headings (Run a Stoa, Study Stoicism, etc.) so the visual size is
+   independent of semantic heading level. */
+h2.section-title {
+  font-size: 3em;
+  font-weight: 300;
+  letter-spacing: normal;
 }
 
 header.special.page-title > p,
@@ -4589,16 +4602,18 @@ input[type='file'] {
 .author-card .image.featured {
   flex: 0 0 auto;
   display: block;
-  width: 72px;
-  height: 96px;
+  /* Fallback size before the sync script (below) sizes this to match the
+     rendered height of the name + description text next to it. */
+  width: 84px;
+  height: 84px;
   margin: 0;
   border-radius: 10px;
   overflow: hidden;
 }
 
 .author-card .image.featured img {
-  width: 72px;
-  height: 96px;
+  width: 100%;
+  height: 100%;
   line-height: normal;
   border-radius: 10px;
   border: 0;
@@ -4615,7 +4630,8 @@ input[type='file'] {
   font-size: 1.15em;
   font-weight: 700;
   letter-spacing: normal;
-  margin: 0 0 0.3em 0;
+  line-height: 1.2em;
+  margin: 0 0 0.1em 0;
 }
 
 .author-card .author-desc {
@@ -4623,7 +4639,7 @@ input[type='file'] {
   font-size: 0.85em;
   font-style: italic;
   color: #666;
-  line-height: 1.5em;
+  line-height: 1.3em;
 }
 
 .author-card .works {
@@ -4667,8 +4683,8 @@ input[type='file'] {
 
 .author-card .author-quote {
   margin: 1em 0 0 0;
-  padding: 0.9em 0 0 0;
-  border-top: 1px dashed rgba(0, 0, 0, 0.15);
+  padding: 0;
+  border: 0;
   font-style: italic;
   font-size: 0.9em;
   line-height: 1.6em;
