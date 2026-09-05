@@ -1734,6 +1734,14 @@ html {
 }
 
 #three-doors {
+  /* Leave a bit of the page background visible above the white card
+     instead of butting it right up against the header. */
+  scroll-margin-top: calc(var(--header-h, 114px) + 40px);
+}
+
+/* Any in-page anchor target (e.g. a link jumping to a heading on another
+   page, or on this one) should land below the fixed header, not behind it. */
+:target {
   scroll-margin-top: var(--header-h, 114px);
 }
 
@@ -2124,6 +2132,7 @@ input[type='email'] {
   border: 0;
   border-radius: 100%;
   display: inline-block;
+  vertical-align: middle;
   font-size: 1.25em;
   height: 2.25em;
   left: 0;
@@ -2616,18 +2625,12 @@ header-template-child {
   flex-shrink: 0;
 }
 
-@media screen and (max-width: 1100px) {
-  #header {
-    padding: 12px 1.5em;
-  }
-
+@media screen and (max-width: 1280px) {
+  /* Icon-only: just remove the divider/text — keep the same padding so
+     the logo doesn't shift position when the text disappears. */
   #header .brand-divider,
   #header .brand-text {
     display: none;
-  }
-
-  #header nav ul li {
-    margin-left: 1em;
   }
 }
 
