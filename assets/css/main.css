@@ -1984,6 +1984,25 @@ header.special.page-title > p {
   margin: 1.25em 0 0;
 }
 
+/* Suppress the decorative double lines on a mid-page header.special
+   (e.g. a section title that isn't the page's own title block). */
+header.special.no-lines:before,
+header.special.no-lines:after {
+  display: none;
+}
+
+/* Tighten the gap between a page-title header and the content/divider
+   that immediately follows it, on the specific pages that need it.
+   (body.index is included purely to out-specificity the existing
+   body.index #main padding rules elsewhere in this file.) */
+body.index .page-title + article#main {
+  padding-top: 1.5em;
+}
+
+body.index .hr + #main {
+  padding-top: 1.5em;
+}
+
 footer > :last-child {
   margin-bottom: 0;
 }
