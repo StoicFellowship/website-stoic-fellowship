@@ -1,4 +1,4 @@
-@import url('font-awesome.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap');
 
@@ -3413,6 +3413,10 @@ body.index #main {
 
   #banner.hero-modern {
     animation: none;
+    aspect-ratio: unset;
+    width: 100%;
+    height: auto;
+    min-height: 16em;
   }
 
   .hero-content {
@@ -3528,7 +3532,7 @@ body.index #main {
     position: absolute;
     text-align: center;
     top: 0;
-    width: 25%;
+    width: 64px;
     border: 0;
     outline: 0;
   }
@@ -3545,19 +3549,16 @@ body.index #main {
   #navButton .toggle:before {
     color: #fff;
     content: '\f0c9';
-    font-size: 1em;
-    height: 40px;
-    left: auto;
-    right: 10px;
-    line-height: 40px;
-    opacity: 0.5;
-    position: absolute;
-    top: 11px;
-    width: 60px;
-    z-index: 1;
     font-size: 1.25em;
+    height: 44px;
+    left: 10px;
+    right: auto;
+    line-height: 44px;
     opacity: 0.75;
-    color: #fff;
+    position: absolute;
+    top: 8px;
+    width: 44px;
+    z-index: 1;
   }
 
   #navButton .toggle:hover:before {
@@ -3566,14 +3567,20 @@ body.index #main {
 
   #navButton .toggle:after {
     background: #8b0251;
-    border-radius: 20px;
+    border-radius: 22px;
     content: '';
-    height: 40px;
-    left: auto;
-    right: 10px;
+    height: 44px;
+    left: 10px;
+    right: auto;
     position: absolute;
-    top: 10px;
-    width: 60px;
+    top: 8px;
+    width: 44px;
+  }
+
+  /* Once the panel is open, swap the hamburger for a chevron docked
+     against the panel's edge, hinting that a tap slides it closed. */
+  body.navPanel-visible #navButton .toggle:before {
+    content: '\f054';
   }
 
   #navPanel {
@@ -3658,10 +3665,10 @@ body.index #main {
   }
 
   body.navPanel-visible #navButton {
-    -moz-transform: translateX(-265px);
-    -webkit-transform: translateX(265px);
-    -ms-transform: translateX(-265px);
-    transform: translateX(-265px);
+    -moz-transform: translateX(-275px);
+    -webkit-transform: translateX(-275px);
+    -ms-transform: translateX(-275px);
+    transform: translateX(-275px);
   }
 
   body.navPanel-visible #navPanel {
@@ -3889,19 +3896,8 @@ body.index #main {
 
   /* Off-Canvas Navigation */
 
-  #navButton .toggle:before {
-    top: 8px;
-    left: 8px;
-    width: 50px;
-    height: 34px;
-    line-height: 34px;
-  }
-
-  #navButton .toggle:after {
-    top: 8px;
-    left: 8px;
-    width: 50px;
-    height: 34px;
+  #navButton {
+    top: 12px;
   }
 }
 
