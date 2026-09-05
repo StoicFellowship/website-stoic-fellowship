@@ -1933,6 +1933,57 @@ header.special .icon:before {
   opacity: 0.35;
 }
 
+/* Page-title variant: the decorative double-line pair flanks the title
+   itself (in one row) instead of sitting above a big blank gap. The two
+   line segments are equal flexible columns, so the pair always spans the
+   same total width — only the middle gap resizes to fit each page's title. */
+header.special.page-title {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  column-gap: 1.25em;
+  margin-bottom: 3em;
+  padding-top: 3.5em;
+  position: relative;
+  text-align: center;
+}
+
+header.special.page-title:before,
+header.special.page-title:after {
+  border-bottom: solid 1.5px;
+  border-top: solid 1.5px;
+  content: '';
+  height: 7px;
+  opacity: 0.1;
+  position: static;
+  width: 100%;
+}
+
+header.special.page-title:before {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+header.special.page-title:after {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+header.special.page-title > h2 {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+}
+
+header.special.page-title > p,
+header.special.page-title > br {
+  grid-column: 1 / -1;
+}
+
+header.special.page-title > p {
+  margin: 1.25em 0 0;
+}
+
 footer > :last-child {
   margin-bottom: 0;
 }
