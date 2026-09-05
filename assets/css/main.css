@@ -3577,10 +3577,10 @@ body.index #main {
     width: 44px;
   }
 
-  /* Once the panel is open, swap the hamburger for a double chevron docked
-     against the panel's edge, hinting that a tap slides it closed. */
+  /* Once the panel is open, swap the hamburger for an X (close) of similar
+     visual weight — this icon set has no bolder chevron to match with. */
   body.navPanel-visible #navButton .toggle:before {
-    content: '\f101';
+    content: '\f00d';
   }
 
   #navPanel {
@@ -3610,7 +3610,7 @@ body.index #main {
     font-size: 0.8em;
     letter-spacing: 0.075em;
     text-transform: uppercase;
-    padding: 0.25em 0.75em 1em 0.75em;
+    padding: 11px 0.75em 1em 0.75em;
   }
 
   #navPanel .link {
@@ -3622,6 +3622,12 @@ body.index #main {
     line-height: 3em;
     opacity: 0.75;
     text-decoration: none;
+  }
+
+  #navPanel .link:hover {
+    background: #66023c;
+    color: #fff;
+    opacity: 1;
   }
 
   #navPanel .link.depth-0 {
