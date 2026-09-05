@@ -4551,37 +4551,136 @@ input[type='file'] {
   word-break: break-word;
 }
 
+/* Resources page: section subtitles above each author-card grid */
+.author-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-size: 1.35em;
+  letter-spacing: 0.03em;
+  margin: 0 0 1.5em 0;
+}
+
+.author-section-title i {
+  color: #66023c;
+}
+
 /* Resources page: author cards (one card per author, multiple works listed) */
 .author-card {
-  text-align: center;
+  text-align: left;
+  background: #faf8f4;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+  padding: 1.5em 1.6em;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.author-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.author-card .image.featured {
+  flex: 0 0 auto;
+  display: block;
+  width: 72px;
+  height: 96px;
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.author-card .image.featured img {
+  width: 72px;
+  height: 96px;
+  line-height: normal;
+  border-radius: 10px;
+  border: 0;
+  margin: 0;
+  object-fit: cover;
+  filter: none;
+}
+
+.author-card .author-info {
+  min-width: 0;
+}
+
+.author-card .author-info h3 {
+  font-size: 1.15em;
+  font-weight: 700;
+  letter-spacing: normal;
+  margin: 0 0 0.3em 0;
+}
+
+.author-card .author-desc {
+  margin: 0;
+  font-size: 0.85em;
+  font-style: italic;
+  color: #666;
+  line-height: 1.5em;
 }
 
 .author-card .works {
   list-style: none;
-  margin: 0.75em 0 0 0;
+  margin: 0;
   padding: 0;
-  text-align: left;
 }
 
 .author-card .works li {
-  margin: 0 0 0.85em 0;
-  padding-bottom: 0.85em;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75em;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0.6em 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+.author-card .works li:first-child {
+  padding-top: 0;
+}
+
 .author-card .works li:last-child {
-  margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: 0;
 }
 
-.author-card .works h3 {
-  font-size: 1em;
-  margin-bottom: 0.35em;
+.author-card .works .work-title {
+  font-weight: 600;
 }
 
-.author-card .works .button {
-  margin-top: 0.5em;
+.author-card .works .work-link {
+  white-space: nowrap;
+  font-size: 0.85em;
+}
+
+.author-card .works .work-link:after {
+  content: ' \2192';
+}
+
+.author-card .author-quote {
+  margin: 1em 0 0 0;
+  padding: 0.9em 0 0 0;
+  border-top: 1px dashed rgba(0, 0, 0, 0.15);
+  font-style: italic;
+  font-size: 0.9em;
+  line-height: 1.6em;
+  color: #555;
+}
+
+.author-card .author-quote:before {
+  content: '\201C';
+}
+
+.author-card .author-quote:after {
+  content: '\201D';
 }
 
 /* Resources page: Logic / Physics / Ethics reading lists */
