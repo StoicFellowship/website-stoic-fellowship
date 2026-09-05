@@ -3,7 +3,8 @@ class HeaderTemplateChild extends HTMLElement {
     this.innerHTML = `
       <div id='header'>
         <a href='/' class='brand'>
-          <img class='brand-logo' src='/images/logo/SVGs/logo1-white-trans.svg' width='50px' height='50px' />
+          <img class='brand-logo' src='/images/logo/SVGs/logo1-white-trans.svg' />
+          <span class='brand-divider'></span>
           <span class='brand-text'>
             <span class='brand-title'>The Stoic Fellowship</span>
             <span class='brand-tagline'>Building, Fostering, and Connecting<br />Communities of Stoics Around the World</span>
@@ -67,6 +68,19 @@ class HeaderTemplateChild extends HTMLElement {
           </ul>
         </nav>
       </div> `
+
+    const setHeaderHeightVar = () => {
+      const header = this.querySelector('#header')
+      if (!header) return
+      const logo = this.querySelector('.brand-logo')
+      const text = this.querySelector('.brand-text')
+      if (logo && text) {
+        logo.style.height = text.getBoundingClientRect().height + 'px'
+      }
+      document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px')
+    }
+    setHeaderHeightVar()
+    window.addEventListener('resize', setHeaderHeightVar)
   }
 }
 

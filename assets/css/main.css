@@ -1734,11 +1734,11 @@ html {
 }
 
 #three-doors {
-  scroll-margin-top: 114px;
+  scroll-margin-top: var(--header-h, 114px);
 }
 
 body {
-  padding-top: 114px;
+  padding-top: var(--header-h, 114px);
 }
 
 body.is-loading *,
@@ -2553,14 +2553,22 @@ input[type='reset'].small,
 }
 
 #header .brand-logo {
-  width: 50px;
-  height: 50px;
+  width: auto;
+  height: 57px;
+  flex-shrink: 0;
+}
+
+#header .brand-divider {
+  align-self: stretch;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.7);
   flex-shrink: 0;
 }
 
 #header .brand-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   line-height: 1.2;
   text-align: left;
   min-width: 0;
@@ -2605,14 +2613,6 @@ input[type='reset'].small,
 
   #header nav ul li {
     margin-left: 1em;
-  }
-
-  body {
-    padding-top: 106px;
-  }
-
-  #three-doors {
-    scroll-margin-top: 106px;
   }
 }
 
@@ -2820,16 +2820,19 @@ input[type='reset'].small,
 
 #banner.hero-modern {
   background-image: linear-gradient(
-      180deg,
-      rgba(20, 4, 14, 0.25) 0%,
-      rgba(20, 4, 14, 0.55) 55%,
-      rgba(20, 4, 14, 0.85) 100%
+      to right,
+      rgba(20, 4, 14, 0.85) 0%,
+      rgba(20, 4, 14, 0.5) 25%,
+      rgba(20, 4, 14, 0) 58%
     ),
     url('../../images/hero-image.png');
-  background-position: center, center top;
+  background-position: center, center bottom;
   background-repeat: no-repeat, no-repeat;
   background-size: cover, cover;
-  aspect-ratio: 1672 / 941;
+  height: min(
+    calc(100vh - var(--header-h, 114px)),
+    calc(100vw * 941 / 1672)
+  );
   align-items: flex-end;
   justify-content: flex-start;
   padding: 0;
@@ -3222,9 +3225,7 @@ body.index #main {
   }
 
   #banner.hero-modern {
-    aspect-ratio: unset;
     min-height: 560px;
-    background-position: center, center top;
     animation: none;
   }
 }
@@ -3311,14 +3312,6 @@ body.index #main {
     display: none;
   }
 
-  body {
-    padding-top: 0;
-  }
-
-  #three-doors {
-    scroll-margin-top: 0;
-  }
-
   /* Banner */
 
   #banner {
@@ -3331,10 +3324,7 @@ body.index #main {
   }
 
   #banner.hero-modern {
-    aspect-ratio: unset;
     min-height: 480px;
-    background-size: cover, cover;
-    background-position: center, center top;
     animation: none;
   }
 
