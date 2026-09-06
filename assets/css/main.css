@@ -4613,7 +4613,11 @@ input[type='file'] {
      own top padding) was instead pulling each row up on top of the
      previous one, leaving no visible gap between rows. */
   margin-top: 0;
-  margin-bottom: 2em;
+  /* Match the grid's own horizontal card gutter (set by .row > *'s
+     padding-left at each of its breakpoints below) so the vertical gap
+     between stacked rows reads the same as the horizontal gap between
+     the two cards in a row. */
+  margin-bottom: 50px;
 }
 
 .row.author-row:before,
@@ -4623,6 +4627,18 @@ input[type='file'] {
 
 .row.author-row > * {
   float: none;
+}
+
+@media screen and (max-width: 1680px) {
+  .row.author-row {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .row.author-row {
+    margin-bottom: 30px;
+  }
 }
 
 /* Resources page: author cards (one card per author, multiple works listed) */
@@ -4642,7 +4658,7 @@ input[type='file'] {
   display: flex;
   align-items: flex-start;
   gap: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 1.25em;
 }
 
 .author-card .image.featured {
@@ -4701,7 +4717,12 @@ input[type='file'] {
   gap: 0.75em;
   flex-wrap: wrap;
   margin: 0;
-  padding: 0.6em 0;
+  /* Tight top/bottom padding so multiple books in one card read as a
+     single, cohesive list rather than a series of loosely related
+     rows -- the header above and the quote below (each with more
+     breathing room, see .author-card-head and .author-quote) are what
+     should visually separate, not the books from each other. */
+  padding: 0.3em 0;
 }
 
 .author-card .works li:first-child {
@@ -4755,7 +4776,11 @@ input[type='file'] {
 
 .author-card .author-quote {
   margin: auto 0 0 0;
-  padding: 0;
+  /* A minimum gap above the quote even when the auto top margin has
+     nothing extra to distribute (a card that isn't being stretched
+     taller by a sibling), so the quote still reads as its own section
+     rather than crowding the last book. */
+  padding: 0.75em 0 0 0;
   border: 0;
   font-style: italic;
   font-size: 0.9em;
