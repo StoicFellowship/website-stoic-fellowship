@@ -5613,3 +5613,37 @@ input[type='file'] {
   margin-top: 0;
 }
 
+/* Resources for Facilitators: the three pillar cards (Roundtable / Podcast /
+   Interviews) at the top of the page. The row is switched from the theme's
+   default float grid to flexbox so the three columns stretch to equal
+   height, then each card is its own flex column with the blurb set to grow
+   -- that pins every card's button to the same baseline regardless of small
+   differences in blurb length, title wrapping, etc. Scoped to this section
+   only so the homepage's Find/Start/Run a Stoa cards are unaffected. */
+#facilitator-pillars .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+#facilitator-pillars .row:before,
+#facilitator-pillars .row:after {
+  content: none;
+}
+
+#facilitator-pillars .row > div {
+  display: flex;
+}
+
+#facilitator-pillars .pillar-card {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#facilitator-pillars .pillar-card > p {
+  flex: 1 0 auto;
+}
+
