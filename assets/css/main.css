@@ -1785,11 +1785,11 @@ a {
     background-color 0.2s ease-in-out;
   color: #66023c;
   text-decoration: none;
-  border-bottom: dotted 1px;
+  border-bottom: solid 1px transparent;
 }
 
 a:hover {
-  border-bottom-color: transparent;
+  border-bottom-color: currentColor;
 }
 
 strong,
@@ -1990,13 +1990,13 @@ header.special.page-title > h2 {
   font-weight: bold;
 }
 
-/* Section-level heading (h2) styled to match the page's former h1 "hero"
-   headings (Run a Stoa, Study Stoicism, etc.) so the visual size is
-   independent of semantic heading level. */
+/* Section-level heading (h2). Sized clearly smaller than the page's own
+   h1 title (2em, bold) above it, so the hierarchy reads correctly:
+   page title > section title > author-section-title > body text. */
 h2.section-title {
-  font-size: 3em;
-  font-weight: 300;
-  letter-spacing: normal;
+  font-size: 1.65em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 header.special.page-title > p,
@@ -4590,6 +4590,30 @@ input[type='file'] {
   color: #66023c;
 }
 
+/* Resources page: a row of author cards. On wide viewports the row lays
+   its cards out side by side (the site's float-based .row/.Nu grid) and
+   every card in the row should share the row's tallest height, with the
+   quote pinned to the bottom (see .author-quote's auto top margin) and
+   the extra space absorbed above it. On narrow viewports the cards stack
+   to one column and should each be only as tall as their own content, so
+   this overrides the grid's float layout with flex instead, which
+   naturally does both: align-items: stretch equalizes height only among
+   items sharing a row, and a single wrapped item just sizes to itself. */
+.row.author-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.row.author-row:before,
+.row.author-row:after {
+  display: none;
+}
+
+.row.author-row > * {
+  float: none;
+}
+
 /* Resources page: author cards (one card per author, multiple works listed) */
 .author-card {
   text-align: left;
@@ -4667,7 +4691,6 @@ input[type='file'] {
   flex-wrap: wrap;
   margin: 0;
   padding: 0.6em 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .author-card .works li:first-child {
@@ -4676,16 +4699,43 @@ input[type='file'] {
 
 .author-card .works li:last-child {
   padding-bottom: 0;
-  border-bottom: 0;
 }
 
 .author-card .works .work-title {
   font-weight: 600;
+  font-size: 0.95em;
+  line-height: 1.3em;
+}
+
+/* Massimo Pigliucci's "A Handbook for New Stoics" needs a co-author credit
+   that isn't part of the title itself, so the title stays short enough for
+   "Purchase" to sit on the same line. */
+.author-card .works .work-title-group {
+  display: block;
+}
+
+.author-card .works .work-coauthor {
+  display: block;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 0.15em;
 }
 
 .author-card .works .work-link {
   white-space: nowrap;
   font-size: 0.85em;
+  border-bottom: 0;
+}
+
+.author-card .works .work-link span {
+  border-bottom: solid 1px transparent;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.author-card .works .work-link:hover span {
+  border-bottom-color: currentColor;
 }
 
 .author-card .works .work-link:after {
@@ -4693,12 +4743,12 @@ input[type='file'] {
 }
 
 .author-card .author-quote {
-  margin: 1em 0 0 0;
+  margin: auto 0 0 0;
   padding: 0;
   border: 0;
   font-style: italic;
   font-size: 0.9em;
-  line-height: 1.6em;
+  line-height: 1.4em;
   color: #555;
 }
 
@@ -4728,11 +4778,6 @@ input[type='file'] {
 .reading-list .articles {
   margin: 0 0 0.85em 0;
   padding-bottom: 0.85em;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.reading-list .articles:last-child {
-  border-bottom: 0;
 }
 
 /* Resources page: top-level section tabs */
