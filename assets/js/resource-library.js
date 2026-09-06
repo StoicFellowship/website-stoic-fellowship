@@ -490,14 +490,16 @@
       escapeHtml(linkLabel) +
       '"><i class="fa fa-external-link" aria-hidden="true"></i></a>' +
       byline +
+      '</div>' +
+      '<div class="resource-meta-row">' +
       '<div class="resource-badges">' +
       levelBadge +
       categoryBadge +
       '</div>' +
-      '</div>' +
       '<button type="button" class="resource-more-toggle" aria-expanded="false" aria-controls="' +
       descId +
       '">More <i class="fa fa-chevron-down" aria-hidden="true"></i></button>' +
+      '</div>' +
       '<p class="resource-description" id="' +
       descId +
       '" hidden>' +

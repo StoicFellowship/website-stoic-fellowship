@@ -4885,102 +4885,6 @@ input[type='file'] {
   border: 0;
 }
 
-/* Resources page: Study Stoicism filter/search bar */
-.study-filters {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6em 0.9em;
-  max-width: 900px;
-  margin: 0 auto 2em auto;
-  padding: 1.25em;
-  background: #faf8f4;
-  border: 1px solid rgba(0, 0, 0, 0.07);
-  border-radius: 14px;
-}
-
-.study-filters-search {
-  flex: 1 1 100%;
-}
-
-.study-filters-search input[type='search'] {
-  width: 100%;
-  margin: 0 0 0.4em 0;
-  padding: 0.6em 1em;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  background: #fff;
-  font-size: 0.95em;
-}
-
-.study-filters-search input[type='search']:focus {
-  outline: none;
-  border-color: #66023c;
-}
-
-.study-filters-label {
-  flex: 0 0 100%;
-  text-align: center;
-  font-size: 0.75em;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #999;
-  margin-top: 0.2em;
-}
-
-.study-filters-label:first-of-type {
-  margin-top: 0;
-}
-
-.study-filters-pills {
-  flex: 0 0 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5em;
-}
-
-.filter-pill {
-  display: inline-block;
-  padding: 0.5em 1.1em;
-  border-radius: 999px;
-  border: 1px solid #66023c;
-  background: #fff;
-  color: #66023c;
-  font-weight: 600;
-  font-size: 0.8em;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-
-.filter-pill:hover {
-  background: rgba(102, 2, 60, 0.1);
-}
-
-.filter-pill.active {
-  background: #66023c;
-  color: #fff;
-}
-
-.study-filters-reset {
-  padding: 0;
-  border: 0;
-  background: none;
-  color: #66023c;
-  font-size: 0.8em;
-  font-weight: 600;
-  text-decoration: underline;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.study-filters-reset:hover {
-  opacity: 0.75;
-}
-
 .study-no-results {
   text-align: center;
   font-style: italic;
@@ -5138,10 +5042,10 @@ input[type='file'] {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-  gap: 0.9em 1.5em;
+  gap: 0.6em 1.25em;
   max-width: 900px;
   margin: 0 auto 1.25em auto;
-  padding: 1.25em;
+  padding: 0.9em 1em;
   background: #faf8f4;
   border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: 14px;
@@ -5152,40 +5056,49 @@ input[type='file'] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 220px;
+  min-width: 200px;
 }
 
+/* .study-filters-group's main axis is the column (vertical) direction, so
+   "flex: 0 0 100%" here would set a 100%-of-height flex-basis instead of
+   full width -- once the group has 3+ children (Relation's label + help
+   text + pills) that stretches the label/pills to the group's own auto
+   height and pushes the help paragraph outside its parent's box. `flex:
+   none; width: 100%` gets the intended full-width, content-height sizing
+   without hijacking the main axis. */
 .study-filters-label {
-  flex: 0 0 100%;
+  flex: none;
+  width: 100%;
   text-align: center;
-  font-size: 0.75em;
+  font-size: 0.7em;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #999;
-  margin: 0 0 0.6em 0;
+  margin: 0 0 0.4em 0;
 }
 
 .study-filters-pills {
-  flex: 0 0 100%;
+  flex: none;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5em;
+  gap: 0.35em;
 }
 
 .filter-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.4em;
-  padding: 0.5em 1.1em;
+  gap: 0.35em;
+  padding: 0.3em 0.75em;
   border-radius: 999px;
   border: 1px solid #66023c;
   background: #fff;
   color: #66023c;
-  font-weight: 600;
-  font-size: 0.8em;
-  letter-spacing: 0.02em;
+  font-weight: 500;
+  font-size: 0.72em;
+  letter-spacing: 0.01em;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
@@ -5247,6 +5160,13 @@ input[type='file'] {
   justify-content: center;
 }
 
+/* The unconditional `display: flex` above overrides the [hidden] attribute
+   the UA stylesheet would otherwise apply, which was letting the Relation
+   panel stay visible even while collapsed. Force it hidden explicitly. */
+.study-filters-advanced[hidden] {
+  display: none;
+}
+
 .study-filters-help {
   text-align: center;
   color: #888;
@@ -5267,18 +5187,19 @@ input[type='file'] {
   color: #66023c;
 }
 
-/* Author cards grid -- a fresh flex-wrap grid (not the legacy float .row
-   system used by Primary Texts) so cards can auto-flow responsively
-   without manual row-pairing. */
+/* Author cards grid -- a fresh flex layout (not the legacy float .row
+   system used by Primary Texts). Single column of full-width cards: with
+   many works per author, a wide card gives each work's title, tags, and
+   "More" toggle room to sit on one line instead of wrapping. */
 .resource-authors-grid {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.75em;
+  flex-direction: column;
+  gap: 1.5em;
   margin: 0 0 2em 0;
 }
 
 .resource-authors-grid .author-card {
-  flex: 1 1 380px;
+  width: 100%;
   max-width: 100%;
 }
 
@@ -5316,6 +5237,16 @@ input[type='file'] {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+/* Undo the legacy Primary-Texts ".author-card .works li" flex/space-between
+   rule -- it was written for that page's single title+link row and, since
+   this grid reuses the ".works" class, was flexing .resource-work-item's
+   own children (the work-line and the meta-row) side by side instead of
+   letting them stack. Resource Library items lay out their own internals
+   via .resource-work-line and .resource-meta-row instead. */
+.resource-authors-grid .works li {
+  display: block;
 }
 
 .resource-work-item {
@@ -5374,20 +5305,35 @@ input[type='file'] {
   flex: 0 0 100%;
 }
 
+/* Badges + the "More" toggle share a row, badges on the left and "More"
+   on the right, so a work's metadata reads on one line on the now-wider
+   single-column cards. */
+.resource-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em;
+  margin-top: 0.3em;
+}
+
 .resource-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4em;
-  margin-top: 0.35em;
+  gap: 0.35em;
 }
 
 .resource-badge {
   display: inline-block;
-  padding: 0.15em 0.6em;
+  /* Explicit line-height -- without it this inherits the page's ~2.6x
+     body line-height, which blows the badge up to ~36px tall instead of
+     sitting flush with its own small padding. */
+  line-height: 1.5;
+  padding: 0.08em 0.5em;
   border-radius: 999px;
-  font-size: 0.72em;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-size: 0.66em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
   border: 1px solid transparent;
 }
@@ -5422,10 +5368,11 @@ input[type='file'] {
   border: 0;
   background: none;
   color: #66023c;
-  font-size: 0.78em;
-  font-weight: 600;
+  font-size: 0.66em;
+  font-weight: 500;
   cursor: pointer;
-  margin-top: 0.35em;
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .resource-description {
