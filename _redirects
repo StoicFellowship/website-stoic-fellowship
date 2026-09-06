@@ -12,4 +12,8 @@
 # Resources page renamed from /resources/stoicism-resources
 /resources/stoicism-resources  /resources  301
 
+# Resources page split into four pages (Facilitators/Study/Practice/Organizations);
+# old /resources is superseded by /resources-study, its closest successor.
+/resources  /resources-study  301!
+
 /*  /404  404
