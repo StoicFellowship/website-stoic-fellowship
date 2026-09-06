@@ -105,11 +105,89 @@
   <section id="study-stoicism" class="wrapper style3 container special">
     <h2 class="section-title">Study Stoicism</h2>
 
-    <h3 class="author-section-title">
-      <i class="fa fa-university" aria-hidden="true"></i> Ancient Philosophers
-    </h3>
+    <div class="study-filters" role="region" aria-label="Filter Study Stoicism resources">
+      <div class="study-filters-search">
+        <label class="sr-only" for="study-search">Search resources</label>
+        <input
+          type="search"
+          id="study-search"
+          placeholder="Search by author, title, or keyword&hellip;"
+        />
+      </div>
+      <span class="study-filters-label">Topics</span>
+      <div
+        class="study-filters-pills"
+        role="group"
+        aria-label="Filter by topic"
+      >
+        <button type="button" class="filter-pill" data-filter-topic="ancient">
+          Ancient Philosophers
+        </button>
+        <button type="button" class="filter-pill" data-filter-topic="modern">
+          Modern Authors
+        </button>
+        <button type="button" class="filter-pill" data-filter-topic="logic">
+          Logic
+        </button>
+        <button type="button" class="filter-pill" data-filter-topic="physics">
+          Physics
+        </button>
+        <button
+          type="button"
+          class="filter-pill"
+          data-filter-topic="beginner-ethics"
+        >
+          Beginner Ethics
+        </button>
+        <button
+          type="button"
+          class="filter-pill"
+          data-filter-topic="advanced-ethics"
+        >
+          Advanced Ethics
+        </button>
+      </div>
+      <span class="study-filters-label">Format</span>
+      <div
+        class="study-filters-pills study-filters-format"
+        role="group"
+        aria-label="Filter by format"
+      >
+        <button
+          type="button"
+          class="filter-pill active"
+          data-filter-format="book"
+          aria-pressed="true"
+        >
+          Books
+        </button>
+        <button
+          type="button"
+          class="filter-pill active"
+          data-filter-format="article"
+          aria-pressed="true"
+        >
+          Articles
+        </button>
+      </div>
+      <button type="button" class="study-filters-reset">Reset filters</button>
+    </div>
 
-    <div class="row author-row">
+    <p id="study-no-results" class="study-no-results" hidden>
+      No resources match your filters. Try
+      <button type="button" class="study-filters-reset-inline">
+        resetting
+      </button>
+      them.
+    </p>
+
+    <div class="author-group" data-group-section="ancient">
+      <h3 class="author-section-title">
+        <i class="fa fa-university" aria-hidden="true"></i> Ancient
+        Philosophers
+      </h3>
+
+      <div class="row author-row">
       <div class="6u 12u(narrower)">
         <section class="author-card">
           <div class="author-card-head">
@@ -128,7 +206,7 @@
             </div>
           </div>
           <ul class="works">
-            <li>
+            <li data-topics="ancient" data-format="book">
               <span class="work-title">Letters from a Stoic</span>
               <a
                 href="https://en.wikisource.org/wiki/Moral_letters_to_Lucilius"
@@ -158,7 +236,7 @@
             </div>
           </div>
           <ul class="works">
-            <li>
+            <li data-topics="ancient" data-format="book">
               <span class="work-title">Meditations</span>
               <a
                 href="https://en.wikisource.org/wiki/The_Thoughts_of_the_Emperor_Marcus_Aurelius_Antoninus"
@@ -195,7 +273,7 @@
             </div>
           </div>
           <ul class="works">
-            <li>
+            <li data-topics="ancient" data-format="book">
               <span class="work-title">Discourses</span>
               <a
                 href="https://en.wikisource.org/wiki/Epictetus,_the_Discourses_as_reported_by_Arrian,_the_Manual,_and_Fragments"
@@ -204,7 +282,7 @@
                 ><span>Read online</span></a
               >
             </li>
-            <li>
+            <li data-topics="ancient" data-format="book">
               <span class="work-title">The Enchiridion</span>
               <a
                 href="https://en.wikisource.org/wiki/Encheiridion_of_Epictetus_(George_Long)"
@@ -239,7 +317,7 @@
             </div>
           </div>
           <ul class="works">
-            <li>
+            <li data-topics="ancient" data-format="book">
               <span class="work-title">The Lectures</span>
               <a
                 href="https://sites.google.com/site/thestoiclife/the_teachers/musonius-rufus/lectures?authuser=0"
@@ -256,9 +334,11 @@
         </section>
       </div>
     </div>
+    </div>
 
     <div class="hr"></div>
 
+    <div class="author-group" data-group-section="modern">
     <div>
       <h3 class="author-section-title">
         <i class="fa fa-pencil" aria-hidden="true"></i> Modern Authors
@@ -284,7 +364,7 @@
             </div>
           </div>
           <ul class="works">
-            <li>
+            <li data-topics="modern beginner-ethics" data-format="book">
               <span class="work-title">How to Be a Stoic</span>
               <a
                 href="https://www.goodreads.com/book/show/31423245-how-to-be-a-stoic"
@@ -293,7 +373,7 @@
                 ><span>Info</span></a
               >
             </li>
-            <li>
+            <li data-topics="modern beginner-ethics" data-format="book">
               <div class="work-title-group">
                 <span class="work-title">A Handbook for New Stoics</span>
                 <span class="work-coauthor">(with Gregory Lopez)</span>
@@ -305,7 +385,7 @@
                 ><span>Info</span></a
               >
             </li>
-            <li>
+            <li data-topics="modern beginner-ethics" data-format="book">
               <span class="work-title">A Field Guide to a Happy Life</span>
               <a
                 href="https://www.goodreads.com/book/show/52041425-a-field-guide-to-a-happy-life"
@@ -341,7 +421,7 @@
             </div>
           </div>
           <ul class="works">
-            <li>
+            <li data-topics="modern beginner-ethics" data-format="book">
               <span class="work-title">How to Think Like a Roman Emperor</span>
               <a
                 href="https://www.goodreads.com/book/show/51164133-how-to-think-like-a-roman-emperor"
@@ -350,7 +430,7 @@
                 ><span>Info</span></a
               >
             </li>
-            <li>
+            <li data-topics="modern beginner-ethics" data-format="book">
               <span class="work-title">Stoicism and the Art of Happiness</span>
               <a
                 href="https://www.goodreads.com/book/show/37510190-stoicism-and-the-art-of-happiness"
@@ -359,7 +439,7 @@
                 ><span>Info</span></a
               >
             </li>
-            <li>
+            <li data-topics="modern advanced-ethics" data-format="book">
               <span class="work-title">Marcus Aurelius: The Stoic Emperor</span>
               <a
                 href="https://www.goodreads.com/book/show/188531510"
@@ -396,7 +476,7 @@
             </div>
           </div>
           <ul class="works">
-            <li>
+            <li data-topics="modern beginner-ethics" data-format="book">
               <span class="work-title">A Guide to the Good Life</span>
               <a
                 href="https://www.goodreads.com/book/show/19669566-a-guide-to-the-good-life"
@@ -405,7 +485,7 @@
                 ><span>Info</span></a
               >
             </li>
-            <li>
+            <li data-topics="modern beginner-ethics" data-format="book">
               <span class="work-title">The Stoic Challenge</span>
               <a
                 href="https://www.goodreads.com/en/book/show/43726564-the-stoic-challenge"
@@ -441,7 +521,7 @@
             </div>
           </div>
           <ul class="works">
-            <li>
+            <li data-topics="modern advanced-ethics" data-format="book">
               <span class="work-title">Stoicism (Ancient Philosophies)</span>
               <a
                 href="https://www.goodreads.com/book/show/1359572.Stoicism"
@@ -450,7 +530,7 @@
                 ><span>Info</span></a
               >
             </li>
-            <li>
+            <li data-topics="modern beginner-ethics" data-format="book">
               <span class="work-title">Lessons in Stoicism</span>
               <a
                 href="https://www.goodreads.com/book/show/43566091.Lessons_in_Stoicism_What_Ancient_Philosophers_Teach_Us_About_How_to_Live"
@@ -459,7 +539,7 @@
                 ><span>Info</span></a
               >
             </li>
-            <li>
+            <li data-topics="modern advanced-ethics" data-format="book">
               <span class="work-title">The Art of Living</span>
               <a
                 href="https://www.goodreads.com/book/show/38136723-the-art-of-living"
@@ -496,7 +576,7 @@
             </div>
           </div>
           <ul class="works">
-            <li>
+            <li data-topics="modern advanced-ethics" data-format="book">
               <span class="work-title">The Inner Citadel</span>
               <a
                 href="https://www.goodreads.com/book/show/299753.The_Inner_Citadel"
@@ -505,7 +585,7 @@
                 ><span>Info</span></a
               >
             </li>
-            <li>
+            <li data-topics="modern advanced-ethics" data-format="book">
               <span class="work-title">Philosophy as a Way of Life</span>
               <a
                 href="https://www.goodreads.com/book/show/933658.Philosophy_as_a_Way_of_Life"
@@ -540,7 +620,7 @@
             </div>
           </div>
           <ul class="works">
-            <li>
+            <li data-topics="modern beginner-ethics" data-format="book">
               <span class="work-title">Tranquility Parenting</span>
               <a
                 href="https://www.goodreads.com/en/book/show/40311248-tranquility-parenting"
@@ -549,7 +629,7 @@
                 ><span>Info</span></a
               >
             </li>
-            <li>
+            <li data-topics="modern beginner-ethics" data-format="book">
               <span class="work-title">Journal Like a Stoic</span>
               <a
                 href="https://www.goodreads.com/en/book/show/61897955-journal-like-a-stoic"
@@ -558,7 +638,7 @@
                 ><span>Info</span></a
               >
             </li>
-            <li>
+            <li data-topics="modern beginner-ethics" data-format="book">
               <div class="work-title-group">
                 <span class="work-title">Stoic Ethics: The Basics</span>
                 <span class="work-coauthor">(with Christopher Gill)</span>
@@ -598,7 +678,7 @@
             </div>
           </div>
           <ul class="works">
-            <li>
+            <li data-topics="modern advanced-ethics" data-format="book">
               <span class="work-title">The Ethics of the Family in Seneca</span>
               <a
                 href="https://www.goodreads.com/book/show/37456809-the-ethics-of-the-family-in-seneca"
@@ -611,19 +691,21 @@
         </section>
       </div>
     </div>
+    </div>
 
     <div class="hr"></div>
 
+    <div class="fields-of-philosophy-group">
     <div style="margin: 2em">
       <h3>STOIC FIELDS OF PHILOSOPHY</h3>
     </div>
 
-    <div class="reading-list">
+    <div class="reading-list" data-topic="logic">
       <h4>Stoic Logic</h4>
 
       <h5>Books</h5>
       <div style="text-align: left">
-        <p class="articles">
+        <p class="articles" data-topics="logic" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/192414.The_Philosophers_Toolkit"
             target="_blank"
@@ -638,7 +720,7 @@
           this text empowers readers to understand traditional philosophical
           thinking and to engage with new ideas.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="logic" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/947256.A_Short_Course_in_Intellectual_Self_Defense"
             target="_blank"
@@ -651,7 +733,7 @@
           readers with the tools to see through the spin and jargon of
           everyday politics and news reporting.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="logic" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/2466179.Thinking_and_Deciding"
             target="_blank"
@@ -661,7 +743,7 @@
           covers the basics of deductive logic, probability, choice theory,
           and heuristics and biases.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="logic" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/703712.Logic"
             target="_blank"
@@ -672,7 +754,7 @@
           the mechanics of modern logic, but you’ll get a great overview of
           what modern logic currently is.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="logic" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/41756.How_to_Think_about_Weird_Things"
             target="_blank"
@@ -685,7 +767,7 @@
 
       <h5>Articles and Other Resources</h5>
       <div style="text-align: left">
-        <p class="articles">
+        <p class="articles" data-topics="logic" data-format="article">
           <a
             href="https://modernstoicism.com/the-proper-application-of-preconceptions-curing-the-cause-of-all-human-ills-by-greg-lopez/"
             target="_blank"
@@ -694,7 +776,7 @@
           >
           by Greg Lopez
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="logic" data-format="article">
           <a
             href="https://medium.com/stoicism-philosophy-as-a-way-of-life/stoic-epistemology-101-zeno-and-the-metaphor-of-the-hand-movement-cefddd07bbd8"
             target="_blank"
@@ -708,12 +790,12 @@
 
     <div class="hr"></div>
 
-    <div class="reading-list">
+    <div class="reading-list" data-topic="physics">
       <h4>Stoic Physics</h4>
 
       <h5>Books</h5>
       <div style="text-align: left">
-        <p class="articles">
+        <p class="articles" data-topics="physics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/21.A_Short_History_of_Nearly_Everything"
             target="_blank"
@@ -723,7 +805,7 @@
           happened from the Big Bang to the rise of civilization - how we
           got from there, being nothing at all, to here, being us.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="physics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/137314.What_Is_This_Thing_Called_Science_?"
             target="_blank"
@@ -732,7 +814,7 @@
           by Alan F. Chalmers. The best introductory textbook on the
           philosophy of science.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="physics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/17375.The_Meaning_of_It_All"
             target="_blank"
@@ -744,7 +826,7 @@
           thoughtfully he considered the religious, political, and social
           issues of his day.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="physics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/23692271-sapiens"
             target="_blank"
@@ -756,7 +838,7 @@
           and human rights; to trust money, books and laws; and to be
           enslaved by bureaucracy, timetables and consumerism?
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="physics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/11468377-thinking-fast-and-slow"
             target="_blank"
@@ -770,7 +852,7 @@
           reveals the pervasive influence of intuitive impressions on our
           thoughts and behavior.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="physics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/17349.The_Demon_Haunted_World"
             target="_blank"
@@ -781,7 +863,7 @@
           difference between the myths of pseudoscience and the testable
           hypotheses of science?
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="physics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/1662160.Your_Inner_Fish"
             target="_blank"
@@ -799,7 +881,7 @@
 
       <h5>Articles and Other Resources</h5>
       <div style="text-align: left">
-        <p class="articles">
+        <p class="articles" data-topics="physics" data-format="article">
           <a
             href="https://modernstoicism.com/how-now-horatio-the-stoic-joy-of-physics-and-friendship-by-sherman-j-clark/"
             target="_blank"
@@ -807,7 +889,7 @@
           >
           by Sherman J. Clark.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="physics" data-format="article">
           <a
             href="https://modernstoicism.com/do-stoic-ethics-depend-on-the-stoic-worldview-by-chris-gill/"
             target="_blank"
@@ -815,7 +897,7 @@
           >
           by Chris Gill.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="physics" data-format="article">
           <a
             href="https://modernstoicism.com/stoicism-and-the-environment-by-chris-gill/"
             target="_blank"
@@ -823,7 +905,7 @@
           >
           by Chris Gill.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="physics" data-format="article">
           <a
             href="https://thesideview.co/journal/the-stoic-god-is-untenable-in-the-light-of-modern-science/"
             target="_blank"
@@ -836,12 +918,12 @@
 
     <div class="hr"></div>
 
-    <div class="reading-list">
+    <div class="reading-list" data-topic="ethics">
       <h4>Stoic Ethics</h4>
 
       <h5>Beginner Resources</h5>
       <div style="text-align: left">
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/56769533-breakfast-with-seneca"
             target="_blank"
@@ -855,7 +937,7 @@
           condition—which, as it turns out, hasn’t changed much over the
           past two thousand years.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/5617966-a-guide-to-the-good-life"
             target="_blank"
@@ -870,7 +952,7 @@
           attaining tranquility and shows how to put these techniques to
           work in our own life.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/24618.The_Art_of_Living"
             target="_blank"
@@ -882,7 +964,7 @@
           readers learn to successfully meet the challenges of everyday life
           and face life's inevitable losses and disappointments with grace.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/31423245-how-to-be-a-stoic"
             target="_blank"
@@ -895,7 +977,7 @@
           philosophy that focuses our attention on what is possible and
           gives us perspective on what is unimportant.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/40591934-a-handbook-for-new-stoics"
             target="_blank"
@@ -910,7 +992,7 @@
           an ancient pragmatic philosophy that teaches us to step back, gain
           perspective, and act with intention.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/39863499-how-to-think-like-a-roman-emperor"
             target="_blank"
@@ -923,7 +1005,7 @@
           individuals throughout the centuries as a path to achieving
           greater fulfillment and emotional resilience.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/43566091-lessons-in-stoicism"
             target="_blank"
@@ -939,7 +1021,7 @@
 
       <h5>Advanced Resources</h5>
       <div style="text-align: left">
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/865824.The_Morality_of_Happiness"
             target="_blank"
@@ -952,7 +1034,7 @@
           need to examine the basic structure of ancient ethical theory, not
           just the details of one or two theories.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/1734622.A_New_Stoicism"
             target="_blank"
@@ -963,7 +1045,7 @@
           if it had coped successfully with the challenges of modern
           philosophy and experimental science?
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/7179532-the-structured-self-in-hellenistic-and-roman-thought"
             target="_blank"
@@ -973,7 +1055,7 @@
           Hellenistic - especially Stoic and Epicurean - philosophical
           thinking about selfhood and personality.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/1734623.Stoicism_and_Emotion"
             target="_blank"
@@ -985,7 +1067,7 @@
           understood as complex judgments about what we regard as valuable
           in our surroundings.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/330370.The_Inner_Citadel"
             target="_blank"
@@ -1000,7 +1082,7 @@
           historian of ancient thought, uncovers new levels of meaning and
           expands our understanding of its underlying philosophy.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/1203531.The_Cambridge_Companion_to_the_Stoics"
             target="_blank"
@@ -1012,7 +1094,7 @@
           Stoic thought; and finally, the ongoing confrontation with
           Stoicism.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/18290251-the-role-ethics-of-epictetus"
             target="_blank"
@@ -1025,7 +1107,7 @@
           are morally good if they fulfill the obligations associated with
           these roles.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/1888218.Epictetus"
             target="_blank"
@@ -1038,7 +1120,7 @@
           philosophy, gives the definitive presentation of the thought of
           Epictetus for a broad readership.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/661677.The_Roman_Stoics"
             target="_blank"
@@ -1050,7 +1132,7 @@
           as neither cold nor detached, as the stereotype has it, but all
           too aware of their human weaknesses.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/7126418-the-art-of-living"
             target="_blank"
@@ -1062,7 +1144,7 @@
           Sextus Empiricus, and offers readings of late Stoic texts by
           Epictetus and Marcus Aurelius.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="book">
           <a
             href="https://www.goodreads.com/book/show/1359572.Stoicism"
             target="_blank"
@@ -1078,7 +1160,7 @@
 
       <h5>Articles and Other Resources</h5>
       <div style="text-align: left">
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/is-stoic-virtue-as-off-putting-as-it-seems-by-julia-annas/"
             target="_blank"
@@ -1086,7 +1168,7 @@
           >
           by Julia Annas.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/marcus-on-the-dichotomy-of-value-and-response-by-chris-gill/"
             target="_blank"
@@ -1094,7 +1176,7 @@
           >
           by Chris Gill.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/what-is-stoic-virtue-by-chris-gill/"
             target="_blank"
@@ -1102,7 +1184,7 @@
           >
           by Chris Gill.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/the-dispassionate-life-by-margaret-graver/"
             target="_blank"
@@ -1110,7 +1192,7 @@
           >
           by Margaret Graver.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/living-as-if-your-life-depended-on-it-choosing-a-philosophical-life-by-sharon-lebell/"
             target="_blank"
@@ -1119,7 +1201,7 @@
           >
           by Sharon Lebell.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/stoicisms-ancient-and-modern-by-tony-a-a-long/"
             target="_blank"
@@ -1127,7 +1209,7 @@
           >
           by Tony (A.A.) Long.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/updating-epictetus-and-stoicism-for-the-21st-century-by-massimo-pigliucci/"
             target="_blank"
@@ -1135,7 +1217,7 @@
           >
           by Massimo Pigliucci.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/epictetus-anger-management-and-habit-by-greg-sadler/"
             target="_blank"
@@ -1143,7 +1225,7 @@
           >
           by Greg Sadler.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/stoicism-erotic-love-and-relationships-by-greg-sadler/"
             target="_blank"
@@ -1151,7 +1233,7 @@
           >
           by Greg Sadler.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/what-does-in-accordance-with-nature-mean-by-greg-sadler/"
             target="_blank"
@@ -1159,7 +1241,7 @@
           >
           by Greg Sadler.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/hard-truths-and-happiness-by-john-sellars/"
             target="_blank"
@@ -1167,7 +1249,7 @@
           >
           by John Sellars.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="advanced-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/stoic-wisdom-moral-injury-and-stoic-resilience-by-nancy-sherman/"
             target="_blank"
@@ -1175,7 +1257,7 @@
           >
           by Nancy Sherman.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/what-many-people-misunderstand-about-the-stoic-dichotomy-of-control-by-michael-tremblay/"
             target="_blank"
@@ -1184,7 +1266,7 @@
           >
           by Michael Tremblay.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="article">
           <a
             href="https://philosophynow.org/issues/106/Star_Treks_Stoics_The_Vulcans"
             target="_blank"
@@ -1192,7 +1274,7 @@
           >
           by Steven Umbrello.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/how-to-think-like-musonius-rufus-and-memorize-his-lectures-by-kevin-vost/"
             target="_blank"
@@ -1200,28 +1282,28 @@
           >
           by Kevin Vost.
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/symposium-what-is-modern-stoicism/"
             target="_blank"
             >Symposium on what Modern Stoicism means, Part I</a
           >
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="article">
           <a
             href="https://modernstoicism.com/what-is-modern-stoicism-additional-reflections-from-sellars-and-sadler/"
             target="_blank"
             >Symposium on what Modern Stoicism means, Part II</a
           >
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="article">
           <a
             href="https://medium.com/love-the-magazine/what-stoic-philosophy-says-about-love-913bb82c416d#:~:text=%E2%80%9CAccept%20the%20things%20to%20which,so%20with%20all%20your%20heart.%E2%80%9D&text=I%20try%20to%20remember%20the,something%20I%20can't%20have."
             target="_blank"
             >Stoicism and Love: What Stoic Philosophy says about Love.</a
           >
         </p>
-        <p class="articles">
+        <p class="articles" data-topics="beginner-ethics" data-format="article">
           <a
             href="https://aeon.co/ideas/to-be-happier-focus-on-whats-within-your-control"
             target="_blank"
@@ -1230,6 +1312,7 @@
           By Massimo Pigliucci
         </p>
       </div>
+    </div>
     </div>
   </section>
 
@@ -1386,6 +1469,207 @@
         window.addEventListener('load', run)
       }
       window.addEventListener('resize', syncAuthorPhotoSize)
+    })()
+  </script>
+  <script>
+    ;(function () {
+      // Study Stoicism filter + search.
+      //
+      // Two independent facets, plus a search box:
+      //  - Topic pills (Ancient Philosophers, Modern Authors, Logic,
+      //    Physics, Beginner Ethics, Advanced Ethics) union together: an
+      //    item shows if it matches ANY selected topic. No topics selected
+      //    means "show everything" (the default).
+      //  - Format pills (Books, Articles) both start active and narrow
+      //    (AND) whatever the topic facet allows.
+      //  - The search box further narrows (AND) by matching text.
+      //
+      // Filtering runs at the level of each individual work/article item
+      // (every <li> in an author-card and every <p class="articles"> in a
+      // reading list carries its own data-topics/data-format). After
+      // that, visibility rolls up: an author-card's column hides only if
+      // every item inside it is hidden; a row hides only if both its
+      // cards are hidden; a whole Ancient/Modern group or reading-list
+      // hides only if nothing inside it is left visible.
+      var section = document.getElementById('study-stoicism')
+      if (!section) return
+
+      var searchInput = document.getElementById('study-search')
+      var topicButtons = Array.prototype.slice.call(
+        section.querySelectorAll('[data-filter-topic]')
+      )
+      var formatButtons = Array.prototype.slice.call(
+        section.querySelectorAll('[data-filter-format]')
+      )
+      var resetButtons = Array.prototype.slice.call(
+        section.querySelectorAll(
+          '.study-filters-reset, .study-filters-reset-inline'
+        )
+      )
+      var noResults = document.getElementById('study-no-results')
+      var items = Array.prototype.slice.call(
+        section.querySelectorAll('[data-topics]')
+      )
+
+      var selectedTopics = {}
+      var selectedFormats = { book: true, article: true }
+
+      function activeTopics() {
+        var out = []
+        for (var key in selectedTopics) {
+          if (selectedTopics[key]) out.push(key)
+        }
+        return out
+      }
+
+      function render() {
+        var topics = activeTopics()
+        var query = (searchInput.value || '').trim().toLowerCase()
+        var visibleCount = 0
+
+        items.forEach(function (item) {
+          var itemTopics = item.getAttribute('data-topics').split(' ')
+          var format = item.getAttribute('data-format')
+          var topicMatch =
+            topics.length === 0 ||
+            itemTopics.some(function (t) {
+              return topics.indexOf(t) !== -1
+            })
+          var formatMatch = !!selectedFormats[format]
+          // Search text includes the item's own text plus, for a work
+          // inside an author-card, the author's name/description -- so
+          // searching "Sellars" surfaces his books even though his name
+          // isn't repeated on each <li>.
+          var haystack = item.textContent
+          var card = item.closest('.author-card')
+          if (card) {
+            var head = card.querySelector('.author-card-head')
+            if (head) haystack += ' ' + head.textContent
+          }
+          var searchMatch =
+            !query || haystack.toLowerCase().indexOf(query) !== -1
+          var visible = topicMatch && formatMatch && searchMatch
+          item.classList.toggle('filter-hidden', !visible)
+          if (visible) visibleCount++
+        })
+
+        // Roll visibility up: author-card columns, then rows, then the
+        // Ancient/Modern group (and its trailing divider), for both the
+        // "Ancient Philosophers" and "Modern Authors" sections.
+        section.querySelectorAll('.author-group').forEach(function (group) {
+          var groupHasVisible = false
+
+          group.querySelectorAll('.row.author-row').forEach(function (row) {
+            var visibleCols = []
+            var cols = Array.prototype.slice.call(row.children)
+            cols.forEach(function (col) {
+              var card = col.querySelector('.author-card')
+              if (!card) return
+              var hasVisibleWork = !!card.querySelector(
+                '.works li:not(.filter-hidden)'
+              )
+              col.classList.toggle('filter-hidden', !hasVisibleWork)
+              if (hasVisibleWork) visibleCols.push(col)
+            })
+            row.classList.toggle('filter-hidden', visibleCols.length === 0)
+            row.classList.toggle('row-solo', visibleCols.length === 1)
+            if (visibleCols.length > 0) groupHasVisible = true
+          })
+
+          group.classList.toggle('filter-hidden', !groupHasVisible)
+          var divider = group.nextElementSibling
+          if (divider && divider.classList.contains('hr')) {
+            divider.classList.toggle('filter-hidden', !groupHasVisible)
+          }
+        })
+
+        // Roll visibility up within each reading list: each Books/
+        // Articles (or Beginner/Advanced/Articles) subgroup hides if none
+        // of its own entries remain, then the whole reading list (Logic,
+        // Physics, or Ethics) hides if nothing in it is left visible.
+        var anyReadingListVisible = false
+        section.querySelectorAll('.reading-list').forEach(function (list) {
+          var listHasVisible = false
+          list.querySelectorAll('h5').forEach(function (h5) {
+            var content = h5.nextElementSibling
+            if (!content) return
+            var hasVisible = !!content.querySelector(
+              '.articles:not(.filter-hidden)'
+            )
+            h5.classList.toggle('filter-hidden', !hasVisible)
+            content.classList.toggle('filter-hidden', !hasVisible)
+            if (hasVisible) listHasVisible = true
+          })
+          list.classList.toggle('filter-hidden', !listHasVisible)
+          var divider = list.nextElementSibling
+          if (divider && divider.classList.contains('hr')) {
+            divider.classList.toggle('filter-hidden', !listHasVisible)
+          }
+          if (listHasVisible) anyReadingListVisible = true
+        })
+
+        var fieldsGroup = section.querySelector('.fields-of-philosophy-group')
+        if (fieldsGroup) {
+          fieldsGroup.classList.toggle(
+            'filter-hidden',
+            !anyReadingListVisible
+          )
+        }
+
+        noResults.hidden = visibleCount > 0
+
+        // Re-run the photo-height sync: which cards are visible (and
+        // whether a row is now "solo" width) can change how the name +
+        // description text wraps, which changes the target photo size.
+        window.dispatchEvent(new Event('resize'))
+      }
+
+      topicButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var topic = btn.getAttribute('data-filter-topic')
+          var next = !selectedTopics[topic]
+          selectedTopics[topic] = next
+          btn.classList.toggle('active', next)
+          btn.setAttribute('aria-pressed', next ? 'true' : 'false')
+          render()
+        })
+      })
+
+      formatButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var format = btn.getAttribute('data-filter-format')
+          var next = !selectedFormats[format]
+          selectedFormats[format] = next
+          btn.classList.toggle('active', next)
+          btn.setAttribute('aria-pressed', next ? 'true' : 'false')
+          render()
+        })
+      })
+
+      resetButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          selectedTopics = {}
+          selectedFormats = { book: true, article: true }
+          searchInput.value = ''
+          topicButtons.forEach(function (btn) {
+            btn.classList.remove('active')
+            btn.setAttribute('aria-pressed', 'false')
+          })
+          formatButtons.forEach(function (btn) {
+            btn.classList.add('active')
+            btn.setAttribute('aria-pressed', 'true')
+          })
+          render()
+        })
+      })
+
+      var searchDebounce
+      searchInput.addEventListener('input', function () {
+        window.clearTimeout(searchDebounce)
+        searchDebounce = window.setTimeout(render, 150)
+      })
+
+      render()
     })()
   </script>
 </body>

@@ -4872,3 +4872,151 @@ input[type='file'] {
   }
 }
 
+/* Visually hidden but still available to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Resources page: Study Stoicism filter/search bar */
+.study-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em 0.9em;
+  max-width: 900px;
+  margin: 0 auto 2em auto;
+  padding: 1.25em;
+  background: #faf8f4;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+}
+
+.study-filters-search {
+  flex: 1 1 100%;
+}
+
+.study-filters-search input[type='search'] {
+  width: 100%;
+  margin: 0 0 0.4em 0;
+  padding: 0.6em 1em;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
+  font-size: 0.95em;
+}
+
+.study-filters-search input[type='search']:focus {
+  outline: none;
+  border-color: #66023c;
+}
+
+.study-filters-label {
+  flex: 0 0 100%;
+  text-align: center;
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #999;
+  margin-top: 0.2em;
+}
+
+.study-filters-label:first-of-type {
+  margin-top: 0;
+}
+
+.study-filters-pills {
+  flex: 0 0 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.filter-pill {
+  display: inline-block;
+  padding: 0.5em 1.1em;
+  border-radius: 999px;
+  border: 1px solid #66023c;
+  background: #fff;
+  color: #66023c;
+  font-weight: 600;
+  font-size: 0.8em;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.filter-pill:hover {
+  background: rgba(102, 2, 60, 0.1);
+}
+
+.filter-pill.active {
+  background: #66023c;
+  color: #fff;
+}
+
+.study-filters-format {
+  padding-top: 0.5em;
+  margin-top: 0.35em;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.study-filters-reset {
+  flex: 0 0 100%;
+  text-align: center;
+  margin-top: 0.2em;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #66023c;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.study-filters-reset:hover {
+  opacity: 0.75;
+}
+
+.study-no-results {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin: 0 0 2em 0;
+}
+
+.study-no-results button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #66023c;
+  font-style: italic;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+/* Filtering: elements hidden by the Study Stoicism filter/search script */
+.filter-hidden {
+  display: none !important;
+}
+
+/* When only one card in an author-row remains after filtering, let it
+   take the full row width instead of leaving an empty half beside it.
+   (.\36 u is the escaped form of the grid system's ".6u" 50%-width class --
+   CSS class names can't start with a bare digit.) */
+.row.author-row.row-solo > .\36 u:not(.filter-hidden) {
+  width: 100%;
+}
+
