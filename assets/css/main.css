@@ -4742,7 +4742,12 @@ input[type='file'] {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 0.75em;
+  /* column-gap spaces title from link when they share a line; row-gap is
+     deliberately much smaller so a long title (e.g. "On the Shortness of
+     Life") that pushes "Read online" to its own wrapped line doesn't leave
+     a large vertical gap above it -- it should still read as one row. */
+  column-gap: 0.75em;
+  row-gap: 0.1em;
   flex-wrap: wrap;
   margin: 0;
   /* Tight top/bottom padding so multiple books in one card read as a
@@ -5550,6 +5555,13 @@ input[type='file'] {
 }
 
 .resource-row {
+  /* Without this, these rows inherit the centered text-align that
+     "section.special" (the Modern Texts box) sets globally -- the
+     .author-card rows next door avoid it via their own explicit
+     "text-align: left", but a plain .resource-row (used for single-work
+     "Additional Resources" authors) has no such reset, so its expanded
+     subtitle/description read centered instead of left-aligned. */
+  text-align: left;
   padding: 0.85em 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
