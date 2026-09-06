@@ -233,112 +233,116 @@
         filterable by category, level, format, and topic.
       </p>
 
-      <div class="resource-library-toolbar">
-        <div class="study-filters-search">
-          <label class="sr-only" for="study-search">Search resources</label>
-          <i class="fa fa-search" aria-hidden="true"></i>
-          <input
-            type="search"
-            id="study-search"
-            placeholder="Search by author, title, or topic&hellip;"
-          />
-        </div>
-        <button
-          type="button"
-          class="study-filters-mobile-toggle"
-          id="study-filters-mobile-toggle"
-          aria-expanded="false"
-          aria-controls="study-filters-panel"
-        >
-          <i class="fa fa-filter" aria-hidden="true"></i> Filters
-          <span class="filter-count-badge" id="filter-count-badge" hidden
-            >0</span
-          >
-        </button>
-      </div>
-
-      <div
-        class="study-filters-active-row"
-        id="study-filters-active-row"
-        aria-live="polite"
-      ></div>
-
-      <div class="study-filters" id="study-filters-panel" role="region" aria-label="Filter the resource library">
-        <div class="study-filters-group">
-          <span class="study-filters-label">Category</span>
-          <div
-            class="study-filters-pills"
-            role="group"
-            aria-label="Filter by category"
-            data-facet="category"
-          ></div>
-        </div>
-
-        <div class="study-filters-group">
-          <span class="study-filters-label">Level</span>
-          <div
-            class="study-filters-pills"
-            role="group"
-            aria-label="Filter by level"
-            data-facet="level"
-          ></div>
-        </div>
-
-        <div class="study-filters-group">
-          <span class="study-filters-label">Media</span>
-          <div
-            class="study-filters-pills"
-            role="group"
-            aria-label="Filter by media"
-            data-facet="media"
-          ></div>
-        </div>
-
-        <div class="study-filters-group">
-          <span class="study-filters-label">Topics</span>
-          <div
-            class="study-filters-pills study-filters-topics"
-            role="group"
-            aria-label="Filter by topic"
-            data-facet="topics"
-          ></div>
+      <div class="study-filters-sticky">
+        <div class="resource-library-toolbar">
+          <div class="study-filters-search">
+            <label class="sr-only" for="study-search">Search resources</label>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input
+              type="search"
+              id="study-search"
+              placeholder="Search by author, title, or topic&hellip;"
+            />
+          </div>
           <button
             type="button"
-            class="study-filters-more-topics"
-            id="study-filters-more-topics"
+            class="study-filters-mobile-toggle"
+            id="study-filters-mobile-toggle"
+            aria-expanded="false"
+            aria-controls="study-filters-panel"
           >
-            Show more topics
+            <i class="fa fa-filter" aria-hidden="true"></i> Filters
+            <span class="filter-count-badge" id="filter-count-badge" hidden
+              >0</span
+            >
           </button>
         </div>
 
-        <button
-          type="button"
-          class="study-filters-more-toggle"
-          id="study-filters-more-toggle"
-          aria-expanded="false"
-          aria-controls="study-filters-advanced"
-        >
-          More Filters <i class="fa fa-chevron-down" aria-hidden="true"></i>
-        </button>
         <div
-          class="study-filters-advanced"
-          id="study-filters-advanced"
-          hidden
-        >
-          <div class="study-filters-group">
-            <span class="study-filters-label">Relation to Stoicism</span>
-            <p class="study-filters-help">
-              Direct: substantially about Stoicism or a Stoic thinker &middot;
-              Supporting: useful background in philosophy, psychology, logic,
-              or science &middot; Adaptation: a modern retelling, selection,
-              or paraphrase of ancient Stoic material.
-            </p>
+          class="study-filters-active-row"
+          id="study-filters-active-row"
+          aria-live="polite"
+        ></div>
+
+        <div class="study-filters" id="study-filters-panel" role="region" aria-label="Filter the resource library">
+          <div class="study-filters-row">
+            <div class="study-filters-group study-filters-group-inline">
+              <span class="study-filters-label">Category</span>
+              <div
+                class="study-filters-pills"
+                role="group"
+                aria-label="Filter by category"
+                data-facet="category"
+              ></div>
+            </div>
+
+            <div class="study-filters-group study-filters-group-inline">
+              <span class="study-filters-label">Level</span>
+              <div
+                class="study-filters-pills"
+                role="group"
+                aria-label="Filter by level"
+                data-facet="level"
+              ></div>
+            </div>
+
+            <div class="study-filters-group study-filters-group-inline">
+              <span class="study-filters-label">Media</span>
+              <div
+                class="study-filters-pills"
+                role="group"
+                aria-label="Filter by media"
+                data-facet="media"
+              ></div>
+            </div>
+          </div>
+
+          <div class="study-filters-group study-filters-group-topics">
+            <span class="study-filters-label">Topics</span>
             <div
-              class="study-filters-pills"
+              class="study-filters-pills study-filters-topics"
               role="group"
-              aria-label="Filter by relation to Stoicism"
-              data-facet="relation"
+              aria-label="Filter by topic"
+              data-facet="topics"
             ></div>
+            <button
+              type="button"
+              class="study-filters-more-topics"
+              id="study-filters-more-topics"
+            >
+              Show more topics
+            </button>
+          </div>
+
+          <button
+            type="button"
+            class="study-filters-more-toggle"
+            id="study-filters-more-toggle"
+            aria-expanded="false"
+            aria-controls="study-filters-advanced"
+          >
+            More Filters <i class="fa fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div
+            class="study-filters-advanced"
+            id="study-filters-advanced"
+            hidden
+          >
+            <div class="study-filters-group">
+              <span class="study-filters-label">Relation to Stoicism</span>
+              <p class="study-filters-help">
+                Direct: substantially about Stoicism or a Stoic thinker &middot;
+                Supporting: useful background in philosophy, psychology, logic,
+                or science &middot; Adaptation: a modern retelling, selection,
+                or paraphrase of ancient Stoic material.
+              </p>
+              <div
+                class="study-filters-pills"
+                role="group"
+                aria-label="Filter by relation to Stoicism"
+                data-facet="relation"
+              ></div>
+            </div>
           </div>
         </div>
       </div>
@@ -2716,9 +2720,20 @@
   <script src="assets/js/breakpoints.min.js"></script>
   <script src="assets/js/util.js"></script>
   <script src="assets/js/main.js"></script>
-    <script src="/assets/js/resource-library.js"></script>
+  <script src="assets/js/resource-library.js"></script>
   <script>
     ;(function () {
+      // Measures the sticky ".resource-tabs" page nav and records its
+      // height as --tabs-h, so the sticky search/filter bar below it
+      // (.study-filters-sticky) can stack directly underneath instead of
+      // overlapping it -- the same pattern headerFooter.js already uses
+      // for --header-h.
+      function setTabsHeightVar() {
+        var tabs = document.querySelector('.resource-tabs')
+        if (!tabs) return
+        document.documentElement.style.setProperty('--tabs-h', tabs.offsetHeight + 'px')
+      }
+
       // Size every Primary Texts author-card photo to match the height of
       // the most common name + description text block among THAT group,
       // so those photos line up at one consistent size regardless of font
@@ -2750,6 +2765,7 @@
           })
       }
       function run() {
+        setTabsHeightVar()
         syncAuthorPhotoSize()
         if (document.fonts && document.fonts.ready) {
           document.fonts.ready.then(syncAuthorPhotoSize)
@@ -2760,7 +2776,10 @@
       } else {
         window.addEventListener('load', run)
       }
-      window.addEventListener('resize', syncAuthorPhotoSize)
+      window.addEventListener('resize', function () {
+        setTabsHeightVar()
+        syncAuthorPhotoSize()
+      })
     })()
   </script>
 </body>

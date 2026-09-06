@@ -4924,14 +4924,14 @@ input[type='file'] {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 0.75em;
-  max-width: 900px;
   margin: 0 auto 0.85em auto;
 }
 
 .study-filters-search {
   position: relative;
-  flex: 1 1 320px;
+  flex: 0 1 480px;
 }
 
 .study-filters-search .fa-search {
@@ -4990,6 +4990,20 @@ input[type='file'] {
   font-weight: 700;
 }
 
+/* Sticks the search bar, active-filter chips, and the filter panel to the
+   top of the viewport together as one unit while scrolling through results
+   -- stacked just below the sticky .resource-tabs page nav above it. The
+   --tabs-h custom property (set in resources-study.html, mirroring how
+   headerFooter.js already sets --header-h) accounts for that nav's height
+   so the two sticky bars stack cleanly instead of overlapping. */
+.study-filters-sticky {
+  position: sticky;
+  top: calc(var(--header-h, 0px) + var(--tabs-h, 0px));
+  z-index: 14;
+  background: #fff;
+  padding: 0.6em 0 0.9em 0;
+}
+
 /* Active-filter chips: always visible/removable, even when the panel
    itself is collapsed behind the mobile "Filters" button. */
 .study-filters-active-row {
@@ -4998,7 +5012,6 @@ input[type='file'] {
   align-items: center;
   justify-content: center;
   gap: 0.5em;
-  max-width: 900px;
   margin: 0 auto 0.5em auto;
 }
 
@@ -5039,13 +5052,11 @@ input[type='file'] {
 
 .study-filters {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0.6em 1.25em;
-  max-width: 900px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5em;
   margin: 0 auto 1.25em auto;
-  padding: 0.9em 1em;
+  padding: 0.75em 1.25em;
   background: #faf8f4;
   border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: 14px;
@@ -5057,6 +5068,70 @@ input[type='file'] {
   flex-direction: column;
   align-items: center;
   min-width: 200px;
+}
+
+/* Category/Level/Media sit side by side on one row -- now that the panel
+   is as wide as the author cards, all three fit without wrapping on most
+   screens. Each group sizes to its own content (flex: 0 1 auto) rather
+   than stretching, so they sit snugly next to each other instead of
+   spreading across the full row. */
+.study-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em 2em;
+  width: 100%;
+}
+
+.study-filters-group-inline {
+  flex: 0 1 auto;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 0;
+  gap: 0.5em;
+}
+
+.study-filters-group-inline .study-filters-label {
+  width: auto;
+  flex: 0 0 auto;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.study-filters-group-inline .study-filters-pills {
+  width: auto;
+  flex: 0 1 auto;
+  justify-content: flex-start;
+}
+
+/* Topics has too many values to fit on one line regardless of width, so
+   it keeps its own row -- but the label sits to the left instead of on
+   its own line above, and pills wrap in the remaining space beside it. */
+.study-filters-group-topics {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+  gap: 0.5em 0.75em;
+  padding-top: 0.5em;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.study-filters-group-topics .study-filters-label {
+  width: auto;
+  flex: 0 0 auto;
+  margin: 0.3em 0 0 0;
+  white-space: nowrap;
+}
+
+.study-filters-group-topics .study-filters-pills {
+  width: auto;
+  flex: 1 1 260px;
+  min-width: 0;
+  justify-content: flex-start;
 }
 
 /* .study-filters-group's main axis is the column (vertical) direction, so
@@ -5118,7 +5193,10 @@ input[type='file'] {
 }
 
 .study-filters-more-topics {
-  margin-top: 0.6em;
+  /* Forces this onto its own line below the Topics label + pills, which
+     sit in a row together (see .study-filters-group-topics). */
+  flex: 0 0 100%;
+  margin: 0.3em 0 0 0;
   padding: 0;
   border: 0;
   background: none;
@@ -5130,7 +5208,12 @@ input[type='file'] {
 }
 
 .study-filters-more-toggle {
-  flex: 0 0 100%;
+  /* .study-filters is now a column-direction flex container (see above),
+     so "flex: none; width: 100%" is the full-width equivalent here --
+     "flex: 0 0 100%" would set a 100%-of-height basis on this axis
+     instead (the same pitfall documented on .study-filters-label). */
+  flex: none;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5155,7 +5238,8 @@ input[type='file'] {
 }
 
 .study-filters-advanced {
-  flex: 0 0 100%;
+  flex: none;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
