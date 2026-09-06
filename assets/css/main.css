@@ -5207,6 +5207,26 @@ input[type='file'] {
   margin-bottom: 1em;
 }
 
+/* Per-card "Expand all" -- opens every work's details panel in one click.
+   Right-aligned above the works list; .author-card is a column flex
+   container so align-self positions it without an extra wrapper. */
+.card-expand-all {
+  align-self: flex-end;
+  margin: -0.5em 0 0.5em 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #66023c;
+  font-size: 0.78em;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.card-expand-all:hover {
+  opacity: 0.8;
+}
+
 /* Monogram fallback avatar for authors without a photo on file. Fixed at
    the same 84px the .image.featured CSS default uses -- the Resource
    Library's cards are too varied in content (bio vs. no bio) for the
@@ -5298,6 +5318,9 @@ input[type='file'] {
   margin-left: 0.15em;
 }
 
+/* Byline comes last in .resource-work-line's markup and is the only child
+   with a 100% flex-basis, so it always wraps onto its own line beneath
+   the icon/title/link/toggle without pushing anything else down with it. */
 .resource-work-byline {
   font-size: 0.8em;
   font-style: italic;
@@ -5305,22 +5328,27 @@ input[type='file'] {
   flex: 0 0 100%;
 }
 
-/* Badges + the "More" toggle share a row, badges on the left and "More"
-   on the right, so a work's metadata reads on one line on the now-wider
-   single-column cards. */
-.resource-meta-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5em;
-  margin-top: 0.3em;
+/* Everything but the title line itself -- subtitle, description, and the
+   Level/Category tags -- lives behind the +/- toggle so the collapsed
+   list reads as a single tidy line per work, and a person browsing under
+   a filter still gets the tags/description before deciding to open one. */
+.resource-details {
+  margin-top: 0.5em;
+}
+
+.resource-subtitle {
+  margin: 0 0 0.4em 0;
+  font-size: 0.85em;
+  font-style: italic;
+  color: #777;
+  line-height: 1.4em;
 }
 
 .resource-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35em;
+  margin-top: 0.5em;
 }
 
 .resource-badge {
@@ -5363,20 +5391,35 @@ input[type='file'] {
   text-transform: none;
 }
 
+/* Icon-only expand/collapse toggle, sized to sit inline with the title on
+   the collapsed line. aria-label (kept in sync in JS) carries "Show/Hide
+   details" for screen readers since there's no visible text. */
 .resource-more-toggle {
-  padding: 0;
+  /* Padding + a min box so this stays a comfortable tap target even
+     though it's icon-only now (no "More" text giving it natural size). */
+  padding: 0.2em;
+  min-width: 1.6em;
+  min-height: 1.6em;
   border: 0;
+  border-radius: 50%;
   background: none;
   color: #66023c;
-  font-size: 0.66em;
-  font-weight: 500;
+  font-size: 1em;
+  line-height: 1;
   cursor: pointer;
   flex: 0 0 auto;
-  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resource-more-toggle:hover {
+  background: rgba(102, 2, 60, 0.08);
+  color: #46012a;
 }
 
 .resource-description {
-  margin: 0.5em 0 0 0;
+  margin: 0;
   font-size: 0.85em;
   line-height: 1.45em;
   color: #555;

@@ -110,6 +110,27 @@
     })
   }
 
+  // A title+subtitle combo (e.g. "Journal Like a Stoic: A 90-Day Stoicism
+  // Program...") reliably wraps to two lines once it gets long, which is
+  // what made the collapsed list feel cluttered. Rather than measuring
+  // rendered width per item (fragile, viewport-dependent, and would re-run
+  // on every filter re-render), we use the raw title length as a
+  // deterministic proxy: only split at the colon once the combined string
+  // is long enough that it would realistically wrap, so short "Title:
+  // Subtitle" titles (e.g. "Stoic Ethics: The Basics") stay intact. 60 was
+  // chosen by checking it against the actual dataset -- it catches the
+  // long ones without over-truncating short titles into something too
+  // generic, and produces no duplicate short-titles within any one
+  // author's card.
+  var TITLE_TRUNCATE_LENGTH = 60
+  function splitTitle(title) {
+    var idx = title.indexOf(':')
+    if (idx !== -1 && title.length > TITLE_TRUNCATE_LENGTH) {
+      return { short: title.slice(0, idx).trim(), subtitle: title.slice(idx + 1).trim() }
+    }
+    return { short: title, subtitle: null }
+  }
+
   // ---- Fuzzy search ----------------------------------------------------
 
   function editDistanceAtMostOne(a, b) {
@@ -450,9 +471,26 @@
     return true
   }
 
+  // Sets a toggle button + its details panel to a given open/closed state,
+  // keeping the hidden attribute, aria-expanded, the +/- icon, and the
+  // aria-label all in sync. Shared by the per-item toggle and "Expand all".
+  function setDetailsOpen(toggle, open) {
+    var descId = toggle.getAttribute('aria-controls')
+    var details = descId && document.getElementById(descId)
+    if (details) details.hidden = !open
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false')
+    toggle.setAttribute('aria-label', open ? 'Hide details' : 'Show details')
+    var icon = toggle.querySelector('.fa')
+    if (icon) {
+      icon.classList.toggle('fa-plus-circle', !open)
+      icon.classList.toggle('fa-minus-circle', open)
+    }
+  }
+
   function renderWorkItem(r, opts) {
     opts = opts || {}
     var icon = MEDIA_ICONS[r.media] || 'fa-book'
+    var titleParts = splitTitle(r.title)
     var byline = ''
     if (opts.showByline) {
       byline = '<div class="resource-work-byline">by ' + escapeHtml(r.authorDisplay) + '</div>'
@@ -470,6 +508,9 @@
       escapeHtml(CATEGORY_SHORT_LABELS[r.category] || r.category) +
       '</span>'
     var descId = 'desc-' + r.id + (opts.idSuffix || '')
+    var subtitleHtml = titleParts.subtitle
+      ? '<p class="resource-subtitle">' + escapeHtml(titleParts.subtitle) + '</p>'
+      : ''
     return (
       '<div class="resource-work-line">' +
       '<i class="fa ' +
@@ -480,7 +521,7 @@
       '<a class="resource-work-title resource-work-title-link" href="' +
       escapeHtml(r.url) +
       '" target="_blank" rel="noopener">' +
-      escapeHtml(r.title) +
+      escapeHtml(titleParts.short) +
       '</a>' +
       '<a class="resource-work-external-icon" href="' +
       escapeHtml(r.url) +
@@ -489,36 +530,33 @@
       '" title="' +
       escapeHtml(linkLabel) +
       '"><i class="fa fa-external-link" aria-hidden="true"></i></a>' +
+      '<button type="button" class="resource-more-toggle" aria-expanded="false" aria-controls="' +
+      descId +
+      '" aria-label="Show details"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>' +
       byline +
       '</div>' +
-      '<div class="resource-meta-row">' +
+      '<div class="resource-details" id="' +
+      descId +
+      '" hidden>' +
+      subtitleHtml +
+      '<p class="resource-description">' +
+      escapeHtml(r.description) +
+      '</p>' +
       '<div class="resource-badges">' +
       levelBadge +
       categoryBadge +
       '</div>' +
-      '<button type="button" class="resource-more-toggle" aria-expanded="false" aria-controls="' +
-      descId +
-      '">More <i class="fa fa-chevron-down" aria-hidden="true"></i></button>' +
-      '</div>' +
-      '<p class="resource-description" id="' +
-      descId +
-      '" hidden>' +
-      escapeHtml(r.description) +
-      '</p>'
+      '</div>'
     )
   }
 
   function renderAuthorCard(author, workIds) {
     var photoHtml
     if (author.photo) {
-      photoHtml =
-        '<a href="' +
-        escapeHtml(author.link || '#') +
-        '" target="_blank" rel="noopener" class="image featured"><img src="' +
-        escapeHtml(author.photo) +
-        '" alt="' +
-        escapeHtml(author.name) +
-        '" /></a>'
+      var img = '<img src="' + escapeHtml(author.photo) + '" alt="' + escapeHtml(author.name) + '" />'
+      photoHtml = author.link
+        ? '<a href="' + escapeHtml(author.link) + '" target="_blank" rel="noopener" class="image featured">' + img + '</a>'
+        : '<span class="image featured">' + img + '</span>'
     } else {
       photoHtml = '<div class="author-avatar-monogram">' + escapeHtml(initials(author.name)) + '</div>'
     }
@@ -528,9 +566,23 @@
     var bioHtml = author.bio ? '<p class="author-desc">' + escapeHtml(author.bio) + '</p>' : ''
     var itemsHtml = workIds
       .map(function (id) {
-        return '<li class="resource-work-item">' + renderWorkItem(resourcesById[id]) + '</li>'
+        // A work co-credited to multiple card authors (there are a
+        // handful) renders once per author's card; scope the details id
+        // to this author so each copy gets its own unique id instead of
+        // colliding on "desc-<resourceId>" and having getElementById
+        // resolve every one of them to whichever copy happens to be
+        // first in the document.
+        return (
+          '<li class="resource-work-item">' +
+          renderWorkItem(resourcesById[id], { idSuffix: '-' + author.slug }) +
+          '</li>'
+        )
       })
       .join('')
+    var expandAllHtml =
+      workIds.length > 1
+        ? '<button type="button" class="card-expand-all" aria-expanded="false">Expand all</button>'
+        : ''
     return (
       '<section class="author-card">' +
       '<div class="author-card-head">' +
@@ -540,6 +592,7 @@
       '</h3>' +
       bioHtml +
       '</div></div>' +
+      expandAllHtml +
       '<ul class="works">' +
       itemsHtml +
       '</ul>' +
@@ -577,7 +630,9 @@
       if (!visibleWorkIds.length) return
       visibleWorkIds.forEach(function (id) {
         rowsHtml +=
-          '<div class="resource-row">' + renderWorkItem(resourcesById[id], { showByline: true }) + '</div>'
+          '<div class="resource-row">' +
+          renderWorkItem(resourcesById[id], { showByline: true, idSuffix: '-' + author.slug }) +
+          '</div>'
       })
     })
 
@@ -599,17 +654,25 @@
   }
 
   listEl.addEventListener('click', function (e) {
+    var expandAll = e.target.closest('.card-expand-all')
+    if (expandAll) {
+      var card = expandAll.closest('.author-card')
+      var opening = expandAll.getAttribute('aria-expanded') !== 'true'
+      if (card) {
+        card.querySelectorAll('.resource-more-toggle').forEach(function (t) {
+          setDetailsOpen(t, opening)
+        })
+      }
+      expandAll.setAttribute('aria-expanded', opening ? 'true' : 'false')
+      expandAll.textContent = opening ? 'Collapse all' : 'Expand all'
+      return
+    }
     var toggle = e.target.closest('.resource-more-toggle')
     if (!toggle) return
     var descId = toggle.getAttribute('aria-controls')
-    var desc = document.getElementById(descId)
-    if (!desc) return
-    var open = desc.hidden
-    desc.hidden = !open
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false')
-    toggle.innerHTML = open
-      ? 'Less <i class="fa fa-chevron-down" aria-hidden="true"></i>'
-      : 'More <i class="fa fa-chevron-down" aria-hidden="true"></i>'
+    var details = document.getElementById(descId)
+    if (!details) return
+    setDetailsOpen(toggle, details.hidden)
   })
 
   // ---- Init -------------------------------------------------------------
