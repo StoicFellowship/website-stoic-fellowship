@@ -4722,7 +4722,7 @@ input[type='file'] {
      rows -- the header above and the quote below (each with more
      breathing room, see .author-card-head and .author-quote) are what
      should visually separate, not the books from each other. */
-  padding: 0.3em 0;
+  padding: 0.15em 0;
 }
 
 .author-card .works li:first-child {
@@ -4746,13 +4746,23 @@ input[type='file'] {
   display: block;
 }
 
+/* The title's own 1.3em line-height leaves extra leading below the text,
+   so on top of that a separate margin made the co-author credit read as
+   more than one line's gap under the title. Tighten both to sit like a
+   normal single-spaced two-line paragraph. */
+.author-card .works .work-title-group .work-title {
+  display: block;
+  line-height: 1.15em;
+}
+
 .author-card .works .work-coauthor {
   display: block;
   font-weight: 400;
   font-style: italic;
   font-size: 0.8em;
   color: #666;
-  margin-top: 0.15em;
+  line-height: 1.15em;
+  margin-top: 0;
 }
 
 .author-card .works .work-link {
