@@ -4590,6 +4590,31 @@ input[type='file'] {
   color: #66023c;
 }
 
+/* Primary Texts / Modern Texts section headers: the title sits left, a
+   short italic tagline sits right. Both live in their own white "wrapper
+   style3" box (see the resources-study.html sections), so this row is
+   the box's own header rather than a page-wide heading. */
+.section-heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35em 1.5em;
+  margin: 0 0 1.5em 0;
+}
+
+.section-heading-row .author-section-title {
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.section-tagline {
+  margin: 0 0 0 auto;
+  font-style: italic;
+  color: #999;
+  font-size: 0.95em;
+}
+
 /* Resources page: a row of author cards. On wide viewports the row lays
    its cards out side by side (the site's float-based .row/.Nu grid) and
    every card in the row should share the row's tallest height, with the
