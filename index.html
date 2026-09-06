@@ -8,7 +8,12 @@
     content="Want to meet other Stoics in your community? The Stoic Fellowship builds, fosters, and connects groups of Stoics around the world. Join a Stoicism community today!"
   />
   <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="shortcut icon" href="images/favicon.ico" />
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Stoics" />
+  <link rel="manifest" href="/site.webmanifest" />
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet" />
   <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" rel="stylesheet" />
 
@@ -52,88 +57,83 @@
   <header-template></header-template>
 
   <!-- Banner -->
-  <section id="banner">
-    <div class="inner">
-      <header>
-        <h2>The Stoic Fellowship</h2>
-      </header>
+  <section id="banner" class="hero-modern">
+    <div class="hero-content">
+      <h1>Join others on your Stoic journey</h1>
       <p>
-        Building, Fostering, and Connecting <br />Communities of Stoics Around
-        the World
+        Meet other Stoics, launch a group in your city, or collaborate with
+        others to help your existing community thrive.
       </p>
-      <footer>
-        <ul class="buttons stacked">
-          <a href="/join" class="button fit">Join the Global Community</a>
-        </ul>
-        <ul class="buttons stacked">
-          <a
-            href="https://social.stoicfellowship.com"
-            target="_blank"
-            class="button fit-secondary"
-            >Stoic Fellowship Network</a
-          >
-        </ul>
-      </footer>
+      <a href="#three-doors" class="button hero-cta"
+        >find your path <span class="chevron-down"></span
+      ></a>
     </div>
   </section>
 
   <!-- Main -->
 
   <article id="main">
-    <header class="special container">
-      <span class="icon fa-angle-double-down"></span>
-      <section id="Communities">
-        <h2>Communities of Stoics Around the World</h2>
-        <div
-          style="
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            margin: 5px;
-          "
-        >
-          <div
-            style="display: flex; align-items: center; gap: 10px; margin: 20px"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="28" height="28">
-              <circle cx="10" cy="10" r="8" fill="#880E4F"/>
-              <path d="M10 4l1.2 3.7h3.9l-3.1 2.3 1.2 3.7L10 11.4l-3.2 2.3 1.2-3.7-3.1-2.3h3.9L10 4z" fill="white"/>
-            </svg>
-            <p style="margin: 0">Member Stoas</p>
-          </div>
-          <div
-            style="display: flex; align-items: center; gap: 10px; margin: 20px"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="28" height="28">
-              <circle cx="10" cy="10" r="8" fill="#E65100"/>
-              <rect x="8" y="8" width="4" height="4" fill="white"/>
-            </svg>
-            <p style="margin: 0">Other Active Stoas</p>
-          </div>
-          <div
-            style="display: flex; align-items: center; gap: 10px; margin: 20px"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="12" height="12">
-              <circle cx="10" cy="10" r="8" fill="#0F9D58"/>
-            </svg>
-            <p style="margin: 0">Stoics Seeking Stoas</p>
-          </div>
-        </div>
-      </section>
-    </header>
+    <!-- Three Doors: Find / Start / Run -->
 
-    <div class="container">
-      <div id="map" style="display: block; width: 100%; height: 700px; border-radius: 0.5em; box-shadow: 0 10px 45px -10px rgba(0, 0, 0, 0.15);"></div>
-    </div>
+    <section id="three-doors" class="wrapper style3 container special">
+      <p class="paragraph-center">
+        Stoicism is practiced in groups called
+        <span class="stoa-popover-wrap">
+          <button
+            type="button"
+            class="stoa-popover-trigger"
+            aria-expanded="false"
+            aria-describedby="stoa-popover-panel"
+          >
+            stoas
+          </button>
+          <span
+            class="stoa-popover-panel"
+            id="stoa-popover-panel"
+            role="tooltip"
+            hidden
+          >
+            <strong>Why is it called a Stoa?</strong>
+            The Stoa Poikile (Ancient Greek: ἡ ποικίλη στοά, hē poikílē
+            stoá) or Painted Portico was a Doric stoa (a covered walkway or
+            portico) erected around 460 BC on the north side of the Ancient
+            Agora of Athens. It was one of the most famous sites in ancient
+            Athens, owing its fame to the paintings and war-booty displayed
+            within it and to its association with ancient Greek philosophy,
+            especially Stoicism.<sup>1</sup>
+            <span class="stoa-popover-footnote"
+              >1
+              <a
+                href="https://en.wikipedia.org/wiki/Stoa_Poikile"
+                target="_blank"
+                >https://en.wikipedia.org/wiki/Stoa_Poikile</a
+              ></span
+            >
+          </span>
+        </span>.
+        <br />
+        We help people find them, start them, and run them well.
+      </p>
 
-    <div class="hr"></div>
-
-    <section class="wrapper style3 container special">
       <div class="row">
         <div class="4u 12u(narrower)">
           <section>
-            <img src="images/icons/icon 1 - start a stoa.svg" />
+            <img src="images/icons/icon 1 - find a stoa.svg" />
+            <header>
+              <h3>Find a Stoa</h3>
+            </header>
+            <p>
+              Meet other Stoics in your area and learn more about Stoicism,
+              practice its tenets, and make friends. Most groups meet monthly
+              at a library, pub, or other venue.
+            </p>
+            <a href="/find" class="button">Find a Stoa</a>
+          </section>
+        </div>
+
+        <div class="4u 12u(narrower)">
+          <section>
+            <img src="images/icons/icon 2 - start a stoa.svg" />
             <header>
               <h3>Start a Stoa</h3>
             </header>
@@ -142,55 +142,112 @@
               home. We'll help you get started and connect you to other
               facilitators to share resources, insights, and more.
             </p>
-            <a href="/start-a-stoa" class="button">Get Started</a>
+            <a href="/start" class="button">Get Started</a>
           </section>
         </div>
 
         <div class="4u 12u(narrower)">
           <section>
-            <img src="images/icons/icon 2 - join a stoa.svg" />
+            <img src="images/icons/icon 3 - run a stoa.svg" />
             <header>
-              <h3>Join a Stoa</h3>
+              <h3>Run a Stoa</h3>
             </header>
             <p>
-              Meet other Stoics living in your area and learn more about
-              Stoicism, practice its tenets, and make new friends. Most groups
-              meet monthly at a library, pub, or other public venue.
+              Already leading a Stoic community? Join hundreds of other
+              leaders who've started Stoic communities, and get resources,
+              insights, and hands-on support along the way.
             </p>
-            <a href="/join-a-stoa" class="button">Join a Stoa</a>
-          </section>
-        </div>
-
-        <div class="4u 12u(narrower)">
-          <section>
-            <img src="images/icons/learn.svg" />
-            <header>
-              <h3>Learn About Stoicism</h3>
-            </header>
-            <p>
-              We're on a mission to find, curate, and promote the best Stoicism
-              resources in print, video, digital, and more. Check out our
-              Resources to embark on your own Stoic journey.
-            </p>
-            <a href="/resources/stoicism-resources" class="button"
-              >Find a Resource</a
-            >
+            <a href="/membership" class="button">Register Your Stoa</a>
           </section>
         </div>
       </div>
     </section>
+
+    <div class="hr"></div>
+
+    <!-- New to Stoicism? -->
+
+    <header class="center">
+      <h3>New to Stoicism?</h3>
+      <div class="paragraph-center" style="text-align: left">
+        <p>
+          Our mission is to connect you with other Stoics, ideally through a
+          stoa in your own community. If Stoicism is new to you, it helps to
+          get your bearings first — that's what Stoicism 101 is for. In just
+          a few minutes, you'll learn the core ideas so you can walk into a
+          group ready to join the conversation.
+        </p>
+      </div>
+    </header>
+    <div class="center">
+      <ul class="buttons">
+        <li>
+          <a href="/resources/stoicism-101" class="button"
+            >Read Stoicism 101</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="hr"></div>
+
+    <!-- Community Map -->
+
+    <header class="special container">
+      <span class="icon fa-angle-double-down"></span>
+      <section id="Communities">
+        <h2>Communities of Stoics Around the World</h2>
+      </section>
+    </header>
+
+    <div class="container">
+      <div id="map" style="display: block; width: 100%; height: 700px; border-radius: 0.5em; box-shadow: 0 10px 45px -10px rgba(0, 0, 0, 0.15);"></div>
+    </div>
+
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin: 5px;
+      "
+    >
+      <div
+        style="display: flex; align-items: center; gap: 10px; margin: 20px"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="28" height="28">
+          <circle cx="10" cy="10" r="8" fill="#880E4F"/>
+          <path d="M10 4l1.2 3.7h3.9l-3.1 2.3 1.2 3.7L10 11.4l-3.2 2.3 1.2-3.7-3.1-2.3h3.9L10 4z" fill="white"/>
+        </svg>
+        <p style="margin: 0">Member Stoas</p>
+      </div>
+      <div
+        style="display: flex; align-items: center; gap: 10px; margin: 20px"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="28" height="28">
+          <circle cx="10" cy="10" r="8" fill="#E65100"/>
+          <rect x="8" y="8" width="4" height="4" fill="white"/>
+        </svg>
+        <p style="margin: 0">Other Active Stoas</p>
+      </div>
+      <div
+        style="display: flex; align-items: center; gap: 10px; margin: 20px"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="12" height="12">
+          <circle cx="10" cy="10" r="8" fill="#0F9D58"/>
+        </svg>
+        <p style="margin: 0">Stoa Seekers</p>
+      </div>
+    </div>
   </article>
 </body>
-
-<!-- CTA -->
-<cta-template></cta-template>
 
 <!--Footer-->
 <footer-template></footer-template>
 
 <!-- Scripts -->
 <script src="assets/js/headerFooter.js"></script>
-<script src="assets/js/cta.js"></script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
 <script src="assets/js/jquery.scrolly.min.js"></script>
@@ -202,3 +259,42 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
 <script src="assets/js/map.js"></script>
+<script>
+  ;(function () {
+    var trigger = document.querySelector('.stoa-popover-trigger')
+    var panel = document.getElementById('stoa-popover-panel')
+    if (!trigger || !panel) return
+
+    function closePopover() {
+      panel.hidden = true
+      trigger.setAttribute('aria-expanded', 'false')
+    }
+
+    function openPopover() {
+      panel.hidden = false
+      trigger.setAttribute('aria-expanded', 'true')
+    }
+
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation()
+      if (panel.hidden) {
+        openPopover()
+      } else {
+        closePopover()
+      }
+    })
+
+    document.addEventListener('click', function (e) {
+      if (!panel.hidden && !panel.contains(e.target) && e.target !== trigger) {
+        closePopover()
+      }
+    })
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !panel.hidden) {
+        closePopover()
+        trigger.focus()
+      }
+    })
+  })()
+</script>

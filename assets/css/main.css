@@ -1,5 +1,6 @@
-@import url('font-awesome.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap');
 
 /* Reset */
 
@@ -1728,6 +1729,26 @@ body {
   background: #f3f6fa;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+#three-doors {
+  /* Leave a bit of the page background visible above the white card
+     instead of butting it right up against the header. */
+  scroll-margin-top: calc(var(--header-h, 114px) + 40px);
+}
+
+/* Any in-page anchor target (e.g. a link jumping to a heading on another
+   page, or on this one) should land below the fixed header, not behind it. */
+:target {
+  scroll-margin-top: var(--header-h, 114px);
+}
+
+body {
+  padding-top: var(--header-h, 114px);
+}
+
 body.is-loading *,
 body.is-loading *:before,
 body.is-loading *:after {
@@ -1764,11 +1785,11 @@ a {
     background-color 0.2s ease-in-out;
   color: #66023c;
   text-decoration: none;
-  border-bottom: dotted 1px;
+  border-bottom: solid 1px transparent;
 }
 
 a:hover {
-  border-bottom-color: transparent;
+  border-bottom-color: currentColor;
 }
 
 strong,
@@ -1910,6 +1931,100 @@ header.special .icon {
 header.special .icon:before {
   font-size: 3.5em;
   opacity: 0.35;
+}
+
+/* Page-title variant: the decorative double-line pair flanks the title
+   itself (in one row) instead of sitting above a big blank gap. The two
+   line segments are equal flexible columns, so the pair always spans the
+   same total width — only the middle gap resizes to fit each page's title. */
+header.special.page-title {
+  display: grid;
+  /* minmax(..., 1fr) instead of a bare 1fr: without an explicit minimum,
+     these flexible line columns default to an "auto" minimum of 0 for
+     empty content, so CSS Grid's track-sizing algorithm lets the middle
+     "auto" title column claim space up to its max-content (its full
+     unwrapped width) before the flexible columns get anything at all.
+     For a long title that doesn't fit on one line at narrow widths, that
+     starves both decorative lines down to 0 width instead of just
+     letting the title wrap. Reserving a real minimum here guarantees the
+     lines stay visible and forces the title column to wrap into the
+     remaining space instead. */
+  grid-template-columns: minmax(2em, 1fr) auto minmax(2em, 1fr);
+  align-items: center;
+  column-gap: 1.25em;
+  margin-bottom: 3em;
+  padding-top: 3.5em;
+  position: relative;
+  text-align: center;
+}
+
+header.special.page-title:before,
+header.special.page-title:after {
+  border-bottom: solid 1.5px;
+  border-top: solid 1.5px;
+  content: '';
+  height: 7px;
+  opacity: 0.1;
+  position: static;
+  width: 100%;
+}
+
+header.special.page-title:before {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+header.special.page-title:after {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+header.special.page-title > h1,
+header.special.page-title > h2 {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  margin: 0;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+
+/* Section-level heading (h2). Sized clearly smaller than the page's own
+   h1 title (2em, bold) above it, so the hierarchy reads correctly:
+   page title > section title > author-section-title > body text. */
+h2.section-title {
+  font-size: 1.65em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+header.special.page-title > p,
+header.special.page-title > br {
+  grid-column: 1 / -1;
+}
+
+header.special.page-title > p {
+  margin: 1.25em 0 0;
+}
+
+/* Suppress the decorative double lines on a mid-page header.special
+   (e.g. a section title that isn't the page's own title block). */
+header.special.no-lines:before,
+header.special.no-lines:after {
+  display: none;
+}
+
+/* Tighten the gap between a page-title header and the content/divider
+   that immediately follows it, on the specific pages that need it.
+   (body.index is included purely to out-specificity the existing
+   body.index #main padding rules elsewhere in this file.) */
+body.index .page-title + article#main {
+  padding-top: 1.5em;
+}
+
+body.index .hr + #main {
+  padding-top: 1.5em;
 }
 
 footer > :last-child {
@@ -2111,6 +2226,7 @@ input[type='email'] {
   border: 0;
   border-radius: 100%;
   display: inline-block;
+  vertical-align: middle;
   font-size: 1.25em;
   height: 2.25em;
   left: 0;
@@ -2161,13 +2277,15 @@ input[type='email'] {
   background: #565572;
 }
 
-.icon.circle.fa-medium {
-  background: #2f2e41;
+.icon.circle.icon-substack {
+  background: #2f2e41 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ffffff' d='M22.539 8.242H1.46V5.406h21.08zM1.46 10.812V24L12 18.11L22.54 24V10.812zM22.54 0H1.46v2.836h21.08z'/></svg>")
+    no-repeat center center;
+  background-size: 1.1em 1.1em;
   color: #fff;
 }
 
-.icon.circle.fa-medium:hover {
-  background: #565572;
+.icon.circle.icon-substack:hover {
+  background-color: #565572;
 }
 
 .icon.circle.fa-google-plus {
@@ -2511,36 +2629,103 @@ input[type='reset'].small,
   }
 }
 
+/* Reserve the header's final position/color on the custom element itself,
+   before its JS populates the inner markup, to avoid a flash of an empty
+   bar on each page load. */
+header-template,
+header-template-child {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-h, 114px);
+  background: #66023c;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+}
+
 #header {
-  background: #fff;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.075);
-  color: inherit;
+  background: #66023c;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  color: #fff;
   cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5em;
   font-size: 0.9em;
   left: 0;
-  padding: 1em 1.5em;
+  padding: 14px 2.5em;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 10000;
 }
 
-#header h1 {
-  font-weight: 900;
-  margin: 0;
+#header .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85em;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 0;
+  min-width: 0;
 }
 
-#header h1 span {
-  font-weight: 300;
+#header .brand-logo {
+  width: auto;
+  height: 59px;
+  flex-shrink: 0;
+}
+
+#header .brand-divider {
+  align-self: stretch;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+}
+
+#header .brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+  text-align: left;
+  min-width: 0;
+}
+
+#header .brand-title {
+  font-size: 1.5em;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+#header .brand-tagline {
+  display: block;
+  font-size: 0.62em;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-top: 0.4em;
 }
 
 #header nav {
   letter-spacing: 0.075em;
-  position: absolute;
-  right: 1.5em;
   text-transform: lowercase;
-  top: 0.75em;
-  margin-left: 20%;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 1280px) {
+  /* Icon-only: just remove the divider/text — keep the same padding so
+     the logo doesn't shift position when the text disappears. */
+  #header .brand-divider,
+  #header .brand-text {
+    display: none;
+  }
 }
 
 #header nav ul li {
@@ -2554,10 +2739,11 @@ input[type='reset'].small,
 
 #header nav ul li a {
   border: solid 1px transparent;
+  border-radius: 999px;
   color: inherit;
   display: inline-block;
   line-height: 1em;
-  padding: 0.6em 0.75em;
+  padding: 0.75em 1.1em;
   text-decoration: none;
 }
 
@@ -2572,8 +2758,6 @@ input[type='reset'].small,
 
 #header nav ul li.submenu > a {
   font-weight: 900;
-  padding-top: 1em;
-  padding-bottom: 1em;
 }
 
 #header nav ul li.submenu > a:before {
@@ -2596,57 +2780,12 @@ input[type='reset'].small,
   -webkit-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  background: rgba(188, 202, 206, 0.15);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 #header nav ul li.current > a {
   font-weight: 900;
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
-
-#header.reveal {
-  -moz-animation: reveal-header 0.5s;
-  -webkit-animation: reveal-header 0.5s;
-  -ms-animation: reveal-header 0.5s;
-  animation: reveal-header 0.5s;
-  top: 0;
-}
-
-#header.alt {
-  -moz-animation: none;
-  -webkit-animation: none;
-  -ms-animation: none;
-  animation: none;
-  background: transparent;
-  box-shadow: none;
-  color: #fff;
-  padding: 0 2.5em;
-  position: absolute;
-}
-
-#header.alt .logo {
-  position: relative;
-  top: 0.5em;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
-}
-
-#header.alt nav {
-  right: 2.5em;
-  top: 0.25em;
-}
-
-#header.alt nav ul li a {
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 1);
-}
-
-#header.alt nav ul li .button {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-}
-
-#header.alt nav ul li.active > a,
-#header.alt nav ul li:hover > a {
-  border: solid 1px;
 }
 
 /* Dropotron */
@@ -2690,10 +2829,6 @@ input[type='reset'].small,
   top: -0.45em;
 }
 
-.dropotron > li {
-  border-top: solid 1px rgba(124, 128, 129, 0.2);
-}
-
 .dropotron > li > a {
   -moz-transition: none;
   -webkit-transition: none;
@@ -2701,17 +2836,17 @@ input[type='reset'].small,
   transition: none;
   color: inherit;
   text-decoration: none;
-  padding: 0 1em;
+  display: block;
+  line-height: 1.4;
+  padding: 0.65em 1.1em;
+  margin: 0.15em 0.6em;
+  border-radius: 999px;
   border: 0;
 }
 
 .dropotron > li:hover > a {
   background: #66023c;
   color: #fff;
-}
-
-.dropotron > li:first-child {
-  border-top: 0;
 }
 
 /* Banner */
@@ -2784,10 +2919,73 @@ input[type='reset'].small,
   text-align: center;
 }
 
-#banner:not(:has(.inner)) {
-  aspect-ratio: unset;
-  padding: 6em 0;
-  background-size: 25em, 25em, auto, cover;
+#banner:not(:has(.inner)):not(.hero-modern) {
+  display: none;
+}
+
+#banner.hero-modern {
+  background-image: linear-gradient(
+      to right,
+      rgba(20, 4, 14, 0.85) 0%,
+      rgba(20, 4, 14, 0.5) 25%,
+      rgba(20, 4, 14, 0) 58%
+    ),
+    url('../../images/hero-image.png');
+  background-position: center, center bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  /* Reset the legacy banner's fixed aspect-ratio: combined with an
+     explicit height it was forcing the box itself wider than the
+     viewport (width computed from the old ratio), causing horizontal
+     overflow/cropping instead of a clean resize. */
+  aspect-ratio: auto;
+  width: 100%;
+  height: min(
+    calc(100vh - var(--header-h, 114px)),
+    calc(100vw * 941 / 1672)
+  );
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.hero-content {
+  color: #fff;
+  text-align: left;
+  max-width: 620px;
+  padding: 3em 3.5em 4em 3.5em;
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.75em;
+  line-height: 1.15;
+  margin: 0 0 0.4em 0;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content p {
+  font-size: 1.05em;
+  line-height: 1.5;
+  margin: 0 0 1.5em 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content .hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.hero-content .hero-cta .chevron-down {
+  display: inline-block;
+  border-right: solid 2px currentColor;
+  border-bottom: solid 2px currentColor;
+  width: 0.5em;
+  height: 0.5em;
+  transform: rotate(45deg);
+  margin-top: -0.3em;
 }
 
 #banner .inner {
@@ -3136,6 +3334,10 @@ body.index #main {
   #banner .inner footer ul.buttons {
     margin: 0.75em;
   }
+
+  #banner.hero-modern {
+    animation: none;
+  }
 }
 
 /* Narrower */
@@ -3216,7 +3418,9 @@ body.index #main {
 
   /* Header */
 
-  #header {
+  #header,
+  header-template,
+  header-template-child {
     display: none;
   }
 
@@ -3229,6 +3433,23 @@ body.index #main {
     background-size: 15em, 15em, auto, auto 100%;
     background-position: bottom left, bottom right, top left, left center;
     animation: pan-banner-mobile 11s ease-in-out forwards;
+  }
+
+  #banner.hero-modern {
+    animation: none;
+    aspect-ratio: unset;
+    width: 100%;
+    height: auto;
+    min-height: 16em;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding: 2em 1.75em 2.5em 1.75em;
+  }
+
+  .hero-content h1 {
+    font-size: 1.9em;
   }
 
   #banner .inner {
@@ -3322,7 +3543,7 @@ body.index #main {
     right: 0;
     left: auto;
     position: fixed;
-    top: 25px;
+    top: 0;
     width: 100%;
     z-index: 10001;
   }
@@ -3335,7 +3556,7 @@ body.index #main {
     position: absolute;
     text-align: center;
     top: 0;
-    width: 25%;
+    width: 64px;
     border: 0;
     outline: 0;
   }
@@ -3352,19 +3573,16 @@ body.index #main {
   #navButton .toggle:before {
     color: #fff;
     content: '\f0c9';
-    font-size: 1em;
-    height: 40px;
-    left: auto;
-    right: 10px;
-    line-height: 40px;
-    opacity: 0.5;
-    position: absolute;
-    top: 11px;
-    width: 60px;
-    z-index: 1;
     font-size: 1.25em;
+    height: 44px;
+    left: 10px;
+    right: auto;
+    line-height: 44px;
     opacity: 0.75;
-    color: #fff;
+    position: absolute;
+    top: 10px;
+    width: 44px;
+    z-index: 1;
   }
 
   #navButton .toggle:hover:before {
@@ -3373,14 +3591,20 @@ body.index #main {
 
   #navButton .toggle:after {
     background: #8b0251;
-    border-radius: 20px;
+    border-radius: 22px;
     content: '';
-    height: 40px;
-    left: auto;
-    right: 10px;
+    height: 44px;
+    left: 10px;
+    right: auto;
     position: absolute;
     top: 10px;
-    width: 60px;
+    width: 44px;
+  }
+
+  /* Once the panel is open, swap the hamburger for an X (close) of similar
+     visual weight — this icon set has no bolder chevron to match with. */
+  body.navPanel-visible #navButton .toggle:before {
+    content: '\f00d';
   }
 
   #navPanel {
@@ -3410,7 +3634,7 @@ body.index #main {
     font-size: 0.8em;
     letter-spacing: 0.075em;
     text-transform: uppercase;
-    padding: 0.25em 0.75em 1em 0.75em;
+    padding: 11px 0.75em 1em 0.75em;
   }
 
   #navPanel .link {
@@ -3422,6 +3646,12 @@ body.index #main {
     line-height: 3em;
     opacity: 0.75;
     text-decoration: none;
+  }
+
+  #navPanel .link:hover {
+    background: #66023c;
+    color: #fff;
+    opacity: 1;
   }
 
   #navPanel .link.depth-0 {
@@ -3465,10 +3695,10 @@ body.index #main {
   }
 
   body.navPanel-visible #navButton {
-    -moz-transform: translateX(-265px);
-    -webkit-transform: translateX(265px);
-    -ms-transform: translateX(-265px);
-    transform: translateX(-265px);
+    -moz-transform: translateX(-275px);
+    -webkit-transform: translateX(-275px);
+    -ms-transform: translateX(-275px);
+    transform: translateX(-275px);
   }
 
   body.navPanel-visible #navPanel {
@@ -3692,23 +3922,6 @@ body.index #main {
     margin: 1em 0 0 0;
     padding: 0;
     border: 0;
-  }
-
-  /* Off-Canvas Navigation */
-
-  #navButton .toggle:before {
-    top: 8px;
-    left: 8px;
-    width: 50px;
-    height: 34px;
-    line-height: 34px;
-  }
-
-  #navButton .toggle:after {
-    top: 8px;
-    left: 8px;
-    width: 50px;
-    height: 34px;
   }
 }
 
@@ -4290,5 +4503,1147 @@ form textarea {
 
 input[type='file'] {
   cursor: pointer;
+}
+
+/* Stoa "why is it called a Stoa?" inline popover (index.html) */
+.stoa-popover-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.stoa-popover-trigger {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.stoa-popover-trigger:hover,
+.stoa-popover-trigger[aria-expanded='true'] {
+  color: #66023c;
+}
+
+.stoa-popover-panel {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: calc(100% + 14px);
+  transform: translateX(-50%);
+  width: 320px;
+  max-width: 88vw;
+  background: #fff;
+  color: #333;
+  text-align: left;
+  font-size: 0.8em;
+  line-height: 1.65em;
+  padding: 1.1em 1.3em;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+.stoa-popover-panel[hidden] {
+  display: none;
+}
+
+.stoa-popover-panel::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #fff;
+}
+
+.stoa-popover-panel strong {
+  display: block;
+  margin-bottom: 0.5em;
+  font-size: 1.05em;
+}
+
+.stoa-popover-footnote {
+  display: inline-block;
+  margin-top: 0.75em;
+  font-size: 0.85em;
+  opacity: 0.7;
+  word-break: break-word;
+}
+
+/* Resources page: section subtitles above each author-card grid */
+.author-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-size: 1.35em;
+  letter-spacing: 0.03em;
+  margin: 0 0 1.5em 0;
+}
+
+.author-section-title i {
+  color: #66023c;
+}
+
+/* Primary Texts / Modern Texts section headers: the title sits left, a
+   short italic tagline sits right. Both live in their own white "wrapper
+   style3" box (see the resources-study.html sections), so this row is
+   the box's own header rather than a page-wide heading. */
+.section-heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35em 1.5em;
+  margin: 0 0 1.5em 0;
+}
+
+.section-heading-row .author-section-title {
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.section-tagline {
+  margin: 0 0 0 auto;
+  font-style: italic;
+  color: #999;
+  font-size: 0.95em;
+}
+
+/* Resources page: a row of author cards. On wide viewports the row lays
+   its cards out side by side (the site's float-based .row/.Nu grid) and
+   every card in the row should share the row's tallest height, with the
+   quote pinned to the bottom (see .author-quote's auto top margin) and
+   the extra space absorbed above it. On narrow viewports the cards stack
+   to one column and should each be only as tall as their own content, so
+   this overrides the grid's float layout with flex instead, which
+   naturally does both: align-items: stretch equalizes height only among
+   items sharing a row, and a single wrapped item just sizes to itself. */
+.row.author-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  /* Keep the grid's existing left margin/padding pair (set elsewhere, per
+     breakpoint) for the horizontal gutter between side-by-side cards --
+     it works fine here since it's a border-box percentage-width trick,
+     not something flex needs to redo. Also keep the grid's existing
+     negative top margin: it's what cancels this row's own children's
+     top padding, so the row sits flush under whatever precedes it
+     (a heading, or the previous row) instead of adding a second gap on
+     top of margin-bottom below. Overriding it to 0 (an earlier attempt)
+     was the bug: margin-bottom(N) from one row and margin-top(0) on the
+     next no longer collapse against each other, so the next row's own
+     child padding-top(N) added a *second* N-sized gap on top of the
+     first, making the vertical gap between rows read as roughly double
+     the horizontal gap between cards. Leaving margin-top as-is lets
+     margin-bottom(N) collapse against the next row's margin-top(-N) to
+     a net zero between the row boxes, so the only visible gap is that
+     next row's own child padding-top(N) -- exactly matching the
+     horizontal gutter. */
+  margin-bottom: 50px;
+}
+
+.row.author-row:before,
+.row.author-row:after {
+  display: none;
+}
+
+.row.author-row > * {
+  float: none;
+}
+
+@media screen and (max-width: 1680px) {
+  .row.author-row {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .row.author-row {
+    margin-bottom: 30px;
+  }
+}
+
+/* Resources page: author cards (one card per author, multiple works listed) */
+.author-card {
+  text-align: left;
+  background: #faf8f4;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+  padding: 1.5em 1.6em;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.author-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+  margin-bottom: 1.25em;
+}
+
+.author-card .image.featured {
+  flex: 0 0 auto;
+  display: block;
+  /* Fallback size before the sync script (below) sizes this to match the
+     rendered height of the name + description text next to it. */
+  width: 84px;
+  height: 84px;
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.author-card .image.featured img {
+  width: 100%;
+  height: 100%;
+  line-height: normal;
+  border-radius: 10px;
+  border: 0;
+  margin: 0;
+  object-fit: cover;
+  filter: none;
+}
+
+.author-card .author-info {
+  min-width: 0;
+}
+
+.author-card .author-info h3 {
+  font-size: 1.15em;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 1.2em;
+  margin: 0 0 0.1em 0;
+}
+
+.author-card .author-desc {
+  margin: 0;
+  font-size: 0.85em;
+  font-style: italic;
+  color: #666;
+  line-height: 1.3em;
+}
+
+.author-card .works {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.author-card .works li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  /* column-gap spaces title from link when they share a line; row-gap is
+     deliberately much smaller so a long title (e.g. "On the Shortness of
+     Life") that pushes "Read online" to its own wrapped line doesn't leave
+     a large vertical gap above it -- it should still read as one row. */
+  column-gap: 0.75em;
+  row-gap: 0.1em;
+  flex-wrap: wrap;
+  margin: 0;
+  /* Tight top/bottom padding so multiple books in one card read as a
+     single, cohesive list rather than a series of loosely related
+     rows -- the header above and the quote below (each with more
+     breathing room, see .author-card-head and .author-quote) are what
+     should visually separate, not the books from each other. */
+  padding: 0.15em 0;
+}
+
+.author-card .works li:first-child {
+  padding-top: 0;
+}
+
+.author-card .works li:last-child {
+  padding-bottom: 0;
+}
+
+.author-card .works .work-title {
+  font-weight: 600;
+  font-size: 0.95em;
+  line-height: 1.3em;
+}
+
+/* Massimo Pigliucci's "A Handbook for New Stoics" needs a co-author credit
+   that isn't part of the title itself, so the title stays short enough for
+   "Purchase" to sit on the same line. */
+.author-card .works .work-title-group {
+  display: block;
+}
+
+/* The title's own 1.3em line-height leaves extra leading below the text,
+   so on top of that a separate margin made the co-author credit read as
+   more than one line's gap under the title. Tighten both to sit like a
+   normal single-spaced two-line paragraph. */
+.author-card .works .work-title-group .work-title {
+  display: block;
+  line-height: 1.15em;
+}
+
+.author-card .works .work-coauthor {
+  display: block;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 0.8em;
+  color: #666;
+  line-height: 1.15em;
+  margin-top: 0;
+}
+
+.author-card .works .work-link {
+  white-space: nowrap;
+  font-size: 0.85em;
+  border-bottom: 0;
+}
+
+.author-card .works .work-link span {
+  border-bottom: solid 1px transparent;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.author-card .works .work-link:hover span {
+  border-bottom-color: currentColor;
+}
+
+.author-card .works .work-link:after {
+  content: ' \2192';
+}
+
+.author-card .author-quote {
+  margin: auto 0 0 0;
+  /* A minimum gap above the quote even when the auto top margin has
+     nothing extra to distribute (a card that isn't being stretched
+     taller by a sibling), so the quote still reads as its own section
+     rather than crowding the last book. */
+  padding: 0.75em 0 0 0;
+  border: 0;
+  font-style: italic;
+  font-size: 0.9em;
+  line-height: 1.4em;
+  color: #555;
+}
+
+.author-card .author-quote:before {
+  content: '\201C';
+}
+
+.author-card .author-quote:after {
+  content: '\201D';
+}
+
+/* Resources page: Logic / Physics / Ethics reading lists */
+.reading-list h5 {
+  font-size: 1.1em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #66023c;
+  border-bottom: 2px solid #66023c;
+  padding-bottom: 0.35em;
+  margin: 1.75em 0 1em 0;
+}
+
+.reading-list h5:first-child {
+  margin-top: 0;
+}
+
+.reading-list .articles {
+  margin: 0 0 0.85em 0;
+  padding-bottom: 0.85em;
+}
+
+/* Resources page: top-level section tabs */
+.resource-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6em;
+  margin: 1.5em 0 2.5em 0;
+  position: sticky;
+  top: var(--header-h, 0);
+  z-index: 15;
+  background: #fff;
+  padding: 0.75em 0;
+}
+
+.resource-tabs a {
+  display: inline-block;
+  padding: 0.65em 1.3em;
+  border-radius: 999px;
+  border: 1px solid #66023c;
+  color: #66023c;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85em;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.resource-tabs a:hover,
+.resource-tabs a.active {
+  background: #66023c;
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .resource-tabs {
+    gap: 0.4em;
+  }
+  .resource-tabs a {
+    padding: 0.55em 1em;
+    font-size: 0.8em;
+  }
+}
+
+/* Visually hidden but still available to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.study-no-results {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin: 0 0 2em 0;
+}
+
+.study-no-results button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #66023c;
+  font-style: italic;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+/* ============================================================
+   Resource Library (Study Stoicism)
+   ============================================================ */
+
+.resource-library {
+  margin-top: 1em;
+}
+
+.resource-library-intro {
+  text-align: center;
+  color: #666;
+  max-width: 640px;
+  margin: 0 auto 1.75em auto;
+  font-size: 0.95em;
+}
+
+/* Search bar + mobile "Filters" toggle sit in one row on wide viewports */
+.resource-library-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75em;
+  margin: 0 auto 0.85em auto;
+}
+
+.study-filters-search {
+  position: relative;
+  flex: 0 1 480px;
+}
+
+.study-filters-search .fa-search {
+  position: absolute;
+  left: 1.1em;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 0.9em;
+  pointer-events: none;
+}
+
+.study-filters-search input[type='search'] {
+  width: 100%;
+  margin: 0;
+  padding: 0.65em 1em 0.65em 2.4em;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
+  font-size: 0.95em;
+}
+
+.study-filters-search input[type='search']:focus {
+  outline: none;
+  border-color: #66023c;
+}
+
+/* Mobile-only "Filters (N)" toggle -- hidden on wide viewports, where the
+   filter panel is simply always visible below the search bar. */
+.study-filters-mobile-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.65em 1.2em;
+  border-radius: 999px;
+  border: 1px solid #66023c;
+  background: #fff;
+  color: #66023c;
+  font-weight: 600;
+  font-size: 0.85em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.filter-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4em;
+  height: 1.4em;
+  padding: 0 0.35em;
+  border-radius: 999px;
+  background: #66023c;
+  color: #fff;
+  font-size: 0.75em;
+  font-weight: 700;
+}
+
+/* Sticks the search bar, active-filter chips, and the filter panel to the
+   top of the viewport together as one unit while scrolling through results
+   -- stacked just below the sticky site header. */
+.study-filters-sticky {
+  position: sticky;
+  top: var(--header-h, 0px);
+  z-index: 14;
+  background: #fff;
+  padding: 0.6em 0 0.9em 0;
+}
+
+/* Active-filter chips: always visible/removable, even when the panel
+   itself is collapsed behind the mobile "Filters" button. */
+.study-filters-active-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  margin: 0 auto 0.5em auto;
+}
+
+.study-filters-active-row:empty {
+  display: none;
+}
+
+.active-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.35em 0.5em 0.35em 0.9em;
+  border-radius: 999px;
+  background: rgba(102, 2, 60, 0.1);
+  color: #66023c;
+  font-size: 0.78em;
+  font-weight: 600;
+}
+
+.active-filter-chip button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50%;
+  border: 0;
+  background: #66023c;
+  color: #fff;
+  font-size: 0.75em;
+  cursor: pointer;
+  padding: 0;
+}
+
+.active-filter-chip button:hover {
+  opacity: 0.8;
+}
+
+.study-filters {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5em;
+  margin: 0 auto 1.25em auto;
+  padding: 0.75em 1.25em;
+  background: #faf8f4;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+}
+
+.study-filters-group {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+}
+
+/* Category/Level/Media sit side by side on one row -- now that the panel
+   is as wide as the author cards, all three fit without wrapping on most
+   screens. Each group sizes to its own content (flex: 0 1 auto) rather
+   than stretching, so they sit snugly next to each other instead of
+   spreading across the full row. */
+.study-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em 2em;
+  width: 100%;
+}
+
+.study-filters-group-inline {
+  flex: 0 1 auto;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 0;
+  gap: 0.5em;
+}
+
+.study-filters-group-inline .study-filters-label {
+  width: auto;
+  flex: 0 0 auto;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.study-filters-group-inline .study-filters-pills {
+  width: auto;
+  flex: 0 1 auto;
+  justify-content: flex-start;
+}
+
+/* Topics has too many values to fit on one line regardless of width, so
+   it keeps its own row -- but the label sits to the left instead of on
+   its own line above, and pills wrap in the remaining space beside it. */
+.study-filters-group-topics {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+  gap: 0.5em 0.75em;
+  padding-top: 0.5em;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.study-filters-group-topics .study-filters-label {
+  width: auto;
+  flex: 0 0 auto;
+  margin: 0.3em 0 0 0;
+  white-space: nowrap;
+}
+
+.study-filters-group-topics .study-filters-pills {
+  width: auto;
+  flex: 1 1 260px;
+  min-width: 0;
+  justify-content: flex-start;
+}
+
+/* .study-filters-group's main axis is the column (vertical) direction, so
+   "flex: 0 0 100%" here would set a 100%-of-height flex-basis instead of
+   full width -- once the group has 3+ children (Relation's label + help
+   text + pills) that stretches the label/pills to the group's own auto
+   height and pushes the help paragraph outside its parent's box. `flex:
+   none; width: 100%` gets the intended full-width, content-height sizing
+   without hijacking the main axis. */
+.study-filters-label {
+  flex: none;
+  width: 100%;
+  text-align: center;
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #999;
+  margin: 0 0 0.4em 0;
+}
+
+.study-filters-pills {
+  flex: none;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35em;
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.3em 0.75em;
+  border-radius: 999px;
+  border: 1px solid #66023c;
+  background: #fff;
+  color: #66023c;
+  font-weight: 500;
+  font-size: 0.72em;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.filter-pill:hover {
+  background: rgba(102, 2, 60, 0.1);
+}
+
+.filter-pill.active {
+  background: #66023c;
+  color: #fff;
+}
+
+.filter-pill .pill-count {
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+.study-filters-more-topics {
+  /* Forces this onto its own line below the Topics label + pills, which
+     sit in a row together (see .study-filters-group-topics). */
+  flex: 0 0 100%;
+  margin: 0.3em 0 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #66023c;
+  font-size: 0.78em;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.study-filters-more-toggle {
+  /* .study-filters is now a column-direction flex container (see above),
+     so "flex: none; width: 100%" is the full-width equivalent here --
+     "flex: 0 0 100%" would set a 100%-of-height basis on this axis
+     instead (the same pitfall documented on .study-filters-label). */
+  flex: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  margin: 0.25em 0 0 0;
+  padding: 0.4em 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: none;
+  color: #666;
+  font-size: 0.8em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.study-filters-more-toggle .fa {
+  transition: transform 0.2s ease-in-out;
+}
+
+.study-filters-more-toggle[aria-expanded='true'] .fa {
+  transform: rotate(180deg);
+}
+
+.study-filters-advanced {
+  flex: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* The unconditional `display: flex` above overrides the [hidden] attribute
+   the UA stylesheet would otherwise apply, which was letting the Relation
+   panel stay visible even while collapsed. Force it hidden explicitly. */
+.study-filters-advanced[hidden] {
+  display: none;
+}
+
+.study-filters-help {
+  text-align: center;
+  color: #888;
+  font-size: 0.78em;
+  max-width: 560px;
+  margin: 0 auto 0.6em auto;
+}
+
+.resource-count {
+  text-align: center;
+  color: #888;
+  font-size: 0.85em;
+  margin: 0 0 1.25em 0;
+}
+
+.resource-count #resource-count-num {
+  font-weight: 700;
+  color: #66023c;
+}
+
+/* Author cards grid -- a fresh flex layout (not the legacy float .row
+   system used by Primary Texts). Single column of full-width cards: with
+   many works per author, a wide card gives each work's title, tags, and
+   "More" toggle room to sit on one line instead of wrapping. */
+.resource-authors-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  margin: 0 0 2em 0;
+}
+
+.resource-authors-grid .author-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+.resource-authors-grid .author-card-head {
+  margin-bottom: 1em;
+}
+
+/* Per-card "Expand all" -- opens every work's details panel in one click.
+   Right-aligned above the works list; .author-card is a column flex
+   container so align-self positions it without an extra wrapper. */
+.card-expand-all {
+  align-self: flex-end;
+  margin: -0.5em 0 0.5em 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #66023c;
+  font-size: 0.78em;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.card-expand-all:hover {
+  opacity: 0.8;
+}
+
+/* Monogram fallback avatar for authors without a photo on file. Fixed at
+   the same 84px the .image.featured CSS default uses -- the Resource
+   Library's cards are too varied in content (bio vs. no bio) for the
+   Primary Texts page's height-matching script to apply sensibly here. */
+.author-avatar-monogram {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 10px;
+  background: #66023c;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2em;
+  letter-spacing: 0.02em;
+}
+
+/* Resource Library photos use the fixed default size too, not the
+   JS-synced size computed for Primary Texts. */
+.resource-authors-grid .image.featured {
+  width: 84px;
+  height: 84px;
+}
+
+.resource-authors-grid .works {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Undo the legacy Primary-Texts ".author-card .works li" flex/space-between
+   rule -- it was written for that page's single title+link row and, since
+   this grid reuses the ".works" class, was flexing .resource-work-item's
+   own children (the work-line and the meta-row) side by side instead of
+   letting them stack. Resource Library items lay out their own internals
+   via .resource-work-line and .resource-meta-row instead. */
+.resource-authors-grid .works li {
+  display: block;
+}
+
+.resource-work-item {
+  padding: 0.6em 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.resource-work-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.resource-work-item:first-child {
+  padding-top: 0;
+}
+
+.resource-work-line {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.45em;
+}
+
+.resource-work-media-icon {
+  color: #66023c;
+  font-size: 0.85em;
+  flex: 0 0 auto;
+}
+
+.resource-work-title {
+  font-weight: 600;
+  font-size: 0.95em;
+  line-height: 1.3em;
+  color: #2b2b2b;
+}
+
+.resource-work-title-link {
+  border-bottom: solid 1px transparent;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.resource-work-title-link:hover {
+  border-bottom-color: currentColor;
+}
+
+/* Byline comes last in .resource-work-line's markup and is the only child
+   with a 100% flex-basis, so it always wraps onto its own line beneath
+   the icon/title/link/toggle without pushing anything else down with it. */
+.resource-work-byline {
+  font-size: 0.8em;
+  font-style: italic;
+  color: #777;
+  flex: 0 0 100%;
+}
+
+/* Everything but the title line itself -- subtitle, description, and the
+   Level/Category tags -- lives behind the +/- toggle so the collapsed
+   list reads as a single tidy line per work, and a person browsing under
+   a filter still gets the tags/description before deciding to open one. */
+.resource-details {
+  margin-top: 0.5em;
+}
+
+.resource-subtitle {
+  margin: 0 0 0.4em 0;
+  font-size: 0.85em;
+  font-style: italic;
+  color: #777;
+  line-height: 1.4em;
+}
+
+.resource-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em;
+  margin-top: 0.5em;
+}
+
+.resource-badge {
+  display: inline-block;
+  /* Explicit line-height -- without it this inherits the page's ~2.6x
+     body line-height, which blows the badge up to ~36px tall instead of
+     sitting flush with its own small padding. */
+  line-height: 1.5;
+  padding: 0.08em 0.5em;
+  border-radius: 999px;
+  font-size: 0.66em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.resource-badge-level-beginner {
+  background: #eaf5ea;
+  color: #2f7a3c;
+  border-color: rgba(47, 122, 60, 0.25);
+}
+
+.resource-badge-level-intermediate {
+  background: #fbf3e2;
+  color: #a86a12;
+  border-color: rgba(168, 106, 18, 0.25);
+}
+
+.resource-badge-level-advanced {
+  background: #f5e7ee;
+  color: #66023c;
+  border-color: rgba(102, 2, 60, 0.25);
+}
+
+.resource-badge-category {
+  background: #eef0f4;
+  color: #4a5568;
+  border-color: rgba(74, 85, 104, 0.2);
+  text-transform: none;
+}
+
+/* Icon-only expand/collapse toggle, sized to sit inline with the title on
+   the collapsed line. aria-label (kept in sync in JS) carries "Show/Hide
+   details" for screen readers since there's no visible text. */
+.resource-more-toggle {
+  /* Padding + a min box so this stays a comfortable tap target even
+     though it's icon-only now (no "More" text giving it natural size). */
+  padding: 0.2em;
+  min-width: 1.6em;
+  min-height: 1.6em;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: #66023c;
+  font-size: 1em;
+  line-height: 1;
+  cursor: pointer;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Within author cards only: push the toggle to the row's right edge so
+   it lines up with the right-aligned "Expand all" button above
+   (.card-expand-all). Scoped to .resource-work-item (cards) rather than
+   applied globally, so the compact .resource-row layout in "Additional
+   Resources" -- where the byline flows inline right after the toggle --
+   is unaffected. */
+.resource-work-item .resource-more-toggle {
+  margin-left: auto;
+}
+
+.resource-more-toggle:hover {
+  background: rgba(102, 2, 60, 0.08);
+  color: #46012a;
+}
+
+.resource-description {
+  margin: 0;
+  font-size: 0.85em;
+  line-height: 1.45em;
+  color: #555;
+}
+
+/* Compact single-work "additional resources" list */
+.resource-additional-heading {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #66023c;
+  text-align: center;
+  margin: 0 0 1em 0;
+}
+
+.resource-additional-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.resource-row {
+  /* Without this, these rows inherit the centered text-align that
+     "section.special" (the Modern Texts box) sets globally -- the
+     .author-card rows next door avoid it via their own explicit
+     "text-align: left", but a plain .resource-row (used for single-work
+     "Additional Resources" authors) has no such reset, so its expanded
+     subtitle/description read centered instead of left-aligned. */
+  text-align: left;
+  padding: 0.85em 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.resource-row:last-child {
+  border-bottom: 0;
+}
+
+.resource-row .resource-work-byline {
+  flex: 0 0 auto;
+}
+
+/* Mobile: collapse the filter panel behind the "Filters" toggle */
+@media screen and (max-width: 736px) {
+  .study-filters-mobile-toggle {
+    display: inline-flex;
+  }
+  .study-filters {
+    display: none;
+  }
+  .study-filters.filters-open {
+    display: flex;
+  }
+  .study-filters-group {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+/* Resources for Facilitators: "Facilitator Guides" sub-section beneath the
+   three pillar cards (Roundtable / Podcast / Interviews). Kept as small
+   button chips rather than a plain link list so it reads as one more
+   deliberate section of the page instead of a leftover list of documents. */
+.facilitator-guides-intro {
+  margin: 0.35em 0 1.5em 0;
+  font-style: italic;
+  color: #999;
+  font-size: 0.95em;
+}
+
+.facilitator-guides-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em 1.25em;
+}
+
+.facilitator-guides-links .button.small {
+  margin-top: 0;
+}
+
+/* Resources for Facilitators: the three pillar cards (Roundtable / Podcast /
+   Interviews) at the top of the page. The row is switched from the theme's
+   default float grid to flexbox so the three columns stretch to equal
+   height, then each card is its own flex column with the blurb set to grow
+   -- that pins every card's button to the same baseline regardless of small
+   differences in blurb length, title wrapping, etc. Scoped to this section
+   only so the homepage's Find/Start/Run a Stoa cards are unaffected. */
+#facilitator-pillars .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+#facilitator-pillars .row:before,
+#facilitator-pillars .row:after {
+  content: none;
+}
+
+#facilitator-pillars .row > div {
+  display: flex;
+}
+
+#facilitator-pillars .pillar-card {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#facilitator-pillars .pillar-card > p {
+  flex: 1 0 auto;
 }
 
