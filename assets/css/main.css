@@ -4965,16 +4965,7 @@ input[type='file'] {
   color: #fff;
 }
 
-.study-filters-format {
-  padding-top: 0.5em;
-  margin-top: 0.35em;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-
 .study-filters-reset {
-  flex: 0 0 100%;
-  text-align: center;
-  margin-top: 0.2em;
   padding: 0;
   border: 0;
   background: none;
@@ -4983,6 +4974,7 @@ input[type='file'] {
   font-weight: 600;
   text-decoration: underline;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .study-filters-reset:hover {
@@ -5007,16 +4999,483 @@ input[type='file'] {
   font-size: 1em;
 }
 
-/* Filtering: elements hidden by the Study Stoicism filter/search script */
-.filter-hidden {
-  display: none !important;
+/* ============================================================
+   Resource Library (Study Stoicism)
+   ============================================================ */
+
+.resource-library {
+  margin-top: 1em;
 }
 
-/* When only one card in an author-row remains after filtering, let it
-   take the full row width instead of leaving an empty half beside it.
-   (.\36 u is the escaped form of the grid system's ".6u" 50%-width class --
-   CSS class names can't start with a bare digit.) */
-.row.author-row.row-solo > .\36 u:not(.filter-hidden) {
+.resource-library-intro {
+  text-align: center;
+  color: #666;
+  max-width: 640px;
+  margin: 0 auto 1.75em auto;
+  font-size: 0.95em;
+}
+
+/* Search bar + mobile "Filters" toggle sit in one row on wide viewports */
+.resource-library-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75em;
+  max-width: 900px;
+  margin: 0 auto 0.85em auto;
+}
+
+.study-filters-search {
+  position: relative;
+  flex: 1 1 320px;
+}
+
+.study-filters-search .fa-search {
+  position: absolute;
+  left: 1.1em;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 0.9em;
+  pointer-events: none;
+}
+
+.study-filters-search input[type='search'] {
   width: 100%;
+  margin: 0;
+  padding: 0.65em 1em 0.65em 2.4em;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
+  font-size: 0.95em;
+}
+
+.study-filters-search input[type='search']:focus {
+  outline: none;
+  border-color: #66023c;
+}
+
+/* Mobile-only "Filters (N)" toggle -- hidden on wide viewports, where the
+   filter panel is simply always visible below the search bar. */
+.study-filters-mobile-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.65em 1.2em;
+  border-radius: 999px;
+  border: 1px solid #66023c;
+  background: #fff;
+  color: #66023c;
+  font-weight: 600;
+  font-size: 0.85em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.filter-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4em;
+  height: 1.4em;
+  padding: 0 0.35em;
+  border-radius: 999px;
+  background: #66023c;
+  color: #fff;
+  font-size: 0.75em;
+  font-weight: 700;
+}
+
+/* Active-filter chips: always visible/removable, even when the panel
+   itself is collapsed behind the mobile "Filters" button. */
+.study-filters-active-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  max-width: 900px;
+  margin: 0 auto 0.5em auto;
+}
+
+.study-filters-active-row:empty {
+  display: none;
+}
+
+.active-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.35em 0.5em 0.35em 0.9em;
+  border-radius: 999px;
+  background: rgba(102, 2, 60, 0.1);
+  color: #66023c;
+  font-size: 0.78em;
+  font-weight: 600;
+}
+
+.active-filter-chip button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50%;
+  border: 0;
+  background: #66023c;
+  color: #fff;
+  font-size: 0.75em;
+  cursor: pointer;
+  padding: 0;
+}
+
+.active-filter-chip button:hover {
+  opacity: 0.8;
+}
+
+.study-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.9em 1.5em;
+  max-width: 900px;
+  margin: 0 auto 1.25em auto;
+  padding: 1.25em;
+  background: #faf8f4;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+}
+
+.study-filters-group {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 220px;
+}
+
+.study-filters-label {
+  flex: 0 0 100%;
+  text-align: center;
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #999;
+  margin: 0 0 0.6em 0;
+}
+
+.study-filters-pills {
+  flex: 0 0 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.5em 1.1em;
+  border-radius: 999px;
+  border: 1px solid #66023c;
+  background: #fff;
+  color: #66023c;
+  font-weight: 600;
+  font-size: 0.8em;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.filter-pill:hover {
+  background: rgba(102, 2, 60, 0.1);
+}
+
+.filter-pill.active {
+  background: #66023c;
+  color: #fff;
+}
+
+.filter-pill .pill-count {
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+.study-filters-more-topics {
+  margin-top: 0.6em;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #66023c;
+  font-size: 0.78em;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.study-filters-more-toggle {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  margin: 0.25em 0 0 0;
+  padding: 0.4em 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: none;
+  color: #666;
+  font-size: 0.8em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.study-filters-more-toggle .fa {
+  transition: transform 0.2s ease-in-out;
+}
+
+.study-filters-more-toggle[aria-expanded='true'] .fa {
+  transform: rotate(180deg);
+}
+
+.study-filters-advanced {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.study-filters-help {
+  text-align: center;
+  color: #888;
+  font-size: 0.78em;
+  max-width: 560px;
+  margin: 0 auto 0.6em auto;
+}
+
+.resource-count {
+  text-align: center;
+  color: #888;
+  font-size: 0.85em;
+  margin: 0 0 1.25em 0;
+}
+
+.resource-count #resource-count-num {
+  font-weight: 700;
+  color: #66023c;
+}
+
+/* Author cards grid -- a fresh flex-wrap grid (not the legacy float .row
+   system used by Primary Texts) so cards can auto-flow responsively
+   without manual row-pairing. */
+.resource-authors-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75em;
+  margin: 0 0 2em 0;
+}
+
+.resource-authors-grid .author-card {
+  flex: 1 1 380px;
+  max-width: 100%;
+}
+
+.resource-authors-grid .author-card-head {
+  margin-bottom: 1em;
+}
+
+/* Monogram fallback avatar for authors without a photo on file. Fixed at
+   the same 84px the .image.featured CSS default uses -- the Resource
+   Library's cards are too varied in content (bio vs. no bio) for the
+   Primary Texts page's height-matching script to apply sensibly here. */
+.author-avatar-monogram {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 10px;
+  background: #66023c;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2em;
+  letter-spacing: 0.02em;
+}
+
+/* Resource Library photos use the fixed default size too, not the
+   JS-synced size computed for Primary Texts. */
+.resource-authors-grid .image.featured {
+  width: 84px;
+  height: 84px;
+}
+
+.resource-authors-grid .works {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.resource-work-item {
+  padding: 0.6em 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.resource-work-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.resource-work-item:first-child {
+  padding-top: 0;
+}
+
+.resource-work-line {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.45em;
+}
+
+.resource-work-media-icon {
+  color: #66023c;
+  font-size: 0.85em;
+  flex: 0 0 auto;
+}
+
+.resource-work-title {
+  font-weight: 600;
+  font-size: 0.95em;
+  line-height: 1.3em;
+  color: #2b2b2b;
+}
+
+.resource-work-title-link {
+  border-bottom: solid 1px transparent;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.resource-work-title-link:hover {
+  border-bottom-color: currentColor;
+}
+
+.resource-work-external-icon {
+  font-size: 0.78em;
+  color: #999;
+  margin-left: 0.15em;
+}
+
+.resource-work-byline {
+  font-size: 0.8em;
+  font-style: italic;
+  color: #777;
+  flex: 0 0 100%;
+}
+
+.resource-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-top: 0.35em;
+}
+
+.resource-badge {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.resource-badge-level-beginner {
+  background: #eaf5ea;
+  color: #2f7a3c;
+  border-color: rgba(47, 122, 60, 0.25);
+}
+
+.resource-badge-level-intermediate {
+  background: #fbf3e2;
+  color: #a86a12;
+  border-color: rgba(168, 106, 18, 0.25);
+}
+
+.resource-badge-level-advanced {
+  background: #f5e7ee;
+  color: #66023c;
+  border-color: rgba(102, 2, 60, 0.25);
+}
+
+.resource-badge-category {
+  background: #eef0f4;
+  color: #4a5568;
+  border-color: rgba(74, 85, 104, 0.2);
+  text-transform: none;
+}
+
+.resource-more-toggle {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #66023c;
+  font-size: 0.78em;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.35em;
+}
+
+.resource-description {
+  margin: 0.5em 0 0 0;
+  font-size: 0.85em;
+  line-height: 1.45em;
+  color: #555;
+}
+
+/* Compact single-work "additional resources" list */
+.resource-additional-heading {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #66023c;
+  text-align: center;
+  margin: 0 0 1em 0;
+}
+
+.resource-additional-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.resource-row {
+  padding: 0.85em 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.resource-row:last-child {
+  border-bottom: 0;
+}
+
+.resource-row .resource-work-byline {
+  flex: 0 0 auto;
+}
+
+/* Mobile: collapse the filter panel behind the "Filters" toggle */
+@media screen and (max-width: 736px) {
+  .study-filters-mobile-toggle {
+    display: inline-flex;
+  }
+  .study-filters {
+    display: none;
+  }
+  .study-filters.filters-open {
+    display: flex;
+  }
+  .study-filters-group {
+    min-width: 0;
+    width: 100%;
+  }
 }
 
