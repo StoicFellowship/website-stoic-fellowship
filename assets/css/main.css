@@ -4606,17 +4606,20 @@ input[type='file'] {
   /* Keep the grid's existing left margin/padding pair (set elsewhere, per
      breakpoint) for the horizontal gutter between side-by-side cards --
      it works fine here since it's a border-box percentage-width trick,
-     not something flex needs to redo. Only the vertical margins need
-     fixing: separate .row.author-row elements are stacked siblings (one
-     per pair of cards), not columns wrapping within a single shared row,
-     so the grid's negative top margin (meant to cancel a wrapped row's
-     own top padding) was instead pulling each row up on top of the
-     previous one, leaving no visible gap between rows. */
-  margin-top: 0;
-  /* Match the grid's own horizontal card gutter (set by .row > *'s
-     padding-left at each of its breakpoints below) so the vertical gap
-     between stacked rows reads the same as the horizontal gap between
-     the two cards in a row. */
+     not something flex needs to redo. Also keep the grid's existing
+     negative top margin: it's what cancels this row's own children's
+     top padding, so the row sits flush under whatever precedes it
+     (a heading, or the previous row) instead of adding a second gap on
+     top of margin-bottom below. Overriding it to 0 (an earlier attempt)
+     was the bug: margin-bottom(N) from one row and margin-top(0) on the
+     next no longer collapse against each other, so the next row's own
+     child padding-top(N) added a *second* N-sized gap on top of the
+     first, making the vertical gap between rows read as roughly double
+     the horizontal gap between cards. Leaving margin-top as-is lets
+     margin-bottom(N) collapse against the next row's margin-top(-N) to
+     a net zero between the row boxes, so the only visible gap is that
+     next row's own child padding-top(N) -- exactly matching the
+     horizontal gutter. */
   margin-bottom: 50px;
 }
 
