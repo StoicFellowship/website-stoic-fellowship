@@ -5312,12 +5312,6 @@ input[type='file'] {
   border-bottom-color: currentColor;
 }
 
-.resource-work-external-icon {
-  font-size: 0.78em;
-  color: #999;
-  margin-left: 0.15em;
-}
-
 /* Byline comes last in .resource-work-line's markup and is the only child
    with a 100% flex-basis, so it always wraps onto its own line beneath
    the icon/title/link/toggle without pushing anything else down with it. */
@@ -5411,6 +5405,16 @@ input[type='file'] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Within author cards only: push the toggle to the row's right edge so
+   it lines up with the right-aligned "Expand all" button above
+   (.card-expand-all). Scoped to .resource-work-item (cards) rather than
+   applied globally, so the compact .resource-row layout in "Additional
+   Resources" -- where the byline flows inline right after the toggle --
+   is unaffected. */
+.resource-work-item .resource-more-toggle {
+  margin-left: auto;
 }
 
 .resource-more-toggle:hover {

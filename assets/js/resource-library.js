@@ -520,16 +520,15 @@
       '"></i>' +
       '<a class="resource-work-title resource-work-title-link" href="' +
       escapeHtml(r.url) +
-      '" target="_blank" rel="noopener">' +
+      '" target="_blank" rel="noopener" title="' +
+      escapeHtml(linkLabel) +
+      '" aria-label="' +
+      escapeHtml(titleParts.short) +
+      ' — ' +
+      escapeHtml(linkLabel) +
+      '">' +
       escapeHtml(titleParts.short) +
       '</a>' +
-      '<a class="resource-work-external-icon" href="' +
-      escapeHtml(r.url) +
-      '" target="_blank" rel="noopener" aria-label="' +
-      escapeHtml(linkLabel) +
-      '" title="' +
-      escapeHtml(linkLabel) +
-      '"><i class="fa fa-external-link" aria-hidden="true"></i></a>' +
       '<button type="button" class="resource-more-toggle" aria-expanded="false" aria-controls="' +
       descId +
       '" aria-label="Show details"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>' +
