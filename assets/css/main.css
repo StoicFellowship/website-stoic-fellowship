@@ -5017,13 +5017,10 @@ input[type='file'] {
 
 /* Sticks the search bar, active-filter chips, and the filter panel to the
    top of the viewport together as one unit while scrolling through results
-   -- stacked just below the sticky .resource-tabs page nav above it. The
-   --tabs-h custom property (set in resources-study.html, mirroring how
-   headerFooter.js already sets --header-h) accounts for that nav's height
-   so the two sticky bars stack cleanly instead of overlapping. */
+   -- stacked just below the sticky site header. */
 .study-filters-sticky {
   position: sticky;
-  top: calc(var(--header-h, 0px) + var(--tabs-h, 0px));
+  top: var(--header-h, 0px);
   z-index: 14;
   background: #fff;
   padding: 0.6em 0 0.9em 0;

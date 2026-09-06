@@ -46,13 +46,6 @@
   <!-- Banner -->
   <section id="banner"></section>
 
-  <nav class="resource-tabs" aria-label="Resource pages">
-    <a href="/resources-facilitators">For Facilitators</a>
-    <a href="/resources-study" class="active" aria-current="page">For Study</a>
-    <a href="/resources-practice">For Practice</a>
-    <a href="/resources-organization">Stoic Organizations</a>
-  </nav>
-
   <header class="special container page-title">
     <h1>Resources for Studying Stoicism</h1>
   </header>
@@ -2728,17 +2721,6 @@
   <script src="assets/js/resource-library.js"></script>
   <script>
     ;(function () {
-      // Measures the sticky ".resource-tabs" page nav and records its
-      // height as --tabs-h, so the sticky search/filter bar below it
-      // (.study-filters-sticky) can stack directly underneath instead of
-      // overlapping it -- the same pattern headerFooter.js already uses
-      // for --header-h.
-      function setTabsHeightVar() {
-        var tabs = document.querySelector('.resource-tabs')
-        if (!tabs) return
-        document.documentElement.style.setProperty('--tabs-h', tabs.offsetHeight + 'px')
-      }
-
       // Size every Primary Texts author-card photo to match the height of
       // the most common name + description text block among THAT group,
       // so those photos line up at one consistent size regardless of font
@@ -2770,7 +2752,6 @@
           })
       }
       function run() {
-        setTabsHeightVar()
         syncAuthorPhotoSize()
         if (document.fonts && document.fonts.ready) {
           document.fonts.ready.then(syncAuthorPhotoSize)
@@ -2781,10 +2762,7 @@
       } else {
         window.addEventListener('load', run)
       }
-      window.addEventListener('resize', function () {
-        setTabsHeightVar()
-        syncAuthorPhotoSize()
-      })
+      window.addEventListener('resize', syncAuthorPhotoSize)
     })()
   </script>
 </body>
