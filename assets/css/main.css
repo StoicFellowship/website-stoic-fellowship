@@ -4603,6 +4603,17 @@ input[type='file'] {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
+  /* Keep the grid's existing left margin/padding pair (set elsewhere, per
+     breakpoint) for the horizontal gutter between side-by-side cards --
+     it works fine here since it's a border-box percentage-width trick,
+     not something flex needs to redo. Only the vertical margins need
+     fixing: separate .row.author-row elements are stacked siblings (one
+     per pair of cards), not columns wrapping within a single shared row,
+     so the grid's negative top margin (meant to cancel a wrapped row's
+     own top padding) was instead pulling each row up on top of the
+     previous one, leaving no visible gap between rows. */
+  margin-top: 0;
+  margin-bottom: 2em;
 }
 
 .row.author-row:before,
