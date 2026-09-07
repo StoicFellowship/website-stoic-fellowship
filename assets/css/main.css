@@ -5647,3 +5647,75 @@ input[type='file'] {
   flex: 1 0 auto;
 }
 
+/* Resources for Practicing Stoicism: the two pillar cards (Stoic Exercises /
+   Stoicism 101). Same equal-height-column technique as the Facilitators
+   page, scoped separately so the two pages stay independent. Each card's
+   blurb carries the explicit .pillar-card-blurb class (rather than a bare
+   "> p" selector) because the Stoicism 101 card has a second, short
+   paragraph below its button (the audio-version link) that must stay a
+   fixed size rather than growing too. */
+#practice-pillars .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+#practice-pillars .row:before,
+#practice-pillars .row:after {
+  content: none;
+}
+
+#practice-pillars .row > div {
+  display: flex;
+}
+
+#practice-pillars .pillar-card {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#practice-pillars .pillar-card-blurb {
+  flex: 1 0 auto;
+}
+
+/* Reserved footer slot beneath each card's main button -- populated with the
+   audio-version link on the Stoicism 101 card, and an invisible spacer on
+   the Stoic Exercises card, so both buttons land on the same line even
+   though only one card has a secondary link. */
+.pillar-card-secondary {
+  margin: 0.6em 0 0 0;
+  font-size: 0.85em;
+}
+
+.pillar-card-secondary a {
+  color: #66023c;
+}
+
+.practice-links-intro {
+  margin: 0.35em 0 1.5em 0;
+  font-style: italic;
+  color: #999;
+  font-size: 0.95em;
+}
+
+.practice-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em 1.25em;
+}
+
+.practice-links-row .button.small {
+  margin-top: 0;
+}
+
+.practice-audio-credit {
+  margin-top: 2em;
+  font-size: 0.8em;
+  color: #999;
+  text-align: center;
+}
+
