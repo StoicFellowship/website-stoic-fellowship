@@ -5701,21 +5701,71 @@ input[type='file'] {
   font-size: 0.95em;
 }
 
-.practice-links-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1em 1.25em;
-}
-
-.practice-links-row .button.small {
-  margin-top: 0;
-}
-
 .practice-audio-credit {
   margin-top: 2em;
   font-size: 0.8em;
   color: #999;
   text-align: center;
+}
+
+/* Stoicism 101 audio pop-up: a small centered modal with a native <audio>
+   player, so listening never navigates away from the page or risks a
+   forced download of the raw MP3 in browsers that don't play audio
+   inline. */
+.audio-modal {
+  position: fixed;
+  inset: 0;
+  /* The site header and its dropdown menus use z-index values up to
+     10002 (see #header and its menu panels above), so the modal has to
+     clear that to actually sit on top of the sticky header. */
+  z-index: 10010;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-modal[hidden] {
+  display: none;
+}
+
+.audio-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 10, 15, 0.55);
+}
+
+.audio-modal-panel {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2em 1.75em 1.5em;
+  max-width: 420px;
+  width: calc(100% - 2.5em);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.audio-modal-panel h4 {
+  margin: 0 0 1em 0;
+}
+
+.audio-modal-close {
+  position: absolute;
+  top: 0.4em;
+  right: 0.6em;
+  background: none;
+  border: none;
+  font-size: 1.6em;
+  line-height: 1;
+  cursor: pointer;
+  color: #66023c;
+  padding: 0.25em;
+}
+
+.audio-modal-credit {
+  margin: 1em 0 0 0;
+  font-size: 0.8em;
+  color: #999;
+  font-style: italic;
 }
 
