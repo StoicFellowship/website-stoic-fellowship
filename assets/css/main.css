@@ -5701,11 +5701,14 @@ input[type='file'] {
   font-size: 0.95em;
 }
 
-.practice-audio-credit {
-  margin-top: 2em;
-  font-size: 0.8em;
-  color: #999;
-  text-align: center;
+/* Small "Listen to the audio version" trigger line used both on the
+   Practicing Stoicism page (.pillar-card-secondary a) and standalone under
+   the Stoicism 101 article's page title. */
+.audio-trigger-link {
+  display: inline-block;
+  margin: 0.5em 0 0 0;
+  font-size: 0.9em;
+  color: #66023c;
 }
 
 /* Stoicism 101 audio pop-up: a small centered modal with a native <audio>

@@ -43,6 +43,15 @@
   <header class="special container page-title">
     <h1>Stoicism 101</h1>
     <p>Pursuing Virtue: Wisdom &middot; Courage &middot; Temperance &middot; Justice</p>
+    <p style="text-align: center">
+      <a
+        href="/assets/audio/Stoicism%20101.mp3"
+        data-audio-modal="stoicism101-audio"
+        class="audio-trigger-link"
+        ><i class="fa fa-volume-up" aria-hidden="true"></i> Listen to the
+        audio version</a
+      >
+    </p>
   </header>
 
   <div class="paragraph-center" style="text-align: center">
@@ -304,6 +313,71 @@
       </ul>
     </div>
   </article>
+
+  <!-- Audio player pop-up for the Stoicism 101 narration. Plays the local
+       MP3 inline in a small modal instead of navigating to the file
+       directly, since opening the raw audio URL forces a download in some
+       browsers. -->
+  <div id="stoicism101-audio-modal" class="audio-modal" hidden>
+    <div class="audio-modal-backdrop" data-audio-modal-close></div>
+    <div
+      class="audio-modal-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Stoicism 101 audio version"
+    >
+      <button
+        type="button"
+        class="audio-modal-close"
+        data-audio-modal-close
+        aria-label="Close"
+      >
+        &times;
+      </button>
+      <h4>Stoicism 101 &mdash; Audio Version</h4>
+      <audio controls preload="none" style="width: 100%">
+        <source src="/assets/audio/Stoicism%20101.mp3" type="audio/mpeg" />
+        Your browser does not support inline audio.
+        <a href="/assets/audio/Stoicism%20101.mp3">Download the audio file</a>
+        instead.
+      </audio>
+      <p class="audio-modal-credit">Narrated by Ahmie Yeung.</p>
+    </div>
+  </div>
+
+  <script>
+    ;(function () {
+      var trigger = document.querySelector(
+        '[data-audio-modal="stoicism101-audio"]'
+      )
+      var modal = document.getElementById('stoicism101-audio-modal')
+      if (!trigger || !modal) return
+      var audio = modal.querySelector('audio')
+
+      function openModal(e) {
+        e.preventDefault()
+        modal.hidden = false
+        if (audio) {
+          audio.play().catch(function () {})
+        }
+      }
+
+      function closeModal() {
+        modal.hidden = true
+        if (audio) audio.pause()
+      }
+
+      trigger.addEventListener('click', openModal)
+      modal
+        .querySelectorAll('[data-audio-modal-close]')
+        .forEach(function (el) {
+          el.addEventListener('click', closeModal)
+        })
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !modal.hidden) closeModal()
+      })
+    })()
+  </script>
 
   <!--Footer-->
   <footer-template-child></footer-template-child>
