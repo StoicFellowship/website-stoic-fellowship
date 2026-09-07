@@ -4531,11 +4531,19 @@ input[type='file'] {
 
 .stoa-popover-panel {
   position: absolute;
-  z-index: 20;
+  /* The site header and its dropdown menus use z-index values up to
+     10002 (see #header above), so this has to clear that to avoid
+     rendering underneath the sticky header near the top of the page. */
+  z-index: 10010;
   left: 50%;
   bottom: calc(100% + 14px);
   transform: translateX(-50%);
-  width: 320px;
+  /* Sized in em (relative to this panel's own font-size) rather than a
+     fixed px value -- the site scales its base font size up noticeably on
+     wide viewports, and a fixed-px width paired with a bigger font meant
+     far fewer characters fit per line, so the panel grew tall and narrow
+     instead of staying roughly the same shape. */
+  width: 24em;
   max-width: 88vw;
   background: #fff;
   color: #333;
