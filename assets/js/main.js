@@ -24,7 +24,7 @@
   $('.scrolly').scrolly({
     speed: 1500,
     offset: function () {
-      return $header.height() + 10
+      return $header.height() + 40
     },
   })
 

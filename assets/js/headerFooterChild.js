@@ -1,12 +1,64 @@
 class HeaderTemplateChild extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <div id='header' class='alt'>
-        <a href='/' class='logo'>
-          <img src='/images/logo/SVGs/Logo-2 - Inverted Logo - Wht-Purp Disc.svg' width='100px' height='55px' />
+      <div id='header'>
+        <a href='/' class='brand'>
+          <img class='brand-logo' src='/images/logo/SVGs/logo1-white-trans.svg' />
+          <span class='brand-divider'></span>
+          <span class='brand-text'>
+            <span class='brand-title'>The Stoic Fellowship</span>
+            <span class='brand-tagline'>Building, Fostering, and Connecting<br />Communities of Stoics Around the World</span>
+          </span>
         </a>
         <nav id='nav'>
           <ul>
+            <li class='submenu'>
+              <a href='#'>Get Involved</a>
+              <ul>
+                <li>
+                  <a href='/find'>Find a group</a>
+                </li>
+                <li>
+                  <a href='/start'>Start a group</a>
+                </li>
+                <li>
+                  <a href='/membership'>Run a group</a>
+                </li>
+              </ul>
+            </li>
+            <li class='submenu'>
+              <a href='#'>Resources</a>
+              <ul>
+                <li>
+                  <a href='/resources-facilitators'>
+                    For Facilitators
+                  </a>
+                </li>
+                <li>
+                  <a href='/resources-study'>
+                    For Study
+                  </a>
+                </li>
+                <li>
+                  <a href='/resources-practice'>
+                    For Practice
+                  </a>
+                </li>
+                <li>
+                  <a href='/resources/stoicism-101'>
+                    Stoicism 101
+                  </a>
+                </li>
+                <li>
+                  <a href='/resources-organization'>
+                    Stoic Organizations
+                  </a>
+                </li>
+                <li>
+                  <a href="https://stoicfellowship.substack.com/podcast" target="_blank">Podcast</a>
+                </li>
+              </ul>
+            </li>
             <li class='submenu'>
               <a href='#'>About</a>
               <ul>
@@ -21,37 +73,33 @@ class HeaderTemplateChild extends HTMLElement {
                 </li>
               </ul>
             </li>
-            <li class='submenu'>
-              <a href='#'>Resources</a>
-              <ul>
-                <li>
-                  <a href='/resources/stoicism-resources'>
-                    Stoicism Resources
-                  </a>
-                </li>
-                <li>
-                  <a href='/interviews'>Interviews</a>
-                </li>
-                <li>
-                  <a href="https://stoicfellowship.substack.com/podcast" target="_blank">Podcast</a>
-                </li>
-                <li>
-                  <a href='/service'>Stoic Service</a>
-                </li>
-              </ul>
-            </li>
             <!-- <li class="current"><a href="/volunteer">Volunteer</a></li> -->
             <li class='current'>
               <a href='/donate'>Donate</a>
             </li>
-            <li>
-              <a href='/join' class='button special'>
-                Join Us
-              </a>
-            </li>
           </ul>
         </nav>
       </div> `
+
+    const setHeaderHeightVar = () => {
+      const header = this.querySelector('#header')
+      if (!header) return
+      const logo = this.querySelector('.brand-logo')
+      const text = this.querySelector('.brand-text')
+      if (logo && text) {
+        const textH = text.getBoundingClientRect().height
+        // Only match the logo to the text block when the text is actually
+        // visible (i.e. at wider widths). When the text/divider are hidden
+        // at narrower widths, leave the logo at its CSS floor size rather
+        // than shrinking it further.
+        if (textH > 0) {
+          logo.style.height = textH + 'px'
+        }
+      }
+      document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px')
+    }
+    setHeaderHeightVar()
+    window.addEventListener('resize', setHeaderHeightVar)
   }
 }
 
@@ -71,20 +119,11 @@ class FooterTemplateChild extends HTMLElement {
           </li>
           <li>
             <a
-              href='https://www.medium.com/@stoicfellowship'
+              href='https://substack.com/@stoicfellowship'
               target='_blank'
-              class='icon circle fa-medium'
+              class='icon circle icon-substack'
             >
-              <span class='label'>Medium</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href='https://www.twitter.com/StoicFellowship'
-              target='_blank'
-              class='icon circle fa-twitter'
-            >
-              <span class='label'>Twitter</span>
+              <span class='label'>Substack</span>
             </a>
           </li>
           <li>
