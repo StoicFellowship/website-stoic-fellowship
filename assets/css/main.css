@@ -6175,7 +6175,7 @@ a.video-embed:focus-visible {
 
 /* Roadmap "at a glance" checklist and closing hand-off (/start) */
 .roadmap-glance {
-  max-width: 34em;
+  max-width: 46em;
   margin: 0 auto 1em auto;
   padding: 1.1em 1.6em 1.2em;
   border: 1px solid #ddd;
@@ -6199,6 +6199,23 @@ a.video-embed:focus-visible {
   list-style: decimal;
   font-size: 0.9em;
   line-height: 1.9em;
+  columns: 2;
+  column-gap: 3em;
+}
+
+.roadmap-glance li {
+  break-inside: avoid;
+}
+
+@media screen and (max-width: 736px) {
+  .roadmap-glance {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .roadmap-glance ol {
+    columns: 1;
+  }
 }
 
 .roadmap-next {
@@ -6316,4 +6333,44 @@ strong.lead-in {
    moved to the bottom), so drop the extra top padding between them. */
 header.page-title + header.special.no-lines {
   padding-top: 1em;
+}
+
+/* A section heading inside a page (e.g. "Your Roadmap to Starting a Stoa"):
+   one step down from the page title, and closer to the text it introduces. */
+header.special.section-title {
+  margin-bottom: 0.75em;
+}
+
+header.special.section-title h2 {
+  font-size: 1.45em;
+  letter-spacing: 0.06em;
+  line-height: 1.4em;
+}
+
+/* "Back to roadmap" / "Back to contents" links at the end of each step */
+.back-to-roadmap {
+  max-width: none;
+  margin: -1em 20% 0 20%;
+  text-align: right;
+  font-size: 0.75em;
+}
+
+.back-to-roadmap a {
+  color: #888;
+}
+
+.back-to-roadmap a:hover {
+  color: #66023c;
+}
+
+.back-to-roadmap .fa {
+  margin-left: 0.25em;
+  font-size: 0.9em;
+}
+
+@media screen and (max-width: 736px) {
+  .back-to-roadmap {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
