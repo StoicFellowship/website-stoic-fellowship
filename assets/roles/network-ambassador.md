@@ -1,12 +1,12 @@
 ## About This Role
 
-Do you enjoy building relationships and spreading ideas that matter? The Stoic Fellowship is looking for Network Ambassadors to help promote key initiatives, resources, and opportunities across our global network of Stoas and affiliated communities.
+Do you enjoy building relationships and spreading ideas that matter? The Stoic Fellowship is looking for Network Ambassadors to help promote key initiatives, resources, and opportunities across our global network of stoas and affiliated communities.
 
 As a Network Ambassador, you’ll serve as a connector—sharing updates, gathering feedback, and helping ensure that Stoics everywhere are aware of what's happening across the broader Fellowship. This is a great role for someone who enjoys outreach, communication, and helping others feel included in a shared mission.
 
 ## Responsibilities
 
-- Share TSF updates, events, and resources with Stoas, study groups, and aligned communities
+- Share TSF updates, events, and resources with stoas, study groups, and aligned communities
 - Serve as a point of contact between the Fellowship and your local or online Stoic circles
 - Help gather feedback or interest from Stoic groups regarding new programs or opportunities
 - Promote volunteer openings, educational initiatives, or campaigns that align with TSF’s mission

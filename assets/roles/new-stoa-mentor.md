@@ -2,11 +2,11 @@
 
 Are you an experienced Stoic community leader who enjoys helping others succeed? The Stoic Fellowship is looking for New Stoa Mentors to support first-time organizers in starting and growing their own local or virtual Stoic groups. As a mentor, you’ll serve as a trusted guide—offering encouragement, practical advice, and lived experience to help new leaders feel confident and supported.
 
-This role is an opportunity to pass on what you’ve learned, strengthen our global network, and ensure that every new Stoa has a solid foundation rooted in Stoic values.
+This role is an opportunity to pass on what you’ve learned, strengthen our global network, and ensure that every new stoa has a solid foundation rooted in Stoic values.
 
 ## Responsibilities
 
-- Welcome new Stoa organizers and help orient them to TSF’s mission, tools, and resources
+- Welcome new stoa organizers and help orient them to TSF’s mission, tools, and resources
 - Offer one-on-one mentorship during the early stages of group formation
 - Share your own experiences and lessons learned as a community leader
 - Help troubleshoot common challenges related to group dynamics, consistency, outreach, and engagement

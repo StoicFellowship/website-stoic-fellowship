@@ -43,7 +43,7 @@ document
       submitButton.disabled = false
       submitButton.value = 'Submit'
       spinner.remove()
-      swal('Thanks!', "We'll connect you to a Stoa soon.", 'success')
+      swal('Thanks!', "We'll connect you to a stoa soon.", 'success')
     } catch (err) {
       console.error(err)
       submitButton.disabled = false
