@@ -189,7 +189,13 @@ form.addEventListener('submit', async (e) => {
     latitude: form.latitude.value,
     longitude: form.longitude.value,
     website: form.website.value,
-    stoa_language: form.stoa_language.value,
+    // Send the reader-friendly label (e.g. "Greek - (Ελληνικά)"), not the code;
+    // it's shown as-is in the map popup.
+    stoa_language: (
+      form.stoa_language.selectedOptions[0]?.textContent || form.stoa_language.value
+    )
+      .replace(/\s+/g, ' ')
+      .trim(),
     timezone: form.timezone.value,
     meeting_frequency: form.meeting_frequency.value,
     description: form.description.value,
