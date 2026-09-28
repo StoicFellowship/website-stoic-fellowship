@@ -6153,3 +6153,52 @@ a.video-embed:focus-visible {
     border-width: 10px 0 10px 17px;
   }
 }
+
+/* Roadmap "at a glance" checklist and closing hand-off (/start) */
+.roadmap-glance {
+  max-width: 34em;
+  margin: 0 auto 1em auto;
+  padding: 1.1em 1.6em 1.2em;
+  border: 1px solid #ddd;
+  border-left: 4px solid #66023c;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.roadmap-glance-title {
+  margin: 0 0 0.4em 0;
+  color: #66023c;
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.roadmap-glance ol {
+  margin: 0;
+  padding-left: 1.4em;
+  list-style: decimal;
+  font-size: 0.9em;
+  line-height: 1.9em;
+}
+
+.roadmap-next {
+  max-width: 34em;
+  margin: 3em auto 2em auto;
+  padding: 1.2em 1.6em;
+  border-radius: 8px;
+  background: rgba(102, 2, 60, 0.06);
+  text-align: center;
+}
+
+.roadmap-next h3 {
+  margin: 0 0 0.3em 0;
+}
+
+.roadmap-next p {
+  margin: 0;
+}
+
+strong.lead-in {
+  font-weight: 700;
+}
