@@ -51,7 +51,23 @@
     'Modern Adaptations & Selections': 'Modern Adaptations & Selections',
   }
 
-  var TOPICS_VISIBLE_DEFAULT = 16
+  // Topics shown first, in this order. The site doesn't track which topics
+  // visitors choose, so this is an editorial list of the themes people most
+  // often come to Stoicism for, favoring ones the library covers well. Any
+  // topic not listed here follows, ordered by how many resources use it.
+  // Collapsed, the Topics filter shows only as many pills as fit on one line.
+  var FEATURED_TOPICS = [
+    'control',
+    'emotions',
+    'virtue',
+    'happiness',
+    'resilience',
+    'marcus-aurelius',
+    'epictetus',
+    'seneca',
+    'relationships',
+    'practice',
+  ]
 
   // ---- Precompute lookups -------------------------------------------
 
@@ -73,6 +89,14 @@
   var topicsSortedByFrequency = Object.keys(topicCounts).sort(function (a, b) {
     return topicCounts[b] - topicCounts[a] || a.localeCompare(b)
   })
+  var featuredPresent = FEATURED_TOPICS.filter(function (t) {
+    return topicCounts[t]
+  })
+  var topicsOrdered = featuredPresent.concat(
+    topicsSortedByFrequency.filter(function (t) {
+      return featuredPresent.indexOf(t) === -1
+    })
+  )
 
   var SMALL_WORDS = { as: 1, of: 1, a: 1, the: 1, in: 1, on: 1, for: 1, and: 1, to: 1 }
   var SPECIAL_TOPIC_LABELS = { cbt: 'CBT' }
@@ -198,7 +222,7 @@
     level: LEVEL_ORDER,
     media: MEDIA_ORDER,
     relation: RELATION_ORDER,
-    topics: topicsSortedByFrequency,
+    topics: topicsOrdered,
   }
 
   function readStateFromURL() {
@@ -276,10 +300,7 @@
 
   function renderTopicPills() {
     if (!topicsContainer) return
-    var visible = topicsExpanded
-      ? topicsSortedByFrequency
-      : topicsSortedByFrequency.slice(0, TOPICS_VISIBLE_DEFAULT)
-    topicsContainer.innerHTML = visible
+    topicsContainer.innerHTML = topicsOrdered
       .map(function (t) {
         return (
           '<button type="button" class="filter-pill" data-facet="topics" data-value="' +
@@ -291,12 +312,50 @@
       })
       .join('')
     syncPillStates()
+    fitTopicsToOneRow()
+  }
+
+  // Collapsed: hide every pill that wraps past the first line. Measured from
+  // the rendered layout, so it adapts to the screen width.
+  function fitTopicsToOneRow() {
+    if (!topicsContainer) return
+    var pills = Array.prototype.slice.call(topicsContainer.children)
+    pills.forEach(function (p) {
+      p.style.display = ''
+    })
+    var overflow = false
+    // offsetParent is null while the filters panel is hidden (e.g. collapsed
+    // on mobile); the ResizeObserver below re-runs this once it's shown.
+    if (!topicsExpanded && pills.length && topicsContainer.offsetParent !== null) {
+      var firstTop = pills[0].offsetTop
+      pills.forEach(function (p) {
+        if (p.offsetTop > firstTop + 2) {
+          p.style.display = 'none'
+          overflow = true
+        }
+      })
+    }
     if (moreTopicsBtn) {
       moreTopicsBtn.textContent = topicsExpanded ? 'Show fewer topics' : 'Show more topics'
-      moreTopicsBtn.hidden = topicsSortedByFrequency.length <= TOPICS_VISIBLE_DEFAULT
+      moreTopicsBtn.hidden = !topicsExpanded && !overflow
     }
   }
   renderTopicPills()
+
+  // Re-fit when the available width changes (window resize, panel opened).
+  // Only width matters; ignoring height changes avoids a resize loop.
+  if (topicsContainer && typeof ResizeObserver === 'function') {
+    var lastTopicsWidth = -1
+    new ResizeObserver(function (entries) {
+      var w = Math.round(entries[0].contentRect.width)
+      if (w !== lastTopicsWidth) {
+        lastTopicsWidth = w
+        fitTopicsToOneRow()
+      }
+    }).observe(topicsContainer)
+  } else {
+    window.addEventListener('resize', fitTopicsToOneRow)
+  }
 
   if (moreTopicsBtn) {
     moreTopicsBtn.addEventListener('click', function () {
@@ -679,9 +738,12 @@
   readStateFromURL()
   if (searchInput) searchInput.value = state.q
   syncPillStates()
+  // If a topic chosen via the URL is hidden past the first row, expand the list.
   if (
+    topicsContainer &&
     Array.from(state.topics).some(function (t) {
-      return topicsSortedByFrequency.indexOf(t) >= TOPICS_VISIBLE_DEFAULT
+      var pill = topicsContainer.querySelector('[data-value="' + t.replace(/"/g, '') + '"]')
+      return pill && pill.style.display === 'none'
     })
   ) {
     topicsExpanded = true
