@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <head>
-  <title>Membership</title>
+  <title>Register Your Stoa</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Want to meet other Stoics in your community? The Stoic Fellowship builds, fosters, and connects groups of Stoics around the world. Join a Stoicism community today!"
+    content="Register your Stoicism group with The Stoic Fellowship to be listed on our world map of stoas, and optionally join our global network of member stoas."
   />
-  <link rel="canonical" href="https://www.stoicfellowship.com/membership" />
+  <link rel="canonical" href="https://www.stoicfellowship.com/register" />
 
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="shortcut icon" href="images/favicon.ico" />
@@ -58,16 +58,22 @@
   <section id="banner"></section>
 
   <header class="special container page-title">
-    <h1>Do You Lead an Existing Stoicism Community?</h1>
+    <h1>Register Your Stoa</h1>
   </header>
 
   <header class="center container">
     <div class="paragraph-center" style="text-align: left">
       <p>
-        Join a global fellowship of stoa facilitators. As a Community Leader,
-        here are a few reasons to join The Stoic Fellowship:
+        Already running a Stoicism group? Register it with The Stoic Fellowship
+        so people nearby can find you on our
+        <a href="/find">map of stoas around the world</a>.
       </p>
-      <ul style="list-style: circle">
+      <p>
+        When you register, you can also choose to become a
+        <strong>member stoa</strong>. Membership is optional, and it connects
+        you with a global fellowship of stoa facilitators:
+      </p>
+      <ul class="paragraph-center-list" style="margin-left: 0; margin-right: 0">
         <li>
           Join a broad community of stoa leaders around the world to ask
           questions, share resources, and grow together.
@@ -79,20 +85,24 @@
           Stoicism community.
         </li>
         <li>
-          One on one support with experts in Stoicism and group facilitation.
-          We'll help you get started and build your stoa into a flourishing
-          community.
+          One-on-one support with experts in Stoicism and group facilitation.
+          We'll help you build your stoa into a flourishing community.
         </li>
       </ul>
+      <p>
+        Member stoas agree to our
+        <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a>.
+        A map listing on its own has no membership requirements.
+      </p>
     </div>
-    <br / class="rwd-break">
+    <br class="rwd-break" />
   </header>
 
   <!-- Form -->
 
   <section class="wrapper style3 container special">
     <form name="existing-stoa" id="existing-stoa">
-      <h2>Request to Become a Member Stoa</h2>
+      <h2>Register Your Stoa</h2>
 
       <h3>Name of Stoic Community</h3>
       <input type="text" name="stoa" required />
@@ -114,6 +124,9 @@
       <input type="hidden" id="location" name="location" />
       <input type="hidden" id="latitude" name="latitude" />
       <input type="hidden" id="longitude" name="longitude" />
+      <p class="form-field-error" id="location-error" hidden>
+        Please search for your city or region and select it from the list.
+      </p>
 
       <br / class="rwd-break">
 
@@ -286,8 +299,8 @@
       <br class="rwd-break" />
 
       <h3>Stoa Time Zone</h3>
-      <select name="timezone" required>
-        <option>Select a timezone</option>
+      <select name="timezone" id="timezone" required>
+        <option value="">Select a timezone</option>
         <option value="Etc/GMT+12">
           (GMT-12:00) International Date Line West
         </option>
@@ -453,13 +466,93 @@
       <input type="email" name="email" required />
       <br / class="rwd-break">
 
-      <p>
-        By submitting this form, you agree to The Stoic Fellowship's
-        <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a>
-        for membership.
-      </p>
+      <h3>How Would You Like to Register?</h3>
+      <fieldset class="registration-choice">
+        <legend class="visually-hidden">Registration type</legend>
+        <label class="choice-card">
+          <input
+            type="radio"
+            name="registration_type"
+            value="Map Listing Only"
+            required
+          />
+          <span class="choice-text">
+            <strong>List my stoa on the map</strong>
+            We'll add your group to our Find a Stoa map so people nearby can
+            find you.
+          </span>
+        </label>
+        <label class="choice-card">
+          <input
+            type="radio"
+            name="registration_type"
+            value="Member Stoa"
+            required
+          />
+          <span class="choice-text">
+            <strong>Become a member stoa</strong>
+            Be listed on the map <em>and</em> join The Stoic Fellowship's
+            network of member stoas: connect with other facilitators and get
+            guidance and resources along the way. Requires agreeing to our Terms
+            and Conditions.
+          </span>
+        </label>
 
-      <input type="submit" value="Submit" />
+        <div class="terms-agreement" id="terms-agreement" hidden>
+          <p>
+            Please
+            <a href="/terms-and-conditions" id="open-terms" target="_blank"
+              >read the Terms and Conditions</a
+            >
+            for member stoas before agreeing.
+          </p>
+          <label class="terms-check">
+            <input
+              type="checkbox"
+              name="terms_accepted"
+              id="terms-accepted"
+              disabled
+            />
+            <span
+              >I have read and agree to The Stoic Fellowship's Terms and
+              Conditions for member stoas.
+              <em id="terms-hint">(Open the Terms and Conditions first.)</em></span
+            >
+          </label>
+        </div>
+      </fieldset>
+
+      <input type="submit" value="Register" disabled />
+      <p class="submit-hint" id="submit-hint">
+        Choose how you'd like to register to continue.
+      </p>
+    </form>
+
+    <!-- Terms and Conditions popup (content loaded live from /terms-and-conditions) -->
+    <dialog
+      id="terms-dialog"
+      class="terms-dialog"
+      aria-labelledby="terms-dialog-title"
+    >
+      <div class="terms-dialog-header">
+        <h2 id="terms-dialog-title">Terms and Conditions</h2>
+        <button
+          type="button"
+          class="terms-dialog-close"
+          data-close
+          aria-label="Close"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="terms-dialog-body" id="terms-dialog-body">
+        <p>Loading&hellip;</p>
+      </div>
+      <div class="terms-dialog-actions">
+        <button type="button" class="button" id="terms-agree">I Agree</button>
+        <button type="button" class="button alt" data-close>Close</button>
+      </div>
+    </dialog>
     </form>
   </section>
 
@@ -469,7 +562,7 @@
   <!-- Scripts -->
   <script src="assets/js/headerFooter.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="assets/js/stoa-handler.js"></script>
+  <script src="assets/js/stoa-handler.js?v=20260928"></script>
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/jquery.dropotron.min.js"></script>
   <script src="assets/js/jquery.scrolly.min.js"></script>

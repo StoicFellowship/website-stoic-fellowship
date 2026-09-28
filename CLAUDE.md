@@ -40,6 +40,14 @@ The map uses **Mapbox** — the token is served via `netlify/functions/get-mapbo
 - Notion queries go through `fetchWithRetry` (`netlify/functions/utils/notion-fetch.js`), which retries 429/529 with `Retry-After` backoff.
 - **Notion's `url` property accepts arbitrary text** — it does NOT reject malformed URIs (bare domains, free text). Confirmed against live data. So don't assume a bad URL value is what's failing a submission.
 
+### Stoa registration form (`/register`)
+
+- Page is `register.html` (renamed from `membership.html` 2026-09-28; `_redirects` 301s `/membership` → `/register`). Front end: `assets/js/stoa-handler.js` → `netlify/functions/submit-stoa.js` → Notion stoa DB (`NOTION_STOA_DB_ID`).
+- Visitors choose **Map Listing Only** or **Member Stoa**. Member stoas must open the Terms popup (content fetched live from `/terms-and-conditions`) and tick agreement before Submit enables; the function also rejects a Member Stoa submission without `terms_accepted: true`.
+- Notion properties written for this: `Registration Type` (select), `Terms Accepted` (checkbox), `Terms Accepted At` (date). **Every property the function writes must exist in the Notion DB, or Notion rejects the whole submission** — add columns in Notion before deploying code that writes new ones.
+- `Registration Type` does not set `Status`; the board still sets `Status` (Member Stoa / Active Stoa) by hand, and that's what the map reads.
+- `stoa-handler.js` is loaded with a `?v=` query — bump it when changing the script (JS is cached 4h).
+
 ### Open issue: volunteer form submission failures
 
 Some volunteer applications were reported failing / not appearing in Notion (all roles post through the same `apply.html` → `submit-volunteer.js`, so this is value-dependent, not role-specific). Root cause is **not yet identified** — an early URL-validation theory was ruled out (see note above). Investigation deferred until the volunteer pages are unhidden. Fastest diagnostic: the `Notion error: …` line in the Netlify function logs for a failed `submit-volunteer` invocation gives Notion's exact validation message.

@@ -22,7 +22,7 @@ class HeaderTemplateChild extends HTMLElement {
                   <a href='/start'>Start a group</a>
                 </li>
                 <li>
-                  <a href='/membership'>Run a group</a>
+                  <a href='/register'>Run a group</a>
                 </li>
               </ul>
             </li>

@@ -5817,3 +5817,223 @@ input[type='file'] {
   font-style: italic;
 }
 
+
+/* ------------------------------------------------------------------
+   Stoa registration form (/register): registration choice, terms
+   agreement, and Terms and Conditions popup
+------------------------------------------------------------------- */
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.registration-choice {
+  max-width: 40em;
+  margin: 0 auto 1em auto;
+  text-align: left;
+}
+
+.choice-card {
+  display: flex;
+  gap: 0.9em;
+  align-items: flex-start;
+  margin-bottom: 0.75em;
+  padding: 0.9em 1.1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  line-height: 1.5em;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.choice-card:hover {
+  border-color: #66023c;
+}
+
+.choice-card:has(input:checked) {
+  border-color: #66023c;
+  box-shadow: 0 0 0 1px #66023c;
+}
+
+.choice-card input[type='radio'] {
+  flex: none;
+  margin-top: 0.35em;
+  width: 1.1em;
+  height: 1.1em;
+  accent-color: #66023c;
+}
+
+.choice-text {
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+.registration-choice [hidden],
+.form-field-error[hidden],
+.submit-hint[hidden] {
+  display: none !important;
+}
+
+.choice-text strong {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-bottom: 0.15em;
+}
+
+.terms-agreement {
+  font-weight: 500;
+  margin: 0.25em 0 0.75em 2.9em;
+  padding: 0.9em 1.1em;
+  border-left: 3px solid #66023c;
+  background: rgba(102, 2, 60, 0.04);
+  font-size: 0.85em;
+  line-height: 1.5em;
+}
+
+.terms-agreement p {
+  margin: 0 0 0.6em 0;
+}
+
+.terms-agreement a {
+  font-weight: 700;
+}
+
+.terms-check {
+  display: flex;
+  gap: 0.7em;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.terms-check input[type='checkbox'] {
+  flex: none;
+  margin-top: 0.3em;
+  width: 1.1em;
+  height: 1.1em;
+  accent-color: #66023c;
+}
+
+.terms-check:has(input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.terms-check em {
+  display: block;
+  font-size: 0.9em;
+}
+
+input[type='submit']:disabled,
+input[type='submit']:disabled:hover {
+  cursor: not-allowed;
+  opacity: 0.4;
+  transform: none;
+  box-shadow: none;
+  background: none;
+}
+
+.submit-hint {
+  margin: 0.75em 0 0 0;
+  font-size: 0.75em;
+  line-height: 1.5em;
+  color: #666;
+}
+
+.form-field-error {
+  margin: 0.4em 0 0 0;
+  font-size: 0.8em;
+  font-weight: 700;
+  color: #b00020;
+}
+
+.terms-dialog {
+  width: min(46em, calc(100vw - 2em));
+  max-height: calc(100vh - 3em);
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  color: #313333;
+  text-align: left;
+}
+
+.terms-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.terms-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.terms-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6em 1.2em;
+  border-bottom: 1px solid #ddd;
+}
+
+.terms-dialog-header h2 {
+  margin: 0;
+  font-size: 1.1em;
+  letter-spacing: 0.025em;
+}
+
+.terms-dialog-close {
+  background: none;
+  border: none;
+  font-size: 1.6em;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+}
+
+.terms-dialog-body {
+  overflow-y: auto;
+  padding: 1em 1.4em;
+  font-size: 0.75em;
+  line-height: 1.6em;
+}
+
+.terms-dialog-body header h2 {
+  font-size: 1.3em;
+  letter-spacing: 0.025em;
+}
+
+.terms-dialog-body p,
+.terms-dialog-body ul,
+.terms-dialog-body ol {
+  margin-bottom: 1em;
+}
+
+.terms-dialog-body ul,
+.terms-dialog-body ol {
+  padding-left: 1.5em;
+  list-style: disc;
+}
+
+.terms-dialog-actions {
+  display: flex;
+  gap: 0.75em;
+  justify-content: flex-end;
+  padding: 0.6em 1.2em 0.9em;
+  border-top: 1px solid #ddd;
+}
+
+.terms-dialog-actions .button {
+  margin-top: 0;
+}
+
+#terms-agree {
+  background: #66023c;
+  border-color: #66023c;
+  color: #fff;
+}
