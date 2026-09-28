@@ -56,8 +56,29 @@ function updateState() {
     submitButton.value = 'Register'
     submitHint.textContent = "Choose how you'd like to register to continue."
   }
-  submitButton.disabled = !ready
+  // "Soft" disable: looks gray and won't submit, but still receives clicks so a
+  // click on "Register as a Member Stoa" can open the Terms popup.
+  submitButton.disabled = false
+  submitButton.classList.toggle('is-disabled', !ready)
+  submitButton.setAttribute('aria-disabled', String(!ready))
   submitHint.hidden = ready
+  return ready
+}
+
+function isReady() {
+  const type = selectedType()
+  return type === LIST_ONLY || (type === MEMBER && termsCheckbox.checked)
+}
+
+// Clicking the gray button explains what's missing instead of doing nothing.
+function handleNotReady() {
+  if (selectedType() === MEMBER) {
+    openTerms()
+  } else {
+    document
+      .querySelector('.registration-choice')
+      .scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
 }
 
 form
@@ -95,17 +116,35 @@ function markTermsOpened() {
   updateState()
 }
 
-openTermsLink.addEventListener('click', (e) => {
-  // Browsers without <dialog> support fall back to opening the page in a new tab.
-  if (!termsDialog || typeof termsDialog.showModal !== 'function') {
+const dialogSupported = !!termsDialog && typeof termsDialog.showModal === 'function'
+
+function openTerms() {
+  if (!dialogSupported) {
+    window.open('/terms-and-conditions', '_blank')
     markTermsOpened()
     return
   }
-  e.preventDefault()
   termsDialog.showModal()
   termsDialogBody.scrollTop = 0
   loadTerms()
   markTermsOpened()
+}
+
+openTermsLink.addEventListener('click', (e) => {
+  // Browsers without <dialog> support fall back to opening the page in a new tab.
+  if (!dialogSupported) {
+    markTermsOpened()
+    return
+  }
+  e.preventDefault()
+  openTerms()
+})
+
+submitButton.addEventListener('click', (e) => {
+  if (submitButton.classList.contains('is-disabled')) {
+    e.preventDefault()
+    handleNotReady()
+  }
 })
 
 termsAgreeButton.addEventListener('click', () => {
@@ -177,8 +216,9 @@ form.addEventListener('submit', async (e) => {
 
   const type = selectedType()
   const isMember = type === MEMBER
-  if (!type || (isMember && !termsCheckbox.checked)) {
+  if (!isReady()) {
     updateState()
+    handleNotReady()
     return
   }
 

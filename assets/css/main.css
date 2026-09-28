@@ -5930,9 +5930,22 @@ input[type='file'] {
   font-size: 0.9em;
 }
 
+/* Ready: filled in the site color so it's obvious the form can be sent */
+#existing-stoa input[type='submit']:not(.is-disabled):not(:disabled) {
+  background: #66023c;
+  border-color: #66023c;
+  color: #fff;
+}
+
+#existing-stoa input[type='submit']:not(.is-disabled):not(:disabled):hover {
+  background: #4d012d;
+}
+
 input[type='submit']:disabled,
-input[type='submit']:disabled:hover {
-  cursor: not-allowed;
+input[type='submit']:disabled:hover,
+input[type='submit'].is-disabled,
+input[type='submit'].is-disabled:hover {
+  cursor: pointer;
   opacity: 0.4;
   transform: none;
   box-shadow: none;
