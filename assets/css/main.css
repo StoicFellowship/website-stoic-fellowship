@@ -6311,3 +6311,9 @@ strong.lead-in {
 .study-filters-more-topics[aria-expanded='true'] .fa {
   transform: rotate(180deg);
 }
+
+/* /start: the section heading follows the page title directly (the video
+   moved to the bottom), so drop the extra top padding between them. */
+header.page-title + header.special.no-lines {
+  padding-top: 1em;
+}
