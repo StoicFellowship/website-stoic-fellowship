@@ -20,4 +20,7 @@
 /membership  /register  301
 /membership.html  /register  301
 
+# Facilitator's guide became the Run a Stoa page
+/facilitator-guide  /run  301
+
 /*  /404  404

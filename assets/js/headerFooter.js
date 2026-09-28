@@ -18,7 +18,7 @@ class HeaderTemplate extends HTMLElement {
             <li><a href="/find">Find a group</a></li>
             <li><a href="/start">Start a group</a></li>
             <li><a href="/register">Register a group</a></li>
-            <li><a href="/resources-facilitators">Run a group</a></li>
+            <li><a href="/run">Run a group</a></li>
           </ul>
         </li>
         <li class="submenu">

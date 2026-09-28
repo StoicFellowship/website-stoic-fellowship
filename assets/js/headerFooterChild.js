@@ -25,7 +25,7 @@ class HeaderTemplateChild extends HTMLElement {
                   <a href='/register'>Register a group</a>
                 </li>
                 <li>
-                  <a href='/resources-facilitators'>Run a group</a>
+                  <a href='/run'>Run a group</a>
                 </li>
               </ul>
             </li>
