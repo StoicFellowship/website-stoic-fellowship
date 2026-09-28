@@ -2050,7 +2050,51 @@ footer.major {
 .paragraph-center-list {
   margin-left: 20%;
   margin-right: 20%;
+  padding-left: 1.75em; /* keep bullets inside the text column, indented under headings */
   list-style: circle;
+  list-style-position: outside;
+}
+
+/* Pull an intro sentence closer to the list it introduces */
+.paragraph-center:has(+ .paragraph-center-list) {
+  margin-bottom: 0.75em;
+}
+
+.paragraph-center-list li {
+  padding-left: 0.25em;
+  margin-bottom: 0.5em;
+}
+
+.paragraph-center-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Numbered guide steps (e.g. /start) */
+.step-heading {
+  margin: 2.5em 20% 0.75em 20%;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid #ddd;
+  font-size: 1.35em;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  line-height: 1.4em;
+}
+
+.step-heading .step-label {
+  display: block;
+  margin-bottom: 0.2em;
+  color: #66023c;
+  font-size: 0.6em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.step-subheading {
+  margin: 0 20% 0.75em 20%;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.025em;
 }
 
 .center {
@@ -3812,7 +3856,14 @@ body.index #main {
     margin-right: 0em;
   }
 
-  .paragraph-center {
+  .paragraph-center,
+  .paragraph-center-list {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .step-heading,
+  .step-subheading {
     margin-left: 10%;
     margin-right: 10%;
   }
