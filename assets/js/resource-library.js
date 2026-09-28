@@ -336,7 +336,9 @@
       })
     }
     if (moreTopicsBtn) {
-      moreTopicsBtn.textContent = topicsExpanded ? 'Show fewer topics' : 'Show more topics'
+      var label = moreTopicsBtn.querySelector('.study-filters-more-topics-label') || moreTopicsBtn
+      label.textContent = topicsExpanded ? 'Show fewer topics' : 'Show more topics'
+      moreTopicsBtn.setAttribute('aria-expanded', topicsExpanded ? 'true' : 'false')
       moreTopicsBtn.hidden = !topicsExpanded && !overflow
     }
   }

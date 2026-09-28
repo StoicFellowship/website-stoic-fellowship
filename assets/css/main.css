@@ -6253,3 +6253,61 @@ strong.lead-in {
 #three-doors .four-doors section p {
   flex: 1 0 auto;
 }
+
+/* Study filters footer: "Show more topics" and "More Filters" on one line,
+   divided by a thin rule (overrides the stacked full-width styles above). */
+.study-filters-footer {
+  flex: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0.25em 0 0 0;
+  padding: 0.4em 0 0 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.study-filters-footer .study-filters-more-topics,
+.study-filters-footer .study-filters-more-toggle {
+  flex: none;
+  width: auto;
+  margin: 0;
+  padding: 0.3em 1.1em;
+  border: 0;
+  background: none;
+  color: #666;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1.5em;
+  cursor: pointer;
+}
+
+.study-filters-footer .study-filters-more-topics[hidden] {
+  display: none;
+}
+
+.study-filters-footer .study-filters-more-topics:not([hidden]) + .study-filters-more-toggle {
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.study-filters-footer .study-filters-more-topics:hover,
+.study-filters-footer .study-filters-more-toggle:hover {
+  color: #66023c;
+}
+
+/* Chevrons on both footer links; flip when open (matches More Filters). */
+.study-filters-footer .study-filters-more-topics:not([hidden]) {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.study-filters-more-topics .fa {
+  transition: transform 0.2s ease-in-out;
+}
+
+.study-filters-more-topics[aria-expanded='true'] .fa {
+  transform: rotate(180deg);
+}
