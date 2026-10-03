@@ -26,7 +26,7 @@
     </url>
 
     <url>
-        <loc>https://stoicfellowship.com/membership</loc>
+        <loc>https://stoicfellowship.com/register</loc>
     </url>
 
     <url>
@@ -47,6 +47,14 @@
 
     <url>
         <loc>https://stoicfellowship.com/start</loc>
+    </url>
+
+    <url>
+        <loc>https://stoicfellowship.com/recommended-topics</loc>
+    </url>
+
+    <url>
+        <loc>https://stoicfellowship.com/run</loc>
     </url>
 
     <url>

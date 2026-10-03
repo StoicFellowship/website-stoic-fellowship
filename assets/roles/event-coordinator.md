@@ -8,7 +8,7 @@ From online meetups and workshops to global Stoic Week celebrations, your effort
 
 - Plan and coordinate virtual or in-person events in collaboration with TSF volunteers
 - Manage event logistics such as scheduling, registration, and promotion
-- Support local Stoas in organizing community events, retreats, or meetups
+- Support local stoas in organizing community events, retreats, or meetups
 - Develop event templates, checklists, or promotional assets for future use
 - Help facilitate event feedback and track participation metrics
 - Maintain alignment with Stoic principles—especially justice, courage, and moderation—in all coordination efforts

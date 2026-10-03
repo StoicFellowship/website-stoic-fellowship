@@ -2,11 +2,11 @@
 
 Are you passionate about uncovering insights through data? The Stoic Fellowship is looking for a volunteer Data Analyst to help us track, visualize, and interpret the impact of Stoic communities worldwide. In this role, you'll transform raw data into actionable insights that inform strategy, support outreach, and help us grow our mission with clarity and intention.
 
-From tracking participation in local Stoas to analyzing site traffic and volunteer engagement, your contributions will directly support our ability to make data-informed decisions rooted in Stoic principles.
+From tracking participation in local stoas to analyzing site traffic and volunteer engagement, your contributions will directly support our ability to make data-informed decisions rooted in Stoic principles.
 
 ## Responsibilities
 
-- Collect, analyze, and visualize data related to Stoa participation, site traffic, community engagement, and more
+- Collect, analyze, and visualize data related to stoa participation, site traffic, community engagement, and more
 - Collaborate with TSF volunteers to define key metrics and reporting goals
 - Create dashboards, charts, or periodic reports that help TSF monitor progress and identify trends
 - Offer data-driven insights to support initiatives in community growth, digital engagement, and volunteer development

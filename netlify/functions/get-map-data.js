@@ -1,5 +1,6 @@
 const fetch = require('node-fetch')
 const { fetchWithRetry } = require('./utils/notion-fetch')
+const { languageLabel } = require('./utils/languages')
 
 async function queryAllPages(databaseId, filter, notionKey) {
   const results = []
@@ -100,7 +101,7 @@ exports.handler = async function handler(event) {
       status: page.properties['Status']?.status?.name || '',
       location: richText(page, 'Location'),
       website: page.properties['Website']?.url || '',
-      language: richText(page, 'Language'),
+      language: languageLabel(richText(page, 'Language')),
     }))
 
     const seekers = seekerPages.map((page) => ({

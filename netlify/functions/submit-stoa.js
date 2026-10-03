@@ -27,8 +27,22 @@ exports.handler = async function handler(event) {
     description,
     name,
     email,
+    registration_type,
+    terms_accepted,
+    terms_accepted_at,
     submitted_at,
   } = JSON.parse(event.body)
+
+  // Member stoas must actively agree to the Terms and Conditions.
+  const termsOk = terms_accepted === true
+  if (registration_type === 'Member Stoa' && !termsOk) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        error: 'Member stoas must agree to the Terms and Conditions.',
+      }),
+    }
+  }
 
   const ip = event.headers['x-nf-client-connection-ip'] || 'unknown'
 
@@ -65,6 +79,13 @@ exports.handler = async function handler(event) {
           Email: { email: email || null },
           'Submitted At': { date: { start: submitted_at || new Date().toISOString() } },
           'IP Address': { rich_text: txt(ip) },
+          'Registration Type': select(registration_type),
+          'Terms Accepted': { checkbox: termsOk },
+          'Terms Accepted At': {
+            date: termsOk
+              ? { start: terms_accepted_at || new Date().toISOString() }
+              : null,
+          },
         },
       }),
     })
@@ -88,9 +109,11 @@ exports.handler = async function handler(event) {
               email: 'noreply@stoicfellowship.com',
             },
             to: [{ email: 'hello@stoicfellowship.com', name: 'TSF Board' }],
-            subject: 'New Stoa Submission',
+            subject: `New Stoa Registration${registration_type ? ` (${registration_type})` : ''}`,
             htmlContent: `
               <h2>New Stoa Application</h2>
+              <p><strong>Registration Type:</strong> ${registration_type || 'Not specified'}</p>
+              <p><strong>Terms Accepted:</strong> ${termsOk ? `Yes (${terms_accepted_at || ''})` : 'No'}</p>
               <p><strong>Stoa Name:</strong> ${stoa_name}</p>
               <p><strong>Type:</strong> ${stoa_type}</p>
               <p><strong>Location:</strong> ${location} (${latitude}, ${longitude})</p>

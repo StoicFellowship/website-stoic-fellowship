@@ -8,7 +8,7 @@ In this role, you'll design resources that support self-paced learning, communit
 
 - Collaborate with TSF volunteers to identify educational needs and opportunities
 - Develop curriculum outlines, lesson plans, workbooks, or discussion guides
-- Design content suitable for individuals, Stoas, or online learning environments
+- Design content suitable for individuals, stoas, or online learning environments
 - Adapt ancient texts and modern interpretations into accessible formats
 - Ensure clarity, philosophical accuracy, and practical relevance in all materials
 - Maintain alignment with Stoic principles in your work

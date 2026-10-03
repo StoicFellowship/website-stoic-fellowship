@@ -2050,7 +2050,51 @@ footer.major {
 .paragraph-center-list {
   margin-left: 20%;
   margin-right: 20%;
+  padding-left: 1.75em; /* keep bullets inside the text column, indented under headings */
   list-style: circle;
+  list-style-position: outside;
+}
+
+/* Pull an intro sentence closer to the list it introduces */
+.paragraph-center:has(+ .paragraph-center-list) {
+  margin-bottom: 0.75em;
+}
+
+.paragraph-center-list li {
+  padding-left: 0.25em;
+  margin-bottom: 0.5em;
+}
+
+.paragraph-center-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Numbered guide steps (e.g. /start) */
+.step-heading {
+  margin: 2.5em 20% 0.75em 20%;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid #ddd;
+  font-size: 1.35em;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  line-height: 1.4em;
+}
+
+.step-heading .step-label {
+  display: block;
+  margin-bottom: 0.2em;
+  color: #66023c;
+  font-size: 0.6em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.step-subheading {
+  margin: 0 20% 0.75em 20%;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.025em;
 }
 
 .center {
@@ -3812,7 +3856,14 @@ body.index #main {
     margin-right: 0em;
   }
 
-  .paragraph-center {
+  .paragraph-center,
+  .paragraph-center-list {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .step-heading,
+  .step-subheading {
     margin-left: 10%;
     margin-right: 10%;
   }
@@ -5610,6 +5661,25 @@ input[type='file'] {
   font-size: 0.95em;
 }
 
+.facilitator-guides-list {
+  max-width: 36em;
+  margin: 0 auto;
+  padding-left: 1.75em;
+  list-style: circle;
+  text-align: left;
+  font-size: 0.9em;
+  line-height: 1.6em;
+}
+
+.facilitator-guides-list li {
+  padding-left: 0.25em;
+  margin-bottom: 0.75em;
+}
+
+.facilitator-guides-list a {
+  font-weight: 700;
+}
+
 .facilitator-guides-links {
   display: flex;
   flex-wrap: wrap;
@@ -5766,3 +5836,541 @@ input[type='file'] {
   font-style: italic;
 }
 
+
+/* ------------------------------------------------------------------
+   Stoa registration form (/register): registration choice, terms
+   agreement, and Terms and Conditions popup
+------------------------------------------------------------------- */
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.registration-choice {
+  max-width: 40em;
+  margin: 0 auto 1em auto;
+  text-align: left;
+}
+
+.choice-card {
+  display: flex;
+  gap: 0.9em;
+  align-items: flex-start;
+  margin-bottom: 0.75em;
+  padding: 0.9em 1.1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  line-height: 1.5em;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.choice-card:hover {
+  border-color: #66023c;
+}
+
+.choice-card:has(input:checked) {
+  border-color: #66023c;
+  box-shadow: 0 0 0 1px #66023c;
+}
+
+.choice-card input[type='radio'] {
+  flex: none;
+  margin-top: 0.35em;
+  width: 1.1em;
+  height: 1.1em;
+  accent-color: #66023c;
+}
+
+.choice-text {
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+.registration-choice [hidden],
+.form-field-error[hidden],
+.submit-hint[hidden] {
+  display: none !important;
+}
+
+.choice-text strong {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-bottom: 0.15em;
+}
+
+.terms-agreement {
+  font-weight: 500;
+  margin: 0.25em 0 0.75em 2.9em;
+  padding: 0.9em 1.1em;
+  border-left: 3px solid #66023c;
+  background: rgba(102, 2, 60, 0.04);
+  font-size: 0.85em;
+  line-height: 1.5em;
+}
+
+.terms-agreement p {
+  margin: 0 0 0.6em 0;
+}
+
+.terms-agreement a {
+  font-weight: 700;
+}
+
+.terms-check {
+  display: flex;
+  gap: 0.7em;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.terms-check input[type='checkbox'] {
+  flex: none;
+  margin-top: 0.3em;
+  width: 1.1em;
+  height: 1.1em;
+  accent-color: #66023c;
+}
+
+.terms-check:has(input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.terms-check em {
+  display: block;
+  font-size: 0.9em;
+}
+
+/* Ready: filled in the site color so it's obvious the form can be sent */
+#existing-stoa input[type='submit']:not(.is-disabled):not(:disabled) {
+  background: #66023c;
+  border-color: #66023c;
+  color: #fff;
+}
+
+#existing-stoa input[type='submit']:not(.is-disabled):not(:disabled):hover {
+  background: #4d012d;
+}
+
+input[type='submit']:disabled,
+input[type='submit']:disabled:hover,
+input[type='submit'].is-disabled,
+input[type='submit'].is-disabled:hover {
+  cursor: pointer;
+  opacity: 0.4;
+  transform: none;
+  box-shadow: none;
+  background: none;
+}
+
+.submit-hint {
+  margin: 0.75em 0 0 0;
+  font-size: 0.75em;
+  line-height: 1.5em;
+  color: #666;
+}
+
+.form-field-error {
+  margin: 0.4em 0 0 0;
+  font-size: 0.8em;
+  font-weight: 700;
+  color: #b00020;
+}
+
+.terms-dialog {
+  width: min(46em, calc(100vw - 2em));
+  max-height: calc(100vh - 3em);
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  color: #313333;
+  text-align: left;
+}
+
+.terms-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.terms-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.terms-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6em 1.2em;
+  border-bottom: 1px solid #ddd;
+}
+
+.terms-dialog-header h2 {
+  margin: 0;
+  font-size: 1.1em;
+  letter-spacing: 0.025em;
+}
+
+.terms-dialog-close {
+  background: none;
+  border: none;
+  font-size: 1.6em;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+}
+
+.terms-dialog-body {
+  overflow-y: auto;
+  padding: 1em 1.4em;
+  font-size: 0.75em;
+  line-height: 1.6em;
+}
+
+.terms-dialog-body header h2 {
+  font-size: 1.3em;
+  letter-spacing: 0.025em;
+}
+
+.terms-dialog-body p,
+.terms-dialog-body ul,
+.terms-dialog-body ol {
+  margin-bottom: 1em;
+}
+
+.terms-dialog-body ul,
+.terms-dialog-body ol {
+  padding-left: 1.5em;
+  list-style: disc;
+}
+
+.terms-dialog-actions {
+  display: flex;
+  gap: 0.75em;
+  justify-content: flex-end;
+  padding: 0.6em 1.2em 0.9em;
+  border-top: 1px solid #ddd;
+}
+
+.terms-dialog-actions .button {
+  margin-top: 0;
+}
+
+#terms-agree {
+  background: #66023c;
+  border-color: #66023c;
+  color: #fff;
+}
+
+/* ------------------------------------------------------------------
+   Click-to-play YouTube embed (see assets/js/video-embed.js)
+------------------------------------------------------------------- */
+
+.video-figure {
+  max-width: 860px;
+  margin: 0 auto 3em auto;
+  padding: 0 1em;
+}
+
+.video-embed {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 0;
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 18px 45px -18px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+a.video-embed:hover {
+  border-bottom-color: transparent;
+}
+
+.video-embed img,
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-embed img {
+  object-fit: cover; /* crops the black bars YouTube adds to hqdefault thumbnails */
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+a.video-embed:hover img,
+a.video-embed:focus-visible img {
+  transform: scale(1.03);
+  filter: brightness(0.85);
+}
+
+.video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 76px;
+  height: 76px;
+  margin: -38px 0 0 -38px;
+  border-radius: 50%;
+  background: rgba(102, 2, 60, 0.9);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.video-play::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -13px 0 0 -8px;
+  border-style: solid;
+  border-width: 13px 0 13px 22px;
+  border-color: transparent transparent transparent #fff;
+}
+
+a.video-embed:hover .video-play,
+a.video-embed:focus-visible .video-play {
+  transform: scale(1.08);
+  background: #66023c;
+}
+
+a.video-embed:focus-visible {
+  outline: 3px solid #66023c;
+  outline-offset: 4px;
+}
+
+.video-figure figcaption {
+  margin-top: 0.9em;
+  text-align: center;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  color: #666;
+}
+
+@media screen and (max-width: 736px) {
+  .video-play {
+    width: 60px;
+    height: 60px;
+    margin: -30px 0 0 -30px;
+  }
+
+  .video-play::after {
+    margin: -10px 0 0 -6px;
+    border-width: 10px 0 10px 17px;
+  }
+}
+
+/* Roadmap "at a glance" checklist and closing hand-off (/start) */
+.roadmap-glance {
+  max-width: 46em;
+  margin: 0 auto 1em auto;
+  padding: 1.1em 1.6em 1.2em;
+  border: 1px solid #ddd;
+  border-left: 4px solid #66023c;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.roadmap-glance-title {
+  margin: 0 0 0.4em 0;
+  color: #66023c;
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.roadmap-glance ol {
+  margin: 0;
+  padding-left: 1.4em;
+  list-style: decimal;
+  font-size: 0.9em;
+  line-height: 1.9em;
+  columns: 2;
+  column-gap: 3em;
+}
+
+.roadmap-glance li {
+  break-inside: avoid;
+}
+
+@media screen and (max-width: 736px) {
+  .roadmap-glance {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .roadmap-glance ol {
+    columns: 1;
+  }
+}
+
+.roadmap-next {
+  max-width: 34em;
+  margin: 3em auto 2em auto;
+  padding: 1.2em 1.6em;
+  border-radius: 8px;
+  background: rgba(102, 2, 60, 0.06);
+  text-align: center;
+}
+
+.roadmap-next h3 {
+  margin: 0 0 0.3em 0;
+}
+
+.roadmap-next p {
+  margin: 0;
+}
+
+strong.lead-in {
+  font-weight: 700;
+}
+
+/* Numbered list variant for guide pages */
+.paragraph-center-list.numbered {
+  list-style: decimal;
+}
+
+.page-intro-links {
+  font-size: 0.85em;
+  text-align: center;
+}
+
+/* Homepage four doors: equal-height cards with buttons aligned along the
+   bottom, and a clean 2x2 grid on tablets (no float staggering). */
+#three-doors .four-doors {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#three-doors .four-doors > div {
+  display: flex;
+}
+
+#three-doors .four-doors section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#three-doors .four-doors section p {
+  flex: 1 0 auto;
+}
+
+/* Study filters footer: "Show more topics" and "More Filters" on one line,
+   divided by a thin rule (overrides the stacked full-width styles above). */
+.study-filters-footer {
+  flex: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0.25em 0 0 0;
+  padding: 0.4em 0 0 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.study-filters-footer .study-filters-more-topics,
+.study-filters-footer .study-filters-more-toggle {
+  flex: none;
+  width: auto;
+  margin: 0;
+  padding: 0.3em 1.1em;
+  border: 0;
+  background: none;
+  color: #666;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1.5em;
+  cursor: pointer;
+}
+
+.study-filters-footer .study-filters-more-topics[hidden] {
+  display: none;
+}
+
+.study-filters-footer .study-filters-more-topics:not([hidden]) + .study-filters-more-toggle {
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.study-filters-footer .study-filters-more-topics:hover,
+.study-filters-footer .study-filters-more-toggle:hover {
+  color: #66023c;
+}
+
+/* Chevrons on both footer links; flip when open (matches More Filters). */
+.study-filters-footer .study-filters-more-topics:not([hidden]) {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.study-filters-more-topics .fa {
+  transition: transform 0.2s ease-in-out;
+}
+
+.study-filters-more-topics[aria-expanded='true'] .fa {
+  transform: rotate(180deg);
+}
+
+/* /start: the section heading follows the page title directly (the video
+   moved to the bottom), so drop the extra top padding between them. */
+header.page-title + header.special.no-lines {
+  padding-top: 1em;
+}
+
+/* A section heading inside a page (e.g. "Your Roadmap to Starting a Stoa"):
+   one step down from the page title, and closer to the text it introduces. */
+header.special.section-title {
+  margin-bottom: 0.75em;
+}
+
+header.special.section-title h2 {
+  font-size: 1.45em;
+  letter-spacing: 0.06em;
+  line-height: 1.4em;
+}
+
+/* "Back to roadmap" / "Back to contents" links at the end of each step */
+.back-to-roadmap {
+  max-width: none;
+  margin: -1em 20% 0 20%;
+  text-align: right;
+  font-size: 0.75em;
+}
+
+.back-to-roadmap a {
+  color: #888;
+}
+
+.back-to-roadmap a:hover {
+  color: #66023c;
+}
+
+.back-to-roadmap .fa {
+  margin-left: 0.25em;
+  font-size: 0.9em;
+}
+
+@media screen and (max-width: 736px) {
+  .back-to-roadmap {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}

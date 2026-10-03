@@ -1,15 +1,15 @@
 ## About This Role
 
-Are you passionate about helping Stoic communities grow and thrive? The Stoic Fellowship is looking for Stoa Ambassadors to support the formation and sustainability of local and virtual Stoas (Stoic communities) around the world. As a Stoa Ambassador, you’ll work closely with aspiring and existing group leaders to provide guidance, encouragement, and connection to TSF’s global network.
+Are you passionate about helping Stoic communities grow and thrive? The Stoic Fellowship is looking for Stoa Ambassadors to support the formation and sustainability of local and virtual stoas (Stoic communities) around the world. As a Stoa Ambassador, you’ll work closely with aspiring and existing group leaders to provide guidance, encouragement, and connection to TSF’s global network.
 
 This role is ideal for someone who enjoys mentorship, values meaningful conversation, and wants to help Stoic communities flourish in alignment with timeless principles.
 
 ## Responsibilities
 
-- Support individuals who are interested in starting a new Stoa, offering advice and encouragement
-- Check in with existing Stoas and help them overcome common challenges in growth, sustainability, or community engagement
-- Share best practices and success stories from other Stoas around the world
-- Help new Stoas connect with helpful resources, volunteers, or opportunities within the Fellowship
+- Support individuals who are interested in starting a new stoa, offering advice and encouragement
+- Check in with existing stoas and help them overcome common challenges in growth, sustainability, or community engagement
+- Share best practices and success stories from other stoas around the world
+- Help new stoas connect with helpful resources, volunteers, or opportunities within the Fellowship
 - Collaborate with other TSF volunteers to strengthen the overall network of Stoic communities
 - Maintain alignment with Stoic virtues—especially justice, courage, and wisdom—in your guidance and communication
 

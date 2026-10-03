@@ -2,7 +2,7 @@
 
 Do you love crafting compelling emails and keeping communities informed and inspired? The Stoic Fellowship is looking for a volunteer Newsletter Editor to lead the production of our email newsletters—highlighting events, stories, resources, and Stoic reflections for a global audience.
 
-Your role will help ensure that our supporters, volunteers, and Stoa leaders stay connected, engaged, and aligned with our shared mission.
+Your role will help ensure that our supporters, volunteers, and stoa leaders stay connected, engaged, and aligned with our shared mission.
 
 ## Responsibilities
 
