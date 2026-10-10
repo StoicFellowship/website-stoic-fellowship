@@ -6374,3 +6374,89 @@ header.special.section-title h2 {
     margin-right: 10%;
   }
 }
+
+/* Run a Stoa: the three path cards (First Year / Topics and Formats /
+   Facilitator Resources). Same equal-height technique as #facilitator-pillars. */
+#run-paths .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+#run-paths .row:before,
+#run-paths .row:after {
+  content: none;
+}
+
+#run-paths .row > div {
+  display: flex;
+}
+
+#run-paths .pillar-card {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#run-paths .pillar-card > p {
+  flex: 1 0 auto;
+}
+
+/* The First Year: each month's guiding question */
+.month-question {
+  margin: 0 20% 1em 20%;
+  color: #66023c;
+  font-size: 1.05em;
+  font-style: italic;
+}
+
+/* The First Year: milestone call-outs between months */
+.milestone-callout {
+  margin: 2em 20% 0 20%;
+  padding: 0.9em 1.2em;
+  border-left: 4px solid #66023c;
+  border-radius: 6px;
+  background: rgba(102, 2, 60, 0.06);
+}
+
+.milestone-callout p {
+  margin: 0;
+}
+
+.milestone-callout .milestone-label {
+  margin-bottom: 0.2em;
+  color: #66023c;
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Get the Word Out: fill-in announcement template */
+.template-block {
+  margin: 0 20% 1.5em 20%;
+  padding: 1em 1.3em;
+  border: 1px dashed rgba(102, 2, 60, 0.4);
+  border-radius: 6px;
+  background: rgba(102, 2, 60, 0.04);
+  font-size: 0.9em;
+}
+
+.template-block p {
+  margin: 0 0 0.3em 0;
+}
+
+.template-block p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 736px) {
+  .month-question,
+  .milestone-callout,
+  .template-block {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
