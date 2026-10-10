@@ -6,3 +6,8 @@
 # the embed. frame-ancestors covers this and takes precedence.
 /embed/*
   Content-Security-Policy: frame-ancestors 'self' https://social.stoicfellowship.com https://*.mightynetworks.com
+
+# Archived pages, graphics and PDFs stay reachable by direct link but are kept
+# out of search results. (robots.txt also asks crawlers to skip /archive/.)
+/archive/*
+  X-Robots-Tag: noindex, nofollow
