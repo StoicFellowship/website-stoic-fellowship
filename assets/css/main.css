@@ -6461,8 +6461,9 @@ header.special.section-title h2 {
   }
 }
 
-/* ===== Session cards (The First Year, months 1-6) and kit step cards =====
-   Self-hosted Archivo + Public Sans, used only inside these components. */
+/* ===== Kit components: session cards (The First Year), step cards and
+   big-number steps (Start a Stoa, Run a Stoa). Self-hosted Archivo +
+   Public Sans, used only inside these components. ===== */
 
 @font-face { font-family: 'Archivo'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/archivo-latin-500-normal.woff2') format('woff2'); }
 @font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('../fonts/archivo-latin-700-normal.woff2') format('woff2'); }
@@ -6568,7 +6569,6 @@ header.special.section-title h2 {
   gap: 24px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
   padding: 6px 4px 18px 4px;
   scrollbar-width: none;
 }
@@ -6579,29 +6579,33 @@ header.special.section-title h2 {
   scroll-snap-align: center;
 }
 .session-deck-controls {
-  display: flex; justify-content: center; align-items: center; gap: 0.75em;
-  margin-top: 0.4em;
+  display: flex; justify-content: space-between; align-items: center; gap: 1em;
+  margin-top: 0.2em;
+  font-family: 'Public Sans', sans-serif;
 }
 .session-deck-controls .session-nav {
   -webkit-appearance: none; appearance: none;
-  width: 44px; height: 44px; min-width: 0; padding: 0; margin: 0;
-  border: 1px solid #d5dae0; border-radius: 50%;
+  display: inline-flex; align-items: center; gap: 0.5em;
+  height: 44px; min-width: 0; padding: 0 1.1em; margin: 0;
+  border: 1px solid #66023c; border-radius: 999px;
   background: #fff; color: #66023c; box-shadow: none;
-  font-size: 18px; line-height: 42px; text-align: center; letter-spacing: 0;
+  font-family: 'Public Sans', sans-serif; font-size: 15px; font-weight: 700;
+  letter-spacing: normal; text-transform: none; line-height: 1;
   cursor: pointer;
 }
-.session-deck-controls .session-nav:hover { border-color: #66023c; background: #f6e8ef; }
-.session-deck-controls .session-nav[disabled] { opacity: 0.35; cursor: default; background: #fff; border-color: #d5dae0; }
-.session-dots { display: flex; gap: 0.4em; margin: 0; padding: 0; list-style: none; }
-.session-dots li { margin: 0; padding: 0; }
-.session-dots a {
-  display: block; width: 34px; height: 34px; border-radius: 50%;
-  border: 1px solid #d5dae0; color: #4a5563; background: #fff;
-  font-size: 13px; font-weight: 700; line-height: 32px; text-align: center;
-  text-decoration: none;
+.session-deck-controls .session-next { background: #66023c; color: #fff; }
+.session-deck-controls .session-nav:hover { background: #f6e8ef; color: #66023c; }
+.session-deck-controls .session-next:hover { background: #4a0129; color: #fff; }
+.session-deck-controls .session-nav[disabled] { opacity: 0.35; cursor: default; background: #fff; color: #66023c; }
+.session-status {
+  margin: 0; text-align: center; line-height: 1.3;
+  display: flex; flex-direction: column; gap: 2px;
 }
-.session-dots a:hover { border-color: #66023c; color: #66023c; }
-.session-dots a[aria-current="true"] { background: #66023c; border-color: #66023c; color: #fff; }
+.session-status-num {
+  font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #66023c;
+}
+.session-status-title { font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: #17202b; }
 
 @media screen and (max-width: 736px) {
   .session-card { padding: 24px 20px; }
@@ -6610,10 +6614,11 @@ header.special.section-title h2 {
   .session-card .sc-agenda { flex-wrap: wrap; }
   .session-card .sc-seg { flex-basis: 40%; border-radius: 6px !important; }
   .session-card .sc-seg-main { flex-basis: 100%; }
-  .session-dots a { width: 30px; height: 30px; line-height: 28px; }
+  .session-deck-controls .session-nav span { display: none; }
+  .session-deck-controls .session-nav { width: 44px; padding: 0; justify-content: center; }
 }
 
-/* Start a Stoa: the four numbered step cards at the top of the roadmap */
+/* Numbered navigation cards (Start a Stoa: four; Run a Stoa guide: six) */
 .step-cards {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -6622,6 +6627,7 @@ header.special.section-title h2 {
   margin: 0 auto 1em auto;
   padding: 0 1em;
 }
+.step-cards.step-cards-six { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 52em; }
 .step-card {
   display: flex; flex-direction: column; gap: 6px;
   padding: 18px 18px 20px 18px;
@@ -6653,10 +6659,70 @@ header.special.section-title h2 {
 .step-card .step-card-text { font-size: 14px; color: #3a4452; }
 
 @media screen and (max-width: 980px) {
-  .step-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .step-cards, .step-cards.step-cards-six { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media screen and (max-width: 480px) {
-  .step-cards { grid-template-columns: minmax(0, 1fr); }
+  .step-cards, .step-cards.step-cards-six { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Big-number steps, styled after the Five Socratic Moves card */
+.num-steps {
+  max-width: 46em;
+  margin: 2em auto 0 auto;
+  padding: 0 1em;
+  color: #17202b;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  letter-spacing: normal;
+  text-align: left;
+}
+.num-step {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 20px;
+  padding: 24px 0;
+  border-top: 1px solid #d5dae0;
+  scroll-margin-top: 130px;
+}
+.num-step:last-child { border-bottom: 1px solid #d5dae0; }
+.num-step .num-step-num {
+  font-family: 'Archivo', sans-serif; font-size: 46px; font-weight: 800;
+  line-height: 1; color: #66023c;
+}
+.num-step .num-step-label {
+  margin: 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #4a5563;
+}
+.num-step .num-step-title {
+  margin: 2px 0 10px 0; padding: 0; border: 0;
+  font-family: 'Archivo', sans-serif; font-size: 24px; font-weight: 700;
+  line-height: 1.2; letter-spacing: normal; text-transform: none; color: #17202b;
+}
+.num-step .num-step-sub {
+  margin: 1em 0 0.35em 0;
+  font-family: 'Archivo', sans-serif; font-size: 17px; font-weight: 700;
+  letter-spacing: normal; text-transform: none; color: #17202b;
+}
+.num-step p { margin: 0 0 0.7em 0; }
+.num-step ul, .num-step ol { margin: 0 0 0.7em 0; padding-left: 1.3em; }
+.num-step ul { list-style: disc; }
+.num-step ol { list-style: decimal; }
+.num-step li { margin: 0 0 0.35em 0; padding-left: 0.15em; }
+.num-step a { color: #66023c; }
+.num-step strong { font-weight: 700; }
+.num-step em { font-style: italic; }
+.num-step .button { margin-top: 0.3em; }
+.num-step .num-step-note {
+  margin-top: 0.8em; padding: 12px 16px; border-radius: 10px;
+  background: #f6e8ef; font-size: 15px;
+}
+.num-step .num-step-note p:last-child { margin-bottom: 0; }
+
+@media screen and (max-width: 736px) {
+  .num-step { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; }
+  .num-step .num-step-num { font-size: 34px; }
+  .num-step .num-step-title { font-size: 21px; }
 }
 
 .milestone-callout p + p {
