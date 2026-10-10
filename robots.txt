@@ -1,5 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: /archive/
 
 # Sitemap location
 Sitemap: https://stoicfellowship.com/sitemap.xml
