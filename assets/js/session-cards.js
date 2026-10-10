@@ -19,7 +19,7 @@
 
   function mark(i) {
     current = i;
-    num.textContent = 'Month ' + (i + 1) + ' of ' + cards.length;
+    num.textContent = 'Session ' + (i + 1) + ' of ' + cards.length;
     title.textContent = cards[i].getAttribute('data-title');
     prev.disabled = i === 0;
     next.disabled = i === cards.length - 1;

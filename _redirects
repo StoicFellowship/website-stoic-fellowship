@@ -35,4 +35,8 @@
 /info/pdf/Hosting%20a%20Stoicon-X%20Event.pdf  /  301
 /info/*  /  301
 
+# Recommended Topics became Topic Ideas at /topics (forced: the old file may still exist)
+/recommended-topics  /topics  301!
+/recommended-topics.html  /topics  301!
+
 /*  /404  404

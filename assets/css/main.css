@@ -6884,6 +6884,93 @@ header.special.section-title h2 {
 
 .role-card-wrap { padding: 0 1em; }
 
+/* Level of guidance badge (Guided / Semi-Guided / Self-Guided) */
+.level-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin: 0 0 0.6em 0; padding: 5px 14px; border-radius: 999px;
+  background: #f6e8ef; color: #4a0129;
+  font-family: 'Public Sans', sans-serif; font-size: 12.5px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.2;
+}
+.level-badge .level-dots { display: inline-flex; gap: 4px; }
+.level-badge .level-dots i {
+  display: block; width: 9px; height: 9px; border-radius: 50%;
+  border: 1.5px solid #66023c; background: transparent;
+}
+.level-badge .level-dots i.on { background: #66023c; }
+header.special.page-title p.level-badge { display: flex; width: fit-content; margin: 0.4em auto 0.8em auto; }
+#run-paths .pillar-card > .level-badge { flex: 0 0 auto; }
+#each-meeting { margin-top: 2em; }
+#run-paths .pillar-card .level-badge { margin: 0.6em 0 0 0; }
+
+/* Run a Stoa: Facilitator Resources band (for every level) */
+.resources-band {
+  display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: 24px; align-items: center;
+  max-width: 60em; margin: 0 auto 1em auto; padding: 22px 28px;
+  border-radius: 14px; background: #fff; border-left: 6px solid #66023c;
+  box-shadow: 0 1px 3px rgba(23, 32, 43, 0.12);
+  font-family: 'Public Sans', sans-serif; color: #17202b; text-align: left; letter-spacing: normal;
+}
+.resources-band img { width: 96px; height: 96px; }
+.resources-band .rb-label {
+  margin: 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #66023c;
+}
+.resources-band h3 {
+  margin: 2px 0 6px 0; padding: 0; border: 0;
+  font-family: 'Archivo', sans-serif; font-size: 24px; font-weight: 800;
+  letter-spacing: normal; text-transform: none; color: #17202b; line-height: 1.2;
+}
+.resources-band p { margin: 0; font-size: 16px; line-height: 1.5; }
+.resources-band .button { margin: 0; white-space: nowrap; }
+@media screen and (max-width: 736px) {
+  .resources-band { grid-template-columns: 64px minmax(0, 1fr); margin: 0 1em 1em 1em; padding: 18px; }
+  .resources-band img { width: 64px; height: 64px; }
+  .resources-band .button { grid-column: 1 / -1; justify-self: start; }
+}
+
+/* Meeting Guides (semi-guided library) */
+.guide-groups {
+  max-width: 56em; margin: 2em auto 0 auto; padding: 0 1em;
+  font-family: 'Public Sans', sans-serif; color: #17202b; letter-spacing: normal; text-align: left;
+}
+.guide-group { padding: 26px 0; border-top: 1px solid #d5dae0; scroll-margin-top: 130px; }
+.guide-group:last-child { border-bottom: 1px solid #d5dae0; }
+.guide-group-head { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 20px; margin-bottom: 16px; }
+.guide-group-head .num-step-num { font-family: 'Archivo', sans-serif; font-size: 46px; font-weight: 800; line-height: 1; color: #66023c; }
+.guide-group-head .num-step-label { margin: 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4a5563; }
+.guide-group-head .num-step-title { margin: 2px 0 6px 0; padding: 0; border: 0; font-family: 'Archivo', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: normal; text-transform: none; color: #17202b; }
+.guide-group-desc { margin: 0; font-size: 16px; line-height: 1.5; color: #3a4452; }
+.guide-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.guide-tile {
+  background: #fff; border-radius: 12px; border-top: 4px solid #66023c;
+  box-shadow: 0 1px 3px rgba(23, 32, 43, 0.12); scroll-margin-top: 130px;
+}
+.guide-tile[open] { grid-column: 1 / -1; }
+.guide-tile > summary {
+  list-style: none; cursor: pointer; position: relative;
+  display: flex; flex-direction: column; gap: 4px; padding: 16px 48px 16px 18px;
+}
+.guide-tile > summary::-webkit-details-marker { display: none; }
+.guide-tile > summary:hover .gt-title { color: #66023c; }
+.guide-tile > summary:focus-visible { outline: 2px solid #66023c; outline-offset: 2px; border-radius: 10px; }
+.guide-tile[open] > summary { border-bottom: 1px solid #eef1f4; }
+.gt-meta { font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4a5563; }
+.gt-title { font-family: 'Archivo', sans-serif; font-size: 20px; font-weight: 700; line-height: 1.2; color: #17202b; }
+.gt-q { font-size: 15px; line-height: 1.4; color: #4a5563; }
+.gt-open { position: absolute; top: 18px; right: 18px; width: 22px; height: 22px; border-radius: 50%; background: #f6e8ef; }
+.gt-open::before {
+  content: ''; position: absolute; left: 7px; top: 5px; width: 6px; height: 6px;
+  border-right: 2px solid #66023c; border-bottom: 2px solid #66023c; transform: rotate(45deg);
+}
+.guide-tile[open] .gt-open::before { top: 8px; transform: rotate(-135deg); }
+.guide-tile .session-card { box-shadow: none; border-radius: 0 0 12px 12px; }
+@media screen and (max-width: 736px) {
+  .guide-tiles { grid-template-columns: minmax(0, 1fr); }
+  .guide-group-head { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; }
+  .guide-group-head .num-step-num { font-size: 34px; }
+}
+
 /* Site-wide: text links are bold so they stand out from running text.
    Navigation, menus, the footer, buttons, and card-style links keep their
    own weights (reset below). */
