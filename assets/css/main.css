@@ -6883,3 +6883,24 @@ header.special.section-title h2 {
 }
 
 .role-card-wrap { padding: 0 1em; }
+
+/* Site-wide: text links are bold so they stand out from running text.
+   Navigation, menus, the footer, buttons, and card-style links keep their
+   own weights (reset below). */
+p a:not(.button):not(.video-embed),
+li a:not(.button),
+td a,
+dd a,
+blockquote a,
+figcaption a {
+  font-weight: 700;
+}
+body #header a,
+body #nav a,
+body .dropotron a,
+body #navPanel a,
+body #titleBar a,
+body #footer a,
+body .icons a {
+  font-weight: inherit;
+}
