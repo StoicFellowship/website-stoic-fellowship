@@ -6768,3 +6768,19 @@ header.special.section-title h2 {
 .num-steps-compact > .num-step-note a { color: #66023c; }
 .num-steps-compact > .num-step-note strong { font-weight: 700; }
 .step-card em { font-style: italic; }
+
+/* Five navigation cards (Get the Word Out) */
+.step-cards.step-cards-five { grid-template-columns: repeat(5, minmax(0, 1fr)); max-width: 64em; }
+@media screen and (max-width: 1100px) {
+  .step-cards.step-cards-five { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media screen and (max-width: 736px) {
+  .step-cards.step-cards-five { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media screen and (max-width: 480px) {
+  .step-cards.step-cards-five { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Announcement template inside a numbered step */
+.num-step .template-block { margin: 0 0 0.8em 0; font-size: 15px; }
+.num-step .template-block p { margin: 0 0 0.3em 0; }
