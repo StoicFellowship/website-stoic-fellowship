@@ -7037,3 +7037,7 @@ body .icons a {
 .guide-tiles.y2-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media screen and (max-width: 980px) { .guide-tiles.y2-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media screen and (max-width: 736px) { .guide-tiles.y2-tiles { grid-template-columns: minmax(0, 1fr); } }
+
+/* Buttons inside numbered steps: full-size, with room at the sides */
+.num-step .button { padding: 0 1.6em; white-space: nowrap; color: #66023c; }
+.num-step .button:hover { background: #66023c; color: #fff; }
