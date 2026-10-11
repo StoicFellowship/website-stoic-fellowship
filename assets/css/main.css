@@ -6991,3 +6991,40 @@ body #footer a,
 body .icons a {
   font-weight: inherit;
 }
+
+/* Guided Year: year two (The Stoic Practice) */
+.year-two {
+  scroll-margin-top: 130px; max-width: 56em; margin: 3em auto 0 auto; padding: 0 1em;
+  font-family: 'Public Sans', sans-serif; color: #17202b; letter-spacing: normal; text-align: left;
+}
+.year-two .num-steps-eyebrow {
+  margin: 0; color: #66023c; font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.year-two .num-steps-heading {
+  margin: 2px 0 10px 0; padding: 0; border: 0;
+  font-family: 'Archivo', sans-serif; font-size: 28px; font-weight: 800;
+  line-height: 1.2; letter-spacing: normal; text-transform: none; color: #17202b;
+}
+.year-two .y2-intro { margin: 0 0 18px 0; font-size: 16px; line-height: 1.55; color: #3a4452; max-width: 44em; }
+.y2-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.y2-quarter {
+  background: #fff; border-radius: 12px; border-top: 4px solid #66023c;
+  box-shadow: 0 1px 3px rgba(23, 32, 43, 0.12); padding: 16px 16px 6px 16px;
+}
+.y2-quarter .y2-virtue {
+  margin: 0; font-family: 'Archivo', sans-serif; font-size: 20px; font-weight: 800; line-height: 1.2; color: #66023c;
+}
+.y2-quarter .y2-months {
+  margin: 0 0 10px 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4a5563;
+}
+.y2-quarter ol { list-style: none; margin: 0; padding: 0; }
+.y2-quarter li { margin: 0; padding: 10px 0; border-top: 1px solid #eef1f4; line-height: 1.3; }
+.y2-quarter .y2-field {
+  display: block; margin-bottom: 3px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: #4a5563;
+}
+.y2-quarter li a { font-size: 15px; color: #17202b; border-bottom: 0; }
+.y2-quarter li a:hover { color: #66023c; }
+.year-two .y2-links { margin: 14px 0 0 0; font-size: 14px; line-height: 1.6; color: #4a5563; }
+@media screen and (max-width: 980px) { .y2-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media screen and (max-width: 520px) { .y2-grid { grid-template-columns: minmax(0, 1fr); } }
