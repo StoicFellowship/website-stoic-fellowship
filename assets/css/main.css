@@ -7041,3 +7041,70 @@ body .icons a {
 /* Buttons inside numbered steps: full-size, with room at the sides */
 .num-step .button { padding: 0 1.6em; white-space: nowrap; color: #66023c; }
 .num-step .button:hover { background: #66023c; color: #fff; }
+
+/* ===== Member Stoa Badge page (/member-badge) ===== */
+.badge-downloads {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0.4em 0 1.2em 0;
+}
+.badge-option {
+  display: flex; flex-direction: column;
+  padding: 14px; border: 1px solid #d5dae0; border-radius: 12px; background: #fff;
+}
+.badge-preview {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 120px; padding: 22px 18px; margin-bottom: 12px; border-radius: 8px;
+}
+.badge-preview img { display: block; width: 100%; max-width: 300px; height: auto; }
+.badge-preview-light { background: #f3f4f6; }
+.badge-preview-dark { background: #fff; border: 1px dashed #d5dae0; }
+.num-step .badge-name {
+  margin: 0; font-family: 'Archivo', sans-serif; font-size: 18px; font-weight: 700; color: #17202b;
+}
+.num-step .badge-desc { margin: 0 0 12px 0; font-size: 14px; color: #3a4452; }
+.badge-files { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: auto; }
+.num-step a.badge-file {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 10px 12px; border: 1px solid #66023c; border-radius: 8px;
+  color: #66023c; text-decoration: none; line-height: 1.25;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.num-step a.badge-file:hover { background: #66023c; border-color: #66023c; color: #fff; }
+.badge-file .badge-format { font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 800; letter-spacing: 0.04em; }
+.badge-file .badge-format:before { content: '\2193\00a0'; }
+.badge-file .badge-use { font-size: 12.5px; font-weight: 400; }
+
+.badge-code { position: relative; margin: 0.2em 0 1em 0; }
+.badge-code pre {
+  margin: 0; padding: 14px 16px; overflow-x: auto;
+  border-radius: 8px; background: #1f1a1e; color: #f3e9ef;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13.5px; line-height: 1.5; white-space: pre;
+}
+.badge-code pre code { background: none; border: 0; padding: 0; color: inherit; font: inherit; }
+.num-step p code {
+  padding: 1px 5px; border-radius: 4px; background: #f6e8ef; color: #66023c;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.88em;
+}
+.badge-copy {
+  position: absolute; top: 8px; right: 8px;
+  padding: 4px 12px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08); color: #fff;
+  font-family: 'Public Sans', sans-serif; font-size: 12.5px; font-weight: 700; cursor: pointer;
+}
+.badge-copy:hover { background: rgba(255, 255, 255, 0.2); }
+
+.badge-clearspace { margin: 0.4em 0 1em 0; text-align: center; }
+.badge-clearspace-box {
+  display: inline-block; padding: 8px; max-width: 100%;
+  outline: 1px dashed #66023c; outline-offset: 0;
+  background: repeating-linear-gradient(45deg, #f6e8ef 0 6px, #fff 6px 12px);
+}
+.badge-clearspace-box img { display: block; width: 300px; max-width: 100%; height: auto; }
+.badge-clearspace figcaption { margin-top: 8px; font-size: 13.5px; color: #4a5563; }
+
+@media screen and (max-width: 736px) {
+  .badge-downloads { grid-template-columns: minmax(0, 1fr); }
+}
