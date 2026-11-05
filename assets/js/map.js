@@ -126,8 +126,7 @@ function buildSeekerMarker(seeker) {
 function buildClusterMarker(group, kind) {
   const count = group.items.length
   const isStoa = kind === 'stoa'
-  const hasMember = isStoa && group.items.some((item) => item.status === 'Member Stoa')
-  const fill = isStoa ? (hasMember ? '#880E4F' : '#E65100') : '#008080'
+  const fill = '#66023C' // TSF brand color — a cluster badge is its own visual category, not a status color
 
   const el = document.createElement('div')
   el.className = `custom-marker cluster-marker ${isStoa ? 'stoa-marker' : 'seeker-marker'}`
@@ -225,6 +224,11 @@ function spiderfyOffsets(count) {
           const [dx, dy] = offsets[i]
           const point = map.unproject([origin.x + dx, origin.y + dy])
           const marker = buildMarkerFn(item).setLngLat(point)
+          // Marker clicks bubble up to the map's own click handler (a known
+          // mapbox-gl-js quirk — github.com/mapbox/mapbox-gl-js/issues/9624),
+          // which would otherwise collapse this group right back before its
+          // popup can open.
+          marker.getElement().addEventListener('click', (e) => e.stopPropagation())
           marker.addTo(map)
           markers.push(marker)
           legs.push({
