@@ -50,8 +50,11 @@ function resolveView() {
 // within ~45m of each other (plenty to catch "same city" geocodes without
 // merging two genuinely distinct nearby towns) so they render as a single
 // badge showing a count, which "spiderfies" into individual markers on click.
-// Stoas and seekers are grouped separately, so a stoa and a seeker sharing a
-// spot never get merged into one ambiguous badge.
+// Stoas and seekers are grouped together here — a spot with both shows one
+// badge with the combined count (see buildClusterMarker for how its color
+// reflects what's actually inside it), and clicking it spiderfies into every
+// individual marker with its own icon, color and popup, so nothing is
+// actually ambiguous once you open the group.
 const GROUP_PRECISION = 0.0004
 
 function groupByProximity(items) {
@@ -64,6 +67,14 @@ function groupByProximity(items) {
     else groups.push({ lat: item.lat, lng: item.lng, items: [item] })
   })
   return groups
+}
+
+// The category an item counts as for cluster-coloring/labeling purposes:
+// a seeker has no sub-status, while a stoa is either a member or other
+// active stoa.
+function categoryOf(item) {
+  if (item.kind === 'seeker') return 'seeker'
+  return item.status === 'Member Stoa' ? 'member' : 'active'
 }
 
 function buildStoaMarker(stoa) {
@@ -131,33 +142,52 @@ function buildSeekerMarker(seeker) {
     )
 }
 
+// Dispatches to the right marker builder for an item coming out of a
+// (possibly mixed) group — tagged with kind: 'stoa' or 'seeker' when the
+// combined list was built.
+function buildMarkerForItem(item) {
+  return item.kind === 'seeker' ? buildSeekerMarker(item) : buildStoaMarker(item)
+}
+
+function pluralize(count, singular, plural) {
+  return count === 1 ? singular : plural || `${singular}s`
+}
+
 // A grouped marker shown in place of 2+ overlapping stoas/seekers. Clicking it
 // "spiderfies" the group: the badge is swapped for the individual markers,
 // fanned out around the shared point with thin leg lines back to it, so each
 // one keeps its normal icon and popup. Clicking empty map collapses it again.
-function buildClusterMarker(group, kind) {
+function buildClusterMarker(group) {
   const count = group.items.length
-  const isStoa = kind === 'stoa'
 
-  // A cluster badge takes on the color of what it contains: the status color
-  // when every item in it agrees, or a distinct "mixed" color when a group
-  // has both Member and Other Active stoas. Seekers have no sub-status, so a
-  // seeker cluster is always teal.
-  let fill
-  if (!isStoa) {
-    fill = '#247A78'
-  } else {
-    const hasMember = group.items.some((item) => item.status === 'Member Stoa')
-    const hasOther = group.items.some((item) => item.status !== 'Member Stoa')
-    fill = hasMember && hasOther ? '#505D6B' : hasMember ? '#66023C' : '#C45A20'
-  }
+  // A cluster badge takes on the color of what it contains: the single
+  // category's color when every item in the group agrees (all member stoas,
+  // all other active stoas, or all seekers), or the "mixed" slate color as
+  // soon as the group spans more than one of those three categories —
+  // including a stoa and a seeker sharing a spot, not just two stoa statuses.
+  const categories = new Set(group.items.map(categoryOf))
+  const fill =
+    categories.size > 1
+      ? '#505D6B'
+      : categories.has('member')
+      ? '#66023C'
+      : categories.has('active')
+      ? '#C45A20'
+      : '#247A78'
+
+  const memberCount = group.items.filter((item) => categoryOf(item) === 'member').length
+  const activeCount = group.items.filter((item) => categoryOf(item) === 'active').length
+  const seekerCount = group.items.filter((item) => categoryOf(item) === 'seeker').length
+
+  const parts = []
+  if (memberCount) parts.push(`${memberCount} ${pluralize(memberCount, 'member stoa')}`)
+  if (activeCount) parts.push(`${activeCount} other active ${pluralize(activeCount, 'stoa')}`)
+  if (seekerCount) parts.push(`${seekerCount} ${pluralize(seekerCount, 'stoic')} seeking a stoa`)
 
   const el = document.createElement('div')
-  el.className = `custom-marker cluster-marker ${isStoa ? 'stoa-marker' : 'seeker-marker'}`
+  el.className = `custom-marker cluster-marker ${categories.size > 1 ? 'mixed-marker' : categories.has('seeker') ? 'seeker-marker' : 'stoa-marker'}`
   el.style.cursor = 'pointer'
-  el.title = isStoa
-    ? `${count} stoas here — click to see each one`
-    : `${count} stoics seeking a stoa here — click to see each one`
+  el.title = `${parts.join(', ')} here — click to see each one`
   el.innerHTML = `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34">
       <circle cx="12" cy="12" r="11" fill="${fill}" stroke="#fff" stroke-width="1.5" />
@@ -235,7 +265,7 @@ function spiderfyOffsets(count) {
         updateLegs()
       }
 
-      function expandGroup(group, clusterMarker, buildMarkerFn) {
+      function expandGroup(group, clusterMarker) {
         collapseAll()
 
         clusterMarker.remove()
@@ -247,7 +277,7 @@ function spiderfyOffsets(count) {
         group.items.forEach((item, i) => {
           const [dx, dy] = offsets[i]
           const point = map.unproject([origin.x + dx, origin.y + dy])
-          const marker = buildMarkerFn(item).setLngLat(point)
+          const marker = buildMarkerForItem(item).setLngLat(point)
           marker.addTo(map)
           markers.push(marker)
           legs.push({
@@ -277,16 +307,16 @@ function spiderfyOffsets(count) {
         collapseAll()
       })
 
-      function renderGroups(groups, kind, buildMarkerFn) {
+      function renderGroups(groups) {
         groups.forEach((group) => {
           if (group.items.length === 1) {
-            buildMarkerFn(group.items[0]).addTo(map)
+            buildMarkerForItem(group.items[0]).addTo(map)
             return
           }
 
-          const clusterMarker = buildClusterMarker(group, kind).addTo(map)
+          const clusterMarker = buildClusterMarker(group).addTo(map)
           clusterMarker.getElement().addEventListener('click', () => {
-            expandGroup(group, clusterMarker, buildMarkerFn)
+            expandGroup(group, clusterMarker)
           })
         })
       }
@@ -294,8 +324,11 @@ function spiderfyOffsets(count) {
       fetch('/.netlify/functions/get-map-data')
         .then((r) => r.json())
         .then(({ stoas = [], seekers = [] }) => {
-          renderGroups(groupByProximity(stoas), 'stoa', buildStoaMarker)
-          renderGroups(groupByProximity(seekers), 'seeker', buildSeekerMarker)
+          const items = [
+            ...stoas.map((stoa) => ({ ...stoa, kind: 'stoa' })),
+            ...seekers.map((seeker) => ({ ...seeker, kind: 'seeker' })),
+          ]
+          renderGroups(groupByProximity(items))
         })
         .catch((error) => console.error('Error loading map data:', error))
     })
