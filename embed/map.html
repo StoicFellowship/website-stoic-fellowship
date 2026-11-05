@@ -41,6 +41,16 @@
       z-index: 2 !important;
     }
 
+    .mapboxgl-marker.cluster-marker {
+      z-index: 3 !important;
+    }
+
+    /* See main.css for the full comment on this rule. */
+    .mapboxgl-marker.spiderfied-marker {
+      z-index: 5 !important;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
+    }
+
     .mapboxgl-popup {
       width: 250px;
       max-width: 250px !important;
@@ -66,9 +76,9 @@
       box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28), 0 8px 18px rgba(0, 0, 0, 0.14) !important;
     }
 
-    .popup-member { --popup-accent: #880E4F; }
-    .popup-active { --popup-accent: #E65100; }
-    .popup-seeker { --popup-accent: #008080; }
+    .popup-member { --popup-accent: #66023C; }
+    .popup-active { --popup-accent: #C45A20; }
+    .popup-seeker { --popup-accent: #247A78; }
 
     .popup-body {
       padding: 16px 20px 18px;
@@ -96,6 +106,12 @@
       font-size: 14px;
       color: #666;
       margin: 0;
+    }
+
+    .popup-meta {
+      font-size: 12px;
+      color: #999;
+      margin: 4px 0 0;
     }
 
     .popup-tag {
@@ -193,6 +209,6 @@
   <!-- Versioned: this page is served no-cache but map.js is cached for 4h, so
        without a version bump the fresh HTML runs a stale script. Bump ?v= on
        any change to map.js that the embed depends on. See CLAUDE.md. -->
-  <script src="/assets/js/map.js?v=20260726"></script>
+  <script src="/assets/js/map.js?v=20261105e"></script>
 </body>
 </html>

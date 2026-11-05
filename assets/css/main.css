@@ -4078,6 +4078,21 @@ dd {
   z-index: 2 !important;
 }
 
+.mapboxgl-marker.cluster-marker {
+  z-index: 3 !important;
+}
+
+/* Applied only to a currently-spiderfied group's individual markers (see
+   map.js expandGroup). Lifted above every other marker on the map, including
+   ones that have nothing to do with this group, and given a drop shadow so a
+   fanned-out marker landing near an unrelated nearby marker still reads as
+   clearly separate from (and in front of) it. Stays below .mapboxgl-popup's
+   z-index so an open popup is never hidden behind a marker. */
+.mapboxgl-marker.spiderfied-marker {
+  z-index: 5 !important;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
+}
+
 .mapboxgl-popup {
   width: 250px;
   max-width: 250px !important;
@@ -4103,9 +4118,9 @@ dd {
   box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28), 0 8px 18px rgba(0, 0, 0, 0.14) !important;
 }
 
-.popup-member { --popup-accent: #880E4F; }
-.popup-active { --popup-accent: #E65100; }
-.popup-seeker { --popup-accent: #008080; }
+.popup-member { --popup-accent: #66023C; }
+.popup-active { --popup-accent: #C45A20; }
+.popup-seeker { --popup-accent: #247A78; }
 
 .popup-body {
   padding: 16px 20px 18px;
@@ -4133,6 +4148,12 @@ dd {
   font-size: 14px;
   color: #666;
   margin: 0;
+}
+
+.popup-meta {
+  font-size: 12px;
+  color: #999;
+  margin: 4px 0 0;
 }
 
 .popup-tag {
