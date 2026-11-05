@@ -126,7 +126,19 @@ function buildSeekerMarker(seeker) {
 function buildClusterMarker(group, kind) {
   const count = group.items.length
   const isStoa = kind === 'stoa'
-  const fill = '#66023C' // TSF brand color — a cluster badge is its own visual category, not a status color
+
+  // A cluster badge takes on the color of what it contains: the status color
+  // when every item in it agrees, or a distinct "mixed" color when a group
+  // has both Member and Other Active stoas. Seekers have no sub-status, so a
+  // seeker cluster is always teal.
+  let fill
+  if (!isStoa) {
+    fill = '#008080'
+  } else {
+    const hasMember = group.items.some((item) => item.status === 'Member Stoa')
+    const hasOther = group.items.some((item) => item.status !== 'Member Stoa')
+    fill = hasMember && hasOther ? '#1565C0' : hasMember ? '#66023C' : '#E65100'
+  }
 
   const el = document.createElement('div')
   el.className = `custom-marker cluster-marker ${isStoa ? 'stoa-marker' : 'seeker-marker'}`
@@ -224,11 +236,6 @@ function spiderfyOffsets(count) {
           const [dx, dy] = offsets[i]
           const point = map.unproject([origin.x + dx, origin.y + dy])
           const marker = buildMarkerFn(item).setLngLat(point)
-          // Marker clicks bubble up to the map's own click handler (a known
-          // mapbox-gl-js quirk — github.com/mapbox/mapbox-gl-js/issues/9624),
-          // which would otherwise collapse this group right back before its
-          // popup can open.
-          marker.getElement().addEventListener('click', (e) => e.stopPropagation())
           marker.addTo(map)
           markers.push(marker)
           legs.push({
@@ -247,8 +254,16 @@ function spiderfyOffsets(count) {
         updateLegs()
       }
 
-      // Clicking empty map (not a marker) collapses any open spiderfied group.
-      map.on('click', () => collapseAll())
+      // Mapbox's own Marker toggles its popup through this same map 'click'
+      // event (bound internally when the marker is added to the map), so we
+      // can't stop the click from reaching the map without also breaking
+      // popups. Instead, only collapse when the click didn't land on any
+      // marker — mirroring how Mapbox itself decides whether a click was
+      // "on" a marker.
+      map.on('click', (e) => {
+        if (e.originalEvent.target.closest('.custom-marker')) return
+        collapseAll()
+      })
 
       function renderGroups(groups, kind, buildMarkerFn) {
         groups.forEach((group) => {
@@ -258,8 +273,7 @@ function spiderfyOffsets(count) {
           }
 
           const clusterMarker = buildClusterMarker(group, kind).addTo(map)
-          clusterMarker.getElement().addEventListener('click', (e) => {
-            e.stopPropagation() // don't let this reach the map's own click handler and collapse it right back
+          clusterMarker.getElement().addEventListener('click', () => {
             expandGroup(group, clusterMarker, buildMarkerFn)
           })
         })
