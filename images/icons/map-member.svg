@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Creator: CorelDRAW -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.716598in" height="0.716598in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-viewBox="0 0 127.99 127.99"
+<!-- Creator: CorelDRAW 2026 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.716535in" height="0.716535in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 716.59 716.59"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
  <defs>
   <style type="text/css">
    <![CDATA[
+    .fil0 {fill:#63022C}
     .fil1 {fill:white}
-    .fil0 {fill:#65113F}
    ]]>
   </style>
  </defs>
  <g id="Layer_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
   <g>
-   <path class="fil0" d="M64 3.72c33.29,0 60.27,26.99 60.27,60.27 0,33.29 -26.99,60.27 -60.27,60.27 -33.29,0 -60.27,-26.99 -60.27,-60.27 0,-33.29 26.99,-60.27 60.27,-60.27z"/>
-   <path id="_1" class="fil1" d="M64 0c17.67,0 33.67,7.16 45.25,18.74 11.58,11.58 18.74,27.58 18.74,45.25 0,17.67 -7.16,33.67 -18.74,45.25 -11.58,11.58 -27.58,18.74 -45.25,18.74 -17.67,0 -33.67,-7.16 -45.25,-18.74 -11.58,-11.58 -18.74,-27.58 -18.74,-45.25 0,-17.67 7.16,-33.67 18.74,-45.25 11.58,-11.58 27.58,-18.74 45.25,-18.74zm0 3.72c33.29,0 60.27,26.99 60.27,60.27 0,33.29 -26.99,60.27 -60.27,60.27 -33.29,0 -60.27,-26.99 -60.27,-60.27 0,-33.29 26.99,-60.27 60.27,-60.27z"/>
+   <path class="fil0" d="M358.3 20.83c186.4,0 337.47,151.13 337.47,337.47 0,186.4 -151.13,337.47 -337.47,337.47 -186.4,0 -337.47,-151.13 -337.47,-337.47 0,-186.4 151.13,-337.47 337.47,-337.47z"/>
+   <path id="_1" class="fil1" d="M358.3 0c98.94,0 188.53,40.09 253.37,104.93 64.84,64.84 104.93,154.43 104.93,253.37 0,98.94 -40.09,188.53 -104.93,253.37 -64.84,64.84 -154.43,104.93 -253.37,104.93 -98.94,0 -188.53,-40.09 -253.37,-104.93 -64.84,-64.84 -104.93,-154.43 -104.93,-253.37 0,-98.94 40.09,-188.53 104.93,-253.37 64.84,-64.84 154.43,-104.93 253.37,-104.93zm0 20.83c186.4,0 337.47,151.13 337.47,337.47 0,186.4 -151.13,337.47 -337.47,337.47 -186.4,0 -337.47,-151.13 -337.47,-337.47 0,-186.4 151.13,-337.47 337.47,-337.47z"/>
   </g>
-  <polygon class="fil1" points="64,28.01 72.83,51.84 98.22,52.87 78.29,68.64 85.15,93.11 64,79.02 42.84,93.11 49.7,68.64 29.77,52.87 55.16,51.84 "/>
+  <polygon class="fil1" points="358.3,156.83 407.74,290.27 549.9,296.03 438.31,384.34 476.72,521.35 358.3,442.46 239.81,521.35 278.23,384.34 166.63,296.03 308.8,290.27 "/>
  </g>
 </svg>
