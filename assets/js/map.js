@@ -74,14 +74,14 @@ function buildStoaMarker(stoa) {
   if (stoa.status === 'Member Stoa') {
     el.innerHTML = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
-        <circle cx="12" cy="12" r="10" fill="#880E4F" />
+        <circle cx="12" cy="12" r="10" fill="#66023C" />
         <path d="M12 4.5l1.76 5.44h5.72l-4.63 3.37 1.76 5.44-4.63-3.37-4.63 3.37 1.76-5.44-4.63-3.37h5.72L12 4.5z" fill="white"/>
       </svg>
     `
   } else {
     el.innerHTML = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
-        <circle cx="12" cy="12" r="10" fill="#E65100" />
+        <circle cx="12" cy="12" r="10" fill="#C45A20" />
         <rect x="9.5" y="9.5" width="5" height="5" fill="white"/>
       </svg>
     `
@@ -113,7 +113,7 @@ function buildSeekerMarker(seeker) {
   el.style.cursor = 'pointer'
   el.innerHTML = `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12">
-      <circle cx="12" cy="12" r="10" fill="#008080" />
+      <circle cx="12" cy="12" r="10" fill="#247A78" />
     </svg>
   `
 
@@ -145,11 +145,11 @@ function buildClusterMarker(group, kind) {
   // seeker cluster is always teal.
   let fill
   if (!isStoa) {
-    fill = '#008080'
+    fill = '#247A78'
   } else {
     const hasMember = group.items.some((item) => item.status === 'Member Stoa')
     const hasOther = group.items.some((item) => item.status !== 'Member Stoa')
-    fill = hasMember && hasOther ? '#1565C0' : hasMember ? '#66023C' : '#E65100'
+    fill = hasMember && hasOther ? '#505D6B' : hasMember ? '#66023C' : '#C45A20'
   }
 
   const el = document.createElement('div')
