@@ -109,6 +109,7 @@ exports.handler = async function handler(event) {
       lng: page.properties['Longitude']?.number ?? null,
       location: richText(page, 'Location'),
       language: richText(page, 'Preferred Language'),
+      submittedAt: page.properties['Submitted At']?.date?.start || null,
     }))
 
     const [resolvedStoas, resolvedSeekers] = await Promise.all([

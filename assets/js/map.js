@@ -13,6 +13,17 @@ function escape(str) {
     .replace(/"/g, '&quot;')
 }
 
+// Month + year only (no numeric day) sidesteps the MM/DD vs DD/YY mix-up
+// entirely, and letting the browser's own locale pick the month name/order
+// means every visitor sees their own locale's month name automatically,
+// without us having to guess who's looking.
+function formatMonthYear(isoDate) {
+  if (!isoDate) return ''
+  const date = new Date(isoDate)
+  if (Number.isNaN(date.getTime())) return ''
+  return new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'long' }).format(date)
+}
+
 const DEFAULT_VIEW = { center: [-25, 20], zoom: 1.6 }
 
 // Framing is overridable so the embed (embed/map.html) can zoom out to suit a
@@ -113,6 +124,7 @@ function buildSeekerMarker(seeker) {
         <div class="popup-body">
           <span class="popup-type">Stoic Seeking a Stoa</span>
           <p class="popup-location">${escape(seeker.location)}</p>
+          ${formatMonthYear(seeker.submittedAt) ? `<p class="popup-meta">Looking since ${escape(formatMonthYear(seeker.submittedAt))}</p>` : ''}
           ${seeker.language ? `<span class="popup-tag">${escape(seeker.language)}</span>` : ''}
         </div>
       `)
