@@ -4078,6 +4078,10 @@ dd {
   z-index: 2 !important;
 }
 
+.mapboxgl-marker.cluster-marker {
+  z-index: 3 !important;
+}
+
 .mapboxgl-popup {
   width: 250px;
   max-width: 250px !important;
