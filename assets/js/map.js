@@ -278,6 +278,11 @@ function spiderfyOffsets(count) {
           const [dx, dy] = offsets[i]
           const point = map.unproject([origin.x + dx, origin.y + dy])
           const marker = buildMarkerForItem(item).setLngLat(point)
+          // Lifted above every other marker (even ones not part of this
+          // group) and given a drop shadow via the spiderfied-marker CSS
+          // class, so a fanned-out marker landing near an unrelated nearby
+          // marker is still unambiguously the one that's currently expanded.
+          marker.getElement().classList.add('spiderfied-marker')
           marker.addTo(map)
           markers.push(marker)
           legs.push({

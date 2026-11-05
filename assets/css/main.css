@@ -4082,6 +4082,17 @@ dd {
   z-index: 3 !important;
 }
 
+/* Applied only to a currently-spiderfied group's individual markers (see
+   map.js expandGroup). Lifted above every other marker on the map, including
+   ones that have nothing to do with this group, and given a drop shadow so a
+   fanned-out marker landing near an unrelated nearby marker still reads as
+   clearly separate from (and in front of) it. Stays below .mapboxgl-popup's
+   z-index so an open popup is never hidden behind a marker. */
+.mapboxgl-marker.spiderfied-marker {
+  z-index: 5 !important;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
+}
+
 .mapboxgl-popup {
   width: 250px;
   max-width: 250px !important;
