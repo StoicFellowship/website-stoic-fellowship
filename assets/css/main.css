@@ -5978,6 +5978,26 @@ input[type='submit'].is-disabled:hover {
   color: #666;
 }
 
+/* Definitions shown under a form field (e.g. stoa type on register.html) */
+.field-definitions {
+  margin: 0.75em 0 1.5em 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  color: #666;
+}
+
+.field-definitions li {
+  margin: 0 0 0.4em 0;
+  padding: 0;
+}
+
+.field-definitions strong {
+  color: #444;
+}
+
 .form-field-error {
   margin: 0.4em 0 0 0;
   font-size: 0.8em;
