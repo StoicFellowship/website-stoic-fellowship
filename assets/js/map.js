@@ -200,8 +200,12 @@ function buildClusterMarker(group) {
 
 // Fan-out positions for a spiderfied group, worked out in screen pixels (not
 // degrees) so the ring looks the same size at any zoom level.
+function spiderfyRadius(count) {
+  return count <= 4 ? 34 : count <= 8 ? 46 : 58
+}
+
 function spiderfyOffsets(count) {
-  const radius = count <= 4 ? 34 : count <= 8 ? 46 : 58
+  const radius = spiderfyRadius(count)
   const offsets = []
   for (let i = 0; i < count; i++) {
     const angle = (2 * Math.PI * i) / count - Math.PI / 2
@@ -236,33 +240,52 @@ function spiderfyOffsets(count) {
     map.addControl(new mapboxgl.NavigationControl(), 'top-right')
     map.touchZoomRotate.enable({ touchZoom: true, rotate: false })
 
-    // Grouping/spiderfying needs map.project()/unproject() and a layer to draw
-    // the spider legs, so markers are built once the style has finished
-    // loading rather than as soon as fetch() resolves.
+    // Grouping/spiderfying needs map.project()/unproject(), so markers are
+    // built once the map has finished loading rather than as soon as fetch()
+    // resolves.
     map.on('load', () => {
-      map.addSource('spider-legs', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } })
-      map.addLayer({
-        id: 'spider-legs',
-        type: 'line',
-        source: 'spider-legs',
-        paint: { 'line-color': '#999', 'line-width': 1, 'line-dasharray': [2, 2] },
-      })
+      let expanded = [] // currently spiderfied groups: { group, clusterMarker, markers, halo }
 
-      let expanded = [] // currently spiderfied groups: { clusterMarker, markers, legs }
+      const ANIM_MS = 240
 
-      function updateLegs() {
-        const features = expanded.flatMap((g) => g.legs)
-        map.getSource('spider-legs').setData({ type: 'FeatureCollection', features })
+      // Backdrop + leg lines for a fanned-out group. A DOM marker (not a map
+      // layer) so it can sit in the marker z-order: above the cluster badges
+      // and single markers around it (z-index 4) but below this group's own
+      // markers (5). Everything is in screen pixels around the group's point.
+      function buildHalo(group, offsets, radius) {
+        const size = radius * 2
+        const c = radius
+        const el = document.createElement('div')
+        el.className = 'spider-halo'
+        el.style.width = `${size}px`
+        el.style.height = `${size}px`
+        const lines = offsets
+          .map(([dx, dy]) => `<line x1="${c}" y1="${c}" x2="${c + dx}" y2="${c + dy}" />`)
+          .join('')
+        el.innerHTML = `
+          <div class="spider-halo-disc"></div>
+          <svg class="spider-halo-legs" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">${lines}</svg>
+        `
+        return new mapboxgl.Marker({ element: el }).setLngLat([group.lng, group.lat])
       }
 
       function collapseAll() {
         if (!expanded.length) return
-        expanded.forEach((g) => {
-          g.markers.forEach((m) => m.remove())
-          g.clusterMarker.addTo(map)
-        })
+        const closing = expanded
         expanded = []
-        updateLegs()
+        closing.forEach((g) => {
+          // Fold the markers back into the badge point while fading the halo.
+          g.markers.forEach((m) => {
+            m.getElement().classList.add('spider-animating', 'spider-closing')
+            m.setLngLat([g.group.lng, g.group.lat])
+          })
+          g.halo.getElement().classList.remove('spider-open')
+          g.clusterMarker.addTo(map)
+          setTimeout(() => {
+            g.markers.forEach((m) => m.remove())
+            g.halo.remove()
+          }, ANIM_MS)
+        })
       }
 
       function expandGroup(group, clusterMarker) {
@@ -271,44 +294,53 @@ function spiderfyOffsets(count) {
         clusterMarker.remove()
         const origin = map.project([group.lng, group.lat])
         const offsets = spiderfyOffsets(group.items.length)
+        const haloRadius = spiderfyRadius(group.items.length) + 28
+
+        const halo = buildHalo(group, offsets, haloRadius).addTo(map)
 
         const markers = []
-        const legs = []
+        const finalPoints = []
         group.items.forEach((item, i) => {
           const [dx, dy] = offsets[i]
-          const point = map.unproject([origin.x + dx, origin.y + dy])
-          const marker = buildMarkerForItem(item).setLngLat(point)
-          // Lifted above every other marker (even ones not part of this
-          // group) and given a drop shadow via the spiderfied-marker CSS
-          // class, so a fanned-out marker landing near an unrelated nearby
-          // marker is still unambiguously the one that's currently expanded.
-          marker.getElement().classList.add('spiderfied-marker')
+          finalPoints.push(map.unproject([origin.x + dx, origin.y + dy]))
+          // Start folded into the group's point and animate out to the ring.
+          const marker = buildMarkerForItem(item).setLngLat([group.lng, group.lat])
+          // Lifted above the halo (and every other marker) with a drop
+          // shadow, via the spiderfied-marker CSS class.
+          marker.getElement().classList.add('spiderfied-marker', 'spider-animating', 'spider-closing')
           marker.addTo(map)
           markers.push(marker)
-          legs.push({
-            type: 'Feature',
-            geometry: {
-              type: 'LineString',
-              coordinates: [
-                [group.lng, group.lat],
-                [point.lng, point.lat],
-              ],
-            },
-          })
         })
 
-        expanded.push({ clusterMarker, markers, legs })
-        updateLegs()
+        // Commit the starting state, then move to the final state so the CSS
+        // transitions run.
+        halo.getElement().offsetWidth
+        halo.getElement().classList.add('spider-open')
+        markers.forEach((m, i) => {
+          m.getElement().classList.remove('spider-closing')
+          m.setLngLat(finalPoints[i])
+        })
+        // The transition is only wanted for the fan-out itself; leaving it on
+        // would make markers lag behind the map while panning.
+        setTimeout(() => markers.forEach((m) => m.getElement().classList.remove('spider-animating')), ANIM_MS)
+
+        expanded.push({ group, clusterMarker, markers, halo })
       }
+
+      // The ring is laid out in screen pixels at the zoom it was opened at, so
+      // collapse when the zoom changes rather than let it drift out of shape.
+      map.on('zoomstart', collapseAll)
 
       // Mapbox's own Marker toggles its popup through this same map 'click'
       // event (bound internally when the marker is added to the map), so we
       // can't stop the click from reaching the map without also breaking
       // popups. Instead, only collapse when the click didn't land on any
       // marker — mirroring how Mapbox itself decides whether a click was
-      // "on" a marker.
+      // "on" a marker. A click on an open group's backdrop circle also keeps
+      // the group open; the map click still closes any open popup (Mapbox's
+      // closeOnClick), which is the intended "dismiss the callout" behavior.
       map.on('click', (e) => {
-        if (e.originalEvent.target.closest('.custom-marker')) return
+        if (e.originalEvent.target.closest('.custom-marker, .spider-halo')) return
         collapseAll()
       })
 
