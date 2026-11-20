@@ -39,4 +39,11 @@
 /recommended-topics  /topics  301!
 /recommended-topics.html  /topics  301!
 
+# Downloads moved out of /assets/ into /resources/ (2026-11 file reorg)
+/assets/audio/Stoicism%20101.mp3  /resources/stoicism-101.mp3  301
+/assets/pdfs/Stoicism-101.pdf  /resources/kit/handouts/stoicism-101.pdf  301
+/assets/pdfs/24%20Stoic%20Spiritual%20Exercises.pdf  /resources/24-stoic-spiritual-exercises.pdf  301
+/assets/templates/flyer-template-letter.pptx  /resources/kit/templates/flyer-template-letter.pptx  301
+/assets/templates/flyer-template-A4.pptx  /resources/kit/templates/flyer-template-A4.pptx  301
+
 /*  /404  404
