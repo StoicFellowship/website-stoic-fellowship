@@ -52,6 +52,48 @@ The map uses **Mapbox** — the token is served via `netlify/functions/get-mapbo
 
 Some volunteer applications were reported failing / not appearing in Notion (all roles post through the same `apply.html` → `submit-volunteer.js`, so this is value-dependent, not role-specific). Root cause is **not yet identified** — an early URL-validation theory was ruled out (see note above). Investigation deferred until the volunteer pages are unhidden. Fastest diagnostic: the `Notion error: …` line in the Netlify function logs for a failed `submit-volunteer` invocation gives Notion's exact validation message.
 
+## File & Folder Structure (reorganized 2026-11-20)
+
+**`/assets/` is website machinery only** — CSS, JS, fonts, JSON, Sass, `locations.geojson`, volunteer `roles/`. Nothing a visitor downloads goes here.
+
+**`/images/`** — images displayed on pages, by subject (board, authors, icons, logo, stoas, badges…).
+
+**`/resources/`** — everything a visitor reads or takes away:
+
+```
+resources/
+├── study.html  practice.html  facilitators.html  organizations.html   (Resources menu pages)
+├── stoicism-101.html  stoicism-101.mp3                              (newcomer summary + audio)
+├── 24-stoic-spiritual-exercises.pdf
+└── kit/                                  ← Stoa Facilitator Kit
+    ├── handouts/    stoicism-101.pdf, co-facilitator-role-card.pdf  (things a facilitator prints and gives someone)
+    ├── templates/   flyer-template-letter.pptx, flyer-template-A4.pptx
+    └── guides/
+        ├── <slug>/                       one folder per standalone guide
+        └── on-stoic-living/NN-<slug>/    the OSL series, NN = 01–12
+```
+
+**Guide file naming** — every file repeats the guide's folder name (downloads lose their folder), plus a fixed suffix:
+
+| Suffix | Document |
+|---|---|
+| `-guide.pdf` | facilitator meeting guide (the current one-page PDFs live here until replaced) |
+| `-xguide.pdf` | prep / expanded guide |
+| `-primer.pdf` | member read-ahead |
+| `-card.pdf` | table card (QR code → primer) |
+
+e.g. `guides/anger/anger-primer.pdf`, `guides/on-stoic-living/01-when-your-mind-jumps-to-conclusions/01-when-your-mind-jumps-to-conclusions-guide.pdf`.
+
+Rules:
+- Only true series get a subfolder and number prefixes (OSL). Standalone guides keep plain names; plan order (First Year, Topics) lives on the page, not in file names.
+- No month names in file names. No bundle PDFs for now.
+- Lowercase, hyphens, no spaces in new file names.
+- **Primer URLs are permanent** — table-card QR codes point at them. Never rename a published file without a 301 in `_redirects`.
+
+**`/archive/`** — retired pages and files; `noindex` via `_headers`, disallowed in `robots.txt`. Retired URLs 301 to the closest live page.
+
+**Not published:** `CLAUDE.md`, `README.md`, `future.md` are stripped by the Netlify build command (see `netlify.toml`).
+
 ## Key Files
 
 - `assets/js/headerFooter.js` / `headerFooterChild.js` — injects the shared nav and footer into every page
