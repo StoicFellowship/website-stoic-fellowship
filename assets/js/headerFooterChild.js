@@ -33,17 +33,17 @@ class HeaderTemplateChild extends HTMLElement {
               <a href='#'>Resources</a>
               <ul>
                 <li>
-                  <a href='/resources-facilitators'>
+                  <a href='/resources/facilitators'>
                     For Facilitators
                   </a>
                 </li>
                 <li>
-                  <a href='/resources-study'>
+                  <a href='/resources/study'>
                     For Study
                   </a>
                 </li>
                 <li>
-                  <a href='/resources-practice'>
+                  <a href='/resources/practice'>
                     For Practice
                   </a>
                 </li>
@@ -53,7 +53,7 @@ class HeaderTemplateChild extends HTMLElement {
                   </a>
                 </li>
                 <li>
-                  <a href='/resources-organization'>
+                  <a href='/resources/organizations'>
                     Stoic Organizations
                   </a>
                 </li>

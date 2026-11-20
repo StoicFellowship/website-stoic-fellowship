@@ -10,11 +10,21 @@
 /start-a-stoa  /start  301
 
 # Resources page renamed from /resources/stoicism-resources
-/resources/stoicism-resources  /resources  301
+/resources/stoicism-resources  /resources/study  301
 
 # Resources page split into four pages (Facilitators/Study/Practice/Organizations);
-# old /resources is superseded by /resources-study, its closest successor.
-/resources  /resources-study  301!
+# old /resources is superseded by /resources/study, its closest successor.
+/resources  /resources/study  301!
+
+# The four Resources pages moved into /resources/ (2026-11 file reorg)
+/resources-study  /resources/study  301
+/resources-study.html  /resources/study  301
+/resources-practice  /resources/practice  301
+/resources-practice.html  /resources/practice  301
+/resources-facilitators  /resources/facilitators  301
+/resources-facilitators.html  /resources/facilitators  301
+/resources-organization  /resources/organizations  301
+/resources-organization.html  /resources/organizations  301
 
 # Registration page renamed from /membership (registration first, membership optional)
 /membership  /register  301

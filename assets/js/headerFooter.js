@@ -25,19 +25,19 @@ class HeaderTemplate extends HTMLElement {
           <a href="#">Resources</a>
           <ul>
             <li>
-              <a href="/resources-facilitators">For Facilitators</a>
+              <a href="/resources/facilitators">For Facilitators</a>
             </li>
             <li>
-              <a href="/resources-study">For Study</a>
+              <a href="/resources/study">For Study</a>
             </li>
             <li>
-              <a href="/resources-practice">For Practice</a>
+              <a href="/resources/practice">For Practice</a>
             </li>
             <li>
               <a href="/resources/stoicism-101">Stoicism 101</a>
             </li>
             <li>
-              <a href="/resources-organization">Stoic Organizations</a>
+              <a href="/resources/organizations">Stoic Organizations</a>
             </li>
             <li>
               <a href="https://stoicfellowship.substack.com/podcast" target="_blank">Podcast</a>
