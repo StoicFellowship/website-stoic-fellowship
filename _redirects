@@ -49,6 +49,13 @@
 /recommended-topics  /topics  301!
 /recommended-topics.html  /topics  301!
 
+# Retired pages moved to /archive/ (2026-11 file reorg)
+/join  /find  301
+/join.html  /find  301
+/events  /  301
+/events.html  /  301
+/resources.html  /resources/study  301!
+
 # Downloads moved out of /assets/ into /resources/ (2026-11 file reorg)
 /assets/audio/Stoicism%20101.mp3  /resources/stoicism-101.mp3  301
 /assets/pdfs/Stoicism-101.pdf  /resources/kit/handouts/stoicism-101.pdf  301
