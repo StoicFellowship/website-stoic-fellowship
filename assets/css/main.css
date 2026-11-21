@@ -7005,7 +7005,7 @@ body .icons a {
   font-family: 'Archivo', sans-serif; font-size: 28px; font-weight: 800;
   line-height: 1.2; letter-spacing: normal; text-transform: none; color: #17202b;
 }
-.year-two .y2-intro { margin: 0 0 18px 0; font-size: 16px; line-height: 1.55; color: #3a4452; max-width: 44em; }
+.year-two .y2-intro { margin: 0 0 18px 0; font-size: 16px; line-height: 1.55; color: #3a4452; max-width: none; }
 .y2-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .y2-quarter {
   background: #fff; border-radius: 12px; border-top: 4px solid #66023c;
@@ -7174,3 +7174,6 @@ body .icons a {
 .session-card .sc-mat > summary:focus-visible { outline: 2px solid #66023c; outline-offset: 2px; }
 .session-card .sc-mat-panel { margin-top: 10px; padding: 12px 14px; background: #f6f7f9; border-radius: 10px; }
 .session-card .sc-mat-all { padding-top: 6px; border-top: 1px solid #d5dae0; margin-top: 4px; }
+
+/* The base reset strips italics from <em>; restore them site-wide (titles of works such as On Stoic Living) */
+em { font-style: italic; }
