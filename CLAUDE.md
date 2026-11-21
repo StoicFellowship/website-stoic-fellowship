@@ -77,7 +77,8 @@ resources/
 
 | Suffix | Document |
 |---|---|
-| `-guide.pdf` | facilitator meeting guide (the current one-page PDFs live here until replaced) |
+| `-guide.pdf` | facilitator meeting guide (the current one-page PDFs live here until replaced; OSL guides are a folded booklet: print double-sided, flip on the short edge) |
+| `-guide.docx` | editable Word version of the meeting guide (OSL guides) |
 | `-xguide.pdf` | prep / expanded guide |
 | `-primer.pdf` | member read-ahead |
 | `-card.pdf` | table card (QR code → primer) |
@@ -89,6 +90,7 @@ Rules:
 - No month names in file names. No bundle PDFs for now.
 - Lowercase, hyphens, no spaces in new file names.
 - **Primer URLs are permanent** — table-card QR codes point at them. Never rename a published file without a 301 in `_redirects`.
+- **Table-card QR codes use short links**, e.g. `/primer/osl-01`, defined in `_redirects` as 301s to the primer PDF (OSL: `/primer/osl-NN`). These are printed and permanent too: never change or remove one.
 
 **`/archive/`** — retired pages and files; `noindex` via `_headers`, disallowed in `robots.txt`. Retired URLs 301 to the closest live page.
 
