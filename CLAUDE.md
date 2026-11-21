@@ -79,18 +79,18 @@ resources/
 |---|---|
 | `-guide.pdf` | facilitator meeting guide (the current one-page PDFs live here until replaced; OSL guides are a folded booklet: print double-sided, flip on the short edge) |
 | `-guide.docx` | editable Word version of the meeting guide (OSL guides) |
-| `-xguide.pdf` | prep / expanded guide |
-| `-primer.pdf` | member read-ahead |
+| `-xguide.html` | prep / expanded guide, as a web page (OSL); `-xguide.pdf` is its print copy |
+| `-primer.html` | member read-ahead, as a web page with a Copy text button (OSL); `-primer.pdf` is its print copy |
 | `-card.pdf` | table card (QR code → primer) |
 
 e.g. `guides/anger/anger-primer.pdf`, `guides/on-stoic-living/01-when-your-mind-jumps-to-conclusions/01-when-your-mind-jumps-to-conclusions-guide.pdf`.
 
 Rules:
 - Only true series get a subfolder and number prefixes (OSL). Standalone guides keep plain names; plan order (First Year, Topics) lives on the page, not in file names.
-- No month names in file names. No bundle PDFs for now.
+- No month names in file names. No bundle PDFs for now; each OSL guide folder has one `-all.zip` of its print files (guide PDF + Word, xguide, primer, card) plus a README. Rebuild the zip whenever one of those files changes.
 - Lowercase, hyphens, no spaces in new file names.
-- **Primer URLs are permanent** — table-card QR codes point at them. Never rename a published file without a 301 in `_redirects`.
-- **Table-card QR codes use short links**, e.g. `/primer/osl-01`, defined in `_redirects` as 301s to the primer PDF (OSL: `/primer/osl-NN`). These are printed and permanent too: never change or remove one.
+- **Primer URLs are permanent** — table-card QR codes point at them (through the short links below). Never rename a published file without a 301 in `_redirects`.
+- **Table-card QR codes use short links**, e.g. `/primer/osl-01`, defined in `_redirects` as 301s to the primer page (OSL: `/primer/osl-NN` → `-primer.html`). These are printed and permanent too: never change or remove one.
 
 **`/archive/`** — retired pages and files; `noindex` via `_headers`, disallowed in `robots.txt`. Retired URLs 301 to the closest live page.
 

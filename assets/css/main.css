@@ -7114,3 +7114,63 @@ body .icons a {
 .session-card .sc-mat-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin: 0 0 6px 0; }
 .session-card .sc-mat-label { min-width: 64px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4a5563; }
 .session-card .sc-mat-note { margin: 8px 0 0 0; font-size: 12.5px; line-height: 1.45; color: #4a5563; }
+
+/* On Stoic Living web documents (Meeting Primer, expanded guide) */
+.osl-doc {
+  max-width: 46em; margin: 0 auto 2.5em auto; padding: 0 1.25em;
+  font-family: 'Public Sans', sans-serif; font-size: 17px; line-height: 1.65; color: #17202b;
+  text-align: left; letter-spacing: normal;
+}
+.osl-doc h2 {
+  margin: 1.6em 0 0.5em 0; padding: 0; border: 0;
+  font-family: 'Archivo', sans-serif; font-size: 24px; font-weight: 700; line-height: 1.25;
+  letter-spacing: normal; text-transform: none; color: #66023c;
+}
+.osl-doc h3 { margin: 1.2em 0 0.4em 0; font-size: 19px; font-weight: 700; letter-spacing: normal; text-transform: none; color: #17202b; }
+.osl-doc p { margin: 0 0 0.9em 0; }
+.osl-doc ul, .osl-doc ol { margin: 0 0 1em 0; padding-left: 1.4em; }
+.osl-doc ul { list-style: disc; }
+.osl-doc ol { list-style: decimal; }
+.osl-doc li { margin: 0 0 0.4em 0; padding-left: 0.2em; }
+.osl-doc li > ol, .osl-doc li > ul { margin-top: 0.4em; }
+.osl-doc blockquote { margin: 0.8em 0 1.1em 0; padding: 0.8em 1.1em; background: #eef2f6; border-left: 4px solid #66023c; font-style: normal; }
+.osl-doc blockquote p:last-child { margin: 0; }
+.osl-doc table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.4em 0; font-size: 15px; line-height: 1.45; }
+.osl-doc th { text-align: left; background: #eef2f6; color: #66023c; font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 10px; }
+.osl-doc td { vertical-align: top; padding: 8px 10px; border-bottom: 1px solid #d5dae0; }
+.osl-doc hr { border: 0; border-top: 1px solid #d5dae0; margin: 2em 0 1em 0; }
+.osl-box { background: #f6e8ef; border-radius: 12px; padding: 0.3em 1.3em 0.6em 1.3em; margin: 1.2em 0; }
+.osl-box h2 { margin-top: 0.7em; }
+.osl-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; margin: 0 0 1.5em 0; padding: 0 0 1.2em 0; border-bottom: 1px solid #d5dae0; }
+.osl-tools .button { margin: 0; }
+.osl-tools-note { flex-basis: 100%; margin: 0 !important; font-size: 14px; color: #4a5563; }
+.osl-copy-status { font-size: 14px; font-weight: 700; color: #66023c; }
+@media screen and (max-width: 736px) {
+  .osl-doc { font-size: 16px; }
+  .osl-doc table { display: block; overflow-x: auto; }
+}
+@media print {
+  header-template, footer-template, #banner, .roadmap-next, .osl-tools { display: none !important; }
+  .osl-doc { max-width: none; font-size: 11pt; }
+}
+.osl-tools .button { padding: 0 1.4em; font-size: 13px; letter-spacing: 0.08em; height: auto; line-height: 2.8em; white-space: nowrap; }
+.osl-tools #osl-copy { background: #66023c; color: #fff; border: 0; box-shadow: none; cursor: pointer; }
+.osl-tools #osl-copy:hover { background: #4a0129; }
+.osl-doc strong, .osl-doc b { font-weight: 700; color: inherit; }
+.osl-doc em, .osl-doc i:not(.fa) { font-style: italic; }
+
+/* Meeting materials: collapsed until clicked */
+.session-card .sc-foot.sc-materials { display: flex; align-items: flex-start; }
+.session-card .sc-mat { flex: 1 1 100%; }
+.session-card .sc-mat > summary {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer; list-style: none;
+  padding: 6px 14px; border: 1.5px solid #66023c; border-radius: 999px;
+  font-size: 13px; font-weight: 700; color: #66023c; background: #fff;
+}
+.session-card .sc-mat > summary::-webkit-details-marker { display: none; }
+.session-card .sc-mat > summary::after { content: '▾'; font-size: 11px; }
+.session-card .sc-mat[open] > summary { background: #66023c; color: #fff; }
+.session-card .sc-mat[open] > summary::after { content: '▴'; }
+.session-card .sc-mat > summary:focus-visible { outline: 2px solid #66023c; outline-offset: 2px; }
+.session-card .sc-mat-panel { margin-top: 10px; padding: 12px 14px; background: #f6f7f9; border-radius: 10px; }
+.session-card .sc-mat-all { padding-top: 6px; border-top: 1px solid #d5dae0; margin-top: 4px; }
