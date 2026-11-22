@@ -129,3 +129,11 @@ The volunteer section has been hidden (not deleted) as of 2026-05-16. All code i
 5. **`netlify.toml`** — remove the `command = "rm -f volunteer.html volunteer/apply.html volunteer/role.html"` line from the `[build]` section. This command strips the volunteer pages from the deploy artifact so they aren't reachable directly (the `_redirects` rules only cover the extensionless pretty paths). The files remain in git; they're only deleted from each build's output.
 
 The volunteer pages themselves (`volunteer.html`, `volunteer/apply.html`, `volunteer/role.html`) and all supporting files (`assets/js/load-volunteers.js`, `netlify/functions/submit-volunteer.js`, etc.) were not modified.
+
+## Links to ancient readings
+
+Mike verified the reading links in the *On Stoic Living* weekly lessons (`../Stoic Living 2027/Week *.md`). For any link to an ancient passage on the site, in a web card, or in a meeting guide:
+
+1. **If an On Stoic Living lesson already links that passage, copy its URL exactly** (fragments and text highlights included). Don't rebuild or shorten it.
+2. **Otherwise follow the lessons' link rules** (`Stoic Living 2027/Admin/Curriculum Design Notes.md`): The Stoic Library for Seneca's *Letters* and Musonius; otherwise StoicSource with a section link (e.g. `stoicsource.com/epictetus/enchiridion/5/`). Not classics.mit.edu or Wikisource for meeting readings. Tell Mike which links are new and unverified.
+3. Name the work and section, not the translator.
