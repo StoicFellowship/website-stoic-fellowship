@@ -7184,3 +7184,7 @@ em { font-style: italic; }
 .session-card .sc-blurb p { margin: 0 0 6px 0; padding: 8px 10px; background: #fff; border: 1px solid #d5dae0; border-radius: 6px; font-size: 13.5px; line-height: 1.5; color: #17202b; }
 .copy-btn { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border: 1.5px solid #66023c; border-radius: 999px; background: #fff; color: #66023c; font-size: 12.5px; font-weight: 700; cursor: pointer; line-height: 1.6; height: auto; box-shadow: none; letter-spacing: normal; text-transform: none; }
 .copy-btn:hover { background: #66023c; color: #fff; }
+
+/* Card icons that link to the same page as the card button */
+.icon-link { display: inline-block; border-bottom: 0 !important; text-decoration: none; }
+.icon-link:hover img { opacity: 0.85; }
