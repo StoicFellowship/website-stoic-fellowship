@@ -5,7 +5,9 @@
   # Volunteer pages are temporarily hidden — strip them from the deploy so the
   # .html files aren't reachable directly (redirects only cover the pretty
   # paths). Files stay in git; to restore, remove this command. See CLAUDE.md.
-  command = "rm -f volunteer.html volunteer/apply.html volunteer/role.html"
+  # Repo notes (CLAUDE.md, README.md, future.md) are stripped the same way so
+  # they aren't published as public pages; they stay in git.
+  command = "rm -f volunteer.html volunteer/apply.html volunteer/role.html CLAUDE.md README.md future.md"
 
 [functions]
   node_bundler = "esbuild"
