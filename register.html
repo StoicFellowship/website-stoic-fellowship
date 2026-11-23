@@ -108,15 +108,20 @@
       <input type="text" name="stoa" required />
       <br / class="rwd-break">
 
-      <h3>
-        Will Your Group Host In-Person Only, Virtual Only, or Hybrid Sessions?
-      </h3>
-      <select name="meeting_preference" required>
-        <option value="">Select preference</option>
-        <option>In-person</option>
-        <option>Virtual</option>
+      <h3>Is Your Stoa Mainly In Person, Online, or Hybrid?</h3>
+      <!-- These values must match the "Stoa Type" select options in Notion
+           exactly (In person / Online / Hybrid). -->
+      <select name="meeting_preference" required aria-describedby="stoa-type-definitions">
+        <option value="">Select type</option>
+        <option>In person</option>
+        <option>Online</option>
         <option>Hybrid</option>
       </select>
+      <ul class="field-definitions" id="stoa-type-definitions">
+        <li><strong>In person:</strong> Meetings are held in person. The group may use online tools between meetings, such as a chat group, or hold an occasional online session.</li>
+        <li><strong>Online:</strong> Meetings are held online, usually by video. The group may hold a rare in-person event, such as an annual get-together.</li>
+        <li><strong>Hybrid:</strong> Meetings are held both in person and online, either at the same time or by alternating. Members can take part fully either way.</li>
+      </ul>
 
       <h3>Location of the Community</h3>
       <div id="form-geocoder-container"></div>

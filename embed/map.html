@@ -41,6 +41,76 @@
       z-index: 2 !important;
     }
 
+    .mapboxgl-marker.cluster-marker {
+      z-index: 3 !important;
+    }
+
+    /* See main.css for the full comment on this rule. */
+    .mapboxgl-marker.spiderfied-marker {
+      z-index: 5 !important;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
+    }
+
+
+    /* Backdrop for a spiderfied group (see map.js buildHalo): a DOM marker so it
+       can be z-indexed between the surrounding markers (<= 3) and the group's own
+       markers (5). Transitions drive the open/close animation. */
+    .mapboxgl-marker.spider-halo {
+      z-index: 4 !important;
+      /* The square wrapper is click-through; only the circle itself catches
+         clicks, so it blocks markers underneath without blocking the corners. */
+      pointer-events: none;
+    }
+
+    .spider-halo .spider-halo-disc {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1.5px solid rgba(138, 143, 152, 0.9);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+      opacity: 0;
+      transform: scale(0.2);
+      transition: opacity 0.24s ease-out, transform 0.24s ease-out;
+      pointer-events: auto;
+    }
+
+    /* Stop blocking clicks as soon as the group starts closing. */
+    .spider-halo:not(.spider-open) .spider-halo-disc {
+      pointer-events: none;
+    }
+
+    .spider-halo .spider-halo-legs {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.24s ease-out;
+    }
+
+    .spider-halo .spider-halo-legs line {
+      stroke: #999;
+      stroke-width: 1;
+      stroke-dasharray: 2 2;
+    }
+
+    .spider-halo.spider-open .spider-halo-disc {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .spider-halo.spider-open .spider-halo-legs {
+      opacity: 1;
+    }
+
+    /* Fan-out / fold-back of the group's markers. Added only while animating. */
+    .mapboxgl-marker.spider-animating {
+      transition: transform 0.24s ease-out, opacity 0.24s ease-out;
+    }
+
+    .mapboxgl-marker.spider-closing {
+      opacity: 0;
+    }
+
     .mapboxgl-popup {
       width: 250px;
       max-width: 250px !important;
@@ -66,9 +136,9 @@
       box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28), 0 8px 18px rgba(0, 0, 0, 0.14) !important;
     }
 
-    .popup-member { --popup-accent: #880E4F; }
-    .popup-active { --popup-accent: #E65100; }
-    .popup-seeker { --popup-accent: #008080; }
+    .popup-member { --popup-accent: #66023C; }
+    .popup-active { --popup-accent: #C45A20; }
+    .popup-seeker { --popup-accent: #247A78; }
 
     .popup-body {
       padding: 16px 20px 18px;
@@ -96,6 +166,12 @@
       font-size: 14px;
       color: #666;
       margin: 0;
+    }
+
+    .popup-meta {
+      font-size: 12px;
+      color: #999;
+      margin: 4px 0 0;
     }
 
     .popup-tag {
@@ -193,6 +269,6 @@
   <!-- Versioned: this page is served no-cache but map.js is cached for 4h, so
        without a version bump the fresh HTML runs a stale script. Bump ?v= on
        any change to map.js that the embed depends on. See CLAUDE.md. -->
-  <script src="/assets/js/map.js?v=20260726"></script>
+  <script src="/assets/js/map.js?v=20261115c"></script>
 </body>
 </html>
